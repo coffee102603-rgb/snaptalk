@@ -7653,12 +7653,12 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
           <div class="lobby-card-action">▶ 입장</div>
         </button>
         
-        <!-- 🍿 간식 코너 -->
-        <button class="lobby-card card-snack" id="lobbySnack">
-          <div class="lobby-card-emoji">🍿</div>
-          <div class="lobby-card-title">간식 코너<br>&nbsp;</div>
-          <div class="lobby-card-desc">QUIZ로 놀기</div>
-          <div class="lobby-card-action">▶ 입장</div>
+        <!-- 🎬 메인홈으로 -->
+        <button class="lobby-card" onclick="showScreen('feed');renderFeed();" style="background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(251,191,36,0.05));border:2px solid rgba(251,191,36,0.5);">
+          <div class="lobby-card-emoji">🎬</div>
+          <div class="lobby-card-title">상영관<br>메인홈</div>
+          <div class="lobby-card-desc">영상 보러 가기</div>
+          <div class="lobby-card-action" style="color:#fbbf24;">▶ 이동</div>
         </button>
         
         <!-- 🧩 퍼즐 게임 (v9.4 구현!) -->
