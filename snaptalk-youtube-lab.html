@@ -7654,7 +7654,7 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
         </button>
         
         <!-- 🎬 메인홈으로 -->
-        <button class="lobby-card" onclick="showScreen('feed');renderFeed();" style="background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(251,191,36,0.05));border:2px solid rgba(251,191,36,0.5);">
+        <button class="lobby-card" onclick="goHome();" style="background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(251,191,36,0.05));border:2px solid rgba(251,191,36,0.5);">
           <div class="lobby-card-emoji">🎬</div>
           <div class="lobby-card-title">상영관<br>메인홈</div>
           <div class="lobby-card-desc">영상 보러 가기</div>
@@ -8289,7 +8289,7 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
   <!-- MY ROOM -->
   <!-- v10.14: 상영관 복귀 fixed 버튼 (roomScreen용) -->
   <div id="cinemaHomeBtn" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;width:calc(100% - 32px);max-width:398px;">
-    <button onclick="showScreen('feed');renderFeed();" style="width:100%;padding:13px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#000;font-size:14px;font-weight:900;border:none;border-radius:14px;cursor:pointer;box-shadow:0 4px 20px rgba(251,191,36,0.4);">🎬 상영관으로 (메인 홈)</button>
+    <button onclick="goHome();" style="width:100%;padding:13px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#000;font-size:14px;font-weight:900;border:none;border-radius:14px;cursor:pointer;box-shadow:0 4px 20px rgba(251,191,36,0.4);">🎬 상영관으로 (메인 홈)</button>
   </div>
   <div class="screen" id="roomScreen">
     <!-- 📦 숨겨진 섹션 · 데이터는 보존하되 UI만 삭제 (DOM은 유지) -->
