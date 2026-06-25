@@ -9105,6 +9105,8 @@ const CATEGORIES={
   } catch (e) {
     console.warn('[DataLoader] 전체 로드 실패, fallback 사용:', e.message);
   }
+  /* v10.16: 데이터 로드 완료 후 피드 재렌더링 */
+  if(typeof renderFeed === 'function') renderFeed();
 })();
 
 
