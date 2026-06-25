@@ -13779,6 +13779,46 @@ function showScreen(id){
   if(gate)gate.classList.remove('show');
   /* 6.5: HOF 세로바 제거됨 → "이번 주 인기" 섹션으로 통합 */
 }
+
+// ═══════════════════════════════════════════════════
+// v10.13: 하단 네비 클릭 핸들러 (CINEMA, GREEN ROOM)
+// ═══════════════════════════════════════════════════
+function initBottomNav(){
+  document.querySelectorAll('#bottomNav .nav-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const screen = btn.dataset.screen;
+      if(!screen) return;
+      
+      // 모든 nav-btn에서 active 제거
+      document.querySelectorAll('#bottomNav .nav-btn').forEach(b => b.classList.remove('active'));
+      // 클릭한 버튼에 active 추가
+      btn.classList.add('active');
+      
+      // 화면 전환 (SCREENPLAY, QUIZ 등 모든 모달 닫기)
+      const overlays = ['screenplayScreen', 'quizScreen', 'puzzleScreen', 'aiChatScreen'];
+      overlays.forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.style.display = 'none';
+      });
+      
+      // showScreen 호출
+      if(screen === 'feed' || screen === 'room' || screen === 'lobby'){
+        showScreen(screen);
+      }
+    });
+  });
+  console.log('[v10.13] Bottom nav initialized');
+}
+
+// DOM 로드 후 초기화
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initBottomNav);
+}else{
+  initBottomNav();
+}
+
 document.querySelectorAll('.ctab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));t.classList.add('active');S.tab=t.dataset.tab;S.feedLevel=1;S.selectedCategory=null;renderFeed()})});
 document.querySelectorAll('.nav-btn').forEach(b=>{
   b.addEventListener('click',(e)=>{
