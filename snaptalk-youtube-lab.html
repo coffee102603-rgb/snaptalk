@@ -8288,10 +8288,6 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
 
   <!-- MY ROOM -->
   <div class="screen" id="roomScreen">
-    <!-- v10.14: 상영관으로 버튼 -->
-    <div style="padding:12px 16px 0;">
-      <button onclick="showScreen('feed');renderFeed();document.querySelectorAll('#bottomNav .nav-btn').forEach(b=>b.classList.remove('active'));document.querySelector('#bottomNav .nav-btn[data-screen=feed]')&&document.querySelector('#bottomNav .nav-btn[data-screen=feed]').classList.add('active');" style="width:100%;padding:14px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#000;font-size:15px;font-weight:900;border:none;border-radius:14px;cursor:pointer;letter-spacing:0.3px;">🎬 상영관으로 (메인 홈)</button>
-    </div>
     <!-- 📦 숨겨진 섹션 · 데이터는 보존하되 UI만 삭제 (DOM은 유지) -->
     <div id="roomStreak" style="display:none">0</div>
     <div id="totalDubs" style="display:none">0</div>
@@ -8300,6 +8296,10 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
     <div id="notebookSummary" style="display:none"></div>
     <div id="notebookList" style="display:none"></div>
     
+    <!-- v10.14: 상영관 복귀 버튼 (sticky 고정!) -->
+    <div style="position:sticky;top:0;z-index:50;padding:10px 16px;background:rgba(10,10,20,0.95);backdrop-filter:blur(8px);">
+      <button onclick="showScreen('feed');renderFeed();" style="width:100%;padding:12px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#000;font-size:14px;font-weight:900;border:none;border-radius:12px;cursor:pointer;">🎬 상영관으로 (메인 홈)</button>
+    </div>
     <!-- v9.9.7: GREEN ROOM 헤더 제거 (쌤 요청!) -->
     <!-- SCREENPLAY가 맨 위에! -->
     <div class="greenroom-header" style="display:none">
