@@ -8287,6 +8287,10 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
   </div>
 
   <!-- MY ROOM -->
+  <!-- v10.14: 상영관 복귀 fixed 버튼 (roomScreen용) -->
+  <div id="cinemaHomeBtn" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;width:calc(100% - 32px);max-width:398px;">
+    <button onclick="showScreen('feed');renderFeed();" style="width:100%;padding:13px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#000;font-size:14px;font-weight:900;border:none;border-radius:14px;cursor:pointer;box-shadow:0 4px 20px rgba(251,191,36,0.4);">🎬 상영관으로 (메인 홈)</button>
+  </div>
   <div class="screen" id="roomScreen">
     <!-- 📦 숨겨진 섹션 · 데이터는 보존하되 UI만 삭제 (DOM은 유지) -->
     <div id="roomStreak" style="display:none">0</div>
@@ -8296,10 +8300,6 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
     <div id="notebookSummary" style="display:none"></div>
     <div id="notebookList" style="display:none"></div>
     
-    <!-- v10.14: 상영관 복귀 버튼 (sticky 고정!) -->
-    <div style="position:sticky;top:0;z-index:50;padding:10px 16px;background:rgba(10,10,20,0.95);backdrop-filter:blur(8px);">
-      <button onclick="showScreen('feed');renderFeed();" style="width:100%;padding:12px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#000;font-size:14px;font-weight:900;border:none;border-radius:12px;cursor:pointer;">🎬 상영관으로 (메인 홈)</button>
-    </div>
     <!-- v9.9.7: GREEN ROOM 헤더 제거 (쌤 요청!) -->
     <!-- SCREENPLAY가 맨 위에! -->
     <div class="greenroom-header" style="display:none">
