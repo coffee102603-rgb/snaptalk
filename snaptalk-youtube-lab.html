@@ -8393,7 +8393,7 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
     </button>
   </div>
   <!-- Version marker — remove before production -->
-  <div style="position:absolute;bottom:2px;right:4px;font-size:9px;color:rgba(251,191,36,.8);font-weight:700;z-index:200;pointer-events:none">v10.12 🎨</div>
+  <div style="position:absolute;bottom:2px;right:4px;font-size:9px;color:rgba(251,191,36,.8);font-weight:700;z-index:200;pointer-events:none">v10.14 🎬</div>
 </div>
 
 <!-- 🤳 v6.7: 나&친구 선택 모달 -->
@@ -10951,6 +10951,9 @@ document.addEventListener('click', e=>{
   if(e.target && (e.target.id==='lobbyKaraoke' || e.target.closest('#lobbyKaraoke'))){
     const hub=document.getElementById('lobbyHub');
     if(hub)hub.style.display='none';
+  /* v10.14: room(LOBBY)에서도 bottomNav 표시 */
+  const bnav=document.getElementById('bottomNav');
+  if(bnav && id!=='player') bnav.style.display='flex';
     /* 기존 더빙실 부스 선택으로! */
     goStep(2);
   }
@@ -12171,6 +12174,9 @@ document.addEventListener('click', e=>{
   if(e.target && (e.target.id==='lobbySnack' || e.target.closest('#lobbySnack'))){
     const hub=document.getElementById('lobbyHub');
     if(hub)hub.style.display='none';
+  /* v10.14: room(LOBBY)에서도 bottomNav 표시 */
+  const bnav=document.getElementById('bottomNav');
+  if(bnav && id!=='player') bnav.style.display='flex';
     
     /* dubArea 보이기 + dubDiffPicker 숨김 → QUIZ 바로 */
     const dubArea=document.getElementById('dubArea');
@@ -12203,6 +12209,9 @@ document.addEventListener('click', e=>{
   if(e.target && (e.target.id==='lobbyHome' || e.target.closest('#lobbyHome'))){
     const hub=document.getElementById('lobbyHub');
     if(hub)hub.style.display='none';
+  /* v10.14: room(LOBBY)에서도 bottomNav 표시 */
+  const bnav=document.getElementById('bottomNav');
+  if(bnav && id!=='player') bnav.style.display='flex';
     /* v9.3: 홈 피드로! (cleanup + renderFeed 필수) */
     cleanupPlayer();
     stopSnapReview();
@@ -13774,6 +13783,9 @@ function showScreen(id){
   /* v9.1: 피드/방으로 이동 시 로비 허브도 정리 */
   const hub=document.getElementById('lobbyHub');
   if(hub)hub.style.display='none';
+  /* v10.14: room(LOBBY)에서도 bottomNav 표시 */
+  const bnav=document.getElementById('bottomNav');
+  if(bnav && id!=='player') bnav.style.display='flex';
   /* v9.9.2 Fix: 모든 오버레이 강제 닫기 (GREEN ROOM 클릭 버그!) */
   const gate=document.getElementById('audioGate');
   if(gate)gate.classList.remove('show');
@@ -13837,6 +13849,9 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
     if(gate)gate.classList.remove('show');
     const hub=document.getElementById('lobbyHub');
     if(hub)hub.style.display='none';
+  /* v10.14: room(LOBBY)에서도 bottomNav 표시 */
+  const bnav=document.getElementById('bottomNav');
+  if(bnav && id!=='player') bnav.style.display='flex';
     /* 화면 전환 */
     if(screen==='feed'){
       stopSnapReview();
@@ -14020,6 +14035,9 @@ function goStep(step){
   /* v9.1: 로비 허브도 숨김 */
   const hub=document.getElementById('lobbyHub');
   if(hub)hub.style.display='none';
+  /* v10.14: room(LOBBY)에서도 bottomNav 표시 */
+  const bnav=document.getElementById('bottomNav');
+  if(bnav && id!=='player') bnav.style.display='flex';
   const yt=document.getElementById('ytContainer'),bn=document.getElementById('stepBanner'),tower=document.getElementById('rightPanel');
   
   /* v6.16: 결과 화면에선 속도/가리개 UI 숨김 (공간 절약) */
