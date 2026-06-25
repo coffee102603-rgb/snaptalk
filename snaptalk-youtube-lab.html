@@ -8203,6 +8203,11 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
           <span class="kra-label">내 방에 저장</span>
           <span class="kra-sub">GREEN ROOM</span>
         </button>
+        <button class="share-btn-mini karaoke-action" id="shareAiChat" style="background:linear-gradient(135deg,rgba(167,139,250,0.25),rgba(236,72,153,0.15));border:2px solid rgba(167,139,250,0.5);">
+          <span class="kra-icon">🤖</span>
+          <span class="kra-label">AI 대화하기</span>
+          <span class="kra-sub">배운 표현 써먹기!</span>
+        </button>
         <button class="share-btn-mini karaoke-action karaoke-action-home" id="shareHome">
           <span class="kra-icon">🎦</span>
           <span class="kra-label">매표소로</span>
@@ -16404,6 +16409,8 @@ document.getElementById('galleryViewer').addEventListener('click',(e)=>{
   if(e.target.id==='galleryViewer')closeGalleryViewer();
 });
 document.getElementById('shareHome').addEventListener('click',()=>{cleanupPlayer();showScreen('feed')});
+/* v10.14: 결과화면 AI 대화 버튼 */
+var _sac=document.getElementById('shareAiChat');if(_sac)_sac.addEventListener('click',()=>{document.getElementById('shareArea').style.display='none';showScreen('room');openAiChat();});
 
 /* v6.5: HOF 모달 이벤트 리스너 제거됨 */
 
