@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-04-21",
+  "lastUpdated": "2026-06-25",
   "description": "SnapTalk 영상 콘텐츠 데이터베이스. 각 지역(us/kr)별 영상 목록. 다국어 지원을 위한 translations 필드 포함.",
   "schema": {
     "fields": {
@@ -611,221 +611,155 @@
         "sentences": [
           {
             "en": "Nick.",
-            "ko": "닉.",
-            "start": 4.94,
-            "end": 5.77,
-            "core": "",
-            "highlight": "",
-            "koHighlight": "",
+            "start": 4.9,
+            "end": 5.8,
+            "core": "Nick",
+            "highlight": "Nick",
             "phonetic": "닉.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "닉.",
+                "highlight": "닉"
               }
             }
           },
           {
-            "en": "Jimmy, what is up?",
-            "ko": "지미, 무슨 일이야?",
-            "start": 5.852,
-            "end": 6.682,
-            "core": "up",
-            "highlight": "what is up",
-            "koHighlight": "무슨 일이야",
-            "phonetic": "지미, 왓 이즈 업?",
+            "en": "Jimmy, what's up?",
+            "start": 5.9,
+            "end": 6.7,
+            "core": "Jimmy",
+            "highlight": "what's up",
+            "phonetic": "지미, | 왓츠 업?",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "지미, | 무슨 일이야?",
+                "highlight": "무슨 일이야"
               }
             }
           },
           {
             "en": "It happened again.",
-            "ko": "또 일어났어.",
-            "start": 6.764,
-            "end": 7.594,
+            "start": 6.8,
+            "end": 7.6,
             "core": "happened",
             "highlight": "happened again",
-            "koHighlight": "또 일어났어",
-            "phonetic": "잇 해픈드 어겐.",
+            "phonetic": "잇 해픈드 어게인.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "또 일어났어.",
+                "highlight": "또 일어났어"
               }
             }
           },
           {
             "en": "Wait right there.",
-            "ko": "거기서 기다려.",
-            "start": 7.676,
-            "end": 8.506,
+            "start": 7.7,
+            "end": 8.5,
             "core": "wait",
-            "highlight": "wait right there",
-            "koHighlight": "거기서 기다려",
+            "highlight": "wait there",
             "phonetic": "웨잇 라잇 데어.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "거기서 기다려.",
+                "highlight": "기다려"
               }
             }
           },
           {
             "en": "Okay.",
-            "ko": "알겠어.",
-            "start": 8.68,
-            "end": 9.66,
-            "core": "",
-            "highlight": "",
-            "koHighlight": "",
+            "start": 8.7,
+            "end": 9.7,
+            "core": "okay",
+            "highlight": "okay",
             "phonetic": "오케이.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "오케이.",
+                "highlight": "오케이"
               }
             }
           },
           {
-            "en": "That is me.",
-            "ko": "그게 나야.",
-            "start": 13.36,
-            "end": 14.19,
+            "en": "That's me.",
+            "start": 13.4,
+            "end": 14.2,
             "core": "me",
-            "highlight": "that is me",
-            "koHighlight": "그게 나야",
-            "phonetic": "댓 이즈 미.",
+            "highlight": "that's me",
+            "phonetic": "댓츠 미.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "나야.",
+                "highlight": "나야"
               }
             }
           },
           {
             "en": "Where is he?",
-            "ko": "그 사람 어디 있어?",
-            "start": 21.41,
-            "end": 23.143,
+            "start": 21.4,
+            "end": 23.1,
             "core": "where",
-            "highlight": "where is",
-            "koHighlight": "어디 있어",
+            "highlight": "where is he",
             "phonetic": "웨어 이즈 히?",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "그는 어디에 있어?",
+                "highlight": "어디에 있어"
               }
             }
           },
           {
-            "en": "Yes. Thank you, man.",
-            "ko": "그래. 고마워, 친구.",
-            "start": 33.231,
-            "end": 35.243,
+            "en": "Yes. | Thank you, man.",
+            "start": 33.2,
+            "end": 35.2,
             "core": "thank",
             "highlight": "thank you",
-            "koHighlight": "고마워",
-            "phonetic": "예스. 땡큐, 맨.",
+            "phonetic": "예스. | 땡큐, 맨.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "네. | 고마워, 친구.",
+                "highlight": "고마워"
               }
             }
           },
           {
-            "en": "Jimmy, I am serious, this is the last time. I am not doing this again.",
-            "ko": "지미, 진심이야, 이게 마지막이야. 다시는 안 해.",
-            "start": 35.243,
-            "end": 37.364,
-            "core": "last",
-            "highlight": "the last time",
-            "koHighlight": "마지막",
-            "phonetic": "지미, 아이 엠 시리어스, 디스 이즈 더 라스트 타임. 아이 엠 낫 두잉 디스 어겐.",
+            "en": "Jimmy, I'm serious, | this is the last time. | I'm not doing this again.",
+            "start": 35.2,
+            "end": 37.4,
+            "core": "serious",
+            "highlight": "I'm serious",
+            "phonetic": "지미, 아임 시리어스, | 디스 이즈 더 라스트 타임. | 아임 낫 두잉 디스 어게인.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "지미, 나 진지해, | 이번이 마지막이야. | 다시는 안 할 거야.",
+                "highlight": "진지해"
               }
             }
           },
           {
-            "en": "Okay. Hopefully I do not run out.",
-            "ko": "알겠어. 다 떨어지지 않길 바라.",
-            "start": 37.364,
-            "end": 38.76,
-            "core": "run",
+            "en": "Okay. | Hopefully | I don't run out.",
+            "start": 37.4,
+            "end": 38.8,
+            "core": "run out",
             "highlight": "run out",
-            "koHighlight": "다 떨어지다",
-            "phonetic": "오케이. 호프풀리 아이 두 낫 런 아웃.",
+            "phonetic": "오케이. | 호프풀리 | 아이 돈트 런 아웃.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "오케이. | 다행히 | 다 떨어지지 않길 바라.",
+                "highlight": "다 떨어지다"
               }
             }
           },
           {
-            "en": "Do not be lazy like Mr Beast. Just go to your local Walmart instead.",
-            "ko": "미스터 비스트처럼 게으르게 굴지 마. 그냥 동네 월마트에 가.",
-            "start": 38.842,
-            "end": 41.941,
+            "en": "Don't be lazy | like Mr. Beast. | Just go to your local Walmart instead.",
+            "start": 38.8,
+            "end": 41.9,
             "core": "lazy",
             "highlight": "be lazy",
-            "koHighlight": "게으르게 굴다",
-            "phonetic": "두 낫 비 레이지 라이크 미스터 비스트. 저스트 고 투 유어 로컬 월마트 인스테드.",
+            "phonetic": "돈트 비 레이지 | 라이크 미스터 비스트. | 저스트 고우 투 유어 로컬 월마트 인스테드.",
             "translations": {
-              "ja": {
-                "text": "",
-                "highlight": ""
-              },
-              "zh": {
-                "text": "",
-                "highlight": ""
+              "ko": {
+                "text": "게으르지 마 | 미스터 비스트처럼. | 그냥 동네 월마트에 가.",
+                "highlight": "게으르지 마"
               }
             }
           }
