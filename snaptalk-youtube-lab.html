@@ -11886,6 +11886,8 @@ function speakAi(text){
     u.rate = 0.95;
     u.pitch = 1.05;
     speechSynthesis.speak(u);
+    /* v10.14: Galaxy 15초 컷오프 방지 */
+    var _aifix=setInterval(function(){if(!window.speechSynthesis.speaking){clearInterval(_aifix);return;}window.speechSynthesis.pause();window.speechSynthesis.resume();},1e4);
   } catch(e){ console.warn('[speakAi]', e); }
 }
 
