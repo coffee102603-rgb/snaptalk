@@ -7983,7 +7983,7 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
           <div class="ai-chat-hints-list" id="aiChatHintsList"></div>
         </div>
         <!-- 녹음 버튼 + 상태 -->
-        <div class="ai-chat-mic-row">
+        <div id="ftTransBar" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;margin-bottom:8px;background:rgba(124,58,237,0.1);border-radius:10px;"><span style="font-size:12px;font-weight:700;color:#94a3b8;">🌐 통역</span><div style="display:flex;background:#16131f;border-radius:9px;padding:3px;gap:3px;"><button id="ftTransOn" style="padding:5px 12px;border-radius:7px;font-size:12px;font-weight:700;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;border:none;cursor:pointer;">영어+한글</button><button id="ftTransOff" style="padding:5px 12px;border-radius:7px;font-size:12px;font-weight:700;background:none;color:#94a3b8;border:none;cursor:pointer;">영어만</button></div></div><div style="display:flex;gap:8px;margin-bottom:8px;"><input type="text" id="ftTypeInput" placeholder="영어로 입력하거나 마이크로 말하세요..." style="flex:1;background:#16131f;border:1px solid rgba(255,255,255,0.1);border-radius:13px;padding:12px 14px;color:#f8fafc;font-size:15px;outline:none;"><button id="ftTypeSend" style="width:46px;height:46px;border-radius:13px;flex-shrink:0;background:linear-gradient(135deg,#7c3aed,#ec4899);border:none;color:#fff;font-size:19px;cursor:pointer;">&#10148;</button></div><div class="ai-chat-mic-row">
           <button class="ai-chat-mic" id="aiChatMic">
             <span class="acm-icon">🎤</span>
             <span class="acm-label" id="acmLabel">탭해서 말하기</span>
