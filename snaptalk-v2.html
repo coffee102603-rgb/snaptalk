@@ -10371,6 +10371,46 @@ function renderNotebook(){
  *  ──────────────────────────────────────────────────────────────────────────
  *  메인 피드 · 카테고리 상세 · NOW SHOWING 큐레이션
  * ══════════════════════════════════════════════════════════════════════════ */
+/* ═══ v2 틱톡식 세로 피드 (?tiktok=1 일 때만 작동) ═══ */
+function renderTikTokFeed(){
+  /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
+  if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
+  const feed = document.getElementById('feedScreen');
+  const vids = (SHORTS[S.tab]||[]).filter(s => s.status !== 'review');
+  if(!vids.length) return false;
+  feed.innerHTML = '';
+  feed.style.cssText = 'height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;padding:0;scrollbar-width:none;';
+  vids.forEach((v, i) => {
+    const exprs = (v.sentences||[]).slice(0,2).map(s =>
+      `<span style="background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.2);padding:6px 11px;border-radius:13px;font-size:13px;font-weight:700;display:inline-block;margin:3px 3px 0 0;">${s.highlight||s.core||''}<span style="color:#94a3b8;font-size:11px;margin-left:4px;">${(s.translations&&s.translations.ko&&s.translations.ko.highlight)||''}</span></span>`
+    ).join('');
+    const slide = document.createElement('div');
+    slide.style.cssText = 'height:100dvh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;';
+    slide.innerHTML = `
+      <div style="position:absolute;inset:0;background-image:url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg'),url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg');background-size:cover;background-position:center;filter:brightness(0.8);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid rgba(255,255,255,0.5);pointer-events:none;z-index:5;">▶</div>
+      <div style="position:absolute;left:0;right:0;bottom:0;z-index:10;padding:20px 20px 90px;">
+        <span style="display:inline-block;background:rgba(251,191,36,0.18);border:1px solid rgba(251,191,36,0.45);color:#fcd34d;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:800;margin-bottom:10px;">${v.catIcon||'🎬'} ${v.cat||''}</span>
+        <div style="font-size:20px;font-weight:800;line-height:1.25;margin-bottom:6px;color:#fff;">${v.title||''}</div>
+        <div style="margin-bottom:14px;">${exprs}</div>
+        <button class="tiktok-start" data-vid="${v.id}" style="background:linear-gradient(135deg,#fbbf24,#fcd34d);color:#1a1206;font-weight:800;font-size:16px;padding:13px 26px;border-radius:16px;border:none;box-shadow:0 6px 20px rgba(251,191,36,0.4);cursor:pointer;">🎬 따라하기 시작</button>
+      </div>
+    `;
+    feed.appendChild(slide);
+  });
+  /* 따라하기 시작 → 기존 startGame 연결 */
+  feed.querySelectorAll('.tiktok-start').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const vid = btn.dataset.vid;
+      const short = vids.find(s => s.id === vid);
+      if(short && typeof startGame === 'function') startGame(short);
+    });
+  });
+  console.log('[TikTok] 🎬 틱톡 피드 렌더 완료 ('+vids.length+'개)');
+  return true;
+}
+
 function renderFeed(){
   const feed=document.getElementById('feedScreen');
   const IS_ADMIN = new URLSearchParams(window.location.search).get('admin')==='1';
