@@ -7919,8 +7919,8 @@ body.freetalk-mode #stepIndicator{
           </div>
         </div>
         <div class="aci-expressions" id="aciExpressions">
-          <div class="aci-expressions-label">💡 영상 속 핵심 표현</div>
-          <div class="aci-expressions-chips" id="aciExpressionsChips"></div>
+          <div class="aci-expressions-label">💡 영상 속 핵심 표현</div><div class="aci-expr-guide">표현을 저장하고 암기하세요! 탭하면 단어장에 📒</div>
+          <div class="aci-expr-vlist" id="aciExpressionsChips"></div>
         </div>
         <button class="aci-start-btn" id="aciStartBtn">
           <span class="aci-start-icon">🎤</span>
@@ -11939,7 +11939,22 @@ function openAiChat(){
   const chipsEl = document.getElementById('aciExpressionsChips');
   if(chipsEl){
     chipsEl.innerHTML = expressions.length > 0
-      ? expressions.map(e => `<span class="aci-exp-chip aci-exp-save" data-expr="${e.replace(/"/g,'&quot;')}" style="cursor:pointer;" title="눌러서 단어장 저장">${e} 📒</span>`).join('')
+      ? (function(){
+          var sents = (S.short && S.short.sentences) || [];
+          var items = sents.filter(function(s){ return s.highlight; }).slice(0,5);
+          if(items.length === 0){
+            return expressions.map(function(e){
+              return '<div class="aci-expr-vitem aci-exp-save" data-expr="'+e.replace(/"/g,'&quot;')+'"><div class="aci-expr-texts"><div class="aci-expr-en">'+e+'</div></div><div class="aci-expr-savebtn">📒</div></div>';
+            }).join('');
+          }
+          return items.map(function(s){
+            var en = s.en || s.highlight;
+            var hl = s.highlight || '';
+            var enHtml = hl ? en.replace(hl, '<span class="hl">'+hl+'</span>') : en;
+            var ko = s.ko || (s.translations && s.translations.ko && s.translations.ko.full) || '';
+            return '<div class="aci-expr-vitem aci-exp-save" data-expr="'+hl.replace(/"/g,'&quot;')+'"><div class="aci-expr-texts"><div class="aci-expr-en">'+enHtml+'</div><div class="aci-expr-ko">'+ko+'</div></div><div class="aci-expr-savebtn">📒</div></div>';
+          }).join('');
+        })()
       : '<span class="aci-exp-chip">자유 대화</span>';
   }
   
