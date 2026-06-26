@@ -10455,6 +10455,15 @@ function renderTikTokFeed(){
         /* 학습 건너뛰고 바로 그 영상 맥락의 AI 대화로! */
         if(typeof showScreen === 'function') showScreen('player');
         if(typeof openAiChat === 'function') openAiChat();
+        /* 프리토킹: 영상 영역 숨기고 대화에 집중 (방향 B) */
+        setTimeout(function(){
+          var pt = document.querySelector('#playerScreen .player-top');
+          if(pt) pt.style.display = 'none';
+          ['ytContainer','stepBanner','rightPanel'].forEach(function(id){
+            var el = document.getElementById(id);
+            if(el) el.style.display = 'none';
+          });
+        }, 50);
       }
     });
   });
