@@ -10491,11 +10491,11 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
           <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">공유</span>
         </button>
       </div>
-      <div style="position:absolute;left:0;right:0;bottom:180px;z-index:10;padding:0 20px;">
+      <div style="position:absolute;left:0;right:0;bottom:180px;z-index:10;padding:0 20px;pointer-events:none;">
         <span style="display:inline-block;background:rgba(251,191,36,0.18);border:1px solid rgba(251,191,36,0.45);color:#fcd34d;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:800;margin-bottom:10px;">${v.catIcon||'🎬'} ${v.cat||''}</span>
         <div style="font-size:20px;font-weight:800;line-height:1.25;margin-bottom:6px;color:#fff;">${v.title||''}</div>
         <div style="margin-bottom:14px;">${exprs}</div>
-        <button class="tiktok-start" data-vid="${v.id}" style="background:linear-gradient(135deg,#fbbf24,#fcd34d);color:#1a1206;font-weight:800;font-size:16px;padding:13px 26px;border-radius:16px;border:none;box-shadow:0 6px 20px rgba(251,191,36,0.4);cursor:pointer;">🎬 따라하기 시작</button>
+        <button class="tiktok-start" data-vid="${v.id}" style="background:linear-gradient(135deg,#fbbf24,#fcd34d);color:#1a1206;font-weight:800;font-size:16px;padding:13px 26px;border-radius:16px;border:none;box-shadow:0 6px 20px rgba(251,191,36,0.4);cursor:pointer;pointer-events:auto;">🎬 따라하기 시작</button>
       </div>
     `;
     feed.appendChild(slide);
