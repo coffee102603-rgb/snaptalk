@@ -12270,6 +12270,41 @@ function showAiStatus(text){
   });
 })();
 
+/* v2: 키보드 올라올 때 대화 화면을 키보드 위 공간에 맞춤 (visualViewport) */
+(function(){
+  if(!window.visualViewport) return;
+  var vv = window.visualViewport;
+  function adjustForKeyboard(){
+    var chatArea = document.getElementById('aiChatArea');
+    if(!chatArea || chatArea.style.display==='none') return;
+    var inp = document.getElementById('ftTypeInput');
+    var focused = (document.activeElement === inp);
+    if(focused){
+      /* 키보드 올라옴: 대화영역을 보이는 뷰포트 높이에 맞춤 */
+      chatArea.style.height = vv.height + 'px';
+      chatArea.style.maxHeight = vv.height + 'px';
+      var msgs = document.getElementById('aiChatMessages');
+      if(msgs) setTimeout(function(){ msgs.scrollTop = msgs.scrollHeight; }, 50);
+    } else {
+      chatArea.style.height = '';
+      chatArea.style.maxHeight = '';
+    }
+  }
+  vv.addEventListener('resize', adjustForKeyboard);
+  vv.addEventListener('scroll', adjustForKeyboard);
+  document.addEventListener('focusin', function(e){
+    if(e.target && e.target.id==='ftTypeInput'){ setTimeout(adjustForKeyboard, 100); }
+  });
+  document.addEventListener('focusout', function(e){
+    if(e.target && e.target.id==='ftTypeInput'){
+      setTimeout(function(){
+        var chatArea=document.getElementById('aiChatArea');
+        if(chatArea){ chatArea.style.height=''; chatArea.style.maxHeight=''; }
+      }, 150);
+    }
+  });
+})();
+
 async function handleUserMessage(userText){
   if(!userText || !userText.trim()) return;
   
