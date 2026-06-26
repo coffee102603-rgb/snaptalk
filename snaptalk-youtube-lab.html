@@ -11881,13 +11881,26 @@ function speakAi(text){
   try {
     if(!('speechSynthesis' in window)) return;
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'en-US';
-    u.rate = 0.95;
-    u.pitch = 1.05;
-    speechSynthesis.speak(u);
-    /* v10.14: Galaxy 15초 컷오프 방지 */
-    var _aifix=setInterval(function(){if(!window.speechSynthesis.speaking){clearInterval(_aifix);return;}window.speechSynthesis.pause();window.speechSynthesis.resume();},1e4);
+    /* v10.14: 긴 문장 끊김 방지 — 문장 단위로 쪼개서 순서대로 재생 */
+    var chunks = text.match(/[^.!?]+[.!?]*/g) || [text];
+    chunks = chunks.map(function(c){return c.trim();}).filter(function(c){return c.length>0;});
+    var idx = 0;
+    function speakNext(){
+      if(idx >= chunks.length) return;
+      var u = new SpeechSynthesisUtterance(chunks[idx]);
+      u.lang = 'en-US';
+      u.rate = 0.95;
+      u.pitch = 1.05;
+      u.onend = function(){ idx++; speakNext(); };
+      u.onerror = function(){ idx++; speakNext(); };
+      window.speechSynthesis.speak(u);
+      /* 각 조각도 15초 넘으면 깨우기 */
+      var _f=setInterval(function(){
+        if(!window.speechSynthesis.speaking){clearInterval(_f);return;}
+        window.speechSynthesis.pause();window.speechSynthesis.resume();
+      },1e4);
+    }
+    speakNext();
   } catch(e){ console.warn('[speakAi]', e); }
 }
 
