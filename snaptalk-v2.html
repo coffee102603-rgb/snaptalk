@@ -10530,8 +10530,108 @@ function renderVocabStudy(items, body){
   document.getElementById('vbPrev').addEventListener('click', function(){ if(VOCAB_STATE.cardIdx>0){VOCAB_STATE.cardIdx--; VOCAB_STATE.flipped=false; renderVocabStudy(items, body);} });
   document.getElementById('vbNext').addEventListener('click', function(){ if(VOCAB_STATE.cardIdx<items.length-1){VOCAB_STATE.cardIdx++; VOCAB_STATE.flipped=false; renderVocabStudy(items, body);} });
 }
+var EXAM_STATE = { idx:0, answer:[], timerId:null, timeLeft:10 };
 function renderVocabExam(items, body){
-  body.innerHTML = '<div style="text-align:center;padding:60px 20px;color:#94a3b8;"><div style="font-size:40px;margin-bottom:14px;">🎮</div><div style="font-size:15px;font-weight:700;">영작 게임 시험모드<br>(다음 단계에서 연결)</div></div>';
+  EXAM_STATE.idx = Math.min(EXAM_STATE.idx, items.length-1);
+  EXAM_STATE.answer = [];
+  var q = items[EXAM_STATE.idx];
+  var words = q.en.split(/\s+/).filter(function(w){return w;});
+  var shuffled = words.map(function(w,i){return {w:w,i:i};}).map(function(v){return [Math.random(),v];}).sort(function(a,b){return a[0]-b[0];}).map(function(x){return x[1];});
+  body.innerHTML = '<div style="text-align:center;color:#94a3b8;font-size:13px;font-weight:700;margin-bottom:14px;">'+(EXAM_STATE.idx+1)+' / '+items.length+'</div>'
+    + '<div style="background:linear-gradient(160deg,#1e1830,#16131f);border:1px solid rgba(167,139,250,0.25);border-radius:18px;padding:22px 18px;text-align:center;margin-bottom:8px;">'
+    + '<div style="font-size:12px;font-weight:800;color:#94a3b8;margin-bottom:10px;">🇰🇷 이 뜻을 영어로 만들어보세요</div>'
+    + '<div style="font-size:21px;font-weight:800;line-height:1.4;">'+q.ko+'</div></div>'
+    + '<div style="position:relative;margin:18px 0;">'
+    + '<div style="position:absolute;top:-13px;right:10px;z-index:3;background:#16131f;border:1px solid #fbbf24;border-radius:20px;padding:3px 11px;font-size:13px;font-weight:800;color:#fcd34d;" id="exBomb">💣 <span id="exSec">10</span></div>'
+    + '<svg id="exBorder" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible;"><rect x="2" y="2" rx="16" ry="16" id="exRect" style="fill:none;stroke:#fbbf24;stroke-width:3;filter:drop-shadow(0 0 6px #fbbf24);"/></svg>'
+    + '<div id="exAnswer" style="min-height:80px;padding:14px;background:rgba(124,58,237,0.07);border-radius:16px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;position:relative;z-index:1;"></div></div>'
+    + '<div id="exMsg" style="text-align:center;font-size:15px;font-weight:800;margin:10px 0;min-height:22px;"></div>'
+    + '<div style="font-size:12px;font-weight:800;color:#94a3b8;margin-bottom:10px;">👇 단어를 순서대로 탭하세요</div>'
+    + '<div id="exBank" style="display:flex;flex-wrap:wrap;gap:9px;">'
+    + shuffled.map(function(item){ return '<button class="ex-bank-b" data-idx="'+item.i+'" style="padding:11px 16px;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;background:linear-gradient(160deg,#2a2440,#1e1830);color:#f8fafc;border:1px solid rgba(167,139,250,0.3);box-shadow:0 3px 0 rgba(124,58,237,0.4);">'+item.w+'</button>'; }).join('')
+    + '</div>';
+  body.querySelectorAll('.ex-bank-b').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.classList.contains('used')) return;
+      EXAM_STATE.answer.push({idx:btn.dataset.idx, word:btn.textContent});
+      btn.classList.add('used'); btn.style.opacity='0.25'; btn.style.pointerEvents='none';
+      renderExamAnswer(items, body, words);
+      if(EXAM_STATE.answer.length === words.length){ setTimeout(function(){ examCheck(items, body, q, words); }, 300); }
+    });
+  });
+  startExamTimer(items, body, q);
+}
+function renderExamAnswer(items, body, words){
+  var zone = document.getElementById('exAnswer');
+  zone.innerHTML = EXAM_STATE.answer.map(function(a,pos){
+    return '<button class="ex-ans-b" data-pos="'+pos+'" style="padding:11px 16px;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#fbbf24,#fcd34d);color:#1a1206;border:none;box-shadow:0 3px 0 rgba(180,130,20,0.5);">'+a.word+'</button>';
+  }).join('');
+  zone.querySelectorAll('.ex-ans-b').forEach(function(b){
+    b.addEventListener('click', function(){
+      var pos = parseInt(b.dataset.pos);
+      var removed = EXAM_STATE.answer.splice(pos,1)[0];
+      var bb = body.querySelector('.ex-bank-b[data-idx="'+removed.idx+'"]');
+      if(bb){ bb.classList.remove('used'); bb.style.opacity='1'; bb.style.pointerEvents='auto'; }
+      renderExamAnswer(items, body, words);
+    });
+  });
+}
+function startExamTimer(items, body, q){
+  stopExamTimer();
+  EXAM_STATE.timeLeft = 10;
+  var rect = document.getElementById('exRect');
+  var wrap = document.getElementById('exAnswer').parentElement;
+  var w = wrap.clientWidth, h = wrap.clientHeight;
+  rect.setAttribute('width', w-4); rect.setAttribute('height', h-4);
+  var per = 2*((w-4)+(h-4));
+  rect.style.strokeDasharray = per; rect.style.strokeDashoffset = 0; rect.style.transition='none';
+  void rect.offsetWidth;
+  rect.style.transition = 'stroke-dashoffset 10s linear'; rect.style.strokeDashoffset = per;
+  EXAM_STATE.timerId = setInterval(function(){
+    EXAM_STATE.timeLeft--;
+    var s=document.getElementById('exSec'); if(s) s.textContent=EXAM_STATE.timeLeft;
+    if(EXAM_STATE.timeLeft<=3){ var r=document.getElementById('exRect'); if(r){r.style.stroke='#ef4444';r.style.filter='drop-shadow(0 0 8px #ef4444)';} var b=document.getElementById('exBomb'); if(b){b.style.borderColor='#ef4444';b.style.color='#ef4444';} }
+    if(EXAM_STATE.timeLeft<=0){ stopExamTimer(); examTimeUp(items, body, q); }
+  }, 1000);
+}
+function stopExamTimer(){ if(EXAM_STATE.timerId){ clearInterval(EXAM_STATE.timerId); EXAM_STATE.timerId=null; } }
+function examCheck(items, body, q, words){
+  stopExamTimer();
+  var user = EXAM_STATE.answer.map(function(a){return a.word;}).join(' ');
+  var correct = words.join(' ');
+  var msg = document.getElementById('exMsg');
+  var zone = document.getElementById('exAnswer');
+  if(user === correct){
+    msg.textContent = '🎉 완벽해요!'; msg.style.color='#22c55e';
+    zone.querySelectorAll('.ex-ans-b').forEach(function(b){ b.style.transition='all .6s'; b.style.transform='scale(1.15)'; b.style.boxShadow='0 0 24px #fbbf24'; setTimeout(function(){ b.style.transform='scale(0)'; b.style.opacity='0'; },300); });
+    setTimeout(function(){ if(EXAM_STATE.idx<items.length-1){EXAM_STATE.idx++;} else {EXAM_STATE.idx=0;} renderVocabExam(items, body); }, 1000);
+  } else {
+    msg.textContent = '❌ 어순이 틀렸어요'; msg.style.color='#ef4444';
+    examForceSave(q);
+    showVbToast('📖 단어장에 저장!', '"'+correct+'" 복습해요 💪');
+    setTimeout(function(){ renderVocabExam(items, body); }, 1700);
+  }
+}
+function examTimeUp(items, body, q){
+  var msg=document.getElementById('exMsg'); if(msg){msg.textContent='💥 시간 초과!';msg.style.color='#ef4444';}
+  examForceSave(q);
+  showVbToast('💣 시간 초과! 단어장 저장', '복습해요 💪');
+  setTimeout(function(){ renderVocabExam(items, body); }, 1700);
+}
+function examForceSave(q){
+  var nb = db.get('notebook', []);
+  var exists = nb.some(function(n){ return (n.highlight||n.en)===q.en; });
+  if(!exists){ nb.push({en:q.en, ko:q.ko, highlight:q.en, koHighlight:q.ko, shortTitle:q.src||'시험모드', date:new Date().toISOString(), stage:'weak'}); db.set('notebook', nb); }
+}
+function showVbToast(main, sub){
+  var old=document.getElementById('vbToast'); if(old) old.remove();
+  var t=document.createElement('div');
+  t.id='vbToast';
+  t.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;padding:18px 26px;border-radius:18px;font-size:16px;font-weight:800;text-align:center;z-index:99999;box-shadow:0 10px 40px rgba(124,58,237,0.5);max-width:300px;transition:all .3s;opacity:0;';
+  t.innerHTML=main+'<div style="font-size:13px;font-weight:600;opacity:0.9;margin-top:6px;">'+sub+'</div>';
+  document.body.appendChild(t);
+  setTimeout(function(){t.style.opacity='1';t.style.transform='translate(-50%,-50%) scale(1)';},10);
+  setTimeout(function(){t.style.opacity='0';setTimeout(function(){t.remove();},300);},1500);
 }
 
 /* v2: 찜한 영상 패널 (오버레이) */
