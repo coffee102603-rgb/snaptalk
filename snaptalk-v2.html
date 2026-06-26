@@ -12254,7 +12254,7 @@ function showAiStatus(text){
 (function(){
   document.addEventListener('focusin', function(e){
     if(e.target && e.target.id==='ftTypeInput'){
-      var hints=document.getElementById('aiChatHints'); if(hints) hints.style.display='none';
+      var trans=document.getElementById('ftTransBar'); if(trans) trans.style.display='none';
       var micRow=document.querySelector('.ai-chat-mic-row'); if(micRow) micRow.style.display='none';
       var msgs=document.getElementById('aiChatMessages');
       if(msgs){ setTimeout(function(){ msgs.scrollTop=msgs.scrollHeight; }, 100); }
@@ -12263,7 +12263,7 @@ function showAiStatus(text){
   document.addEventListener('focusout', function(e){
     if(e.target && e.target.id==='ftTypeInput'){
       setTimeout(function(){
-        var hints=document.getElementById('aiChatHints'); if(hints) hints.style.display='';
+        var trans=document.getElementById('ftTransBar'); if(trans) trans.style.display='';
         var micRow=document.querySelector('.ai-chat-mic-row'); if(micRow) micRow.style.display='';
       }, 200);
     }
