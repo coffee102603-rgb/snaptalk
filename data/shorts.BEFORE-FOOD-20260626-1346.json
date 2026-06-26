@@ -1,0 +1,1199 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-06-26",
+  "description": "SnapTalk 영상 콘텐츠 데이터베이스. 각 지역(us/kr)별 영상 목록. 다국어 지원을 위한 translations 필드 포함.",
+  "schema": {
+    "fields": {
+      "id": "YouTube video ID (11 chars)",
+      "title": "영상 제목 (원어)",
+      "cat": "카테고리 ID (categories.json 참조)",
+      "catIcon": "카테고리 이모지",
+      "diff": "beginner | intermediate | advanced",
+      "dubs": "더빙 시도 수 (기본값, 클라이언트에서 누적)",
+      "lang": "영상 원본 언어 (en, ko 등)",
+      "region": "지역 (us, kr 등)",
+      "createdAt": "등록일 YYYY-MM-DD",
+      "status": "draft | review | live | disabled",
+      "curatorPick": "(선택) 큐레이터 픽 여부",
+      "summary": "(선택) 영상 요약"
+    },
+    "sentence_fields": {
+      "en": "영어 원문",
+      "ko": "한국어 번역 (기본 지원 언어)",
+      "start": "시작 초",
+      "end": "끝 초",
+      "core": "핵심 단어",
+      "highlight": "핵심 청크 (영어)",
+      "koHighlight": "핵심 청크 (한국어)",
+      "phonetic": "한글 발음 표기",
+      "translations": "다국어 확장 { ja: {text,highlight}, zh: {...} }"
+    }
+  },
+  "shorts": {
+    "us": [
+      {
+        "id": "K56O5RdE3KM",
+        "title": "How Dalgona Candy Is Made",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 100,
+        "sentences": [
+          {
+            "en": "This is Dalgona candy,",
+            "ko": "이건 달고나 사탕이에요,",
+            "start": 0.16,
+            "end": 1.109,
+            "core": "candy",
+            "highlight": "Dalgona candy",
+            "koHighlight": "달고나 사탕",
+            "phonetic": "디스 이즈 달고나 캔디,",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "the popular Korean street snack seen in the TV series Squid Game.",
+            "ko": "TV 시리즈 오징어 게임에 나온 인기 있는 한국 길거리 간식이죠.",
+            "start": 1.191,
+            "end": 4.033,
+            "core": "snack",
+            "highlight": "street snack",
+            "koHighlight": "길거리 간식",
+            "phonetic": "더 파퓰러 코리안 스트릿 스낵 씬 인 더 티비 시리즈 스퀴드 게임.",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "It made by melting down sugar until it turns a caramel color and then",
+            "ko": "설탕을 카라멜 색이 될 때까지 녹여서 만들고,",
+            "start": 4.115,
+            "end": 7.227,
+            "core": "melting",
+            "highlight": "melting down sugar",
+            "koHighlight": "설탕을 녹여서",
+            "phonetic": "잇 메이드 바이 멜팅 다운 슈거 언틸 잇 턴즈 어 카라멜 컬러 앤 덴",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "adding in a few pinches of baking soda,",
+            "ko": "베이킹 소다를 몇 꼬집 넣어주면,",
+            "start": 7.309,
+            "end": 8.981,
+            "core": "adding",
+            "highlight": "adding baking soda",
+            "koHighlight": "베이킹 소다를 넣어주면",
+            "phonetic": "애딩 인 어 퓨 핀치즈 오브 베이킹 소다,",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "where it then becomes very light and foamy.",
+            "ko": "아주 가볍고 부풀어 오르게 돼요.",
+            "start": 9.063,
+            "end": 10.916,
+            "core": "foamy",
+            "highlight": "light and foamy",
+            "koHighlight": "가볍고 부풀어 오르게",
+            "phonetic": "웨어 잇 덴 비컴즈 베리 라이트 앤 포미.",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "This is dropped onto a flat surface where it pressed down and lightly",
+            "ko": "이걸 평평한 표면에 떨어뜨려서 눌러주고,",
+            "start": 10.998,
+            "end": 14.109,
+            "core": "pressed",
+            "highlight": "pressed down",
+            "koHighlight": "눌러주고",
+            "phonetic": "디스 이즈 드롭트 온투 어 플랫 서페이스 웨어 잇 프레스드 다운 앤 라이틀리",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "stamped with a cookie cutter mold.",
+            "ko": "쿠키 커터 틀로 가볍게 찍어줘요.",
+            "start": 14.191,
+            "end": 15.639,
+            "core": "stamped",
+            "highlight": "stamped with mold",
+            "koHighlight": "틀로 찍어줘요",
+            "phonetic": "스탬프드 위드 어 쿠키 커터 몰드.",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "As you can see, I chose the umbrella shape,",
+            "ko": "보시다시피, 저는 우산 모양을 선택했어요,",
+            "start": 15.721,
+            "end": 17.448,
+            "core": "chose",
+            "highlight": "chose umbrella shape",
+            "koHighlight": "우산 모양을 선택했어요",
+            "phonetic": "애즈 유 캔 씨, 아이 초즈 디 엄브렐라 쉐이프,",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "and once you handed the Dalgona,",
+            "ko": "그리고 달고나를 받으면,",
+            "start": 17.53,
+            "end": 18.92,
+            "core": "handed",
+            "highlight": "handed the Dalgona",
+            "koHighlight": "달고나를 받으면",
+            "phonetic": "앤 원스 유 핸디드 더 달고나,",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "the goal is to use a toothpick to carve out the shape in the",
+            "ko": "목표는 이쑤시개로 가운데의 모양을 파내는 거예요,",
+            "start": 19.002,
+            "end": 21.445,
+            "core": "carve",
+            "highlight": "carve out shape",
+            "koHighlight": "모양을 파내는",
+            "phonetic": "더 골 이즈 투 유즈 어 투스픽 투 카브 아웃 더 쉐이프 인 더",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "center so it looks like this,",
+            "ko": "이렇게 보이도록 말이죠,",
+            "start": 21.527,
+            "end": 22.665,
+            "core": "looks",
+            "highlight": "looks like this",
+            "koHighlight": "이렇게 보이도록",
+            "phonetic": "센터 쏘 잇 룩스 라이크 디스,",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "but unfortunately I dropped it on the floor and lost immediately.",
+            "ko": "하지만 불행히도 저는 바닥에 떨어뜨려서 바로 졌어요.",
+            "start": 22.747,
+            "end": 25.44,
+            "core": "dropped",
+            "highlight": "dropped on floor",
+            "koHighlight": "바닥에 떨어뜨려서",
+            "phonetic": "벗 언포춘트리 아이 드롭트 잇 온 더 플로어 앤 로스트 이미디엇틀리.",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          }
+        ],
+        "lang": "en",
+        "region": "us",
+        "createdAt": "2026-04-19",
+        "status": "live"
+      },
+      {
+        "id": "hBchw5-EQrI",
+        "title": "World Most Expensive Pizza",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 150,
+        "sentences": [
+          {
+            "en": "This is the world largest pizza, but",
+            "ko": "이게 세계에서 가장 큰 피자인데",
+            "start": 0.16,
+            "end": 3.76,
+            "core": "largest",
+            "highlight": "largest pizza",
+            "koHighlight": "가장 큰 피자",
+            "phonetic": "디스 이즈 더 월드 라지스트 피자, 벗",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "how much does it cost? Can I order the",
+            "ko": "얼마나 할까요? 제가 주문할 수 있을까요",
+            "start": 2.32,
+            "end": 5.759,
+            "core": "cost",
+            "highlight": "how much cost",
+            "koHighlight": "얼마나 하다",
+            "phonetic": "하우 머치 더즈 잇 코스트? 캔 아이 오더 더",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "giant Sicilian and put everything you",
+            "ko": "자이언트 시실리안에 있는 모든 걸",
+            "start": 3.76,
+            "end": 7.44,
+            "core": "giant",
+            "highlight": "giant Sicilian",
+            "koHighlight": "자이언트 시실리안",
+            "phonetic": "자이언트 시실리안 앤 풋 에브리씽 유",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "have on it? Bankrupt me. Sure.",
+            "ko": "다 올려주세요? 파산시켜 주세요. 알겠습니다.",
+            "start": 5.759,
+            "end": 8.72,
+            "core": "bankrupt",
+            "highlight": "bankrupt me",
+            "koHighlight": "파산시키다",
+            "phonetic": "해브 온 잇? 뱅크럽트 미. 슈어.",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "Yeah, I am sure. Do you mind if I put",
+            "ko": "네, 확실해요. 제가 달아도 될까요",
+            "start": 7.44,
+            "end": 10.24,
+            "core": "mind",
+            "highlight": "do you mind",
+            "koHighlight": "괜찮으세요",
+            "phonetic": "예, 아이 엠 슈어. 두 유 마인드 이프 아이 풋",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "this camera on your hat? Yeah. Thank you",
+            "ko": "이 카메라를 모자에? 네. 감사합니다",
+            "start": 8.72,
+            "end": 12.24,
+            "core": "camera",
+            "highlight": "camera on hat",
+            "koHighlight": "카메라를 모자에",
+            "phonetic": "디스 캐머라 온 유어 햇? 예. 땡큐",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "so much. All right. Good luck, man. That",
+            "ko": "정말 감사해요. 좋아요. 잘 부탁드려요. 그게",
+            "start": 10.24,
+            "end": 14.24,
+            "core": "luck",
+            "highlight": "good luck",
+            "koHighlight": "행운을 빌어요",
+            "phonetic": "쏘 머치. 올 라잇. 굿 럭, 맨. 댓",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "was so incredibly expensive. I will tell",
+            "ko": "엄청나게 비쌌어요. 제가 말씀드릴게요",
+            "start": 12.24,
+            "end": 15.519,
+            "core": "expensive",
+            "highlight": "incredibly expensive",
+            "koHighlight": "엄청나게 비싸다",
+            "phonetic": "워즈 쏘 인크레더블리 익스펜시브. 아이 윌 텔",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "you guys what the price was at the end.",
+            "ko": "여러분께 가격이 얼마였는지 마지막에 알려드릴게요.",
+            "start": 14.24,
+            "end": 16.72,
+            "core": "price",
+            "highlight": "the price",
+            "koHighlight": "가격",
+            "phonetic": "유 가이즈 왓 더 프라이스 워즈 앳 디 엔드.",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "Oh, he going. Dude, he playing the",
+            "ko": "오, 시작했어요. 이봐요, 그가 치고 있어요",
+            "start": 15.519,
+            "end": 18.24,
+            "core": "playing",
+            "highlight": "playing drums",
+            "koHighlight": "드럼을 치다",
+            "phonetic": "오, 히 고잉. 듀드, 히 플레잉 더",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "drums on the dough right now. He doing",
+            "ko": "지금 반죽 위에서 드럼을요.",
+            "start": 16.72,
+            "end": 19.76,
+            "core": "dough",
+            "highlight": "drums on dough",
+            "koHighlight": "반죽 위에서 드럼",
+            "phonetic": "드럼즈 온 더 도우 라잇 나우. 히 두잉",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "the stretchy thing with his hand. Such a",
+            "ko": "손으로 늘리는 거를요. 정말",
+            "start": 18.24,
+            "end": 20.8,
+            "core": "stretchy",
+            "highlight": "stretchy thing",
+            "koHighlight": "늘리는 것",
+            "phonetic": "더 스트레치 씽 위드 히즈 핸드. 서치 어",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "professional. Normally, it would be",
+            "ko": "프로페셔널이에요. 보통은",
+            "start": 19.76,
+            "end": 22.24,
+            "core": "professional",
+            "highlight": "such professional",
+            "koHighlight": "정말 전문가",
+            "phonetic": "프로페셔널. 노멀리, 잇 우드 비",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "impossible for me to see what going on",
+            "ko": "제가 무슨 일이 일어나는지 보는 게 불가능할 텐데",
+            "start": 20.8,
+            "end": 23.439,
+            "core": "impossible",
+            "highlight": "impossible to see",
+            "koHighlight": "볼 수 없다",
+            "phonetic": "임파시블 포 미 투 씨 왓 고잉 온",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          },
+          {
+            "en": "in the back of the kitchen, but thanks",
+            "ko": "주방 뒤쪽에서요, 하지만 감사하게도",
+            "start": 22.24,
+            "end": 25.68,
+            "core": "kitchen",
+            "highlight": "back of kitchen",
+            "koHighlight": "주방 뒤쪽",
+            "phonetic": "인 더 백 오브 더 키친, 벗 땡스",
+            "translations": {
+              "ja": {
+                "text": "",
+                "highlight": ""
+              },
+              "zh": {
+                "text": "",
+                "highlight": ""
+              }
+            }
+          }
+        ],
+        "lang": "en",
+        "region": "us",
+        "createdAt": "2026-04-19",
+        "status": "live"
+      },
+      {
+        "id": "8UpxiFOnNj8",
+        "title": "MrBeast Perfect Steak",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 200,
+        "curatorPick": true,
+        "summary": "미스터 비스트 형제의 완벽한 스테이크 모험! 짧지만 강렬한 일상 대화 속에 \"what is up\", \"thank you\", \"last time\" 같은 핵심 회화 표현이 가득!",
+        "sentences": [
+          {
+            "en": "Nick.",
+            "start": 4.9,
+            "end": 5.8,
+            "core": "Nick",
+            "highlight": "Nick",
+            "phonetic": "닉.",
+            "translations": {
+              "ko": {
+                "text": "닉.",
+                "highlight": "닉"
+              }
+            }
+          },
+          {
+            "en": "Jimmy, what's up?",
+            "start": 5.9,
+            "end": 6.7,
+            "core": "Jimmy",
+            "highlight": "what's up",
+            "phonetic": "지미, | 왓츠 업?",
+            "translations": {
+              "ko": {
+                "text": "지미, | 무슨 일이야?",
+                "highlight": "무슨 일이야"
+              }
+            }
+          },
+          {
+            "en": "It happened again.",
+            "start": 6.8,
+            "end": 7.6,
+            "core": "happened",
+            "highlight": "happened again",
+            "phonetic": "잇 해픈드 어게인.",
+            "translations": {
+              "ko": {
+                "text": "또 일어났어.",
+                "highlight": "또 일어났어"
+              }
+            }
+          },
+          {
+            "en": "Wait right there.",
+            "start": 7.7,
+            "end": 8.5,
+            "core": "wait",
+            "highlight": "wait there",
+            "phonetic": "웨잇 라잇 데어.",
+            "translations": {
+              "ko": {
+                "text": "거기서 기다려.",
+                "highlight": "기다려"
+              }
+            }
+          },
+          {
+            "en": "Okay.",
+            "start": 8.7,
+            "end": 9.7,
+            "core": "okay",
+            "highlight": "okay",
+            "phonetic": "오케이.",
+            "translations": {
+              "ko": {
+                "text": "오케이.",
+                "highlight": "오케이"
+              }
+            }
+          },
+          {
+            "en": "That's me.",
+            "start": 13.4,
+            "end": 14.2,
+            "core": "me",
+            "highlight": "that's me",
+            "phonetic": "댓츠 미.",
+            "translations": {
+              "ko": {
+                "text": "나야.",
+                "highlight": "나야"
+              }
+            }
+          },
+          {
+            "en": "Where is he?",
+            "start": 21.4,
+            "end": 23.1,
+            "core": "where",
+            "highlight": "where is he",
+            "phonetic": "웨어 이즈 히?",
+            "translations": {
+              "ko": {
+                "text": "그는 어디에 있어?",
+                "highlight": "어디에 있어"
+              }
+            }
+          },
+          {
+            "en": "Yes. | Thank you, man.",
+            "start": 33.2,
+            "end": 35.2,
+            "core": "thank",
+            "highlight": "thank you",
+            "phonetic": "예스. | 땡큐, 맨.",
+            "translations": {
+              "ko": {
+                "text": "네. | 고마워, 친구.",
+                "highlight": "고마워"
+              }
+            }
+          },
+          {
+            "en": "Jimmy, I'm serious, | this is the last time. | I'm not doing this again.",
+            "start": 35.2,
+            "end": 37.4,
+            "core": "serious",
+            "highlight": "I'm serious",
+            "phonetic": "지미, 아임 시리어스, | 디스 이즈 더 라스트 타임. | 아임 낫 두잉 디스 어게인.",
+            "translations": {
+              "ko": {
+                "text": "지미, 나 진지해, | 이번이 마지막이야. | 다시는 안 할 거야.",
+                "highlight": "진지해"
+              }
+            }
+          },
+          {
+            "en": "Okay. | Hopefully | I don't run out.",
+            "start": 37.4,
+            "end": 38.8,
+            "core": "run out",
+            "highlight": "run out",
+            "phonetic": "오케이. | 호프풀리 | 아이 돈트 런 아웃.",
+            "translations": {
+              "ko": {
+                "text": "오케이. | 다행히 | 다 떨어지지 않길 바라.",
+                "highlight": "다 떨어지다"
+              }
+            }
+          },
+          {
+            "en": "Don't be lazy | like Mr. Beast. | Just go to your local Walmart instead.",
+            "start": 38.8,
+            "end": 41.9,
+            "core": "lazy",
+            "highlight": "be lazy",
+            "phonetic": "돈트 비 레이지 | 라이크 미스터 비스트. | 저스트 고우 투 유어 로컬 월마트 인스테드.",
+            "translations": {
+              "ko": {
+                "text": "게으르지 마 | 미스터 비스트처럼. | 그냥 동네 월마트에 가.",
+                "highlight": "게으르지 마"
+              }
+            }
+          }
+        ],
+        "lang": "en",
+        "region": "us",
+        "createdAt": "2026-04-19",
+        "status": "live"
+      },
+      {
+        "id": "2VeQTuSSiI0",
+        "title": "Ordering Coffee at a Café",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "beginner",
+        "dubs": 0,
+        "curatorPick": true,
+        "summary": "카페에서 커피 주문하기 실전 대화",
+        "sentences": [
+          {
+            "en": "Hi. | What would you like?",
+            "start": 13.6,
+            "end": 15.6,
+            "core": "like",
+            "highlight": "would you like",
+            "phonetic": "하이. | 왓 우드 유 라이크?",
+            "translations": {
+              "ko": {
+                "text": "안녕하세요. | 무엇을 드릴까요?",
+                "highlight": "드릴까요"
+              }
+            }
+          },
+          {
+            "en": "I would like a coffee, please!",
+            "start": 15.6,
+            "end": 17.6,
+            "core": "coffee",
+            "highlight": "like a coffee",
+            "phonetic": "아이 우드 라이크 어 커피, 플리즈!",
+            "translations": {
+              "ko": {
+                "text": "커피 한 잔 주세요!",
+                "highlight": "커피 한 잔"
+              }
+            }
+          },
+          {
+            "en": "No problem. | Will you have it here | to go?",
+            "start": 17.8,
+            "end": 20.9,
+            "core": "have",
+            "highlight": "have it here",
+            "phonetic": "노 프라블럼. | 윌 유 해브 잇 히어 | 투 고?",
+            "translations": {
+              "ko": {
+                "text": "문제없어요. | 여기서 드실 건가요 | 가져가실 건가요?",
+                "highlight": "여기서 드실"
+              }
+            }
+          },
+          {
+            "en": "Could I have it to go?",
+            "start": 20.9,
+            "end": 22.6,
+            "core": "have",
+            "highlight": "have it to go",
+            "phonetic": "쿠드 아이 해브 잇 투 고?",
+            "translations": {
+              "ko": {
+                "text": "가져갈 수 있을까요?",
+                "highlight": "가져갈 수"
+              }
+            }
+          },
+          {
+            "en": "Ok. | What kind of coffee | would you like?",
+            "start": 22.9,
+            "end": 25.8,
+            "core": "kind",
+            "highlight": "kind of coffee",
+            "phonetic": "오케이. | 왓 카인드 오브 커피 | 우드 유 라이크?",
+            "translations": {
+              "ko": {
+                "text": "네. | 어떤 종류의 커피를 | 원하시나요?",
+                "highlight": "종류의 커피"
+              }
+            }
+          },
+          {
+            "en": "Dark roast, please!",
+            "start": 25.8,
+            "end": 27.3,
+            "core": "roast",
+            "highlight": "dark roast",
+            "phonetic": "다크 로스트, 플리즈!",
+            "translations": {
+              "ko": {
+                "text": "다크 로스트로 주세요!",
+                "highlight": "다크 로스트"
+              }
+            }
+          },
+          {
+            "en": "and what size | would you like?",
+            "start": 27.3,
+            "end": 30,
+            "core": "size",
+            "highlight": "what size",
+            "phonetic": "앤 왓 사이즈 | 우드 유 라이크?",
+            "translations": {
+              "ko": {
+                "text": "그리고 사이즈는 | 어떻게 하시겠어요?",
+                "highlight": "사이즈는"
+              }
+            }
+          },
+          {
+            "en": "Can I have a medium?",
+            "start": 30.1,
+            "end": 31.8,
+            "core": "medium",
+            "highlight": "have a medium",
+            "phonetic": "캔 아이 해브 어 미디엄?",
+            "translations": {
+              "ko": {
+                "text": "미디엄으로 주시겠어요?",
+                "highlight": "미디엄으로"
+              }
+            }
+          },
+          {
+            "en": "Sure. | Would you like | sugar and cream?",
+            "start": 31.8,
+            "end": 34.7,
+            "core": "sugar",
+            "highlight": "sugar and cream",
+            "phonetic": "슈어. | 우드 유 라이크 | 슈거 앤 크림?",
+            "translations": {
+              "ko": {
+                "text": "물론이죠. | 원하시나요 | 설탕과 크림을?",
+                "highlight": "설탕과 크림"
+              }
+            }
+          },
+          {
+            "en": "Yes please!",
+            "start": 35,
+            "end": 36.6,
+            "core": "yes",
+            "highlight": "yes please",
+            "phonetic": "예스 플리즈!",
+            "translations": {
+              "ko": {
+                "text": "네, 주세요!",
+                "highlight": "네, 주세요"
+              }
+            }
+          },
+          {
+            "en": "Here you go. | Would you like anything else?",
+            "start": 38.4,
+            "end": 42.1,
+            "core": "anything",
+            "highlight": "anything else",
+            "phonetic": "히어 유 고. | 우드 유 라이크 애니씽 엘스?",
+            "translations": {
+              "ko": {
+                "text": "여기 있습니다. | 다른 것도 원하시나요?",
+                "highlight": "다른 것"
+              }
+            }
+          },
+          {
+            "en": "No thanks!",
+            "start": 42.6,
+            "end": 43.8,
+            "core": "thanks",
+            "highlight": "no thanks",
+            "phonetic": "노 땡스!",
+            "translations": {
+              "ko": {
+                "text": "아니요, 괜찮아요!",
+                "highlight": "괜찮아요"
+              }
+            }
+          },
+          {
+            "en": "That will be four dollars.",
+            "start": 43.8,
+            "end": 45.6,
+            "core": "dollars",
+            "highlight": "four dollars",
+            "phonetic": "댓 윌 비 포 달러즈.",
+            "translations": {
+              "ko": {
+                "text": "4달러입니다.",
+                "highlight": "4달러"
+              }
+            }
+          },
+          {
+            "en": "Great, thank you!",
+            "start": 45.6,
+            "end": 47.4,
+            "core": "thank",
+            "highlight": "thank you",
+            "phonetic": "그레잇, 땡큐!",
+            "translations": {
+              "ko": {
+                "text": "좋아요, 감사합니다!",
+                "highlight": "감사합니다"
+              }
+            }
+          },
+          {
+            "en": "You're welcome. | Have a nice day!",
+            "start": 47.4,
+            "end": 50.1,
+            "core": "day",
+            "highlight": "nice day",
+            "phonetic": "유어 웰컴. | 해브 어 나이스 데이!",
+            "translations": {
+              "ko": {
+                "text": "천만에요. | 좋은 하루 보내세요!",
+                "highlight": "좋은 하루"
+              }
+            }
+          }
+        ],
+        "lang": "en",
+        "region": "us",
+        "createdAt": "2026-06-26",
+        "status": "live"
+      },
+      {
+        "id": "SLC1Rdaxdj8",
+        "title": "How to Order Coffee in English",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "intermediate",
+        "dubs": 0,
+        "curatorPick": true,
+        "summary": "옥스퍼드 커피 주문 영어 강의",
+        "sentences": [
+          {
+            "en": "Hi.",
+            "start": 2.3,
+            "end": 3.3,
+            "core": "Hi",
+            "highlight": "Hi",
+            "phonetic": "하이.",
+            "translations": {
+              "ko": {
+                "text": "안녕하세요.",
+                "highlight": "안녕하세요"
+              }
+            }
+          },
+          {
+            "en": "My name is Rheedan.",
+            "start": 3.3,
+            "end": 4.4,
+            "core": "name",
+            "highlight": "My name is",
+            "phonetic": "마이 네임 이즈 리단.",
+            "translations": {
+              "ko": {
+                "text": "제 이름은 리단입니다.",
+                "highlight": "이름은"
+              }
+            }
+          },
+          {
+            "en": "Welcome to Oxford Online English!",
+            "start": 4.4,
+            "end": 6.7,
+            "core": "welcome",
+            "highlight": "Welcome to",
+            "phonetic": "웰컴 투 옥스퍼드 온라인 잉글리쉬!",
+            "translations": {
+              "ko": {
+                "text": "옥스퍼드 온라인 잉글리쉬에 오신 걸 환영합니다!",
+                "highlight": "환영합니다"
+              }
+            }
+          },
+          {
+            "en": "Today, | we're going to learn | some important words and phrases, | so that you can order | your next cup of coffee | in English.",
+            "start": 6.7,
+            "end": 13.3,
+            "core": "learn",
+            "highlight": "going to learn",
+            "phonetic": "투데이, | 위어 고잉 투 런 | 썸 임포턴트 워즈 앤 프레이지즈, | 쏘 댓 유 캔 오더 | 유어 넥스트 컵 오브 카피 | 인 잉글리쉬.",
+            "translations": {
+              "ko": {
+                "text": "오늘, | 우리는 배울 거예요 | 몇 가지 중요한 단어와 표현들을, | 여러분이 주문할 수 있도록 | 다음 커피 한 잔을 | 영어로.",
+                "highlight": "배울 거예요"
+              }
+            }
+          },
+          {
+            "en": "Do you often go for coffee?",
+            "start": 13.3,
+            "end": 15.1,
+            "core": "go",
+            "highlight": "go for coffee",
+            "phonetic": "두 유 오픈 고 포 카피?",
+            "translations": {
+              "ko": {
+                "text": "자주 커피 마시러 가시나요?",
+                "highlight": "커피 마시러 가다"
+              }
+            }
+          },
+          {
+            "en": "Do you know | how to order | different types of coffee | in English?",
+            "start": 15.1,
+            "end": 17.9,
+            "core": "order",
+            "highlight": "how to order",
+            "phonetic": "두 유 노우 | 하우 투 오더 | 디퍼런트 타입스 오브 카피 | 인 잉글리쉬?",
+            "translations": {
+              "ko": {
+                "text": "알고 계신가요 | 어떻게 주문하는지 | 다양한 종류의 커피를 | 영어로?",
+                "highlight": "주문하는지"
+              }
+            }
+          },
+          {
+            "en": "You'll learn how | in this lesson.",
+            "start": 17.9,
+            "end": 19.8,
+            "core": "learn",
+            "highlight": "learn how",
+            "phonetic": "율 런 하우 | 인 디스 레슨.",
+            "translations": {
+              "ko": {
+                "text": "배우게 될 거예요 | 이 레슨에서.",
+                "highlight": "배우게 될"
+              }
+            }
+          },
+          {
+            "en": "Let's first look at | some words you'll need to know | when ordering | your morning cup.",
+            "start": 19.8,
+            "end": 24.1,
+            "core": "look",
+            "highlight": "look at",
+            "phonetic": "렛츠 퍼스트 룩 앳 | 썸 워즈 율 니드 투 노우 | 웬 오더링 | 유어 모닝 컵.",
+            "translations": {
+              "ko": {
+                "text": "먼저 살펴볼게요 | 알아야 할 몇 가지 단어들을 | 주문할 때 | 여러분의 아침 커피 한 잔을.",
+                "highlight": "살펴볼게요"
+              }
+            }
+          },
+          {
+            "en": "At a coffee shop, | drinks are usually made | from espresso.",
+            "start": 24.1,
+            "end": 27.5,
+            "core": "made",
+            "highlight": "made from espresso",
+            "phonetic": "앳 어 카피 샵, | 드링크스 아 유주얼리 메이드 | 프럼 에스프레쏘.",
+            "translations": {
+              "ko": {
+                "text": "커피숍에서는, | 음료는 보통 만들어져요 | 에스프레소로.",
+                "highlight": "만들어져요"
+              }
+            }
+          },
+          {
+            "en": "An espresso is | a small amount | of very strong coffee.",
+            "start": 27.5,
+            "end": 31,
+            "core": "espresso",
+            "highlight": "very strong coffee",
+            "phonetic": "언 에스프레쏘 이즈 | 어 스몰 어마운트 | 오브 베리 스트롱 카피.",
+            "translations": {
+              "ko": {
+                "text": "에스프레소는 | 소량이에요 | 매우 진한 커피의.",
+                "highlight": "매우 진한 커피"
+              }
+            }
+          },
+          {
+            "en": "This small amount | is called a shot.",
+            "start": 31,
+            "end": 33.9,
+            "core": "shot",
+            "highlight": "called a shot",
+            "phonetic": "디스 스몰 어마운트 | 이즈 콜드 어 샷.",
+            "translations": {
+              "ko": {
+                "text": "이 소량은 | 샷이라고 불려요.",
+                "highlight": "샷이라고"
+              }
+            }
+          },
+          {
+            "en": "This espresso is then drunk | on its own | or mixed in different ways | to make the different coffee drinks.",
+            "start": 33.9,
+            "end": 39.8,
+            "core": "mixed",
+            "highlight": "mixed in different ways",
+            "phonetic": "디스 에스프레쏘 이즈 덴 드렁크 | 온 잇츠 오운 | 오어 믹스트 인 디퍼런트 웨이즈 | 투 메이크 더 디퍼런트 카피 드링크스.",
+            "translations": {
+              "ko": {
+                "text": "이 에스프레소는 그 다음 마셔져요 | 단독으로 | 또는 다양한 방법으로 섞여서 | 다양한 커피 음료를 만들기 위해.",
+                "highlight": "다양한 방법으로 섞여서"
+              }
+            }
+          },
+          {
+            "en": "Here are | some of the most common.",
+            "start": 39.8,
+            "end": 42.1,
+            "core": "common",
+            "highlight": "most common",
+            "phonetic": "히어 아 | 썸 오브 더 모스트 커먼.",
+            "translations": {
+              "ko": {
+                "text": "여기 있어요 | 가장 흔한 것들 중 일부가.",
+                "highlight": "가장 흔한"
+              }
+            }
+          }
+        ],
+        "lang": "en",
+        "region": "us",
+        "createdAt": "2026-06-26",
+        "status": "live"
+      }
+    ],
+    "kr": []
+  }
+}
