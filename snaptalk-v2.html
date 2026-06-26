@@ -10411,6 +10411,10 @@ function renderTikTokFeed(){
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid rgba(255,255,255,0.5);pointer-events:none;z-index:5;">▶</div>
       <div style="position:absolute;right:12px;bottom:170px;z-index:15;display:flex;flex-direction:column;gap:18px;align-items:center;">
+        <button class="tiktok-talk" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          <span style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,rgba(167,139,250,0.4),rgba(236,72,153,0.3));border:2px solid #a78bfa;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 0 16px rgba(167,139,250,0.5);">🌎</span>
+          <span style="font-size:11px;font-weight:800;color:#fff;">프리토킹</span>
+        </button>
         <button class="tiktok-like" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
           <span class="tlike-ic" style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">🤍</span>
           <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">찜</span>
@@ -10441,6 +10445,18 @@ function renderTikTokFeed(){
       if(short && typeof startGame === 'function') startGame(short);
     });
   });
+  /* 🌎 프리토킹: 영상 맥락 살려서 바로 AI 대화 */
+  feed.querySelectorAll('.tiktok-talk').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const vid = btn.dataset.vid;
+      const short = vids.find(s => s.id === vid);
+      if(short){
+        S.short = short; /* 영상 맥락 설정 */
+        if(typeof startGame === 'function'){ startGame(short); }
+        setTimeout(function(){ if(typeof openAiChat === 'function') openAiChat(); }, 800);
+      }
+    });
+  });
   /* ═══ 틱톡 전용 네비 4개 (기존 bottomNav 숨기고 이것 표시) ═══ */
   var oldNav = document.getElementById('bottomNav');
   if(oldNav) oldNav.style.display = 'none';
@@ -10453,7 +10469,7 @@ function renderTikTokFeed(){
       <button class="tt-nav" data-tt="home" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#fbbf24;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">🏠</span>홈</button>
       <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">❤️</span>찜한 영상</button>
       <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">📖</span>단어장</button>
-      <button class="tt-nav" data-tt="chat" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">🌎</span>프리토킹</button>
+
     `;
     document.body.appendChild(ttNav);
     /* 프리토킹 → 기존 AI 대화 연결 */
