@@ -10459,7 +10459,7 @@ function renderNotebook(){
  *  메인 피드 · 카테고리 상세 · NOW SHOWING 큐레이션
  * ══════════════════════════════════════════════════════════════════════════ */
 /* ═══ v2 틱톡식 세로 피드 (?tiktok=1 일 때만 작동) ═══ */
-function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); document.body.classList.add('tiktok-active'); /* 틱톡 모드 표시 */ /* 피드 복귀 시 프리토킹 모드 해제 */
+function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); document.body.classList.add('tiktok-active'); var hd=document.getElementById('header'); if(hd) hd.style.display=''; var ct=document.getElementById('contentTabs'); if(ct) ct.style.display=''; /* 피드 복귀 시 헤더 복원 */ /* 틱톡 모드 표시 */ /* 피드 복귀 시 프리토킹 모드 해제 */
   /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
   if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
   const feed = document.getElementById('feedScreen');
