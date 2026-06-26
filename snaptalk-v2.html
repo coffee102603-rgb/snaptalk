@@ -10452,8 +10452,9 @@ function renderTikTokFeed(){
       const short = vids.find(s => s.id === vid);
       if(short){
         S.short = short; /* 영상 맥락 설정 */
-        if(typeof startGame === 'function'){ startGame(short); }
-        setTimeout(function(){ if(typeof openAiChat === 'function') openAiChat(); }, 800);
+        /* 학습 건너뛰고 바로 그 영상 맥락의 AI 대화로! */
+        if(typeof showScreen === 'function') showScreen('player');
+        if(typeof openAiChat === 'function') openAiChat();
       }
     });
   });
