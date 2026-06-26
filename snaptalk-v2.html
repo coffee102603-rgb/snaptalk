@@ -12250,6 +12250,26 @@ function showAiStatus(text){
   });
 })();
 
+/* v2: 타이핑 포커스 시 자동 정리 (카톡식) - 힌트/음성 접고 대화 맨아래로 */
+(function(){
+  document.addEventListener('focusin', function(e){
+    if(e.target && e.target.id==='ftTypeInput'){
+      var hints=document.getElementById('aiChatHints'); if(hints) hints.style.display='none';
+      var micRow=document.querySelector('.ai-chat-mic-row'); if(micRow) micRow.style.display='none';
+      var msgs=document.getElementById('aiChatMessages');
+      if(msgs){ setTimeout(function(){ msgs.scrollTop=msgs.scrollHeight; }, 100); }
+    }
+  });
+  document.addEventListener('focusout', function(e){
+    if(e.target && e.target.id==='ftTypeInput'){
+      setTimeout(function(){
+        var hints=document.getElementById('aiChatHints'); if(hints) hints.style.display='';
+        var micRow=document.querySelector('.ai-chat-mic-row'); if(micRow) micRow.style.display='';
+      }, 200);
+    }
+  });
+})();
+
 async function handleUserMessage(userText){
   if(!userText || !userText.trim()) return;
   
