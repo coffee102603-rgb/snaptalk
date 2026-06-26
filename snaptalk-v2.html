@@ -10515,6 +10515,19 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       db.set('likedVideos', arr);
     });
   });
+  feed.querySelectorAll('.tiktok-like').forEach(function(btn){
+    var vid = btn.dataset.vid;
+    var liked = db.get('likedVideos', []);
+    var ic = btn.querySelector('.tlike-ic');
+    if(liked.indexOf(vid) >= 0 && ic){ ic.textContent='❤️'; ic.style.background='rgba(236,72,153,0.25)'; ic.style.borderColor='#ec4899'; }
+    btn.addEventListener('click', function(){
+      var arr = db.get('likedVideos', []);
+      var i = arr.indexOf(vid);
+      if(i >= 0){ arr.splice(i,1); if(ic){ic.textContent='🤍'; ic.style.background='rgba(0,0,0,0.4)'; ic.style.borderColor='rgba(255,255,255,0.2)';} }
+      else { arr.push(vid); if(ic){ic.textContent='❤️'; ic.style.background='rgba(236,72,153,0.25)'; ic.style.borderColor='#ec4899';} }
+      db.set('likedVideos', arr);
+    });
+  });
   feed.querySelectorAll('.tiktok-play').forEach(function(btn){
     btn.addEventListener('click', function(){
       var vid = btn.dataset.vid;
