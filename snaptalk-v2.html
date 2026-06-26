@@ -12212,6 +12212,44 @@ function showAiStatus(text){
 }
 
 /* 사용자 메시지 처리 → AI 응답 요청 */
+/* v2: 타이핑 입력 → handleUserMessage 연결 + 통역 토글 */
+(function(){
+  document.addEventListener('click', function(e){
+    /* 타이핑 전송 */
+    if(e.target && (e.target.id==='ftTypeSend' || (e.target.closest && e.target.closest('#ftTypeSend')))){
+      var inp = document.getElementById('ftTypeInput');
+      if(inp && inp.value.trim() && typeof handleUserMessage==='function'){
+        handleUserMessage(inp.value.trim());
+        inp.value='';
+      }
+    }
+    /* 통역 ON (영어+한글) */
+    if(e.target && e.target.id==='ftTransOn'){
+      window.FT_TRANS = 'on';
+      e.target.style.background='linear-gradient(135deg,#7c3aed,#ec4899)'; e.target.style.color='#fff';
+      var off=document.getElementById('ftTransOff'); if(off){off.style.background='none';off.style.color='#94a3b8';}
+      document.querySelectorAll('.ai-msg-ko, .acm-ko, .msg-ko').forEach(function(k){ k.style.display=''; });
+    }
+    /* 통역 OFF (영어만) */
+    if(e.target && e.target.id==='ftTransOff'){
+      window.FT_TRANS = 'off';
+      e.target.style.background='linear-gradient(135deg,#7c3aed,#ec4899)'; e.target.style.color='#fff';
+      var on=document.getElementById('ftTransOn'); if(on){on.style.background='none';on.style.color='#94a3b8';}
+      document.querySelectorAll('.ai-msg-ko, .acm-ko, .msg-ko').forEach(function(k){ k.style.display='none'; });
+    }
+  });
+  /* 엔터로 전송 */
+  document.addEventListener('keypress', function(e){
+    if(e.target && e.target.id==='ftTypeInput' && e.key==='Enter'){
+      var inp=e.target;
+      if(inp.value.trim() && typeof handleUserMessage==='function'){
+        handleUserMessage(inp.value.trim());
+        inp.value='';
+      }
+    }
+  });
+})();
+
 async function handleUserMessage(userText){
   if(!userText || !userText.trim()) return;
   
