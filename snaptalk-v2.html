@@ -7500,6 +7500,20 @@ body.tiktok-active #dubArea{ overflow-y:auto !important; padding-bottom:80px !im
 body.tiktok-active #shareArea{ overflow-y:auto !important; padding-bottom:84px !important; }
 body.tiktok-active .ai-chat-intro{ padding-bottom:84px !important; }
 body.tiktok-active .ai-chat-messages{ padding-bottom:74px !important; }
+/* ═══ v2 틱톡 모드: playerScreen 스크롤 풀기 (.screen overflow:hidden 무력화) ═══ */
+body.tiktok-active #playerScreen.screen.active{
+  overflow-y:auto !important;
+  height:100dvh !important;
+}
+body.tiktok-active #playerScreen #listenArea,
+body.tiktok-active #playerScreen #dubArea{
+  flex:none !important;
+  overflow:visible !important;
+  padding-bottom:84px !important;
+}
+body.tiktok-active #playerScreen #ytContainer{
+  flex:none !important;
+}
 </style>
 </head>
 <body>
