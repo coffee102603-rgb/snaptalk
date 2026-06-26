@@ -10410,6 +10410,20 @@ function renderTikTokFeed(){
       <div style="position:absolute;inset:0;background-image:url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg'),url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg');background-size:cover;background-position:center;filter:brightness(0.8);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
       <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid rgba(255,255,255,0.5);pointer-events:none;z-index:5;">▶</div>
+      <div style="position:absolute;right:12px;bottom:170px;z-index:15;display:flex;flex-direction:column;gap:18px;align-items:center;">
+        <button class="tiktok-like" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          <span class="tlike-ic" style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">🤍</span>
+          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">찜</span>
+        </button>
+        <button class="tiktok-word" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          <span class="tword-ic" style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">📖</span>
+          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">표현저장</span>
+        </button>
+        <button style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          <span style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">↗️</span>
+          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">공유</span>
+        </button>
+      </div>
       <div style="position:absolute;left:0;right:0;bottom:0;z-index:10;padding:20px 20px 90px;">
         <span style="display:inline-block;background:rgba(251,191,36,0.18);border:1px solid rgba(251,191,36,0.45);color:#fcd34d;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:800;margin-bottom:10px;">${v.catIcon||'🎬'} ${v.cat||''}</span>
         <div style="font-size:20px;font-weight:800;line-height:1.25;margin-bottom:6px;color:#fff;">${v.title||''}</div>
