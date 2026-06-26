@@ -11918,7 +11918,7 @@ function openAiChat(){
   const chipsEl = document.getElementById('aciExpressionsChips');
   if(chipsEl){
     chipsEl.innerHTML = expressions.length > 0
-      ? expressions.map(e => `<span class="aci-exp-chip">${e}</span>`).join('')
+      ? expressions.map(e => `<span class="aci-exp-chip aci-exp-save" data-expr="${e.replace(/"/g,'&quot;')}" style="cursor:pointer;" title="눌러서 단어장 저장">${e} 📒</span>`).join('')
       : '<span class="aci-exp-chip">자유 대화</span>';
   }
   
@@ -11934,6 +11934,29 @@ document.addEventListener('click', e => {
   if(e.target && (e.target.id === 'aciStartBtn' || e.target.closest('#aciStartBtn'))){
     startAiConversation();
   }
+});
+
+/* v2: 핵심표현 칩 클릭 → 단어장 저장 */
+document.addEventListener('click', function(e){
+  var chip = e.target.closest && e.target.closest('.aci-exp-save');
+  if(!chip) return;
+  var expr = chip.dataset.expr;
+  var sents = (S.short && S.short.sentences) || [];
+  var match = sents.find(function(s){ return (s.highlight===expr) || (s.en && s.en.indexOf(expr)>=0); });
+  var nb = db.get('notebook', []);
+  if(nb.some(function(n){ return n.en === (match? match.en : expr); })){
+    chip.innerHTML = expr + ' ✅'; return;
+  }
+  nb.unshift({
+    id: Date.now(), en: match?match.en:expr, ko: match?match.ko:'',
+    highlight: expr, koHighlight: match?match.koHighlight:'',
+    shortTitle: S.short?S.short.title:'', shortId: S.short?S.short.id:'',
+    date: new Date().toISOString(), stage:'seed', sayCount:0, useCount:0, lastReview:null
+  });
+  if(nb.length > 100) nb.pop();
+  db.set('notebook', nb);
+  chip.innerHTML = expr + ' ✅';
+  chip.style.background = 'rgba(251,191,36,0.3)';
 });
 
 async function startAiConversation(){
