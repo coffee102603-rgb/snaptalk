@@ -10530,7 +10530,7 @@ function renderFeed(){
         : '<div class="situation-card-mic">🎤</div>';
     } else {
       const items = shorts.filter(cat.filter);
-      count = items.length;
+      count = items.length; if(count===0) return; /* v10.14: 빈 카테고리 숨김 (틱톡식 단순화) */
       countLabel = count > 0 ? count + ' 편' : '곧 추가!';
       actionEl = count > 0 
         ? '<div class="situation-card-arrow">▶</div>' 
