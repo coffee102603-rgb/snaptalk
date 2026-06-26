@@ -10411,7 +10411,7 @@ function renderTikTokFeed(){
   return true;
 }
 
-function renderFeed(){
+function renderFeed(){ if(renderTikTokFeed()) return; /* v2: ?tiktok=1 이면 틱톡 피드 */
   const feed=document.getElementById('feedScreen');
   const IS_ADMIN = new URLSearchParams(window.location.search).get('admin')==='1';
   const allShorts=SHORTS[S.tab]||[];
