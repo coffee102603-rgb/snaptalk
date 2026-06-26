@@ -12226,6 +12226,7 @@ function showAiStatus(text){
     /* 통역 ON (영어+한글) */
     if(e.target && e.target.id==='ftTransOn'){
       window.FT_TRANS = 'on';
+      var _tb1=document.getElementById('ftTransBar'); if(_tb1) _tb1.style.display='none'; /* 선택 즉시 숨김 */
       e.target.style.background='linear-gradient(135deg,#7c3aed,#ec4899)'; e.target.style.color='#fff';
       var off=document.getElementById('ftTransOff'); if(off){off.style.background='none';off.style.color='#94a3b8';}
       document.querySelectorAll('.ai-msg-ko, .acm-ko, .msg-ko').forEach(function(k){ k.style.display=''; });
@@ -12233,6 +12234,7 @@ function showAiStatus(text){
     /* 통역 OFF (영어만) */
     if(e.target && e.target.id==='ftTransOff'){
       window.FT_TRANS = 'off';
+      var _tb2=document.getElementById('ftTransBar'); if(_tb2) _tb2.style.display='none'; /* 선택 즉시 숨김 */
       e.target.style.background='linear-gradient(135deg,#7c3aed,#ec4899)'; e.target.style.color='#fff';
       var on=document.getElementById('ftTransOn'); if(on){on.style.background='none';on.style.color='#94a3b8';}
       document.querySelectorAll('.ai-msg-ko, .acm-ko, .msg-ko').forEach(function(k){ k.style.display='none'; });
