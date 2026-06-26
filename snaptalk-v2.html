@@ -10399,13 +10399,13 @@ function renderTikTokFeed(){
   const vids = (SHORTS[S.tab]||[]).filter(s => s.status !== 'review');
   if(!vids.length) return false;
   feed.innerHTML = '';
-  feed.style.cssText = 'height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;padding:0;scrollbar-width:none;';
+  feed.classList.add('feed-tiktok-mode'); /* 풀스크린 CSS 적용 */
   vids.forEach((v, i) => {
     const exprs = (v.sentences||[]).slice(0,2).map(s =>
       `<span style="background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.2);padding:6px 11px;border-radius:13px;font-size:13px;font-weight:700;display:inline-block;margin:3px 3px 0 0;">${s.highlight||s.core||''}<span style="color:#94a3b8;font-size:11px;margin-left:4px;">${(s.translations&&s.translations.ko&&s.translations.ko.highlight)||''}</span></span>`
     ).join('');
     const slide = document.createElement('div');
-    slide.style.cssText = 'height:100dvh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;';
+    slide.className = 'tiktok-slide';
     slide.innerHTML = `
       <div style="position:absolute;inset:0;background-image:url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg'),url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg');background-size:cover;background-position:center;filter:brightness(0.8);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
