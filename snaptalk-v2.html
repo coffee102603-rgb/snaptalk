@@ -7437,6 +7437,14 @@ body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !imp
 
 /* ═══════════════════════════════════════ */
 /* ═══ v2 틱톡 전용 CSS (기존 feedScreen 덮어쓰기) ═══ */
+/* ═══ 프리토킹 모드: 학습 잔재 숨김 (모바일 깔끔) ═══ */
+body.freetalk-mode .player-top,
+body.freetalk-mode #stepBanner,
+body.freetalk-mode #ytContainer,
+body.freetalk-mode #rightPanel,
+body.freetalk-mode #stepIndicator{
+  display:none !important;
+}
 #feedScreen.feed-tiktok-mode.active{
   height:100dvh !important;
   overflow-y:scroll !important;
@@ -10392,7 +10400,7 @@ function renderNotebook(){
  *  메인 피드 · 카테고리 상세 · NOW SHOWING 큐레이션
  * ══════════════════════════════════════════════════════════════════════════ */
 /* ═══ v2 틱톡식 세로 피드 (?tiktok=1 일 때만 작동) ═══ */
-function renderTikTokFeed(){
+function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); /* 피드 복귀 시 프리토킹 모드 해제 */
   /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
   if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
   const feed = document.getElementById('feedScreen');
@@ -10455,15 +10463,8 @@ function renderTikTokFeed(){
         /* 학습 건너뛰고 바로 그 영상 맥락의 AI 대화로! */
         if(typeof showScreen === 'function') showScreen('player');
         if(typeof openAiChat === 'function') openAiChat();
-        /* 프리토킹: 영상 영역 숨기고 대화에 집중 (방향 B) */
-        setTimeout(function(){
-          var pt = document.querySelector('#playerScreen .player-top');
-          if(pt) pt.style.display = 'none';
-          ['ytContainer','stepBanner','rightPanel'].forEach(function(id){
-            var el = document.getElementById(id);
-            if(el) el.style.display = 'none';
-          });
-        }, 50);
+        /* 프리토킹: body에 클래스 추가 → CSS로 잔재 원천 차단 (방향 B) */
+        document.body.classList.add('freetalk-mode');
       }
     });
   });
