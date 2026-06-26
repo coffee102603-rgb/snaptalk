@@ -7436,6 +7436,26 @@ mark.snap-hl-en,mark.snap-hl-ko{color:inherit}
 body.cinema-mode{background:linear-gradient(180deg,#0a0a0f 0%,#15151f 100%) !important}
 
 /* ═══════════════════════════════════════ */
+/* ═══ v2 틱톡 전용 CSS (기존 feedScreen 덮어쓰기) ═══ */
+#feedScreen.feed-tiktok-mode{
+  height:100dvh !important;
+  overflow-y:scroll !important;
+  scroll-snap-type:y mandatory !important;
+  padding:0 !important;
+  gap:0 !important;
+  display:block !important;
+}
+#feedScreen.feed-tiktok-mode::-webkit-scrollbar{display:none !important;}
+.tiktok-slide{
+  height:100dvh !important;
+  scroll-snap-align:start !important;
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  margin:0 !important;padding:0 !important;
+}
 </style>
 </head>
 <body>
