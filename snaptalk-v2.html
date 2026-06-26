@@ -12263,7 +12263,6 @@ function showAiStatus(text){
   document.addEventListener('focusout', function(e){
     if(e.target && e.target.id==='ftTypeInput'){
       setTimeout(function(){
-        var trans=document.getElementById('ftTransBar'); if(trans) trans.style.display='';
         var micRow=document.querySelector('.ai-chat-mic-row'); if(micRow) micRow.style.display='';
       }, 200);
     }
