@@ -14146,6 +14146,7 @@ function speak(text,lang='en-US'){if(!('speechSynthesis'in window))return;window
  * Steps: 0=Listen, 1=Shadow, 2=Dub, 3=Share
  * ═══════════════════════════════════════ */
 function startGame(short){
+  if(document.body.classList.contains('tiktok-active')){ var _hd=document.getElementById('header'); if(_hd)_hd.style.display='none'; var _ct=document.getElementById('contentTabs'); if(_ct)_ct.style.display='none'; var _tn=document.getElementById('tiktokNav'); if(_tn)_tn.style.display='none'; }
   S.short=short;S.gameStep=0;
   S.listenCount=1;S.understand=10;S.shownHints=[];
   S.shadowIdx=0;S.syncScore=0;S.dubAttempts=0;
