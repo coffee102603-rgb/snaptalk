@@ -10593,10 +10593,7 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
     `;
     document.body.appendChild(ttNav);
     /* 프리토킹 → 기존 AI 대화 연결 */
-    ttNav.querySelector('[data-tt="chat"]').addEventListener('click', function(){
-      if(typeof openAiChat === 'function'){ showScreen('player'); openAiChat(); }
-      else alert('프리토킹 준비 중!');
-    });
+
     ttNav.querySelector('[data-tt="saved"]').addEventListener('click', function(){ openSavedVideos(); });
     ttNav.querySelector('[data-tt="vocab"]').addEventListener('click', function(){ alert('📖 단어장 (다음 단계에서 연결)'); });
     ttNav.querySelector('[data-tt="home"]').addEventListener('click', function(){ window.scrollTo(0,0); document.getElementById('feedScreen').scrollTo(0,0); });
