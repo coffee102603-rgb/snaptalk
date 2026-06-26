@@ -12453,7 +12453,7 @@ document.addEventListener('click', e => {
   if(e.target && (e.target.id === 'aiChatBack' || e.target.closest('#aiChatBack'))){
     ['ytContainer','stepBanner','rightPanel','stepIndicator'].forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display='none'; }); var ptop=document.querySelector('#playerScreen .player-top'); if(ptop) ptop.style.display='none'; const chat = document.getElementById('aiChatArea');
     if(chat) chat.style.display = 'none';
-    showLobbyHub();
+    if(document.body.classList.contains('tiktok-active')){ if(typeof showScreen==='function') showScreen('feed'); if(typeof renderFeed==='function') renderFeed(); } else { showLobbyHub(); }
   }
   if(e.target && (e.target.id === 'aiChatHome' || e.target.closest('#aiChatHome'))){
     goHome();
