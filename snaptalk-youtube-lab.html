@@ -14526,7 +14526,24 @@ function renderShadow(){
     if(saveIcon)saveIcon.textContent='📒';
   }
 
-  speak(s.en);
+  /* v10.14: TTS 대신 원본 영상 목소리로 재생 (쌤 아이디어!) */
+  if(shadowPlayer){
+    try{
+      shadowPlayer.unMute();
+      shadowPlayer.seekTo(s.start,true);
+      shadowPlayer.playVideo();
+      var _segdur=(s.end-s.start)*1000;
+      setTimeout(function(){
+        if(!shadowPlayer)return;
+        try{
+          shadowPlayer.pauseVideo();
+          shadowPlayer.mute();
+          var _cap=(typeof s.captureAt==='number')?s.captureAt:(s.start+s.end)/2;
+          shadowPlayer.seekTo(_cap,true);
+        }catch(err){}
+      },_segdur+200);
+    }catch(err){ speak(s.en); }
+  }else{ speak(s.en); }
 }
 
 /* ▶ Play button on moment card — replay the full sentence clip with sound */
