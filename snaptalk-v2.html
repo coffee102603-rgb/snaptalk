@@ -14815,6 +14815,23 @@ document.getElementById('shadowReplayBtn').addEventListener('click',()=>{
 });
 
 /* v8.8: 티켓 카드 저장 버튼 (쌤 철학: 필기 감각!) */
+/* v2: 보이는 저장 버튼 → 기존 저장 로직 연결 */
+document.addEventListener('click', function(e){
+  if(e.target && e.target.closest && e.target.closest('#shadowSaveVisible')){
+    var realBtn = document.getElementById('shadowSave');
+    if(realBtn){
+      realBtn.click();
+      /* 시각 피드백 동기화 */
+      var vis = document.getElementById('shadowSaveVisible');
+      var icon = vis.querySelector('.ticket-save-icon');
+      var text = vis.querySelector('.ticket-save-text');
+      setTimeout(function(){
+        if(icon) icon.textContent='✅';
+        if(text) text.textContent='저장됨';
+      }, 50);
+    }
+  }
+});
 document.getElementById('shadowSave').addEventListener('click',()=>{
   const s=S.short.sentences[S.shadowIdx];
   if(!s.highlight){alert('이 문장은 저장할 수 없어요 (핵심 표현이 없음)');return}
