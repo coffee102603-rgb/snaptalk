@@ -11403,7 +11403,7 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
   /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
   if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
   const feed = document.getElementById('feedScreen');
-  const vids = (SHORTS[S.tab]||[]).filter(s => s.status !== 'review').slice().reverse();
+  let vids=(window._feedOrder=window._feedOrder||{})[S.tab]||(window._feedOrder[S.tab]=(function(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;})((SHORTS[S.tab]||[]).filter(function(s){return s.status!=='review';}).slice()));
   if(!vids.length) return false;
   feed.innerHTML = '';
   feed.classList.add('feed-tiktok-mode'); /* 풀스크린 CSS 적용 */
