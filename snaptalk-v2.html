@@ -13105,7 +13105,7 @@ function startAiListening(){
   const rec = new SpeechRec();
   rec.lang = 'en-US';
   rec.interimResults = false;
-  rec.maxAlternatives = 3;
+  rec.maxAlternatives = 1;
   rec.continuous = false;
   
   rec.onstart = () => {
