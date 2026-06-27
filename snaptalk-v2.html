@@ -14555,7 +14555,7 @@ function startGame(short){
   document.getElementById('ytContainer').classList.remove('pip');
   updateDots(0);
   /* Show audio activation gate — user must tap to enable sound on mobile */
-  showAudioGate(short);
+  activateAudioAndStart(); /* v2: CINEMA gate 건너뛰고 바로 학습 (따라하기 시작 탭이 오디오 unlock 겸함) */
 }
 
 /* Audio activation gate — required for iOS/Android sound policies */
