@@ -13010,9 +13010,8 @@ async function startAiConversation(){
     ).join('');
   }
   
-  /* AI 첫 인사 (TTS) */
-  addMessage('bot', scenario.opener, scenario.openerKo);
-  speakAi(scenario.opener);
+  /* AI 첫 인사 — 영상 기반 생성 (v2) */
+  generateVideoOpener(S.short, scenario);
 }
 
 /* 메시지 추가 (화면 + 상태) */
@@ -13256,6 +13255,44 @@ function showAiStatus(text){
     }
   });
 })();
+
+async function generateVideoOpener(shortData, scenario){
+  var keyExpr = extractKeyExpressions(shortData, 6);
+  var title = (shortData && shortData.title) || '';
+  var firstSent = (shortData && shortData.sentences && shortData.sentences[0] && shortData.sentences[0].en) || '';
+  showThinking();
+  try {
+    var sys = 'You are '+scenario.roleAi+', chatting with a Korean English learner who just watched a short video.\n'
+      + 'Video title: "'+title+'"\n'
+      + 'Video opening line: "'+firstSent+'"\n'
+      + 'Key expressions from the video: '+keyExpr.join(', ')+'\n\n'
+      + 'Generate ONE short, warm opener (max 15 words) that starts a friendly conversation DIRECTLY about the video topic, naturally using one of the key expressions. Make the learner want to talk about what they just watched.\n'
+      + 'Respond ONLY with JSON, no markdown: {"en":"<english opener>","ko":"<natural korean translation>"}';
+    var res = await fetch('https://snaptalk-api-two.vercel.app/api/chat', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ system: sys, messages:[{role:'user',content:'Start the conversation about the video.'}], maxTokens: 150 })
+    });
+    hideThinking();
+    var en = scenario.opener, ko = scenario.openerKo;
+    if(res.ok){
+      var data = await res.json();
+      var txt = data.response || data.message || data.content || '';
+      try {
+        var clean = txt.replace(/```json/g,'').replace(/```/g,'').trim();
+        var j = JSON.parse(clean);
+        if(j.en) en = j.en;
+        if(j.ko) ko = j.ko;
+      } catch(e){ if(txt && txt.length < 200) en = txt.trim(); }
+    }
+    addMessage('bot', en, ko);
+    speakAi(en);
+  } catch(e){
+    hideThinking();
+    addMessage('bot', scenario.opener, scenario.openerKo);
+    speakAi(scenario.opener);
+  }
+}
+
 
 async function handleUserMessage(userText){
   if(!userText || !userText.trim()) return;
