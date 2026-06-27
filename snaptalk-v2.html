@@ -10753,7 +10753,7 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
   /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
   if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
   const feed = document.getElementById('feedScreen');
-  const vids = (SHORTS[S.tab]||[]).filter(s => s.status !== 'review');
+  const vids = (SHORTS[S.tab]||[]).filter(s => s.status !== 'review').slice().reverse();
   if(!vids.length) return false;
   feed.innerHTML = '';
   feed.classList.add('feed-tiktok-mode'); /* 풀스크린 CSS 적용 */
