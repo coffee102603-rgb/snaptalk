@@ -12826,23 +12826,16 @@ function finishAiChat(){
   CONVERSATION_STATE.active = false;
   stopAiListening();
   try { speechSynthesis.cancel(); } catch(e){}
-  
-  document.getElementById('aiChatInputArea').style.display = 'none';
-  document.getElementById('aiChatMessages').style.display = 'none';
-  
-  const result = document.getElementById('aiChatResult');
-  result.style.display = 'flex';
-  
-  const userTurns = CONVERSATION_STATE.messages.filter(m => m.role === 'user').length;
-  const totalWords = CONVERSATION_STATE.messages
-    .filter(m => m.role === 'user')
-    .reduce((sum, m) => sum + (m.text.split(/\s+/).length), 0);
-  
-  document.getElementById('acrStats').innerHTML = `
-    <span class="acr-stat">💬 <b>${userTurns}</b>번 대화</span>
-    <span class="acr-stat">📝 <b>${totalWords}</b>단어</span>
-    <span class="acr-stat">🎯 <b>${CONVERSATION_STATE.scenario.emoji} ${CONVERSATION_STATE.scenario.label}</b></span>
-  `;
+  /* v2: 완료 화면 건너뛰고 바로 메인 피드로 */
+  var chat = document.getElementById('aiChatArea');
+  if(chat) chat.style.display = 'none';
+  document.body.classList.remove('freetalk-mode');
+  if(document.body.classList.contains('tiktok-active')){
+    if(typeof showScreen==='function') showScreen('feed');
+    if(typeof renderFeed==='function') renderFeed();
+  } else {
+    if(typeof showLobbyHub==='function') showLobbyHub();
+  }
 }
 
 /* 결과 버튼들 */
