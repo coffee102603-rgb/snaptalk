@@ -5622,10 +5622,10 @@ mark.snap-hl-en,mark.snap-hl-ko{color:inherit}
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
-  border-bottom: 1px solid rgba(34,211,238,0.15);
+  padding: 14px 14px;
+  border-bottom: 1px solid rgba(34,211,238,0.2);
   flex-shrink: 0;
-  background: rgba(0,0,0,0.3);
+  background: linear-gradient(180deg,rgba(34,211,238,0.08),rgba(0,0,0,0.3));
 }
 .ai-chat-back, .ai-chat-home{
   padding: 6px 10px;
@@ -5650,11 +5650,14 @@ mark.snap-hl-en,mark.snap-hl-ko{color:inherit}
   gap: 2px;
 }
 .ai-chat-title{
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 900;
-  color: #22d3ee;
-  letter-spacing: 0.5px;
-  text-shadow: 0 0 10px rgba(34,211,238,0.5);
+  background: linear-gradient(135deg,#22d3ee,#a78bfa,#ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.3px;
+  filter: drop-shadow(0 0 14px rgba(34,211,238,0.45));
 }
 .ai-chat-scenario{
   font-size: 11px;
@@ -10818,7 +10821,7 @@ var CAT_COLORS = {
   fun:            { c1:'#f87171', c2:'#ef4444', light:'#fca5a5', glow:'248,113,113', bg1:'#3d1818', bg2:'#1f0a0a' }
 };
 function catColor(cat){ return CAT_COLORS[cat] || CAT_COLORS.people; }
-function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); document.body.classList.add('tiktok-active'); var hd=document.getElementById('header'); if(hd) hd.style.display=''; var ct=document.getElementById('contentTabs'); if(ct) ct.style.display=''; /* 피드 복귀 시 헤더 복원 */ /* 틱톡 모드 표시 */ /* 피드 복귀 시 프리토킹 모드 해제 */
+function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); document.body.classList.add('tiktok-active'); var hd=document.getElementById('header'); if(hd) hd.style.display=''; var ct=document.getElementById('contentTabs'); if(ct) ct.style.display=''; var ctab=document.getElementById('catTabs'); if(ctab) ctab.style.display=''; /* 피드 복귀 시 헤더 복원 */ /* 틱톡 모드 표시 */ /* 피드 복귀 시 프리토킹 모드 해제 */
   /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
   if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
   const feed = document.getElementById('feedScreen');
@@ -12330,7 +12333,7 @@ function openAiChat(){
     if(el) el.style.display = 'none';
   });
   
-  ['ytContainer','stepBanner','rightPanel','stepIndicator'].forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display='none'; }); var ptop=document.querySelector('#playerScreen .player-top'); if(ptop) ptop.style.display='none'; const chat = document.getElementById('aiChatArea');
+  ['ytContainer','stepBanner','rightPanel','stepIndicator'].forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display='none'; }); var ptop=document.querySelector('#playerScreen .player-top'); if(ptop) ptop.style.display='none'; /* 프리토킹: 상단 헤더/탭 숨김 */ ['header','contentTabs','catTabs'].forEach(function(id){ var el=document.getElementById(id); if(el) el.style.display='none'; }); document.body.classList.add('freetalk-mode'); const chat = document.getElementById('aiChatArea');
   if(chat) chat.style.display = 'flex';
   
   /* 현재 영상 카테고리로 시나리오 선정 */
