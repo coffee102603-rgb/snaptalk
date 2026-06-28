@@ -15310,8 +15310,8 @@ function renderShadowSync(){
   pctEl.textContent=pct+'%';
   fill.style.width=pct+'%';
   pctEl.classList.remove('mid','high');
-  if(pct>=70)pctEl.classList.add('high');
-  else if(pct>=40)pctEl.classList.add('mid');
+  if(pct>=50)pctEl.classList.add('high');
+  else if(pct>=30)pctEl.classList.add('mid');
 }
 
 /* Listen again */
@@ -15379,13 +15379,16 @@ document.getElementById('shadowMic').addEventListener('click',async()=>{
       clearInterval(shadowInterval);shadowInterval=null;
       renderShadowSync();
 
-      if(S.shadowSync>=90){
-        document.getElementById('shadowHint').textContent='🎉 완벽! 다음 문장으로...';
-        setTimeout(()=>{S.shadowIdx++;renderShadow()},1200);
+      if(S.shadowSync>=50){
+        var _msg = S.shadowSync>=80 ? '🌟 훌륭해요! ' : (S.shadowSync>=65 ? '👍 좋아요! ' : '✅ 통과! ');
+        document.getElementById('shadowHint').textContent = _msg + S.shadowSync + '점 · 녹음 저장됨!';
+        if(!S.shadowRecordings) S.shadowRecordings = {};
+        S.shadowRecordings[S.shadowIdx] = S.shadowSync;
+        setTimeout(()=>{S.shadowIdx++;renderShadow()},1400);
       }else if(voiceSamples<5){
-        document.getElementById('shadowHint').textContent=`🔇 목소리가 안 들려요. 마이크 확인하고 크게 말해봐!`;
+        document.getElementById('shadowHint').textContent='🔇 목소리가 안 들려요. 크게 말해봐!';
       }else{
-        document.getElementById('shadowHint').textContent=`🔁 ${S.shadowSync}% — 한 번 더! (${S.shadowAttempts}번째)`;
+        document.getElementById('shadowHint').textContent='🔁 '+S.shadowSync+'점 — 50점까지 조금만 더! ('+S.shadowAttempts+'번째)';
       }
     }
   },100);
