@@ -10804,6 +10804,16 @@ function openSavedVideos(){
   });
 }
 
+var CAT_COLORS = {
+  travel_english: { c1:'#38bdf8', c2:'#0ea5e9', light:'#7dd3fc', glow:'56,189,248', bg1:'#13344a', bg2:'#0a1820' },
+  food:           { c1:'#fb923c', c2:'#f59e0b', light:'#fdba74', glow:'251,146,60', bg1:'#3d2614', bg2:'#1f140a' },
+  home:           { c1:'#3ddc84', c2:'#10b981', light:'#6ee7b7', glow:'61,220,132', bg1:'#13402c', bg2:'#0a1f16' },
+  places:         { c1:'#a78bfa', c2:'#8b5cf6', light:'#c4b5fd', glow:'167,139,250', bg1:'#2d1f47', bg2:'#16101f' },
+  shopping:       { c1:'#f472b6', c2:'#ec4899', light:'#f9a8d4', glow:'244,114,182', bg1:'#3d1a2e', bg2:'#1f0d18' },
+  people:         { c1:'#fbbf24', c2:'#f59e0b', light:'#fcd34d', glow:'251,191,36', bg1:'#3d3018', bg2:'#1f180a' },
+  fun:            { c1:'#f87171', c2:'#ef4444', light:'#fca5a5', glow:'248,113,113', bg1:'#3d1818', bg2:'#1f0a0a' }
+};
+function catColor(cat){ return CAT_COLORS[cat] || CAT_COLORS.people; }
 function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); document.body.classList.add('tiktok-active'); var hd=document.getElementById('header'); if(hd) hd.style.display=''; var ct=document.getElementById('contentTabs'); if(ct) ct.style.display=''; /* 피드 복귀 시 헤더 복원 */ /* 틱톡 모드 표시 */ /* 피드 복귀 시 프리토킹 모드 해제 */
   /* 토글: ?tiktok=1 일 때만 켜짐 (안전장치) */
   if(new URLSearchParams(location.search).get('tiktok') !== '1') return false;
@@ -10818,10 +10828,11 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
     ).join('');
     const slide = document.createElement('div');
     slide.className = 'tiktok-slide';
+    var CC = catColor(v.cat);
     slide.innerHTML = `
       <div style="position:absolute;inset:0;background-image:url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg'),url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg');background-size:cover;background-position:center;filter:brightness(0.8);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
-      <div style="position:absolute;top:28%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid rgba(255,255,255,0.6);pointer-events:auto;cursor:pointer;z-index:6;" class="tiktok-play" data-vid="${v.id}">▶</div>
+      <div style="position:absolute;top:28%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid ${CC.light};box-shadow:0 0 26px rgba(${CC.glow},0.6);pointer-events:auto;cursor:pointer;z-index:6;" class="tiktok-play" data-vid="${v.id}">▶</div>
       <div style="position:absolute;right:12px;bottom:200px;z-index:50;display:flex;flex-direction:column;gap:16px;align-items:center;pointer-events:auto;">
         <button class="tiktok-talk" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
           <span style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,rgba(167,139,250,0.4),rgba(236,72,153,0.3));border:2px solid #a78bfa;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 0 16px rgba(167,139,250,0.5);">🌎</span>
@@ -10837,10 +10848,10 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
         </button>
       </div>
       <div style="position:absolute;left:0;right:0;bottom:180px;z-index:10;padding:0 20px;pointer-events:none;">
-        <span style="display:inline-block;background:rgba(251,191,36,0.18);border:1px solid rgba(251,191,36,0.45);color:#fcd34d;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:800;margin-bottom:10px;">${v.catIcon||'🎬'} ${v.cat||''}</span>
+        <span style="display:inline-block;background:linear-gradient(135deg,${CC.c1},${CC.c2});color:#fff;padding:5px 12px;border-radius:14px;font-size:12px;font-weight:800;margin-bottom:10px;box-shadow:0 2px 12px rgba(${CC.glow},0.4);">${v.catIcon||'🎬'} ${v.cat||''}</span>
         <div style="font-size:20px;font-weight:800;line-height:1.25;margin-bottom:6px;color:#fff;">${v.title||''}</div>
         <div style="margin-bottom:14px;">${exprs}</div>
-        <button class="tiktok-start" data-vid="${v.id}" style="background:linear-gradient(135deg,#fbbf24,#fcd34d);color:#1a1206;font-weight:800;font-size:16px;padding:13px 26px;border-radius:16px;border:none;box-shadow:0 6px 20px rgba(251,191,36,0.4);cursor:pointer;pointer-events:auto;">🎬 따라하기 시작</button>
+        <button class="tiktok-start" data-vid="${v.id}" style="background:linear-gradient(135deg,${CC.c1},${CC.c2});color:#fff;font-weight:800;font-size:16px;padding:13px 26px;border-radius:16px;border:none;box-shadow:0 6px 20px rgba(${CC.glow},0.45);cursor:pointer;pointer-events:auto;">🎬 따라하기 시작</button>
       </div>
     `;
     feed.appendChild(slide);
