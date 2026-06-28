@@ -7456,6 +7456,12 @@ body.freetalk-mode #catTabs,
 body.freetalk-mode #aiChatHints{
   display:none !important;
 }
+/* 프리토킹(aiChatArea) 표시 중엔 헤더/탭 무조건 숨김 - body 클래스 무관 */
+body:has(#aiChatArea[style*="flex"]) #header,
+body:has(#aiChatArea[style*="flex"]) #contentTabs,
+body:has(#aiChatArea[style*="flex"]) #catTabs{
+  display:none !important;
+}
 #feedScreen.feed-tiktok-mode.active{
   height:100dvh !important;
   overflow-y:scroll !important;
@@ -14657,9 +14663,9 @@ function speak(text,lang='en-US'){if(!('speechSynthesis'in window))return;window
  * Steps: 0=Listen, 1=Shadow, 2=Dub, 3=Share
  * ═══════════════════════════════════════ */
 function startGame(short){
-  if(document.body.classList.contains('tiktok-active')){ var _hd=document.getElementById('header'); if(_hd)_hd.style.display='none'; var _ct=document.getElementById('contentTabs'); if(_ct)_ct.style.display='none'; var _tn=document.getElementById('tiktokNav'); if(_tn)_tn.style.display='none'; }
+  if(document.body.classList.contains('tiktok-active')){ var _hd=document.getElementById('header'); if(_hd)_hd.style.display='none'; var _ct=document.getElementById('contentTabs'); if(_ct)_ct.style.display='none'; var _ctab=document.getElementById('catTabs'); if(_ctab)_ctab.style.display='none'; var _tn=document.getElementById('tiktokNav'); if(_tn)_tn.style.display='none'; }
   S.short=short;S.gameStep=0;
-  if(document.body.classList.contains('tiktok-active')){ var _hd=document.getElementById('header'); if(_hd)_hd.style.display='none'; var _ct=document.getElementById('contentTabs'); if(_ct)_ct.style.display='none'; var _tn=document.getElementById('tiktokNav'); if(_tn)_tn.style.display='none'; }
+  if(document.body.classList.contains('tiktok-active')){ var _hd=document.getElementById('header'); if(_hd)_hd.style.display='none'; var _ct=document.getElementById('contentTabs'); if(_ct)_ct.style.display='none'; var _ctab=document.getElementById('catTabs'); if(_ctab)_ctab.style.display='none'; var _tn=document.getElementById('tiktokNav'); if(_tn)_tn.style.display='none'; }
   S.listenCount=1;S.understand=10;S.shownHints=[];
   S.shadowIdx=0;S.syncScore=0;S.dubAttempts=0;
   S.lastBooth=null; /* v7.0+: 새 영상이니 부스 선택 리셋 */
