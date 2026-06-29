@@ -19742,6 +19742,19 @@ function _dsOpenCinema() {
   iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
     + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=0';
   title.textContent = DS.short.title || '';
+  try {
+    var _credit = document.getElementById('dsCinemaCredit');
+    if (_credit) {
+      var _ytLink = 'https://www.youtube.com/watch?v=' + DS.short.id;
+      var _channel = DS.short.channelTitle || '';
+      var _isCC = DS.short.license === 'creativeCommon';
+      var _parts = [];
+      if (_channel) _parts.push('📺 원본: ' + _channel);
+      _parts.push('<a href="' + _ytLink + '" target="_blank" rel="noopener" style="color:#7dd3fc;text-decoration:underline;">YouTube에서 보기 ↗</a>');
+      if (_isCC) _parts.push('<span style="opacity:0.8;">CC BY</span>');
+      _credit.innerHTML = _parts.join(' · ');
+    }
+  } catch(e) {}
   /* ⚖️ CC BY 출처 표기 (크레딧) */
   var credit = document.getElementById('dsCinemaCredit');
   if (credit) {
