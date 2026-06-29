@@ -19641,11 +19641,15 @@ function _dsHideMicToast() {
 function _dsOpenStudio() {
   DS.idx = 0;
   document.getElementById('dsStudio').classList.add('ds-active');
+  /* 🎙️ 음성인식 미리 켜두기 (스튜디오 내내 켜둠 → 권한 1번만) */
+  _dsStartContinuousSpeech();
   _dsRenderScene();
 }
 function _dsCloseStudio() {
   _dsStopRec();
   _dsStopVolViz();
+  /* 🎙️ 음성인식 완전 종료 (스튜디오 나갈 때만) */
+  _dsStopContinuousSpeech();
   /* player 정리 */
   if (DS.segmentTimer) { clearInterval(DS.segmentTimer); DS.segmentTimer = null; }
   if (DS.player) {
@@ -19892,7 +19896,9 @@ async function _dsStartRec() {
     DS.recorder = rec;
     DS.chunks   = [];
     DS.recStart = Date.now();
-    DS.recognizedText = '';   /* 음성 인식 결과 초기화 */
+    /* 🎙️ 녹음 시작 = 현재까지 인식된 텍스트를 "기준점"으로 마킹
+       (인식기는 이미 켜져 있음 → 재시작 안 함 → 권한 팝업 없음) */
+    DS.speechBaseline = (DS.speechFullText || '').length;
 
     rec.ondataavailable = function(e) {
       if (e.data && e.data.size > 0) DS.chunks.push(e.data);
@@ -19901,12 +19907,13 @@ async function _dsStartRec() {
       const blob = new Blob(DS.chunks, { type: 'audio/webm' });
       DS.recordings[DS.idx] = blob;
       DS.audioURLs[DS.idx]  = URL.createObjectURL(blob);
-      /* 음성 인식 결과로 점수 계산 (약간의 지연 후 - 인식 완료 대기) */
+      /* 기준점 이후 새로 들린 텍스트만 잘라서 채점 (인식 마무리 대기) */
       setTimeout(function() {
+        DS.recognizedText = (DS.speechFullText || '').substring(DS.speechBaseline).trim();
         _dsScoreBySpeech();
         _dsStopVolViz();
         _dsSetButtons('done');
-      }, 600);
+      }, 700);
     };
 
     rec.start(100);
@@ -19914,8 +19921,7 @@ async function _dsStartRec() {
     _dsSetButtons('recording');
     _dsStartVolViz();
 
-    /* 🎙️ 음성 인식 시작 */
-    _dsStartSpeechRec();
+    /* 음성인식은 이미 켜져 있음 (스튜디오 진입 시 켰음) → 여기선 안 켬! */
 
     /* 최대 10초 자동 정지 */
     DS.autoStopTimer = setTimeout(function() {
@@ -19929,77 +19935,75 @@ async function _dsStartRec() {
 }
 
 /* ── 🎙️ 음성 인식 (Web Speech API) ── */
-/* 음성 인식기를 1개만 만들어 재사용 (권한 팝업 1번만!) */
-function _dsGetRecognizer() {
-  /* 이미 만들어둔 게 있으면 재사용 */
-  if (DS.speechRecog) return DS.speechRecog;
+/* ── 🎙️ 연속 음성 인식 (스튜디오 내내 1번만 켜둠) ── */
+DS.speechFullText = '';      /* 전체 인식 누적 텍스트 */
+DS.speechBaseline = 0;       /* 녹음 시작 시점의 텍스트 길이 */
+DS.speechRecog = null;
+DS.speechActive = false;
+DS.speechSupported = true;
 
+function _dsStartContinuousSpeech() {
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) {
-    DS.speechRecogSupported = false;
-    return null;
-  }
-
-  var recog = new SR();
-  recog.lang = 'en-US';
-  recog.interimResults = true;
-  recog.continuous = true;
-  recog.maxAlternatives = 1;
-
-  recog.onresult = function(e) {
-    var txt = '';
-    for (var i = 0; i < e.results.length; i++) {
-      txt += e.results[i][0].transcript + ' ';
-    }
-    DS.recognizedText = txt.trim();
-  };
-  recog.onerror = function(e) {
-    /* no-speech, aborted 등은 정상 흐름 */
-    if (e.error !== 'no-speech' && e.error !== 'aborted') {
-      console.warn('[DS Speech error]', e.error);
-    }
-  };
-  recog.onend = function() {
-    DS.speechActive = false;
-  };
-
-  DS.speechRecog = recog;
-  DS.speechRecogSupported = true;
-  return recog;
-}
-
-function _dsStartSpeechRec() {
-  DS.recognizedText = '';
-
-  var recog = _dsGetRecognizer();
-  if (!recog) {
-    /* 미지원 → 시간 기반 폴백 */
-    DS.recognizedText = null;
+    DS.speechSupported = false;
+    DS.speechFullText = null;  /* null = 미지원 → 폴백 채점 */
     return;
   }
 
-  /* 이미 돌고 있으면 멈췄다가 다시 (안전) */
+  /* 이미 켜져 있으면 그대로 둠 */
+  if (DS.speechActive && DS.speechRecog) return;
+
   try {
-    if (DS.speechActive) {
-      try { recog.stop(); } catch(e) {}
-    }
+    var recog = new SR();
+    recog.lang = 'en-US';
+    recog.interimResults = true;
+    recog.continuous = true;
+    recog.maxAlternatives = 1;
+
+    DS.speechFullText = '';
+
+    recog.onresult = function(e) {
+      var txt = '';
+      for (var i = 0; i < e.results.length; i++) {
+        txt += e.results[i][0].transcript + ' ';
+      }
+      DS.speechFullText = txt;   /* 전체 누적 */
+    };
+    recog.onerror = function(e) {
+      if (e.error !== 'no-speech' && e.error !== 'aborted') {
+        console.warn('[DS Speech]', e.error);
+      }
+    };
+    recog.onend = function() {
+      /* 안드로이드는 가끔 자동 종료됨 → 스튜디오 켜져있으면 자동 재시작
+         (권한은 이미 받았으므로 재시작해도 팝업 안 뜸) */
+      if (DS.speechActive) {
+        try { recog.start(); } catch(e) {}
+      }
+    };
+
     recog.start();
+    DS.speechRecog = recog;
     DS.speechActive = true;
+    DS.speechSupported = true;
   } catch(err) {
-    /* "already started" 에러는 무시 (이미 켜져있음 = OK) */
-    if (String(err).indexOf('already started') < 0) {
-      console.warn('[DS Speech start]', err);
-    }
+    console.warn('[DS Speech start]', err);
+    DS.speechSupported = false;
+    DS.speechFullText = null;
   }
 }
 
-function _dsStopSpeechRec() {
-  /* 인식기는 파괴하지 않고 stop만! (다음 Scene에서 재사용 → 권한 재요청 안 함) */
-  if (DS.speechRecog && DS.speechActive) {
-    try { DS.speechRecog.stop(); } catch(e) {}
-    DS.speechActive = false;
+function _dsStopContinuousSpeech() {
+  DS.speechActive = false;   /* onend 자동재시작 방지 */
+  if (DS.speechRecog) {
+    try { DS.speechRecog.abort(); } catch(e) {}
+    DS.speechRecog = null;
   }
 }
+
+/* 기존 함수 호환용 (호출돼도 무해) */
+function _dsStartSpeechRec() { /* 연속 인식이 대체함 - 아무것도 안 함 */ }
+function _dsStopSpeechRec() { /* 연속 인식이 대체함 - 아무것도 안 함 */ }
 
 /* ── 점수 계산: 인식 텍스트 ↔ 원본 단어 비교 ── */
 function _dsScoreBySpeech() {
@@ -20008,7 +20012,7 @@ function _dsScoreBySpeech() {
   var said = DS.recognizedText;
 
   /* 음성 인식 미지원 → 시간 기반 폴백 (관대하게) */
-  if (said === null) {
+  if (said === null || DS.speechSupported === false) {
     var dur = (Date.now() - DS.recStart) / 1000;
     DS.scores[DS.idx] = dur >= 0.5 ? 70 : 20;
     return;
