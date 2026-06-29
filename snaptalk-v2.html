@@ -8558,6 +8558,122 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   white-space: nowrap;
 }
 
+
+/* ═══ 🎭 영화 시사회 커튼 ═══ */
+.dsp-curtain {
+  position: absolute; inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+.dsp-curtain.curtain-done { display: none; }
+
+/* 좌우 커튼 패널 (벨벳 느낌) */
+.dsp-curtain-left, .dsp-curtain-right {
+  position: absolute; top: 0; bottom: 0;
+  width: 52%;
+  background:
+    repeating-linear-gradient(90deg,
+      #1a0508 0px, #2d0a0f 14px, #1a0508 28px),
+    linear-gradient(180deg, #2d0a0f, #0a0203);
+  box-shadow: inset 0 0 60px rgba(0,0,0,.8);
+}
+.dsp-curtain-left {
+  left: 0;
+  border-right: 2px solid rgba(180,140,60,.25);
+}
+.dsp-curtain-right {
+  right: 0;
+  border-left: 2px solid rgba(180,140,60,.25);
+}
+
+/* 마퀴 텍스트 (커튼 위 글씨) */
+.dsp-curtain-marquee {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 11;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  text-align: center;
+  transition: opacity .4s;
+}
+.dsp-marquee-text {
+  font-size: 22px; font-weight: 900;
+  color: #f7c948;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(247,201,72,.6);
+  animation: dsp-marquee-glow 1.2s ease infinite;
+}
+.dsp-marquee-sub {
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,.7);
+}
+@keyframes dsp-marquee-glow {
+  0%,100% { opacity: .7; }
+  50%     { opacity: 1; text-shadow: 0 0 28px rgba(247,201,72,.9); }
+}
+
+/* ── 연출 ① 좌우 분리 ── */
+.dsp-curtain.open-split .dsp-curtain-left  { animation: curtain-split-l 1.6s cubic-bezier(.7,0,.3,1) forwards; }
+.dsp-curtain.open-split .dsp-curtain-right { animation: curtain-split-r 1.6s cubic-bezier(.7,0,.3,1) forwards; }
+.dsp-curtain.open-split .dsp-curtain-marquee { animation: dsp-fade-out .6s forwards; }
+@keyframes curtain-split-l { to { transform: translateX(-102%); } }
+@keyframes curtain-split-r { to { transform: translateX(102%); } }
+
+/* ── 연출 ② 밑에서 위로 ── */
+.dsp-curtain.open-up .dsp-curtain-left,
+.dsp-curtain.open-up .dsp-curtain-right {
+  width: 100%; left: 0; right: 0;
+}
+.dsp-curtain.open-up .dsp-curtain-right { display: none; }
+.dsp-curtain.open-up .dsp-curtain-left  { animation: curtain-up 1.6s cubic-bezier(.7,0,.3,1) forwards; }
+.dsp-curtain.open-up .dsp-curtain-marquee { animation: dsp-fade-out .6s forwards; }
+@keyframes curtain-up { to { transform: translateY(-102%); } }
+
+/* ── 연출 ③ 줌아웃 (큰 화면 → 살짝 작아지며 등장) ── */
+.dsp-curtain.open-zoomout { animation: curtain-zoomout 1.4s cubic-bezier(.5,0,.2,1) forwards; }
+@keyframes curtain-zoomout {
+  0%   { opacity: 1; transform: scale(1.15); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+/* ── 연출 ④ 줌인 (작은 화면 → 점점 커지며 등장) ── */
+.dsp-curtain.open-zoomin { animation: curtain-zoomin 1.4s cubic-bezier(.4,0,.2,1) forwards; }
+@keyframes curtain-zoomin {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* 줌인은 영상 프레임에 효과 */
+#dsPremiereFrame.zoomin-effect {
+  animation: frame-zoomin 1.4s cubic-bezier(.34,1.2,.4,1) forwards;
+}
+@keyframes frame-zoomin {
+  0%   { transform: scale(.4); opacity: .3; border-radius: 24px; }
+  100% { transform: scale(1); opacity: 1; border-radius: 0; }
+}
+
+/* 줌아웃도 프레임 효과 */
+#dsPremiereFrame.zoomout-effect {
+  animation: frame-zoomout 1.4s cubic-bezier(.34,1.1,.5,1) forwards;
+}
+@keyframes frame-zoomout {
+  0%   { transform: scale(1.25); opacity: .4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes dsp-fade-out { to { opacity: 0; } }
+
+/* 완성 배지 처음엔 숨김 (영상 먼저, 나중에 등장) */
+.dsp-overlay.hidden-until-end .dsp-complete,
+.dsp-overlay.hidden-until-end .dsp-actions {
+  opacity: 0;
+  pointer-events: none;
+}
+.dsp-overlay .dsp-complete,
+.dsp-overlay .dsp-actions {
+  transition: opacity .6s ease;
+}
+
 </style>
 </head>
 <body>
@@ -19540,6 +19656,17 @@ window.openDubbingRoom = openDubbingRoom;
   <div id="dsPremiereFrame">
     <iframe id="dsPremiereIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
   </div>
+
+  <!-- 🎭 영화 커튼 (랜덤 오프닝 연출) -->
+  <div class="dsp-curtain" id="dspCurtain">
+    <div class="dsp-curtain-left" id="dspCurtainL"></div>
+    <div class="dsp-curtain-right" id="dspCurtainR"></div>
+    <div class="dsp-curtain-marquee" id="dspCurtainMarquee">
+      <span class="dsp-marquee-text">🎬 NOW SHOWING 🎬</span>
+      <span class="dsp-marquee-sub">내 목소리로 완성한 영화</span>
+    </div>
+  </div>
+
   <!-- ✨ 하이라이트 별 파티클 (영상 위에 반짝) -->
   <div class="dsp-stars" id="dspStars"></div>
 
@@ -20246,18 +20373,67 @@ function _dsOpenPremiere() {
 
   document.getElementById('dsPremiere').classList.add('ds-active');
 
-  /* 내 녹음 재생 (각 sentence.start 시간에 맞춰) */
-  DS.sentences.forEach(function(s, i) {
-    if (!DS.audioURLs[i]) return;
-    const delay = Math.max(0, (s.start || 0) * 1000);
-    setTimeout(function() {
-      new Audio(DS.audioURLs[i]).play().catch(function(){});
-    }, delay);
-  });
+  /* 🎭 커튼 오프닝 연출 (랜덤 4종) */
+  _dsPlayCurtainOpening(function() {
+    /* 커튼 열린 후 → 내 녹음 재생 */
+    DS.sentences.forEach(function(s, i) {
+      if (!DS.audioURLs[i]) return;
+      const delay = Math.max(0, (s.start || 0) * 1000);
+      DS.premiereTimers = DS.premiereTimers || [];
+      DS.premiereTimers.push(setTimeout(function() {
+        new Audio(DS.audioURLs[i]).play().catch(function(){});
+      }, delay));
+    });
 
-  /* ✨ 완성 연출 */
-  _dsPlayCompleteAnimation(recCnt, total);
+    /* 영상 끝날 무렵 완성 배지 + 별 등장 */
+    var lastS = DS.sentences[DS.sentences.length - 1];
+    var endMs = lastS ? Math.max(3000, (lastS.end || 5) * 1000) : 5000;
+    DS.premiereTimers = DS.premiereTimers || [];
+    DS.premiereTimers.push(setTimeout(function() {
+      var ov = document.querySelector('#dsPremiere .dsp-overlay');
+      if (ov) ov.classList.remove('hidden-until-end');
+      _dsPlayCompleteAnimation(recCnt, total);
+    }, endMs + 500));
+  });
 }
+
+
+/* ── 🎭 커튼 오프닝 (랜덤 4종) ── */
+function _dsPlayCurtainOpening(onOpen) {
+  var curtain = document.getElementById('dspCurtain');
+  var frame   = document.getElementById('dsPremiereFrame');
+  var overlay = document.querySelector('#dsPremiere .dsp-overlay');
+
+  /* 완성 배지는 영상 끝날 때까지 숨김 */
+  if (overlay) overlay.classList.add('hidden-until-end');
+
+  if (!curtain) { if (onOpen) onOpen(); return; }
+
+  /* 커튼 초기화 */
+  curtain.className = 'dsp-curtain';
+  curtain.style.display = 'block';
+  if (frame) frame.className = '';
+  /* 강제 리플로우로 애니메이션 리셋 */
+  void curtain.offsetWidth;
+
+  /* 랜덤 연출 선택 */
+  var styles = ['open-split', 'open-up', 'open-zoomout', 'open-zoomin'];
+  var pick = styles[Math.floor(Math.random() * styles.length)];
+
+  /* 짧은 마퀴 노출 후 커튼 열기 */
+  setTimeout(function() {
+    curtain.classList.add(pick);
+    if (pick === 'open-zoomin' && frame) frame.classList.add('zoomin-effect');
+    if (pick === 'open-zoomout' && frame) frame.classList.add('zoomout-effect');
+
+    /* 커튼 애니메이션 끝나면 숨기고 콜백 */
+    setTimeout(function() {
+      curtain.classList.add('curtain-done');
+      if (onOpen) onOpen();
+    }, 1700);
+  }, 700);  /* 마퀴 0.7초 보여주고 시작 */
+}
+window._dsPlayCurtainOpening = _dsPlayCurtainOpening;
 
 /* ── 🎬 완성 애니메이션 (별 + 격려) ── */
 function _dsPlayCompleteAnimation(recCnt, total) {
@@ -20315,6 +20491,11 @@ function _dsSpawnStars() {
 }
 
 function _dsClosePremiere() {
+  /* 예약된 오디오/배지 타이머 정리 */
+  if (DS.premiereTimers) {
+    DS.premiereTimers.forEach(function(t){ clearTimeout(t); });
+    DS.premiereTimers = [];
+  }
   document.getElementById('dsPremiereIframe').src = '';
   document.getElementById('dsPremiere').classList.remove('ds-active');
 }
