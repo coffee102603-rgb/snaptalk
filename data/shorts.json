@@ -6735,6 +6735,436 @@
             "koHighlight": "become a morning person"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "buD0Ey0FLrM",
+        "title": "내가 상상했던 자취생 플렉스",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "home",
+        "catIcon": "🏠",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 44,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "와, 오늘은 | 진짜 레전드로 | 피곤하네.",
+            "phonetic": "wa, oneureun | jinjja rejeondeullo | pigonhane.",
+            "ko": "Wow, today | I'm seriously legendarily | tired.",
+            "start": 3.8,
+            "end": 6.1,
+            "core": "피곤",
+            "highlight": "진짜 레전드로 피곤하네",
+            "koHighlight": "seriously legendarily tired"
+          },
+          {
+            "en": "눕고 싶다, | 눕고 싶다. | 아 맞다, 옷 갈아입어야지. | 누우면 기절각이다.",
+            "phonetic": "nupgo sipda, | nupgo sipda. | a matda, ot garaibeoyaji. | nuumyeon gijeolgagida.",
+            "ko": "I want to lie down, | I want to lie down. | Oh right, I have to change clothes. | If I lie down, I'll pass out for sure.",
+            "start": 6.1,
+            "end": 10.8,
+            "core": "기절",
+            "highlight": "누우면 기절각이다",
+            "koHighlight": "if I lie down I'll pass out for sure"
+          },
+          {
+            "en": "진짜 안 되겠다. | 요즘 들어서 | 엄청 바쁘고 힘들었으니까 | 진짜 비싸고 맛있는 거 | 시켜 먹어야지.",
+            "phonetic": "jinjja an doegessda. | yojeum deureoseo | eomcheong bappeugo himdeureosseunikka | jinjja bissago masinneun geo | sikyeo meogeoyaji.",
+            "ko": "I really can't take it anymore. | Lately | I've been super busy and exhausted, so | I should order something | really expensive and delicious.",
+            "start": 10.8,
+            "end": 16.5,
+            "core": "시켜먹다",
+            "highlight": "비싸고 맛있는 거 시켜 먹어야지",
+            "koHighlight": "should order something expensive and delicious"
+          },
+          {
+            "en": "와씨, 뭐 먹지? | 치킨, 피자, 떡볶이. | 아 안 되겠다, | 아까 먹방 본 게 | 2,000시간 같네.",
+            "phonetic": "wassi, mwo meokji? | chikin, pija, tteokbokki. | a an doegessda, | akka meokbang bon ge | icheon sigan ganne.",
+            "ko": "Oh man, what should I eat? | Chicken, pizza, tteokbokki. | Ugh, I can't decide, | watching that mukbang earlier | feels like it was 2,000 hours ago.",
+            "start": 16.5,
+            "end": 19.7,
+            "core": "먹방",
+            "highlight": "먹방 본 게",
+            "koHighlight": "having watched the mukbang"
+          },
+          {
+            "en": "그냥 먹고 | 초밥으로 간다.",
+            "phonetic": "geunyang meokgo | chobapeuro ganda.",
+            "ko": "I'll just eat and | go for sushi.",
+            "start": 19.7,
+            "end": 22.9,
+            "core": "초밥",
+            "highlight": "초밥으로 간다",
+            "koHighlight": "going for sushi"
+          },
+          {
+            "en": "아 맞다, 생각해 보니까 | 오늘 넷플릭스에서 | 내가 기다리던 작품 | 나오는 날이었네. | 타이밍도 너무 좋고.",
+            "phonetic": "a matda, saenggakhae bonikka | oneul neteulllikseseo | naega gidarideon jakpum | naoneun narieonne. | taimingeudo neomu joko.",
+            "ko": "Oh right, come to think of it | today on Netflix | the show I've been waiting for | was coming out. | The timing couldn't be better.",
+            "start": 22.9,
+            "end": 29.2,
+            "core": "기다리다",
+            "highlight": "기다리던 작품 나오는 날",
+            "koHighlight": "the day the show I was waiting for comes out"
+          },
+          {
+            "en": "와, 참치초밥 진짜.",
+            "phonetic": "wa, chamchi chobap jinjja.",
+            "ko": "Wow, tuna sushi, seriously.",
+            "start": 29.2,
+            "end": 32.7,
+            "core": "참치초밥",
+            "highlight": "참치초밥 진짜",
+            "koHighlight": "tuna sushi, seriously (so good)"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "ixh2wV2A4ZQ",
+        "title": "몇 살에 독립하는 게 적당할까? [세대별 반응]",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "home",
+        "catIcon": "🏠",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 43,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "몇 살에 독립하는 게 | 적절하다고 생각해요?",
+            "phonetic": "myeot sale dongnipaneun ge | jeokjeolhadago saenggakaeyo?",
+            "ko": "At what age do you think | it's appropriate to become independent?",
+            "start": 0,
+            "end": 4.5,
+            "core": "독립",
+            "highlight": "독립하는 게 적절하다",
+            "koHighlight": "it's appropriate to become independent"
+          },
+          {
+            "en": "돈을 벌 수 있는 나이가 되면 | 빨리 독립하게 되지.",
+            "phonetic": "doneul beol su inneun naiga doemyeon | ppalli dongnipage doeji.",
+            "ko": "Once I reach an age where I can earn money, | I naturally end up becoming independent quickly.",
+            "start": 4.5,
+            "end": 16.2,
+            "core": "독립",
+            "highlight": "빨리 독립하게 되다",
+            "koHighlight": "end up becoming independent quickly"
+          },
+          {
+            "en": "지금은 아니라고 생각해, | 내 주변에 자취하는 친구들이 | 은근 많거든, | 나가는 돈이 엄청 많대.",
+            "phonetic": "jigeumeun anirago saenggakae, | nae jubyeone jachwianeun chingudeuri | eungeun mankeodeun, | naganeun doni eomcheong mantae.",
+            "ko": "I think now is not the right time, | there are quite a few friends around me | who live on their own, | and they say so much money goes out.",
+            "start": 16.2,
+            "end": 24.1,
+            "core": "자취",
+            "highlight": "자취하는 친구들",
+            "koHighlight": "friends who live on their own"
+          },
+          {
+            "en": "20살이 되면 | 나도 이 집에서 나가야 하는구나.",
+            "phonetic": "seumulsari doemyeon | nado i jibeseo nagaya haneunguna.",
+            "ko": "Once I turn 20, | I guess I have to move out of this house too.",
+            "start": 24.1,
+            "end": 31,
+            "core": "나가다",
+            "highlight": "집에서 나가야 하다",
+            "koHighlight": "have to move out of the house"
+          },
+          {
+            "en": "부모를 위해서나 | 본인을 위해서라도 좋지, | 너네들도 독립하면 좋잖아, | 빨리들 나가.",
+            "phonetic": "bumo-reul wihaesona | bonineul wihaeseorado joji, | neonedeuldo dongnipamyeon jokjana, | ppallideul naga.",
+            "ko": "Whether for the parents | or for yourselves, it's good, | it'd be great if you all became independent too, | hurry up and get out.",
+            "start": 37.4,
+            "end": 44.7,
+            "core": "독립",
+            "highlight": "독립하면 좋다",
+            "koHighlight": "it's good to become independent"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "pvGBoNtqqfg",
+        "title": "내가 상상했던 자취 비용",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "home",
+        "catIcon": "🏠",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 49,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "오케이, 엄마 | 저 다음 달부터 | 자취하려고요.",
+            "phonetic": "okei, eomma | jeo daeum dalbuteo | jachwiharyogoyo.",
+            "ko": "Okay, Mom, | starting next month | I'm planning to live on my own.",
+            "start": 1.4,
+            "end": 5.2,
+            "core": "자취",
+            "highlight": "자취하려고요",
+            "koHighlight": "I'm planning to live on my own"
+          },
+          {
+            "en": "저도 독립해서 | 혼자 살아봐야 | 생활력도 기르고 | 경제감도 생기고,",
+            "phonetic": "jeodo dongniphaeseo | honja sarabwaya | saenghwallyeokdo gireugo | gyeongjegamdo saengigo,",
+            "ko": "If I also live independently | and try living alone, | I can build life skills | and develop a sense of financial management,",
+            "start": 5.2,
+            "end": 9.3,
+            "core": "독립",
+            "highlight": "독립해서 혼자 살아봐야",
+            "koHighlight": "try living alone independently"
+          },
+          {
+            "en": "지방에 친구들 데려오고, | 그러다 보면 | 진짜 어른이 되어 있지 않을까요?",
+            "phonetic": "jibange chingudeul dereyogo, | geureoda bomyeon | jinjja eoreuni doeeo itji aneulkkayo?",
+            "ko": "bring friends from the provinces over, | and if things go on like that, | won't I have really become an adult?",
+            "start": 9.3,
+            "end": 12,
+            "core": "어른",
+            "highlight": "진짜 어른이 되어 있지 않을까요",
+            "koHighlight": "won't I have really become an adult"
+          },
+          {
+            "en": "어른이고 자시고 | 일단 철부터 | 들어야 되지 않을까?",
+            "phonetic": "eoreunigo jasigo | ildan cheolbuteo | deureoya doeji aneulkka?",
+            "ko": "Never mind being an adult — | first of all you need | to grow up, don't you?",
+            "start": 12,
+            "end": 14.7,
+            "core": "철",
+            "highlight": "철부터 들어야",
+            "koHighlight": "need to grow up first"
+          },
+          {
+            "en": "에이, 자취하다 보면 | 철도 들겠죠. | 아무튼 다음 주부터 | 방 알아보려고요.",
+            "phonetic": "ei, jachwihada bomyeon | cheoldo deulgetjyo. | amutun daeum jubuteo | bang araboryogoyo.",
+            "ko": "Come on, if I live on my own | I'll naturally grow up. | Anyway, starting next week | I'm planning to look for a room.",
+            "start": 14.7,
+            "end": 17.9,
+            "core": "방",
+            "highlight": "방 알아보려고요",
+            "koHighlight": "planning to look for a room"
+          },
+          {
+            "en": "돈이 많이 들 텐데 | 월세 한 40만 원 생각하고, | 생활비랑 싹 다 따져도 | 충분할 것 같은데.",
+            "phonetic": "doni mani deul tende | wolse han sasibman won saenggakhago, | saenghwalbirang ssak da ttajyeodo | chungbunhal geot gateunde.",
+            "ko": "It's going to cost a lot of money — | thinking about rent around 400,000 won, | and adding up all the living expenses, | I think it'll still be enough.",
+            "start": 17.9,
+            "end": 21.3,
+            "core": "월세",
+            "highlight": "월세 한 40만 원",
+            "koHighlight": "rent around 400,000 won"
+          },
+          {
+            "en": "아빠는 너희 자취를 | 적극 응원함. | 아빠, 플스 들고 갈 거예요. | 내려놓으세요.",
+            "phonetic": "appaneun neohi jachwireul | jeokgeuk eungwonham. | appa, peulseu deulgo gal geoyeyo. | naeryeonoeuseyo.",
+            "ko": "Dad fully supports | you guys living on your own. | Dad, I'm taking the PlayStation. | Put it down.",
+            "start": 21.3,
+            "end": 28.9,
+            "core": "응원",
+            "highlight": "적극 응원함",
+            "koHighlight": "fully supports"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "3QwQUCs31nk",
+        "title": "해외느낌 물씬 풍기는 이국적인 대한민국 여행지 TOP",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 86,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "해외 느낌 물씬 풍기는 | 이국적인 대한민국 여행지 | 탑 10을 저장해 놓고 | 꼭 한번 방문해 보세요.",
+            "phonetic": "haewae neukkim mulsshin pungginneun | igukjeogin daehanminguk yeohaengji | tap sibeul jeojanghaenoko | kkok hanbeon bangmunhae boseyo.",
+            "ko": "Full of exotic overseas charm, | these top 10 travel destinations in South Korea — | save the list | and be sure to visit at least once.",
+            "start": 0.1,
+            "end": 5.7,
+            "core": "여행지",
+            "highlight": "이국적인 여행지 탑 10",
+            "koHighlight": "top 10 exotic travel destinations"
+          },
+          {
+            "en": "모래사장이 아닌 | 조개 껍데기로 이루어진 | 맑고 투명한 해변, | 충남 태안 민어도.",
+            "phonetic": "moraesajang i anin | jogae kkeopdeogiro irueojin | malgo tumyeonghan haebyeon, | chungnam taean mineo do.",
+            "ko": "Not a sandy beach | but one made of seashells, | a clear and transparent shoreline — | Mineo Island in Taean, South Chungcheong.",
+            "start": 5.7,
+            "end": 14.9,
+            "core": "해변",
+            "highlight": "조개 껍데기로 이루어진 해변",
+            "koHighlight": "beach made of seashells"
+          },
+          {
+            "en": "멋진 유선형의 지형으로 | 한국의 하롱베이라고 불리는 | 충북 충주 악어섬.",
+            "phonetic": "meotjin yuseonyeong ui jihyeong euro | hangugui halongbeirago bullineun | chungbuk chungju ageo seom.",
+            "ko": "With its stunning streamlined terrain, | called the Halong Bay of Korea — | Ageo Island in Chungju, North Chungcheong.",
+            "start": 14.9,
+            "end": 21.2,
+            "core": "하롱베이",
+            "highlight": "한국의 하롱베이",
+            "koHighlight": "the Halong Bay of Korea"
+          },
+          {
+            "en": "한국의 스위스라 불리는 | 이국적인 풍경을 볼 수 있는 | 강원 정선 민둥산.",
+            "phonetic": "hangugui seuwiseu ra bullineun | igukjeogin punggyeongeul bol su inneun | gangwon jeongseon mindungsan.",
+            "ko": "Called the Switzerland of Korea, | where you can see exotic alpine meadows — | Mindungsan Mountain in Jeongseon, Gangwon.",
+            "start": 21.2,
+            "end": 26.3,
+            "core": "민둥산",
+            "highlight": "한국의 스위스 민둥산",
+            "koHighlight": "Mindungsan, the Switzerland of Korea"
+          },
+          {
+            "en": "이국적인 사막 풍경과 | 바다의 조화가 인상적인 | 충남 태안 신두리 사구.",
+            "phonetic": "igukjeogin samak punggyeonggwa | badaui johwaga insangjeogin | chungnam taean sinduri sagu.",
+            "ko": "The exotic desert scenery | harmonizing beautifully with the sea — | Sinduri Sand Dunes in Taean, South Chungcheong.",
+            "start": 26.3,
+            "end": 36.2,
+            "core": "사구",
+            "highlight": "사막 풍경과 바다의 조화",
+            "koHighlight": "harmony of desert scenery and sea"
+          },
+          {
+            "en": "윈도우 배경화면에서 | 바로 튀어나온 듯한 풍경을 | 가진 경기 안성 팜랜드.",
+            "phonetic": "windou baegyeonghwamyeon eseo | baro twieonaon deuthan punggyeongeul | gajin gyeonggi anseong pamlaendeu.",
+            "ko": "With scenery that looks like | it jumped straight out of a Windows wallpaper — | Anseong Farmland in Gyeonggi.",
+            "start": 36.2,
+            "end": 46.6,
+            "core": "팜랜드",
+            "highlight": "배경화면에서 튀어나온 풍경",
+            "koHighlight": "scenery straight out of a wallpaper"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "9UFpqJoUW0o",
+        "title": "외국인들 사이에 유행하는 한국 여행갈때 짐싸는 법",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 23,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "외국인들이 한국 여행을 올 때 | 짐 싸는 법을 알려주는데요.",
+            "phonetic": "oegugindeuri hanguk yeohaengeul ol ttae | jim ssaneun beobeul allyeojuneundeyo.",
+            "ko": "When foreigners come to travel in Korea, | they share tips on how to pack.",
+            "start": 3,
+            "end": 7.4,
+            "core": "짐 싸는 법",
+            "highlight": "짐 싸는 법을 알려주다",
+            "koHighlight": "share tips on how to pack"
+          },
+          {
+            "en": "한국 올 때 필요한 것은 | 캐리어 안에 또 캐리어 | 그리고 신용 카드만 있으면 된다는데요.",
+            "phonetic": "hanguk ol ttae piryohan geoseun | kaerieo ane tto kaerieo | geurigo sinyong kadeuman isseumyeon doendaneundeyo.",
+            "ko": "What you need when coming to Korea | is a suitcase inside a suitcase, | and apparently just a credit card is enough.",
+            "start": 7.4,
+            "end": 14,
+            "core": "신용 카드",
+            "highlight": "신용 카드만 있으면 된다",
+            "koHighlight": "just a credit card is enough"
+          },
+          {
+            "en": "외국인들은 한국에서 | 150에서 200만 원 정도를 쓰고 있으며 | 그중 40% 정도는 쇼핑에 지출한다네요.",
+            "phonetic": "oegugindeureun hangugeseo | baegosipeseo ibaengmanwon jeongdoreul sseugo isseumyeo | geujung sasip peosenteu jeongdoneun syopinge jichulhandaneyo.",
+            "ko": "Foreigners spend about 1.5 to 2 million won in Korea, | and among that, | about 40% is spent on shopping.",
+            "start": 14,
+            "end": 18.4,
+            "core": "쇼핑",
+            "highlight": "쇼핑에 지출하다",
+            "koHighlight": "spend on shopping"
+          },
+          {
+            "en": "다음번 한국 올 땐 | 이런 게 필요할지도 모르겠네요.",
+            "phonetic": "daeumbeon hanguk ol ttaen | ireon ge piryohaljido moreugenneyo.",
+            "ko": "Next time you come to Korea, | you might need something like this.",
+            "start": 18.4,
+            "end": 24,
+            "core": "필요하다",
+            "highlight": "필요할지도 모르겠다",
+            "koHighlight": "might need"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "r8ar7MGWtxs",
+        "title": "기차 타고 전국일주, 얼마 나올까?",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 40,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "한국에서 기차를 타고 | 전국 일주를 하면 | 얼마나 나올까?",
+            "phonetic": "hangugeseo gichareul tago | jeonguk iljureul hamyeon | eolmana naolkka?",
+            "ko": "If you travel around the country by train | doing a nationwide tour | how much would it come out to?",
+            "start": 0,
+            "end": 1.9,
+            "core": "일주",
+            "highlight": "전국 일주를 하다",
+            "koHighlight": "do a nationwide tour"
+          },
+          {
+            "en": "먼저 첫날 저는 | 서울 청량리에서 | 강원도 정동진으로 향했습니다.",
+            "phonetic": "meonjeo cheotnal jeoneun | seoul cheongnyangnieseo | gangwondo jeongdongjineuro hyanghaetsseumnida.",
+            "ko": "First, on the first day | from Seoul Cheongnyangni | I headed to Jeongdongjin in Gangwon-do.",
+            "start": 1.9,
+            "end": 8.4,
+            "core": "향했습니다",
+            "highlight": "정동진으로 향했습니다",
+            "koHighlight": "headed to Jeongdongjin"
+          },
+          {
+            "en": "그리고 다음날 | 정동진에서 일출을 보고 | 동해안을 따라 쭉 내려가면서 | 죽변, 후포, 동대구역에 도착했고 | 그리고 부산에 도착을 했습니다.",
+            "phonetic": "geurigo daeumnal | jeongdongjineseo ilchureul bogo | donghaeaneul ttara jjuk naeryeogamyeonseo | jukbyeon, hupo, dongdaegugyeoge dochakhaetgo | geurigo busane dochageul haetsseumnida.",
+            "ko": "And the next day | after watching the sunrise at Jeongdongjin | going all the way down along the east coast | I arrived at Jukbyeon, Hupo, and Dongdaegu Station | and then arrived in Busan.",
+            "start": 8.4,
+            "end": 19.1,
+            "core": "동해안",
+            "highlight": "동해안을 따라 내려가다",
+            "koHighlight": "go down along the east coast"
+          },
+          {
+            "en": "그리고 다음날 아침 | 부산에서 국밥을 먹고 | 전라남도 순천에서 여행을 하다 | 늦은 밤 목포에 도착했습니다.",
+            "phonetic": "geurigo daeumnal achim | busaneseo gukbapeul meokgo | jeollanamdo suncheoneseo yeohaengeul hada | neujeun bam mokpoe dochakhaetsseumnida.",
+            "ko": "And the next morning | after eating gukbap in Busan | traveling around Suncheon in Jeollanam-do | I arrived in Mokpo late at night.",
+            "start": 19.1,
+            "end": 28.6,
+            "core": "국밥",
+            "highlight": "부산에서 국밥을 먹다",
+            "koHighlight": "eat gukbap in Busan"
+          },
+          {
+            "en": "그리고 마지막 날 | 홍어를 먹고 | 대전에 도착해 성심당에 들렸다가 | 서울에 도착했는데요.",
+            "phonetic": "geurigo majimak nal | hongeoreul meokgo | daejeone dochakae seongsimdange deullyeotdaga | seoure dochakhaetneundeyo.",
+            "ko": "And on the last day | after eating hongeo (fermented skate) | arriving in Daejeon and stopping by Seongsim-dang bakery | I arrived back in Seoul.",
+            "start": 28.6,
+            "end": 37.6,
+            "core": "성심당",
+            "highlight": "성심당에 들리다",
+            "koHighlight": "stop by Seongsim-dang"
+          }
+        ]
       }
     ]
   }
