@@ -7770,6 +7770,306 @@
             "koHighlight": "even pouring fish cake broth"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "MWJumz6syok",
+        "title": "요즘 난리난 밥도둑 캔참치 레시피",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 14,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "이건 제발 혼자 먹어라, | 안 그러면 밥솥에 뺏길거임.",
+            "phonetic": "igeon jebal honja meogeora, | an geureomyeon bapsote ppaetgilgeoim.",
+            "ko": "Please eat this by yourself, | otherwise the rice cooker crowd will take it.",
+            "start": 0.1,
+            "end": 3.7,
+            "core": "뺏기다",
+            "highlight": "밥솥에 뺏길거임",
+            "koHighlight": "it'll get taken away"
+          },
+          {
+            "en": "뚜껑 따서 | 간장 한 스푼에 | 맛소금 후추 조금 톡톡 넣어주고,",
+            "phonetic": "ttukkeong ttaseo | ganjang han seupune | matsogeum huchu jogeum toktok neoeojugo,",
+            "ko": "Open the lid, | add one spoon of soy sauce, | then a little seasoning salt and pepper.",
+            "start": 3.7,
+            "end": 5.3,
+            "core": "간장",
+            "highlight": "간장 한 스푼",
+            "koHighlight": "one spoon of soy sauce"
+          },
+          {
+            "en": "취향껏 다진마늘 한 스푼에 | 청양고추 살짝 넣어주고 | 참기름 한 스푼에 통깨 솔솔 뿌려주고.",
+            "phonetic": "chwihyanggeot dajinmaneul han seupune | cheongyanggochu saljjak neoeojugo | chamgireum han seupune tongkkae solsol ppuryeojugo.",
+            "ko": "Add a spoon of minced garlic to taste, | toss in a little cheongyang chili pepper, | then one spoon of sesame oil and sprinkle sesame seeds.",
+            "start": 5.3,
+            "end": 10.9,
+            "core": "참기름",
+            "highlight": "참기름 한 스푼",
+            "koHighlight": "one spoon of sesame oil"
+          },
+          {
+            "en": "따끈한 밥 위에 올려서 | 한입 싹 먹어주면 | 극락 그 자체인데.",
+            "phonetic": "ttakkeunhan bap wie ollyeoseo | hanip ssak meogeojumyeon | geungnak geu jacheinde.",
+            "ko": "Put it on top of warm rice | and take one big bite, | it's absolute paradise.",
+            "start": 10.9,
+            "end": 15.4,
+            "core": "극락",
+            "highlight": "극락 그 자체",
+            "koHighlight": "absolute paradise itself"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "HAZW6QDnQO4",
+        "title": "개비싼 도시락",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "advanced",
+        "dubs": 0,
+        "duration": 60,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "오늘은 무려 재료비로 | 2만원을 받았어요.",
+            "phonetic": "oneureun muryeo jaeryobiro | imanwoneul badasseoyo.",
+            "ko": "Today I received no less than | 20,000 won for ingredient costs.",
+            "start": 0,
+            "end": 3.1,
+            "core": "재료비",
+            "highlight": "재료비로 2만원",
+            "koHighlight": "20,000 won for ingredients"
+          },
+          {
+            "en": "그런 의미로 오늘은 | 진짜 비싼 요리를 | 만들어 볼게요.",
+            "phonetic": "geureon uimiro oneureun | jinjja bissan yorireul | mandeureo bolgeyo.",
+            "ko": "In that sense, today | I'm going to make | a really expensive dish.",
+            "start": 3.1,
+            "end": 4.9,
+            "core": "비싼",
+            "highlight": "비싼 요리를 만들다",
+            "koHighlight": "make an expensive dish"
+          },
+          {
+            "en": "우선 계란, 설탕, 소금, 식초를 넣고 | 풀어줄게요.",
+            "phonetic": "useon gyeran, seoltang, sogeum, sikchoreul neoko | pureojulgeyo.",
+            "ko": "First, I'll add egg, sugar, salt, and vinegar | and mix them together.",
+            "start": 4.9,
+            "end": 9.5,
+            "core": "계란",
+            "highlight": "계란 설탕 소금 식초",
+            "koHighlight": "egg, sugar, salt, vinegar"
+          },
+          {
+            "en": "중요한 재료는 이게 끝이에요.",
+            "phonetic": "jungyohan jaeryoneun ige kkeuchieyo.",
+            "ko": "The important ingredients end right here.",
+            "start": 9.5,
+            "end": 12.1,
+            "core": "재료",
+            "highlight": "중요한 재료",
+            "koHighlight": "important ingredients"
+          },
+          {
+            "en": "재료가 왜 이것밖에 안 되냐고요? | 그건 중요하지 않아요.",
+            "phonetic": "jaeryoga wae igeotbakke an doenyagoyo? | geugeon jungyohaji anayo.",
+            "ko": "You're asking why there are only these few ingredients? | That doesn't matter.",
+            "start": 12.1,
+            "end": 14,
+            "core": "중요하다",
+            "highlight": "중요하지 않아요",
+            "koHighlight": "it doesn't matter"
+          },
+          {
+            "en": "지금 비싼 요리를 | 만들고 있다는 게 | 중요한 거예요.",
+            "phonetic": "jigeum bissan yorireul | mandeulgo itdaneun ge | jungyohan geoyeyo.",
+            "ko": "What matters is | that right now | I am making an expensive dish.",
+            "start": 14,
+            "end": 18.4,
+            "core": "중요하다",
+            "highlight": "비싼 요리를 만들다",
+            "koHighlight": "making an expensive dish"
+          },
+          {
+            "en": "무려 초밥을 만들 거거든요. | 초밥은 비싼 음식이잖아요.",
+            "phonetic": "muryeo chobapeul mandeul geogeodeunyo. | chobapeun bissan eumsigijanhayo.",
+            "ko": "I'm going to make no less than sushi. | Sushi is an expensive food, after all.",
+            "start": 18.4,
+            "end": 21.5,
+            "core": "초밥",
+            "highlight": "초밥은 비싼 음식",
+            "koHighlight": "sushi is expensive food"
+          },
+          {
+            "en": "물론 계란 초밥을 | 만들 거긴 하지만, | 저도 남는 게 있어야죠.",
+            "phonetic": "mullon gyeran chobapeul | mandeul geogin hajiman, | jeodo namneun ge isseoyajyo.",
+            "ko": "Of course it will be egg sushi | I'm making, but | I need to make some profit too, right?",
+            "start": 21.5,
+            "end": 25.5,
+            "core": "계란 초밥",
+            "highlight": "계란 초밥을 만들다",
+            "koHighlight": "make egg sushi"
+          },
+          {
+            "en": "이건 제가 많이 남겨 먹는 게 아니에요. | 왜냐면 제가 정한 게 아니라.",
+            "phonetic": "igeon jega mani namgyeo meongneun ge anieyo. | waenyamyeon jega jeonghan ge anira.",
+            "ko": "This isn't me keeping a lot for myself. | Because it's not something I decided.",
+            "start": 25.5,
+            "end": 32,
+            "core": "남기다",
+            "highlight": "많이 남겨 먹다",
+            "koHighlight": "keep a lot for oneself"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "Klbwhdd5MR8",
+        "title": "부부싸움 후 남편 도시락",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 58,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "사실 어제 | 결혼 후 처음으로 | 부부싸움을 했어요.",
+            "phonetic": "sasil eoje | gyeolhon hu cheoeumeuro | bubussaumeul haesseoyo.",
+            "ko": "Actually yesterday, | for the first time since getting married, | we had a couple's fight.",
+            "start": 0,
+            "end": 3.2,
+            "core": "부부싸움",
+            "highlight": "부부싸움을 했어요",
+            "koHighlight": "had a couple's fight"
+          },
+          {
+            "en": "도시락을 쌀까 싸지 말까 | 고민하다가 | 저절로 눈 떠져서 | 주방으로 나왔어요.",
+            "phonetic": "dosiragul ssalkka ssaji malkka | gominhadaga | jeojeollo nun tteojyeoseo | jubangeuro nawasseoyo.",
+            "ko": "While debating whether to pack a lunch box or not, | I found myself | naturally waking up | and coming out to the kitchen.",
+            "start": 3.2,
+            "end": 7.2,
+            "core": "고민",
+            "highlight": "쌀까 싸지 말까 고민하다가",
+            "koHighlight": "debating whether to pack it or not"
+          },
+          {
+            "en": "무생채가 먹고 싶다고 했어서 | 무생채를 만들었어요.",
+            "phonetic": "musaengchaega meokgo sipdago haesseoseo | musaengchaereul mandeureosseoyo.",
+            "ko": "Because they said they wanted to eat mu saengchae (raw radish salad), | I made mu saengchae.",
+            "start": 7.2,
+            "end": 10.8,
+            "core": "무생채",
+            "highlight": "무생채를 만들었어요",
+            "koHighlight": "made raw radish salad"
+          },
+          {
+            "en": "무를 썰고 | 고춧가루 팍팍 넣어서 | 무생채를 만들어줬어요.",
+            "phonetic": "mureul sseolgo | gochutgaru pakpak neoeoseo | musaengchaereul mandeureo jwosseoyo.",
+            "ko": "I sliced the radish, | added chili powder generously, | and made the mu saengchae for them.",
+            "start": 10.8,
+            "end": 13.3,
+            "core": "고춧가루",
+            "highlight": "고춧가루 팍팍 넣어서",
+            "koHighlight": "adding chili powder generously"
+          },
+          {
+            "en": "사실 원래는 무생채만 | 넣어주려고 했는데 | 이상하게 요리를 하는데 | 조금 반성이 되더라고요.",
+            "phonetic": "sasil wonraeneun musaengchaeman | neoeo juryeogo haenneunde | isanghage yorireul haneunde | jogeum banseongi doedeoragoyo.",
+            "ko": "Actually I originally only planned | to put in the mu saengchae, | but strangely while cooking, | I started feeling a bit remorseful.",
+            "start": 13.3,
+            "end": 20.8,
+            "core": "반성",
+            "highlight": "반성이 되더라고요",
+            "koHighlight": "I found myself feeling remorseful"
+          },
+          {
+            "en": "어제 그 말은 내가 좀 심했네 이러면서 | 하트커터를 꺼내서 | 사과의 뜻으로 | 애호박과 소시지를 하트로 만들었어요.",
+            "phonetic": "eoje geu mareun naega jom simhaenne ireomyeonseo | hateukeoteoreul kkeonaeseo | sagwaui tteuseuro | aehobakgwa sosijireul hateuro mandeureosseoyo.",
+            "ko": "Thinking 'I was a bit too harsh yesterday,' | I took out the heart-shaped cutter, | and as an apology, | made the zucchini and sausage into heart shapes.",
+            "start": 20.8,
+            "end": 28.7,
+            "core": "사과",
+            "highlight": "사과의 뜻으로 하트로",
+            "koHighlight": "into heart shapes as an apology"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "eU6VoHNUTlM",
+        "title": "라면만큼 쉬운 레시피",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 18,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "라면 끓일 수 있죠, | 그럼 이것도 할 수 있을걸요.",
+            "phonetic": "ramyeon kkeullil su itjyo, | geureom igeotdo hal su isseulgeolyo.",
+            "ko": "You can make ramyeon, right? | Then you can probably do this too.",
+            "start": 0.5,
+            "end": 1.9,
+            "core": "할 수 있다",
+            "highlight": "할 수 있을걸요",
+            "koHighlight": "you can probably do it"
+          },
+          {
+            "en": "우선 팬에 밥 올리고, | 삼겹살 원하는 만큼 올리고, | 위에 버터 이만큼이랑 | 소금 후추 적당히 뿌리고.",
+            "phonetic": "useon paene bap olligo, | samgyeopsal wonhaneun mankeum olligo, | wie beoteo imankeumirang | sogeum huchu jeokdanghi ppurigo.",
+            "ko": "First, put rice in the pan, | add as much pork belly as you want, | then this much butter on top | and sprinkle some salt and pepper.",
+            "start": 1.9,
+            "end": 8,
+            "core": "올리고",
+            "highlight": "팬에 밥 올리고",
+            "koHighlight": "put rice in the pan"
+          },
+          {
+            "en": "중불에서 삼겹살이 | 숨죽을 때까지 기다려요.",
+            "phonetic": "jungbureseo samgyeopsari | sumjugeul ttaekkaji gidaryeoyo.",
+            "ko": "Wait over medium heat | until the pork belly wilts down.",
+            "start": 8,
+            "end": 10.3,
+            "core": "숨죽다",
+            "highlight": "숨죽을 때까지",
+            "koHighlight": "until it wilts down"
+          },
+          {
+            "en": "숨죽으면 | 다진 마늘 한 숟갈에 | 진간장 두 숟갈 넣고 | 다 같이 볶으면 끝이에요.",
+            "phonetic": "sumjugeumyeon | dajin maneul han sutgale | jinganjang du sutgal neoko | da gachi bokkeumyeon kkeuchieyo.",
+            "ko": "Once it wilts, | add one spoon of minced garlic | and two spoons of soy sauce, | then stir-fry it all together and you're done.",
+            "start": 10.3,
+            "end": 14.5,
+            "core": "볶다",
+            "highlight": "다 같이 볶으면 끝",
+            "koHighlight": "stir-fry it all together and done"
+          },
+          {
+            "en": "이게 재료는 단순한데 | 맛이 단순하지가 않아요.",
+            "phonetic": "ige jaeryoneun dansunhande | masi dansunhajiga anayo.",
+            "ko": "The ingredients are simple, | but the flavor is anything but simple.",
+            "start": 14.5,
+            "end": 19.6,
+            "core": "단순하다",
+            "highlight": "맛이 단순하지가 않아요",
+            "koHighlight": "the flavor is not simple at all"
+          }
+        ]
       }
     ]
   }
