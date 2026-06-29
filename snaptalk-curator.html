@@ -590,7 +590,7 @@ async function runGeneration(vids) {
       const res = await fetch(API_BASE + '/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ videoUrl: videoUrl })
+        body: JSON.stringify({ videoUrl: videoUrl, region: document.getElementById('region').value })
       });
       
       const data = await res.json();
