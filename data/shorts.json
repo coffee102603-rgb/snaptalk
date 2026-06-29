@@ -7595,6 +7595,92 @@
             "koHighlight": "it's okay with this much"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "Oi1r8WaygUM",
+        "title": "한국에 가면 꼭 가는 식당 카페 소개",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 46,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "안녕하세요, | 포도입니다.",
+            "phonetic": "annyeonghaseyo, | podoimnida.",
+            "ko": "Hello, | I'm Podo.",
+            "start": 0.7,
+            "end": 2.2,
+            "core": "포도",
+            "highlight": "포도입니다",
+            "koHighlight": "I'm Podo"
+          },
+          {
+            "en": "이번에도 | 한국으로 출장을 다녀왔는데요.",
+            "phonetic": "ibeonedo | hangugeuro chuljangeul danyeowanneundeyo.",
+            "ko": "This time again | I came back from a business trip to Korea.",
+            "start": 2.2,
+            "end": 5.2,
+            "core": "출장",
+            "highlight": "한국으로 출장을 다녀오다",
+            "koHighlight": "go on a business trip to Korea"
+          },
+          {
+            "en": "제가 한국에 가게 되면 | 대부분은 일 때문에 가는 거다 보니까,",
+            "phonetic": "jega hanguge gage doemyeon | daebubuneun il ttaemune ganeun geoda bonikka,",
+            "ko": "Whenever I go to Korea, | it's mostly because of work,",
+            "start": 5.2,
+            "end": 10.8,
+            "core": "일",
+            "highlight": "일 때문에 가다",
+            "koHighlight": "go because of work"
+          },
+          {
+            "en": "일을 시작하고 | 일이 끝날 때쯤 되면 | 다시 일본으로 돌아오는 패턴이 | 항상 반복됐는데요.",
+            "phonetic": "ireul sijakhago | iri kkeutnal ttaejjeum doemyeon | dasi ilboneuro doraoneun paeteoni | hangsang banbokdwaenneundeyo.",
+            "ko": "I'd start work, | and around when work ended | I'd return to Japan — that pattern | always repeated.",
+            "start": 10.8,
+            "end": 16.6,
+            "core": "반복",
+            "highlight": "패턴이 반복되다",
+            "koHighlight": "the pattern keeps repeating"
+          },
+          {
+            "en": "이번에는 | 그 틈틈이 | 제가 좋아하는 식당들도 방문하곤 했습니다.",
+            "phonetic": "ibeoneun | geu tteumtteumi | jega joahaneun sikdangdeuldo bangmunhagon haetseumnida.",
+            "ko": "But this time, | in the gaps here and there, | I made a point of visiting restaurants I like.",
+            "start": 16.6,
+            "end": 24.4,
+            "core": "식당",
+            "highlight": "틈틈이 식당을 방문하다",
+            "koHighlight": "visit restaurants in spare moments"
+          },
+          {
+            "en": "제가 한국에 가면 | 꼭 가는 식당들이 | 몇 군데 있거든요.",
+            "phonetic": "jega hanguge gamyeon | kkok ganeun sikdangdeuri | myeot gunde itgeodeunyo.",
+            "ko": "When I go to Korea, | there are restaurants I always visit — | a few specific places.",
+            "start": 24.4,
+            "end": 28.8,
+            "core": "식당",
+            "highlight": "꼭 가는 식당",
+            "koHighlight": "restaurants I always go to"
+          },
+          {
+            "en": "구독자분들께서 | 제가 자주 가는 식당들을 | 보여주셨으면 한다는 말씀을 | 종종 해주셔서요.",
+            "phonetic": "gudokjabundeulkkeseo | jega jaju ganeun sikdangdeureul | boyeojusyeosseumyeon handaneun malsseumeul | jongjong haejusyeoseoyo.",
+            "ko": "Our subscribers have often said | they'd like to see the restaurants | I frequent — | those comments came in a lot.",
+            "start": 28.8,
+            "end": 39.8,
+            "core": "구독자",
+            "highlight": "구독자분들께서 말씀해주시다",
+            "koHighlight": "subscribers have been telling me"
+          }
+        ]
       }
     ]
   }
