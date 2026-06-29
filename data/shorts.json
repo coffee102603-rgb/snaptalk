@@ -7220,6 +7220,216 @@
             "koHighlight": "this is a protein chip"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "e3y4jdDvOWY",
+        "title": "중고차 구매요령 하수, 중수, 고수",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 57,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "저 차 좀 보러 왔거든요.",
+            "phonetic": "jeo cha jom boreo watgeodeunyo.",
+            "ko": "I came to take a look at a car.",
+            "start": 0.1,
+            "end": 2.1,
+            "core": "보러",
+            "highlight": "차 보러 왔거든요",
+            "koHighlight": "I came to look at a car"
+          },
+          {
+            "en": "아이고, 금액은 | 어느 정도 하네요?",
+            "phonetic": "aigo, geumaegeun | eoneu jeongdo haneyo?",
+            "ko": "Oh my, how much | is the price roughly?",
+            "start": 2.1,
+            "end": 4,
+            "core": "금액",
+            "highlight": "금액은 어느 정도",
+            "koHighlight": "roughly how much is the price"
+          },
+          {
+            "en": "지금 3천만 원이에요.",
+            "phonetic": "jigeum samcheonman wonieyo.",
+            "ko": "It's 30 million won right now.",
+            "start": 4,
+            "end": 5.2,
+            "core": "3천만 원",
+            "highlight": "3천만 원이에요",
+            "koHighlight": "it's 30 million won"
+          },
+          {
+            "en": "너무 사고 싶은데 | 잘 사는 거죠?",
+            "phonetic": "neomu sago sipeunde | jal saneun geojyo?",
+            "ko": "I really want to buy it, | but it's a good deal, right?",
+            "start": 5.2,
+            "end": 7.1,
+            "core": "사고 싶다",
+            "highlight": "너무 사고 싶은데",
+            "koHighlight": "I really want to buy it"
+          },
+          {
+            "en": "저 사장님 | 믿어도 되는 거죠?",
+            "phonetic": "jeo sajangnim | mideoedo doeneun geojyo?",
+            "ko": "I can trust you, | right, sir?",
+            "start": 7.1,
+            "end": 9.2,
+            "core": "믿다",
+            "highlight": "믿어도 되는 거죠",
+            "koHighlight": "it's okay to trust you, right?"
+          },
+          {
+            "en": "차 좀 보려고 왔어요. | 520 금액은 어떻게 돼요?",
+            "phonetic": "cha jom boryeogo wasseoyo. | obaek isip geumaegeun eotteoke dwaeyo?",
+            "ko": "I came to look at a car. | How much is the 520?",
+            "start": 9.2,
+            "end": 12,
+            "core": "금액",
+            "highlight": "520 금액은 어떻게",
+            "koHighlight": "how much is the 520?"
+          },
+          {
+            "en": "지금 3천만 원에 팔고 있어요.",
+            "phonetic": "jigeum samcheonman wone palgo isseoyo.",
+            "ko": "We're selling it for 30 million won right now.",
+            "start": 12,
+            "end": 13.6,
+            "core": "팔다",
+            "highlight": "3천만 원에 팔고 있어요",
+            "koHighlight": "selling it for 30 million won"
+          },
+          {
+            "en": "성능지랑 할부 같은 거 | 따로 안 붙어 있죠?",
+            "phonetic": "seongneungjirang halbu gateun geo | ttaro an buteo itjyo?",
+            "ko": "There's no performance fee or installment | added separately, right?",
+            "start": 13.6,
+            "end": 16,
+            "core": "할부",
+            "highlight": "할부 따로 안 붙어 있죠",
+            "koHighlight": "no installment fee added separately, right?"
+          },
+          {
+            "en": "어, 그런 건 없죠.",
+            "phonetic": "eo, geureon geon eopjyo.",
+            "ko": "Yeah, there's nothing like that.",
+            "start": 16,
+            "end": 17.2,
+            "core": "없다",
+            "highlight": "그런 건 없죠",
+            "koHighlight": "there's nothing like that"
+          },
+          {
+            "en": "한 2,800 정도는 | 괜찮을 것 같은데요.",
+            "phonetic": "han icheonpalbaek jeongdoneun | gwaenchaneul geot gateundeyo.",
+            "ko": "About 28 million | would be okay, I think.",
+            "start": 17.2,
+            "end": 19.2,
+            "core": "괜찮다",
+            "highlight": "2,800 정도는 괜찮을 것 같다",
+            "koHighlight": "about 28 million seems okay"
+          },
+          {
+            "en": "뭐, 그렇게 하시죠.",
+            "phonetic": "mwo, geureoke hasijyo.",
+            "ko": "Well, let's do it that way then.",
+            "start": 19.2,
+            "end": 21.1,
+            "core": "그렇게",
+            "highlight": "그렇게 하시죠",
+            "koHighlight": "let's do it that way"
+          },
+          {
+            "en": "안녕하세요.",
+            "phonetic": "annyeonghaseyo.",
+            "ko": "Hello.",
+            "start": 21.1,
+            "end": 23.2,
+            "core": "안녕",
+            "highlight": "안녕하세요",
+            "koHighlight": "hello / goodbye"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "AVMXFmgyXh0",
+        "title": "회장님 뭘 선택하시겠습니까? 벤츠 S클래스 VS 제네시스 G90",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 58,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "S 500과 제네시스 G90 | 뒷자리에 대한 | 공간성 테스트를 한번 해보도록 하겠습니다.",
+            "phonetic": "S obaekgwa jenesiseu G gusip | dwitjarie daehan | gongganseong teseuteureul hanbeon haebodorok hagesseumnida.",
+            "ko": "We're going to do | a spaciousness test | of the rear seats of the S500 and Genesis G90.",
+            "start": 1.7,
+            "end": 9.8,
+            "core": "공간성",
+            "highlight": "뒷자리 공간성 테스트",
+            "koHighlight": "rear seat spaciousness test"
+          },
+          {
+            "en": "S 500의 뒷자리가 | 푹신푹신하고 약간 소파 같은 느낌 | 세팅이 잘 된 거 같은 느낌이 들어요.",
+            "phonetic": "S obaegui dwitjariga | puksinpuksinhago yakgan sopa gateun neukkim | setingi jal doen geo gateun neukkimi deureoyo.",
+            "ko": "The rear seat of the S500 | is soft and plush, almost like a sofa, | it feels like it's been very well set up.",
+            "start": 9.8,
+            "end": 14.6,
+            "core": "푹신푹신",
+            "highlight": "소파 같은 느낌",
+            "koHighlight": "feels like a sofa"
+          },
+          {
+            "en": "각도가 너무 마음에 들어요 | 엉덩이랑 등이 | 일자가 딱 되게 만들어주는 느낌.",
+            "phonetic": "gakdoga neomu maeume deureoyo | eongdeongirang deungi | iljaga ttak doege mandeureojuneun neukkim.",
+            "ko": "I really love the angle | it makes your hips and back | align perfectly straight.",
+            "start": 14.6,
+            "end": 17.9,
+            "core": "각도",
+            "highlight": "각도가 마음에 들다",
+            "koHighlight": "love the angle"
+          },
+          {
+            "en": "단점은 전혀 없고 | 시야 자체 높이 자체도 | 껑충하지 않은 그런 느낌.",
+            "phonetic": "danjeomeun jeonhyeo eopgo | siya jache nopi jachedo | kkeongchunghaji aneun geureon neukkim.",
+            "ko": "There are absolutely no downsides | and the eye level and overall height | don't feel too raised or awkward.",
+            "start": 17.9,
+            "end": 22.7,
+            "core": "단점",
+            "highlight": "단점은 전혀 없다",
+            "koHighlight": "absolutely no downsides"
+          },
+          {
+            "en": "회장님처럼 | 뒤로 젖혀지나요? | 안 됩니다, 안 되네요.",
+            "phonetic": "hoejangnimcheoreom | dwiro jeojhyeojinayo? | an doemnida, an doeneyo.",
+            "ko": "Can it recline | like a chairman's seat? | No, it doesn't, it can't.",
+            "start": 22.7,
+            "end": 29.4,
+            "core": "회장님",
+            "highlight": "회장님처럼 젖혀지다",
+            "koHighlight": "recline like a chairman"
+          },
+          {
+            "en": "마음만 | G90으로 가보겠습니다 | 타자마자 느끼는 게 시트가.",
+            "phonetic": "maeumman | G gusibeuro gabogesseumnida | tajamaja neukkineun ge siteuga.",
+            "ko": "In spirit at least, | let's head over to the G90 — | the very first thing you notice when you sit down is the seat.",
+            "start": 29.4,
+            "end": 33.7,
+            "core": "시트",
+            "highlight": "타자마자 느끼는 시트",
+            "koHighlight": "the seat you feel the moment you sit"
+          }
+        ]
       }
     ]
   }
