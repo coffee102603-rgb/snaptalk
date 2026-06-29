@@ -7430,6 +7430,251 @@
             "koHighlight": "the seat you feel the moment you sit"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "mg8E-g4ZyXI",
+        "title": "금융권 대기업 면접 공개",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 57,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "이사장님께 | 한 가지만 여쭤봐도 | 되겠습니까?",
+            "phonetic": "isajangnimkke | han gajiman yeojwobwado | doegetsseumnikka?",
+            "ko": "Chairperson, | may I ask you | just one thing?",
+            "start": 1.2,
+            "end": 3.2,
+            "core": "여쭤봐도",
+            "highlight": "한 가지만 여쭤봐도",
+            "koHighlight": "may I ask just one thing"
+          },
+          {
+            "en": "안 됩니다, | 질문은 제가 합니다.",
+            "phonetic": "an doemnida, | jilmuneun jega hamnida.",
+            "ko": "No you may not, | I am the one who asks questions.",
+            "start": 3.2,
+            "end": 5.4,
+            "core": "질문",
+            "highlight": "질문은 제가 합니다",
+            "koHighlight": "I am the one who asks questions"
+          },
+          {
+            "en": "좋은 가르침, 교육은 | 경험에서 나오는 거라고 | 생각을 해요.",
+            "phonetic": "joeun gareuchim, gyoyugeun | gyeongheomeseo naoneun georago | saenggageul haeyo.",
+            "ko": "Good teaching and education | comes from experience, | I believe.",
+            "start": 5.4,
+            "end": 9.8,
+            "core": "경험",
+            "highlight": "경험에서 나오는",
+            "koHighlight": "comes from experience"
+          },
+          {
+            "en": "그래서 주식 투자를 | 해본 경험이 | 있으신지요?",
+            "phonetic": "geuraeseo jusik tujareul | haebon gyeongheomi | isseusin jiyo?",
+            "ko": "So, do you have | any experience | investing in stocks?",
+            "start": 9.8,
+            "end": 13.8,
+            "core": "주식 투자",
+            "highlight": "주식 투자 경험",
+            "koHighlight": "stock investment experience"
+          },
+          {
+            "en": "없습니다. | 제가 주식 투자의 경험을 | 갖고 있지 않은 것이 | 좀 더 깊은 공감을 느낄 수 있다는 생각을 합니다.",
+            "phonetic": "eopseumnida. | jega jusik tujaui gyeongheomeul | gatgo itji anheun geosi | jom deo gipeun gonggameul neukkil su itdaneun saenggageul hamnida.",
+            "ko": "No, I do not. | The fact that I have no experience in stock investing | is what allows me | to feel even deeper empathy, I believe.",
+            "start": 13.8,
+            "end": 21.4,
+            "core": "공감",
+            "highlight": "깊은 공감을 느낄 수 있다",
+            "koHighlight": "can feel deeper empathy"
+          },
+          {
+            "en": "보니까 텐션이 | 저희 일반 거래소 직원들하고 | 조금 다른 것 같아요.",
+            "phonetic": "bonikka tensyoni | jeohui ilban georaeso jikwondeulhago | jogeum dareun geot gatayo.",
+            "ko": "I notice the energy | is a bit different from | our regular exchange staff.",
+            "start": 21.4,
+            "end": 26.6,
+            "core": "텐션",
+            "highlight": "텐션이 다른 것 같아요",
+            "koHighlight": "the energy seems different"
+          },
+          {
+            "en": "나쁘다는 얘기는 아니고요, | 거래소 분들이 젊은 분들도 | 상당히 좀 보수적인 생각을 | 가지고 계신 분들이에요.",
+            "phonetic": "nappeudaneun yaegineun anigoyo, | georaeso bundeuri jeolmeun bundeuldo | sangdanghi jom bosujeokin saenggageul | gajigo gyesin bundeurieyo.",
+            "ko": "I'm not saying that's a bad thing, | but even the younger staff at the exchange | tend to hold | quite conservative views.",
+            "start": 26.6,
+            "end": 35.7,
+            "core": "보수적인",
+            "highlight": "보수적인 생각을 가지고",
+            "koHighlight": "holding conservative views"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "eycfu5TnPM0",
+        "title": "최종 면접 답변 - 발표 능력 이야기",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 47,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "본인의 스피치 능력은 | 많이 갈릴 것 같습니다.",
+            "phonetic": "bonin-ui seupichi neungnyeogeun | mani gallil geot gatseumnida.",
+            "ko": "I think opinions will vary a lot | about one's own speech ability.",
+            "start": 0,
+            "end": 5,
+            "core": "스피치",
+            "highlight": "스피치 능력",
+            "koHighlight": "speech ability"
+          },
+          {
+            "en": "그러면서 어떻게 평가하나요?",
+            "phonetic": "geureomyeonseo eotteoke pyeonggahannayo?",
+            "ko": "So then, how do you evaluate it?",
+            "start": 5,
+            "end": 7.9,
+            "core": "평가",
+            "highlight": "어떻게 평가하나요",
+            "koHighlight": "how do you evaluate it"
+          },
+          {
+            "en": "좋은 편은 아니라고 생각합니다. | 오히려 좀 나쁜 편에 | 속하고 있다고 생각이 들어요.",
+            "phonetic": "joeun pyeoneun anirago saenggakamnida. | ohiryeo jom nappeun pyeone | sokhago itdago saenggagi deureoyo.",
+            "ko": "I don't think I'm on the good side. | Rather, I'm on the somewhat bad side — | I feel like I fall into that category.",
+            "start": 9.3,
+            "end": 15.5,
+            "core": "나쁜",
+            "highlight": "나쁜 편에 속하다",
+            "koHighlight": "fall into the bad category"
+          },
+          {
+            "en": "법학을 하다 보니까 | PPT 발표조차 | 제대로 해본 적이 없었고.",
+            "phonetic": "beophageul hada bonikka | pipiti balpyojocha | jedaero haebon jeogi eopseotgo.",
+            "ko": "Because I went into law, | I had never even done | a proper PPT presentation.",
+            "start": 15.5,
+            "end": 19.4,
+            "core": "발표",
+            "highlight": "발표조차 해본 적이 없다",
+            "koHighlight": "never even given a presentation"
+          },
+          {
+            "en": "그렇기 때문에 제가 발표 능력 같은 게 | 떨어진다는 것도 | 로스쿨 준비를 하면서 많이 느꼈어요.",
+            "phonetic": "geureoki ttaemune jega balpyo neungnyeok gateun ge | tteoreojindaneun geotdo | roseukul junbireul hamyeonseo mani neukkyeosseoyo.",
+            "ko": "That's why I feel that my presentation skills | are lacking — | I realized that a lot while preparing for law school.",
+            "start": 19.4,
+            "end": 24.2,
+            "core": "떨어진다",
+            "highlight": "발표 능력이 떨어지다",
+            "koHighlight": "presentation skills are lacking"
+          },
+          {
+            "en": "면접 준비 같은 것도 좀 많이 해야지 | 그나마 반에 반이라도 보여드릴 수 있을 것 같아요.",
+            "phonetic": "myeonjeop junbi gateun geotdo jom mani haeyaji | geunama bane baniraedo boyeodeuril su isseul geot gatayo.",
+            "ko": "I think I need to prepare a lot for interviews too, | so that I can at least show even half of what I've got.",
+            "start": 24.2,
+            "end": 30.1,
+            "core": "면접",
+            "highlight": "면접 준비를 하다",
+            "koHighlight": "prepare for interviews"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "oTHSV5ggXow",
+        "title": "무조건 탈락하는 면접 지원자 특징 TOP5",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 47,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "자, 입사지원서를 검토해 보니까요, | 지원자님께서 그동안 했던 프로젝트하고 | 본인이 지원한 직무하고 잘 맞지 않는 것 같아요.",
+            "phonetic": "ja, ipsajiwonseoreul geomtohae bonikkayo, | jiwonjanimkkeseo geudongan haetdeon peurojekteuhago | bonini jiwonhan jikmuhago jal matji anneun geot gatayo.",
+            "ko": "Well, after reviewing your application, | the projects you've worked on so far | don't seem to match the position you applied for.",
+            "start": 1.4,
+            "end": 7.5,
+            "core": "지원서",
+            "highlight": "입사지원서를 검토하다",
+            "koHighlight": "review the job application"
+          },
+          {
+            "en": "그럼 면접관님은 | 전공이랑 지금 하시는 직무랑 | 같으세요?",
+            "phonetic": "geureom myeonjeokgwannimeun | jeongongirang jigeum hasineun jikmurang | gateuseyo?",
+            "ko": "Then, how about you, interviewer — | is your major | the same as your current job?",
+            "start": 7.5,
+            "end": 13,
+            "core": "전공",
+            "highlight": "전공이랑 직무랑 같다",
+            "koHighlight": "major and job role are the same"
+          },
+          {
+            "en": "갈등 상황에서 | 지원자님이 주도적으로 | 문제를 해결했던 경험이 있으신가요?",
+            "phonetic": "galdeung sanghwangeseo | jiwonjanimi judojeogeuro | munjereul haegyeolhaetdeon gyeongheomi isseusingayo?",
+            "ko": "In a conflict situation, | did you proactively | have an experience of solving a problem?",
+            "start": 13,
+            "end": 17.3,
+            "core": "갈등",
+            "highlight": "주도적으로 문제를 해결하다",
+            "koHighlight": "proactively solve a problem"
+          },
+          {
+            "en": "네, 좀 더 자세하게 | 상황을 말씀해 주셔야죠.",
+            "phonetic": "ne, jom deo jasehage | sanghwangeul malsseumhae jusyeoyajyo.",
+            "ko": "Yes, you need to explain | the situation in a bit more detail.",
+            "start": 17.3,
+            "end": 21.2,
+            "core": "자세하게",
+            "highlight": "자세하게 말씀해 주다",
+            "koHighlight": "explain in detail"
+          },
+          {
+            "en": "마지막으로, 저희 회사에 대해서 | 궁금한 거 혹시 있으신가요?",
+            "phonetic": "majimageuro, jeohi hoesae daehaeseo | gunggeumhan geo hoksi isseusingayo?",
+            "ko": "Finally, | do you happen to have any questions about our company?",
+            "start": 21.2,
+            "end": 27,
+            "core": "궁금",
+            "highlight": "회사에 대해서 궁금하다",
+            "koHighlight": "have questions about the company"
+          },
+          {
+            "en": "혹시 여기 연봉 인상률은 어떻게 되나요? | 그리고 이번 추석에 혹시 떡값 주시나요?",
+            "phonetic": "hoksi yeogi yeonbong insangnyureun eotteoke doenayo? | geurigo ibeon chuseoge hoksi tteokgap jusinayo?",
+            "ko": "By any chance, what is the salary raise rate here? | And do you give a Chuseok bonus this year?",
+            "start": 27,
+            "end": 30.9,
+            "core": "연봉",
+            "highlight": "연봉 인상률",
+            "koHighlight": "salary raise rate"
+          },
+          {
+            "en": "우리 기업의 여러 가지 기술 중에 | 혹시 아는 기술 있나요? | 뭐 알면 기술 유출인데, | 제가 모르는 걸 보니까…",
+            "phonetic": "uri gieobui yeoreo gaji gisul junge | hoksi aneun gisul innayo? | mwo almyeon gisul yuchurinde, | jega moreuneun geol bonikka…",
+            "ko": "Among our company's various technologies, | do you happen to know any of them? | Well, if you knew, it would be a technology leak, | so I guess you don't know any…",
+            "start": 30.9,
+            "end": 40.9,
+            "core": "기술",
+            "highlight": "기술 유출",
+            "koHighlight": "technology leak"
+          }
+        ]
       }
     ]
   }
