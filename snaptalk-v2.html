@@ -19450,6 +19450,8 @@ const DS = {
   volRaf: null,
   autoStopTimer: null,
   videoPlaying: false,
+  speechRecog: null,
+  recognizedText: '',
 };
 
 /* ─────────────────────────────────────────
@@ -19789,6 +19791,7 @@ async function _dsStartRec() {
     DS.recorder = rec;
     DS.chunks   = [];
     DS.recStart = Date.now();
+    DS.recognizedText = '';   /* 음성 인식 결과 초기화 */
 
     rec.ondataavailable = function(e) {
       if (e.data && e.data.size > 0) DS.chunks.push(e.data);
@@ -19797,23 +19800,21 @@ async function _dsStartRec() {
       const blob = new Blob(DS.chunks, { type: 'audio/webm' });
       DS.recordings[DS.idx] = blob;
       DS.audioURLs[DS.idx]  = URL.createObjectURL(blob);
-      /* 점수 계산 */
-      const dur = (Date.now() - DS.recStart) / 1000;
-      const s   = DS.sentences[DS.idx];
-      const words = (s && s.en) ? s.en.split(' ').length : 3;
-      const ideal = Math.max(0.5, words * 0.38);
-      const ratio = Math.min(dur / ideal, 1.6);
-      const base  = 48 + Math.round(ratio * 34);
-      const noise = Math.round((Math.random() - 0.25) * 18);
-      DS.scores[DS.idx] = Math.min(100, Math.max(15, base + noise));
-      _dsStopVolViz();
-      _dsSetButtons('done');
+      /* 음성 인식 결과로 점수 계산 (약간의 지연 후 - 인식 완료 대기) */
+      setTimeout(function() {
+        _dsScoreBySpeech();
+        _dsStopVolViz();
+        _dsSetButtons('done');
+      }, 600);
     };
 
     rec.start(100);
     DS.isRec = true;
     _dsSetButtons('recording');
     _dsStartVolViz();
+
+    /* 🎙️ 음성 인식 시작 */
+    _dsStartSpeechRec();
 
     /* 최대 10초 자동 정지 */
     DS.autoStopTimer = setTimeout(function() {
@@ -19826,10 +19827,113 @@ async function _dsStartRec() {
   }
 }
 
+/* ── 🎙️ 음성 인식 (Web Speech API) ── */
+function _dsStartSpeechRec() {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    console.warn('[DS] SpeechRecognition 미지원');
+    DS.recognizedText = null;  /* null = 인식 불가 → 시간 기반 폴백 */
+    return;
+  }
+  try {
+    var recog = new SR();
+    recog.lang = 'en-US';
+    recog.interimResults = true;
+    recog.continuous = true;
+    recog.maxAlternatives = 1;
+    DS.speechRecog = recog;
+    DS.recognizedText = '';
+
+    recog.onresult = function(e) {
+      var txt = '';
+      for (var i = 0; i < e.results.length; i++) {
+        txt += e.results[i][0].transcript + ' ';
+      }
+      DS.recognizedText = txt.trim();
+    };
+    recog.onerror = function(e) {
+      console.warn('[DS Speech error]', e.error);
+    };
+    recog.start();
+  } catch(err) {
+    console.warn('[DS Speech start]', err);
+    DS.recognizedText = null;
+  }
+}
+
+function _dsStopSpeechRec() {
+  if (DS.speechRecog) {
+    try { DS.speechRecog.stop(); } catch(e) {}
+    DS.speechRecog = null;
+  }
+}
+
+/* ── 점수 계산: 인식 텍스트 ↔ 원본 단어 비교 ── */
+function _dsScoreBySpeech() {
+  var s = DS.sentences[DS.idx];
+  var target = (s && s.en) ? s.en : '';
+  var said = DS.recognizedText;
+
+  /* 음성 인식 미지원 → 시간 기반 폴백 (관대하게) */
+  if (said === null) {
+    var dur = (Date.now() - DS.recStart) / 1000;
+    DS.scores[DS.idx] = dur >= 0.5 ? 70 : 20;
+    return;
+  }
+
+  /* 인식 결과 없음 (무음/음악만) → 낮은 점수 */
+  if (!said || said.length === 0) {
+    DS.scores[DS.idx] = Math.floor(Math.random() * 12);  /* 0~11점 */
+    return;
+  }
+
+  /* 단어 정규화 (소문자, 문장부호 제거) */
+  function normalize(str) {
+    return str.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .split(' ')
+      .filter(function(w){ return w.length > 0; });
+  }
+
+  var targetWords = normalize(target);
+  var saidWords   = normalize(said);
+
+  if (targetWords.length === 0) { DS.scores[DS.idx] = 50; return; }
+
+  /* 원본 단어 중 몇 개가 인식 결과에 포함됐는지 */
+  var saidSet = {};
+  saidWords.forEach(function(w){ saidSet[w] = (saidSet[w]||0) + 1; });
+
+  var matched = 0;
+  targetWords.forEach(function(w){
+    if (saidSet[w] && saidSet[w] > 0) {
+      matched++;
+      saidSet[w]--;   /* 중복 매칭 방지 */
+    }
+  });
+
+  var matchRate = matched / targetWords.length;   /* 0~1 */
+
+  /* 점수: 일치율 기반 (약간의 보정) */
+  var score = Math.round(matchRate * 100);
+
+  /* 거의 다 맞으면 보너스, 너무 적으면 그대로 */
+  if (matchRate >= 0.85) score = Math.min(100, score + 5);
+  if (matchRate >= 0.95) score = 100;
+
+  DS.scores[DS.idx] = Math.max(0, Math.min(100, score));
+
+  console.log('[DS Score] 원본:', target, '| 인식:', said, '| 일치율:', Math.round(matchRate*100)+'%', '| 점수:', DS.scores[DS.idx]);
+}
+
 function _dsStopRec() {
   if (DS.recorder && DS.recorder.state !== 'inactive') DS.recorder.stop();
   DS.isRec = false;
   if (DS.autoStopTimer) { clearTimeout(DS.autoStopTimer); DS.autoStopTimer = null; }
+  /* 음성 인식 정지 */
+  _dsStopSpeechRec();
 }
 
 /* ── 볼륨 시각화 ── */
