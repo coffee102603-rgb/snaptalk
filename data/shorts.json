@@ -7165,6 +7165,61 @@
             "koHighlight": "stop by Seongsim-dang"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "kKeJUIskq9Y",
+        "title": "올리브영에서 안 사면 후회하는 추천템 TOP5",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 34,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "어, 빨개!",
+            "phonetic": "eo, ppalgae!",
+            "ko": "Oh, it's red!",
+            "start": 3.8,
+            "end": 12.4,
+            "core": "빨개",
+            "highlight": "어, 빨개",
+            "koHighlight": "Oh, it's red!"
+          },
+          {
+            "en": "이게 얼마예요?",
+            "phonetic": "ige eolmayeyo?",
+            "ko": "How much is this?",
+            "start": 14,
+            "end": 17.2,
+            "core": "얼마",
+            "highlight": "이게 얼마예요",
+            "koHighlight": "How much is this?"
+          },
+          {
+            "en": "저기 내가 먹는 과자가 있어. | 여기서 내가 먹는 거는 | 하루 과일칩이야.",
+            "phonetic": "jeogi naega meongneun gwajaga isseo. | yeogiseo naega meongneun geoneun | haru gwailchibiya.",
+            "ko": "Over there is the snack I eat. | What I eat here | is Haru Fruit Chips.",
+            "start": 18.4,
+            "end": 26.7,
+            "core": "과일칩",
+            "highlight": "내가 먹는 과일칩",
+            "koHighlight": "the fruit chips I eat"
+          },
+          {
+            "en": "내가 좋아하는 거 여기 있어. | 이거 뭐야? | 이거 단백질칩.",
+            "phonetic": "naega joahaneun geo yeogi isseo. | igeo mwoya? | igeo danbaekjilchip.",
+            "ko": "The thing I like is right here. | What is this? | This is a protein chip.",
+            "start": 26.7,
+            "end": 35.9,
+            "core": "단백질칩",
+            "highlight": "이거 단백질칩",
+            "koHighlight": "this is a protein chip"
+          }
+        ]
       }
     ]
   }
