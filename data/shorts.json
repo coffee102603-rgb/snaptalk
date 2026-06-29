@@ -6375,6 +6375,82 @@
         ]
       }
     ],
-    "kr": []
+    "kr": [
+      {
+        "source": "supadata",
+        "id": "H7AFIS4YNyo",
+        "title": "막둥이 생일에 준비한 설 명절 음식 ep1.",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "culture",
+        "catIcon": "🎭",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 68,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "막둥이의 생일, | 아침 눈 뜨자마자 | 축하해주고",
+            "phonetic": "makdungii saengil, | achim nun tteujamaja | chukahaeju go",
+            "ko": "It's the youngest one's birthday, | and as soon as he woke up in the morning | we congratulated him",
+            "start": 0.8,
+            "end": 11.2,
+            "core": "생일",
+            "highlight": "막둥이의 생일",
+            "koHighlight": "the youngest one's birthday"
+          },
+          {
+            "en": "군인인 형도 | 축하 전화 싸들고 왔고, | 비싼 건 엄마에게 미루는 명절",
+            "phonetic": "guninin hyeongdo | chuka jeonhwa ssadeulgo watgo, | bissan geon eommaege miruneun myeongjel",
+            "ko": "Even the older brother who is a soldier | came bearing congratulatory calls, | the holiday where the expensive stuff gets passed to mom",
+            "start": 11.2,
+            "end": 16.5,
+            "core": "명절",
+            "highlight": "엄마에게 미루는 명절",
+            "koHighlight": "holiday where things get passed to mom"
+          },
+          {
+            "en": "음식 준비하는 날이라 | 할 일은 냉장고에 붙여놓고, | 두 형제가 돕는 날",
+            "phonetic": "eumsik junbiha neun nalira | hal ireun naengjanggo e buttyeonoko, | du hyungjeaga dopneun nal",
+            "ko": "Since it's a day to prepare food | the to-do list is posted on the fridge, | a day when the two brothers help out",
+            "start": 16.5,
+            "end": 23.4,
+            "core": "준비",
+            "highlight": "음식 준비하는 날",
+            "koHighlight": "a day to prepare food"
+          },
+          {
+            "en": "노래하며 야채 손질하고 | 술과 맛소금 발라 | 생선을 손질하고 채를 썰면",
+            "phonetic": "noraehamyeo yachae sonjilhago | sulkwa matsogeum balla | saengseon eul sonjilhago chaereul sseolmyeon",
+            "ko": "Singing while prepping the vegetables | rubbing them with cooking wine and seasoned salt | cleaning the fish and julienning it",
+            "start": 23.6,
+            "end": 34.2,
+            "core": "야채손질",
+            "highlight": "야채 손질하고 채를 썰다",
+            "koHighlight": "prep vegetables and julienne them"
+          },
+          {
+            "en": "막둥이도 하겠다고 해서 | 안 돼 안 돼 위험해! | 도움의 눈빛을 보내지만 | 안 되겠다, 칼질이나 하자",
+            "phonetic": "makdungido hagetdago haeseo | an dwae an dwae wiheomhae! | doumeui nunbicheul bonaejiman | an doegetta, kaljirina haja",
+            "ko": "The youngest said he wants to help too | No no, it's dangerous! | He sends a pleading look | but it won't do — let's just do the chopping",
+            "start": 34.2,
+            "end": 40.0,
+            "core": "위험",
+            "highlight": "안 돼 위험해",
+            "koHighlight": "No way, it's dangerous"
+          },
+          {
+            "en": "둘째는 동그랑땡 야채 준비, | 막둥이는 옆에서 돕는다",
+            "phonetic": "duljjaeneun donggeurangtaeng yachae junbi, | makdungineun yeobeseo dopneunda",
+            "ko": "The second brother preps the vegetables for the patties, | and the youngest helps from the side",
+            "start": 40.0,
+            "end": 46.0,
+            "core": "동그랑땡",
+            "highlight": "동그랑땡 야채 준비",
+            "koHighlight": "vegetable prep for Korean patties"
+          }
+        ]
+      }
+    ]
   }
 }
