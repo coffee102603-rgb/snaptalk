@@ -19618,11 +19618,6 @@ window.openDubbingRoom = openDubbingRoom;
     <div class="dss-line-ko" id="dssLineKo"></div>
   </div>
 
-  <!-- TTS 다시 듣기 -->
-  <div class="dss-tts-row">
-    <button class="dss-tts-btn" id="dssTtsBtn">🔊 천천히 듣기</button>
-    <button class="dss-tts-btn" id="dssTtsFastBtn">⚡ 빠르게 듣기</button>
-  </div>
 
   <!-- 녹음 영역 -->
   <div class="dss-rec-area">
@@ -20028,13 +20023,13 @@ function _dsSetButtons(state) {
   }
 }
 
-/* ── TTS ── */
-document.getElementById('dssTtsBtn').addEventListener('click', function() {
-  _dsTts(0.78);
-});
-document.getElementById('dssTtsFastBtn').addEventListener('click', function() {
-  _dsTts(1.05);
-});
+/* ── TTS (버튼 제거됨 - 핸들러는 안전 가드) ── */
+(function(){
+  var b1 = document.getElementById('dssTtsBtn');
+  var b2 = document.getElementById('dssTtsFastBtn');
+  if (b1) b1.addEventListener('click', function() { _dsTts(0.78); });
+  if (b2) b2.addEventListener('click', function() { _dsTts(1.05); });
+})();
 function _dsTts(rate) {
   const s = DS.sentences[DS.idx];
   if (!s) return;
