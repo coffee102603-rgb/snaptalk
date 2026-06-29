@@ -7681,6 +7681,198 @@
             "koHighlight": "subscribers have been telling me"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "ND7yXj1-NcY",
+        "title": "한국 버스와 일본 버스 비교",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 56,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "금액이 정해져 있는 게 아니고 | 계속 올라가는 거예요.",
+            "phonetic": "geummaegi jeonghaejyeo inneun ge anigo | gyesok ollaganeun geoyeyo.",
+            "ko": "It's not a fixed amount | — it keeps going up.",
+            "start": 2.2,
+            "end": 6.4,
+            "core": "올라가다",
+            "highlight": "계속 올라가는 거예요",
+            "koHighlight": "it keeps going up"
+          },
+          {
+            "en": "계속 이렇게 | 출발합니다, 멈춥니다 | 이런 식으로 | 얘기를 해 주시는 것 같아요.",
+            "phonetic": "gyesok ireoke | chulbalhamnida, meomchumnida | ireon sigeuro | yaegireul hae jusineun geot gatayo.",
+            "ko": "It seems like they keep saying | 'departing,' 'stopping' | kind of like that | over and over.",
+            "start": 15.2,
+            "end": 19.8,
+            "core": "얘기",
+            "highlight": "얘기를 해 주시는 것 같아요",
+            "koHighlight": "it seems like they keep telling us"
+          },
+          {
+            "en": "근데 여기 | 정차한다고 진짜.",
+            "phonetic": "geunde yeogi | jeongchahandago jinjja.",
+            "ko": "But apparently | it really does stop here.",
+            "start": 19.8,
+            "end": 24.3,
+            "core": "정차",
+            "highlight": "정차한다고",
+            "koHighlight": "says it's stopping"
+          },
+          {
+            "en": "왼쪽에 버스는 | 창문이 아예 없어요.",
+            "phonetic": "oenjjoge beoseuneun | changmuni aye eopseoyo.",
+            "ko": "The bus on the left | has no windows at all.",
+            "start": 39.4,
+            "end": 42.9,
+            "core": "창문",
+            "highlight": "창문이 아예 없어요",
+            "koHighlight": "has no windows at all"
+          },
+          {
+            "en": "그리고 되게 | 길고 커.",
+            "phonetic": "geurigo doege | gilgo keo.",
+            "ko": "And it's really | long and big.",
+            "start": 42.9,
+            "end": 45.5,
+            "core": "길다",
+            "highlight": "되게 길고 커",
+            "koHighlight": "really long and big"
+          },
+          {
+            "en": "근데 여기는 | 창문이 없고 | 위에만 다 열리네요.",
+            "phonetic": "geunde yeogineun | changmuni eopgo | wieman da yeollineyo.",
+            "ko": "But over here | there are no windows | and only the top part opens.",
+            "start": 45.5,
+            "end": 51.7,
+            "core": "열리다",
+            "highlight": "위에만 다 열리네요",
+            "koHighlight": "only the top opens up"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "izAXD7ZV1dE",
+        "title": "애틀랜타 주말 브런치 브이로그",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 163,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "안녕하세요, | 애틀랜타에 사는 | 애틀맘입니다.",
+            "phonetic": "annyeonghaseyo, | aeteullantae saneun | aeteulmamimnida.",
+            "ko": "Hello, | I'm Atl-Mom | living in Atlanta.",
+            "start": 0.7,
+            "end": 4.6,
+            "core": "안녕하세요",
+            "highlight": "안녕하세요 애틀맘입니다",
+            "koHighlight": "Hello, I'm Atl-Mom"
+          },
+          {
+            "en": "오늘은 남들이 다 찍어보는 | 브런치 브이로그를 | 찍어보려고 합니다.",
+            "phonetic": "oneureun namdeuri da jjigeoboneun | beureonchi beuirogeureul | jjigeoboryeogo hamnida.",
+            "ko": "Today I'm going to shoot | a brunch vlog | that everyone else seems to be doing.",
+            "start": 4.6,
+            "end": 11.5,
+            "core": "브런치",
+            "highlight": "브런치 브이로그 찍다",
+            "koHighlight": "shoot a brunch vlog"
+          },
+          {
+            "en": "일요일 아침에 | 좀 한가하게 | 세팅을 해 봤어요.",
+            "phonetic": "iryoil achime | jom hangahage | setingeul hae bwasseoyo.",
+            "ko": "On Sunday morning | I set things up | a little leisurely.",
+            "start": 11.5,
+            "end": 15.9,
+            "core": "세팅",
+            "highlight": "한가하게 세팅하다",
+            "koHighlight": "set up leisurely"
+          },
+          {
+            "en": "각도도 잘 안 나오고 | 구도도 이쁜 게 없고 | 이 정도밖에 못 찍네요.",
+            "phonetic": "gakdodo jal an naogo | gudodo ippeun ge eopgo | i jeongdobakke mot jjingneyo.",
+            "ko": "The angles aren't coming out well | and there's no pretty composition either, | so this is about all I could shoot.",
+            "start": 15.9,
+            "end": 22.3,
+            "core": "각도",
+            "highlight": "각도가 안 나오다",
+            "koHighlight": "the angles aren't working out"
+          },
+          {
+            "en": "카페에서 팔다 남은 바나나 하나와 | 먹다 남은 밤 식빵 한 조각, | 그리고 엄마가 한국에서 주신",
+            "phonetic": "kapeeseo palda nameun banana hanawa | meokda nameun bam sikppang han jojak, | geurigo eommaga hangugeseo jusin",
+            "ko": "One leftover banana from the café | and one leftover slice of chestnut bread, | and what my mom gave me from Korea —",
+            "start": 22.3,
+            "end": 32.2,
+            "core": "식빵",
+            "highlight": "팔다 남은 바나나",
+            "koHighlight": "leftover banana from the café"
+          },
+          {
+            "en": "가래떡 그리고 | 작은어머님이 해주신 | 양갱 이렇게 차렸고요.",
+            "phonetic": "garaetteok geurigo | jageuneomonimi haejusin | yanggaeng ireoke charyeotgoyo.",
+            "ko": "Garaetteok, and | what my aunt made for me — | sweet red bean jelly, that's what I set out.",
+            "start": 32.2,
+            "end": 38.4,
+            "core": "가래떡",
+            "highlight": "가래떡 차리다",
+            "koHighlight": "set out garaetteok"
+          },
+          {
+            "en": "이 커피는 저희 형님이 | 베트남에 사시는데 | 베트남에서 보내주신 커피예요.",
+            "phonetic": "i keopineun jeoui hyeongnimi | beteunamе sasineunde | beteunameseo bonaejusin keopiyeyo.",
+            "ko": "This coffee is from my brother-in-law | who lives in Vietnam — | the coffee he sent from Vietnam.",
+            "start": 38.4,
+            "end": 44.7,
+            "core": "커피",
+            "highlight": "베트남에서 보내주신 커피",
+            "koHighlight": "coffee sent from Vietnam"
+          },
+          {
+            "en": "처음엔 별로 안 먹었는데 | 커피가 너무너무 맛있는 거예요.",
+            "phonetic": "cheoeumen byeollo an meogeonneunde | keopiga neomuneomu masinneun geoyeyo.",
+            "ko": "At first I didn't really drink it, | but the coffee is incredibly delicious.",
+            "start": 44.7,
+            "end": 56,
+            "core": "맛있다",
+            "highlight": "너무너무 맛있다",
+            "koHighlight": "incredibly delicious"
+          },
+          {
+            "en": "은은한 향과 맛도 부드럽고 | 직접 내려서 먹는 게 | 성격이 급해서 별로 안 좋아했는데,",
+            "phonetic": "euneunhan hyanggwa matdo budeureopgo | jikjeop naeryeoseo meongneun ge | seonggyeogi geupaeseo byeollo an joahaenneunde,",
+            "ko": "The subtle aroma and taste are smooth, | and brewing it myself to drink — | I used to not like it because I'm impatient,",
+            "start": 56,
+            "end": 67.2,
+            "core": "부드럽다",
+            "highlight": "은은한 향과 부드러운 맛",
+            "koHighlight": "subtle aroma and smooth taste"
+          },
+          {
+            "en": "커피 맛에 반하다 보니 | 이 시간이 너무 행복한 거예요.",
+            "phonetic": "keopi mase banhada boni | i sigani neomu haengbokhan geoyeyo.",
+            "ko": "But having fallen in love with the taste, | this time feels so happy.",
+            "start": 67.2,
+            "end": 79.7,
+            "core": "행복하다",
+            "highlight": "맛에 반해 행복하다",
+            "koHighlight": "happy having fallen for the taste"
+          }
+        ]
       }
     ]
   }
