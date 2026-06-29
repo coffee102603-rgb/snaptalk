@@ -19584,6 +19584,7 @@ window.openDubbingRoom = openDubbingRoom;
   <div class="dsc-gradient">
     <div class="dsc-label">🎬 SnapTalk Cinema</div>
     <div class="dsc-title" id="dsCinemaTitle">영상 제목</div>
+    <div class="dsc-credit" id="dsCinemaCredit" style="font-size:12px;color:rgba(255,255,255,0.75);margin:6px 0 4px;line-height:1.5;"></div>
     <div class="dsc-btn-row">
       <button class="dsc-start-btn" id="dsCinemaStartBtn">🎙️ 더빙 시작!</button>
       <button class="dsc-skip-btn" id="dsCinemaSkipBtn">건너뛰기</button>
@@ -19741,6 +19742,18 @@ function _dsOpenCinema() {
   iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
     + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=0';
   title.textContent = DS.short.title || '';
+  /* ⚖️ CC BY 출처 표기 (크레딧) */
+  var credit = document.getElementById('dsCinemaCredit');
+  if (credit) {
+    var ytLink = 'https://www.youtube.com/watch?v=' + DS.short.id;
+    var channel = DS.short.channelTitle || '';
+    var isCC = DS.short.license === 'creativeCommon';
+    var parts = [];
+    if (channel) parts.push('📺 원본: ' + channel);
+    parts.push('<a href="' + ytLink + '" target="_blank" rel="noopener" style="color:#7dd3fc;text-decoration:underline;">YouTube에서 보기 ↗</a>');
+    if (isCC) parts.push('<span style="opacity:0.8;">CC BY</span>');
+    credit.innerHTML = parts.join(' · ');
+  }
   el.classList.add('ds-active');
 }
 function _dsCloseCinema() {
