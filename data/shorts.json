@@ -7443,6 +7443,158 @@
             "koHighlight": "try recycling it smartly"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "Btu8KWSQOqo",
+        "title": "직장인 브이로그 - 출근부터 퇴근까지",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 38,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "직장인 하루, | 겨우 일어났고 | 너무 피곤하지만 | 일단 회사 가야 되니까.",
+            "phonetic": "jikjangin haru, | gyeou ireonatgo | neomu pigonhajiman | ildan hoesa gaya doenikka.",
+            "ko": "A day in the life of an office worker — | I barely woke up | and I'm so tired, | but I have to go to work anyway.",
+            "start": 0.5,
+            "end": 5.4,
+            "core": "피곤하다",
+            "highlight": "겨우 일어났고 너무 피곤하다",
+            "koHighlight": "barely woke up and so tired"
+          },
+          {
+            "en": "오늘 이렇게 입어줬고요, | 파우치 챙기고 | 운동복 싸 놓고, | 이건 거울.",
+            "phonetic": "oneul ireoke ibeojwotgoyo, | pauchi chaenggigo | undongbok ssa noko, | igeon georul.",
+            "ko": "I got dressed like this today, | packed my pouch, | prepared my gym clothes, | and this is the mirror.",
+            "start": 5.4,
+            "end": 10.1,
+            "core": "챙기다",
+            "highlight": "파우치 챙기고",
+            "koHighlight": "packed my pouch"
+          },
+          {
+            "en": "글루타치온이랑 콜라겐 챙기고 | 이제 출근해 볼게요.",
+            "phonetic": "geullutachionirang kollagen chaenggigo | ije chulgeunhae bolgeyo.",
+            "ko": "I packed my glutathione and collagen | and now I'll head to work.",
+            "start": 10.1,
+            "end": 14.6,
+            "core": "출근",
+            "highlight": "출근해 볼게요",
+            "koHighlight": "I'll head to work"
+          },
+          {
+            "en": "놓칠까 봐 열심히 뛰었고, | 아침으로 단백셰이크 먹었는데 | 맛이 없었어.",
+            "phonetic": "notchilkka bwa yeolsimhi twieotgo, | achimeuro danbaeksyeikeu meogeonneunde | masi eopseosseo.",
+            "ko": "I ran hard so I wouldn't miss it, | and I had a protein shake for breakfast | but it didn't taste good.",
+            "start": 14.6,
+            "end": 18.8,
+            "core": "뛰다",
+            "highlight": "놓칠까 봐 열심히 뛰었고",
+            "koHighlight": "ran hard so I wouldn't miss it"
+          },
+          {
+            "en": "점심으로는 김치찌개 먹었고요, | 글루타치온도 마셔 줍니다.",
+            "phonetic": "jeomsimeuroneun kimchijjigae meogeotgoyo, | geullutachionido masyeo jumnida.",
+            "ko": "For lunch I had kimchi stew, | and I'm also drinking my glutathione.",
+            "start": 18.8,
+            "end": 21.2,
+            "core": "김치찌개",
+            "highlight": "점심으로 김치찌개 먹었고요",
+            "koHighlight": "had kimchi stew for lunch"
+          },
+          {
+            "en": "오늘 야근 메뉴는 서브웨이인데, | 저는 로스트치킨에 아보카도 추가를 | 가장 좋아해요.",
+            "phonetic": "oneul yageun menyuneun seobeuweiinde, | jeoneun roseuteuchikine abokado chugareul | gajang joahaeyo.",
+            "ko": "Today's overtime meal is Subway, | and I like roast chicken with avocado added | the most.",
+            "start": 21.2,
+            "end": 28.6,
+            "core": "야근",
+            "highlight": "야근 메뉴는 서브웨이",
+            "koHighlight": "overtime meal is Subway"
+          },
+          {
+            "en": "일 좀 더 하다가 퇴근하고 | 헬스장 갔고요.",
+            "phonetic": "il jom deo hadaga toegeunhago | helseujang gatgoyo.",
+            "ko": "After working a bit more I clocked out | and went to the gym.",
+            "start": 28.6,
+            "end": 35.2,
+            "core": "퇴근",
+            "highlight": "퇴근하고 헬스장 갔고요",
+            "koHighlight": "clocked out and went to the gym"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "7wm56qDAPp8",
+        "title": "직장인 일주일 점심값 기록",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 16,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "직장인 일주일 점심값이 | 얼마나 할까요?",
+            "phonetic": "jikjangin iljuil jeomsimgapsi | eolmana halkkayo?",
+            "ko": "How much would a week's lunch bill | cost for an office worker?",
+            "start": 0.2,
+            "end": 1.9,
+            "core": "점심값",
+            "highlight": "일주일 점심값",
+            "koHighlight": "weekly lunch bill"
+          },
+          {
+            "en": "월요일은 라면만 | 2,000원이에요.",
+            "phonetic": "woryoireun ramyeonman | icheonwonieyo.",
+            "ko": "On Monday, just ramen | costs 2,000 won.",
+            "start": 1.9,
+            "end": 4,
+            "core": "라면",
+            "highlight": "라면만 2,000원",
+            "koHighlight": "just ramen for 2,000 won"
+          },
+          {
+            "en": "수요일은 돈가스가 2,000원이고 | 목요일은 곰탕만 5,000원이에요.",
+            "phonetic": "suyoireun dongaseuga icheonwonigo | mogyoireun gomtangman ocheonwonieyo.",
+            "ko": "On Wednesday tonkatsu is 2,000 won, | and on Thursday just gomtang is 5,000 won.",
+            "start": 4,
+            "end": 8.3,
+            "core": "곰탕",
+            "highlight": "곰탕만 5,000원",
+            "koHighlight": "just gomtang for 5,000 won"
+          },
+          {
+            "en": "금요일은 약값이 | 2만 원이에요.",
+            "phonetic": "geumyoireun yakgapsi | imanwonieyo.",
+            "ko": "On Friday, the medicine cost | is 20,000 won.",
+            "start": 8.3,
+            "end": 11.8,
+            "core": "약값",
+            "highlight": "금요일은 약값",
+            "koHighlight": "Friday's medicine cost"
+          },
+          {
+            "en": "하지만 이 정도로도 | 괜찮아요.",
+            "phonetic": "hajiman i jeongdorodo | gwaenchanayo.",
+            "ko": "But even with this much | it's okay.",
+            "start": 11.8,
+            "end": 16.4,
+            "core": "괜찮아요",
+            "highlight": "이 정도로도 괜찮아요",
+            "koHighlight": "it's okay with this much"
+          }
+        ]
       }
     ]
   }
