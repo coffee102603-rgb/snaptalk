@@ -19718,6 +19718,14 @@ const DS = {
 function triggerDubbingStudio(shortData) {
   if (!shortData) shortData = (typeof S !== 'undefined' && S && S.short) ? S.short : null;
   if (!shortData) { console.warn('[DS] shortData 없음'); return; }
+  /* 🐛 DEBUG: 어떤 영상이 열리는지 화면에 표시 */
+  try {
+    var _dbg = document.createElement('div');
+    _dbg.style.cssText = 'position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:99999;background:#ff0080;color:#fff;padding:12px 18px;border-radius:12px;font-size:13px;font-weight:800;box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:90%;text-align:center;';
+    _dbg.textContent = '🐛 여는 영상: ' + (shortData.cat||'?') + ' / ' + (shortData.id||'?') + ' / ' + (shortData.title||'?').slice(0,20);
+    document.body.appendChild(_dbg);
+    setTimeout(function(){ if(_dbg.parentNode) _dbg.parentNode.removeChild(_dbg); }, 3500);
+  } catch(e) {}
   DS.short = shortData;
   DS.sentences = (shortData.sentences || []).slice();
   _dsOpenCinema();
