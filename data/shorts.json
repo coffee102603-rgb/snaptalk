@@ -6825,6 +6825,214 @@
             "koHighlight": "create a new job account"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "BRZAZDX4y8g",
+        "title": "자전거로 서울에서 부산까지 국토종주",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 47,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "출발한 지 두 시간 정도 됐나 | 오른쪽 무릎 뒤쪽이 | 아파 오기 시작했습니다.",
+            "phonetic": "chulbalhan ji du sigan jeongdo dwaenna | oreunjjok mureup dwijjogi | apa ogi sijakhaetseumnida.",
+            "ko": "About two hours since we set off, | the back of my right knee | started to hurt.",
+            "start": 0,
+            "end": 4.3,
+            "core": "아파",
+            "highlight": "아파 오기 시작했습니다",
+            "koHighlight": "started to hurt"
+          },
+          {
+            "en": "일단 한강까지 가 보겠습니다 | 점점 더 아파 오는데요 | 아직 젊은데 벌써부터 이러면 안 되는데.",
+            "phonetic": "ildan hangangkkaji ga bogesseumnida | jeomjeom deo apa oneundeyo | ajik jeolmeunde beolsseobuteo ireomyeon an doeneunde.",
+            "ko": "For now I'll try to reach the Han River, | but it hurts more and more — | I'm still young, I shouldn't be like this already.",
+            "start": 4.3,
+            "end": 11.2,
+            "core": "한강",
+            "highlight": "한강까지 가 보겠습니다",
+            "koHighlight": "I'll try to reach the Han River"
+          },
+          {
+            "en": "최대한 가는 데까지 가 볼게요 | 왼쪽 무릎 뒤쪽도 | 아파오기 시작했어요.",
+            "phonetic": "choedaehan ganeun dekkaji ga bolgeyo | oenjjok mureup dwijjokdo | apaogi sijakhaesseoyo.",
+            "ko": "I'll go as far as I possibly can, | but the back of my left knee | has also started to hurt.",
+            "start": 11.2,
+            "end": 20,
+            "core": "최대한",
+            "highlight": "최대한 가는 데까지",
+            "koHighlight": "as far as I possibly can"
+          },
+          {
+            "en": "소리가 이상해서 보니까 | 바람이 빠져 있네요.",
+            "phonetic": "soriga isanghaeseo bonikka | barami ppajyeo inneyo.",
+            "ko": "I heard a strange sound and looked — | the tire is flat.",
+            "start": 20.7,
+            "end": 23.6,
+            "core": "바람",
+            "highlight": "바람이 빠져 있네요",
+            "koHighlight": "the tire is flat"
+          },
+          {
+            "en": "다리가 아파서 | 걷는 것도 힘들고요 | 총체적 난국입니다.",
+            "phonetic": "dariga apaseo | geonneun geotdo himdeulgoyo | chongchejeok nangugimnida.",
+            "ko": "My legs hurt | so even walking is hard — | it's a complete disaster.",
+            "start": 23.6,
+            "end": 30.2,
+            "core": "난국",
+            "highlight": "총체적 난국입니다",
+            "koHighlight": "a complete disaster"
+          },
+          {
+            "en": "반대편까지 가야 되거든요 | 근처 자전거 수리점에 | 얼마냐고 전화를 했는데.",
+            "phonetic": "bandaepyeonkkaji gaya doegeodeunyo | geuncheo jajeongeo surijeome | eolmanyago jeonhwareul haenneunde.",
+            "ko": "I need to get to the other side, | so I called a nearby bike repair shop | to ask how much it would cost.",
+            "start": 30.2,
+            "end": 43.3,
+            "core": "수리점",
+            "highlight": "자전거 수리점에 전화를 했는데",
+            "koHighlight": "called a bike repair shop"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "O9UvRAV19R0",
+        "title": "서순라길부터 안국까지 데이트 코스",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 42,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "연예인도 오는 핫한 | 서순라길 데이트 코스, | 한번 따라오세요.",
+            "phonetic": "yeonyeindo oneun hatan | seosullagil deiteu koseu, | hanbeon ttaraoseyo.",
+            "ko": "A hot Seosulla-gil date course | that even celebrities visit — | come follow along.",
+            "start": 0.1,
+            "end": 2.6,
+            "core": "데이트",
+            "highlight": "핫한 데이트 코스",
+            "koHighlight": "hot date course"
+          },
+          {
+            "en": "얼마 썼는지도 정리했어요. | 먼저 서순라길을 들렀다가 | 안국에 테라스 있는 카페에 왔어요.",
+            "phonetic": "eolma sseonneunjido jeongnihaesseoyo. | meonjeo seosullagireul deulleotdaga | anguge teraseu inneun kapee wasseoyo.",
+            "ko": "I also tallied up how much I spent. | First I stopped by Seosulla-gil, | then came to a café with a terrace in Anguk.",
+            "start": 2.6,
+            "end": 6,
+            "core": "카페",
+            "highlight": "테라스 있는 카페",
+            "koHighlight": "café with a terrace"
+          },
+          {
+            "en": "소금빵 먹고 다시 떠나요. | 날 좋으니까 걸으면서 | 고즈넉한 한옥 분위기 느껴 봐요.",
+            "phonetic": "sogeumppang meokgo dasi tteonayo. | nal joeunikka georeumyeonseo | gojeuneokan hanok bunwigi neukkyeo bwayo.",
+            "ko": "We eat salt bread and head out again. | Since the weather's nice, walk around | and soak in the tranquil hanok atmosphere.",
+            "start": 6,
+            "end": 10.6,
+            "core": "한옥",
+            "highlight": "고즈넉한 한옥 분위기",
+            "koHighlight": "tranquil hanok atmosphere"
+          },
+          {
+            "en": "쫀득이는 그냥 지나칠 수 없잖아요. | 짭조름한 거 많이 추천해요. | 하나 사서 나눠 먹으면 딱 좋아요.",
+            "phonetic": "jjondeugineun geunyang jinachil su eopjanhayo. | jjabjoreumhan geo mani chucheonhaeyo. | hana saseo nanwo meogeumyeon ttak joayo.",
+            "ko": "You just can't walk past jjondeugi. | I really recommend the savory one. | Buying one and sharing it is just perfect.",
+            "start": 10.6,
+            "end": 15.3,
+            "core": "쫀득이",
+            "highlight": "지나칠 수 없잖아요",
+            "koHighlight": "can't just walk past it"
+          },
+          {
+            "en": "그러곤 박물관에 들러요. | 무료 관람이라 가볍게 들렀는데 | 야외에 꽃도 피어 있고 | 한산해서 산책하기 좋아요.",
+            "phonetic": "geureogon bangmulgwane deulleoyo. | muryo gwallamira gabyeopge deulleonneunde | yaoee kkotdo pieo itgo | hansanhaeseo sanchaekhagi joayo.",
+            "ko": "Then we stop by a museum. | Since it's free, we dropped in casually, | there are flowers blooming outside, | and it's quiet and great for a stroll.",
+            "start": 15.3,
+            "end": 19.8,
+            "core": "박물관",
+            "highlight": "무료 관람이라 가볍게",
+            "koHighlight": "drop in casually since it's free"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "WEqooESNXDA",
+        "title": "서울에서 거제도 가는 고속버스 여행",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 153,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "네, 서울 남부 터미널에 왔고요. | 아침 시간인데도 불구하고 | 사람이 굉장히 많더라고요.",
+            "phonetic": "ne, seoul nambu teomineore watgoyo. | achim siganindedo bulguhago | sarami gwaengjanghi manteoragoyo.",
+            "ko": "Yes, I've come to Seoul Nambu Terminal. | Even though it's morning, | there are so many people.",
+            "start": 7,
+            "end": 14.5,
+            "core": "터미널",
+            "highlight": "서울 남부 터미널",
+            "koHighlight": "Seoul Nambu Terminal"
+          },
+          {
+            "en": "김밥, 라면, 떡볶이, 오뎅 | 너무 먹고 싶었지만 | 참았습니다.",
+            "phonetic": "gimbap, ramyeon, tteokbokki, odeng | neomu meokgo sipeotjiman | chamatseumnida.",
+            "ko": "Gimbap, ramen, tteokbokki, fish cake — | I wanted them so badly, | but I held back.",
+            "start": 14.5,
+            "end": 24.4,
+            "core": "참다",
+            "highlight": "먹고 싶었지만 참았습니다",
+            "koHighlight": "wanted to eat but held back"
+          },
+          {
+            "en": "결국 편의점에서 | 커피, 땅콩하고 콜라젤리 | 샀습니다.",
+            "phonetic": "gyeolguk pyeonuijeomeseo | keopi, ttangkonghago kollajelli | satseumnida.",
+            "ko": "In the end, at the convenience store, | I bought coffee, peanuts, and cola jelly.",
+            "start": 24.4,
+            "end": 26.7,
+            "core": "편의점",
+            "highlight": "편의점에서 샀습니다",
+            "koHighlight": "bought at the convenience store"
+          },
+          {
+            "en": "제가 오늘 탈 버스는 | 프리미엄 고속 버스인데요. | 누워서도 갈 수 있다는 버스라 | 정말 기대됩니다.",
+            "phonetic": "jega oneul tal beoseuneun | peurimieom gosok beoseuindeyo. | nuwoseodo gal su itdaneun beoseura | jeongmal gidaedoemnida.",
+            "ko": "The bus I'm taking today | is a premium express bus. | They say you can even lie down on it, | so I'm really looking forward to it.",
+            "start": 26.7,
+            "end": 39,
+            "core": "프리미엄",
+            "highlight": "프리미엄 고속 버스",
+            "koHighlight": "premium express bus"
+          },
+          {
+            "en": "저는 참고로 | 18번 좌석을 예매했어요.",
+            "phonetic": "jeoneun chamgoro | sippalbeon jwaseogeul yemaehaesseoyo.",
+            "ko": "By the way, | I reserved seat number 18.",
+            "start": 39,
+            "end": 46.6,
+            "core": "예매",
+            "highlight": "좌석을 예매했어요",
+            "koHighlight": "reserved a seat"
+          }
+        ]
       }
     ]
   }
