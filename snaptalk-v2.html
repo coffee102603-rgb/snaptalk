@@ -8348,6 +8348,18 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   border-radius: 14px; padding: 15px; cursor: pointer;
 }
 
+
+/* Scene player mount (YT.Player가 iframe으로 채움) */
+#dssPlayerMount {
+  width: 100%; height: 300%;
+  margin-top: -40%;
+  pointer-events: none;
+}
+#dssPlayerMount iframe {
+  width: 100% !important; height: 100% !important;
+  border: none;
+}
+
 </style>
 </head>
 <body>
@@ -19267,9 +19279,9 @@ window.openDubbingRoom = openDubbingRoom;
     <div class="dss-progress-fill" id="dssProgressFill" style="width:0%"></div>
   </div>
 
-  <!-- Scene 영상 (탭하면 재생) -->
+  <!-- Scene 영상 (구간 자동 재생) -->
   <div class="dss-video-wrap" id="dssVideoWrap">
-    <iframe id="dssIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
+    <div id="dssPlayerMount"></div>
     <div class="dss-replay-overlay" id="dssReplayOverlay">
       <div class="dss-replay-btn-inner" id="dssReplayIcon">▶</div>
     </div>
@@ -19439,7 +19451,12 @@ function _dsOpenStudio() {
 function _dsCloseStudio() {
   _dsStopRec();
   _dsStopVolViz();
-  document.getElementById('dssIframe').src = '';
+  /* player 정리 */
+  if (DS.segmentTimer) { clearInterval(DS.segmentTimer); DS.segmentTimer = null; }
+  if (DS.player) {
+    try { DS.player.pauseVideo(); } catch(e) {}
+  }
+  DS.videoPlaying = false;
   document.getElementById('dsStudio').classList.remove('ds-active');
 }
 
@@ -19487,32 +19504,134 @@ function _dsHighlight(en, hl) {
   return before + '<span class="hl">' + match + '</span>' + after;
 }
 
-/* Scene 영상 로드 (start 시간 지정) */
-function _dsLoadSceneVideo(s) {
-  const start = Math.max(0, Math.floor((s.start || 0)));
-  const iframe = document.getElementById('dssIframe');
-  /* autoplay=0: 탭하면 재생 */
-  iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
-    + '?start=' + start
-    + '&autoplay=0&rel=0&modestbranding=1&playsinline=1&controls=0';
-  DS.videoPlaying = false;
-  document.getElementById('dssReplayIcon').textContent = '▶';
+/* ── Scene 구간 자동 재생 (YT.Player API) ── */
+/* DS에 player 관련 상태 추가 */
+DS.player = null;
+DS.playerReady = false;
+DS.segmentEnd = 0;
+DS.segmentTimer = null;
+
+/* YT.Player 생성 (최초 1회) */
+function _dsEnsurePlayer(callback) {
+  /* 이미 준비됨 */
+  if (DS.player && DS.playerReady) { callback && callback(); return; }
+
+  /* YT API 로드 확인 */
+  if (!window.YT || !window.YT.Player) {
+    /* API 아직 안 됨 → 로드하고 대기 */
+    if (typeof loadYTAPI === 'function') loadYTAPI();
+    var waitCount = 0;
+    var waitTimer = setInterval(function() {
+      waitCount++;
+      if (window.YT && window.YT.Player) {
+        clearInterval(waitTimer);
+        _dsCreatePlayer(callback);
+      } else if (waitCount > 50) {  /* 5초 타임아웃 */
+        clearInterval(waitTimer);
+        console.warn('[DS] YT API 로드 실패');
+      }
+    }, 100);
+    return;
+  }
+  _dsCreatePlayer(callback);
 }
 
-/* 영상 탭 → 재생/일시정지 토글 */
-document.getElementById('dssReplayOverlay').addEventListener('click', function() {
-  const iframe = document.getElementById('dssIframe');
-  const icon   = document.getElementById('dssReplayIcon');
-  if (!DS.videoPlaying) {
-    /* 재생: src에 autoplay=1로 교체 */
-    iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+function _dsCreatePlayer(callback) {
+  /* 기존 player 있으면 destroy */
+  if (DS.player) {
+    try { DS.player.destroy(); } catch(e) {}
+    DS.player = null;
+  }
+  /* mount div 재생성 (destroy하면 사라지므로) */
+  var wrap = document.getElementById('dssVideoWrap');
+  var old = document.getElementById('dssPlayerMount');
+  if (old) old.remove();
+  var mount = document.createElement('div');
+  mount.id = 'dssPlayerMount';
+  wrap.insertBefore(mount, wrap.firstChild);
+
+  DS.playerReady = false;
+  DS.player = new YT.Player('dssPlayerMount', {
+    videoId: DS.short.id,
+    playerVars: {
+      autoplay: 0, controls: 0, rel: 0,
+      modestbranding: 1, playsinline: 1,
+      cc_load_policy: 0, iv_load_policy: 3,
+      fs: 0, disablekb: 1
+    },
+    events: {
+      onReady: function() {
+        DS.playerReady = true;
+        callback && callback();
+      },
+      onStateChange: function(e) {
+        /* 재생 끝나면 아이콘 복구 */
+        if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+          document.getElementById('dssReplayIcon').textContent = '▶';
+          DS.videoPlaying = false;
+        }
+      }
+    }
+  });
+}
+
+/* Scene 영상 로드 (구간 자동 재생) */
+function _dsLoadSceneVideo(s) {
+  DS.segmentEnd = (s.end != null) ? s.end : ((s.start || 0) + 5);
+  var startSec = Math.max(0, (s.start || 0));
+
+  _dsEnsurePlayer(function() {
+    _dsPlaySegment(startSec, DS.segmentEnd);
+  });
+}
+
+/* 구간 재생 */
+function _dsPlaySegment(startSec, endSec) {
+  if (!DS.player || !DS.playerReady) return;
+  if (DS.segmentTimer) { clearInterval(DS.segmentTimer); DS.segmentTimer = null; }
+
+  try {
+    DS.player.seekTo(startSec, true);
+    DS.player.playVideo();
     DS.videoPlaying = true;
-    icon.textContent = '⏸';
+    document.getElementById('dssReplayIcon').textContent = '⏸';
+
+    /* end 시간 도달하면 자동 정지 */
+    DS.segmentTimer = setInterval(function() {
+      if (!DS.player || !DS.playerReady) return;
+      var t = DS.player.getCurrentTime();
+      if (t >= endSec) {
+        DS.player.pauseVideo();
+        DS.player.seekTo(startSec, true);  /* 다시 시작점으로 */
+        clearInterval(DS.segmentTimer);
+        DS.segmentTimer = null;
+        DS.videoPlaying = false;
+        document.getElementById('dssReplayIcon').textContent = '▶';
+      }
+    }, 100);
+  } catch(e) {
+    console.warn('[DS] playSegment', e);
+  }
+}
+
+/* 영상 탭 → 구간 다시 재생 / 정지 토글 */
+document.getElementById('dssReplayOverlay').addEventListener('click', function() {
+  var s = DS.sentences[DS.idx];
+  if (!s) return;
+  var startSec = Math.max(0, (s.start || 0));
+  var endSec = (s.end != null) ? s.end : (startSec + 5);
+
+  if (DS.videoPlaying) {
+    /* 재생 중 → 정지 */
+    if (DS.player && DS.playerReady) {
+      try { DS.player.pauseVideo(); } catch(e) {}
+    }
+    if (DS.segmentTimer) { clearInterval(DS.segmentTimer); DS.segmentTimer = null; }
+    DS.videoPlaying = false;
+    document.getElementById('dssReplayIcon').textContent = '▶';
   } else {
-    /* 일시정지: src 재로드로 처음부터 */
-    const s = DS.sentences[DS.idx];
-    _dsLoadSceneVideo(s);
-    icon.textContent = '▶';
+    /* 정지 → 구간 다시 재생 */
+    _dsPlaySegment(startSec, endSec);
   }
 });
 
