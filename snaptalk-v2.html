@@ -12064,14 +12064,12 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       <button class="tt-nav" data-tt="search" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🧭</span>탐색</button>
       <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">❤️</span>찜한 영상</button>
       <button class="tt-nav" data-tt="mydub" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🎬</span>내 더빙</button>
-      <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">📖</span>단어장</button>
 
     `;
     document.body.appendChild(ttNav);
     /* 프리토킹 → 기존 AI 대화 연결 */
 
     ttNav.querySelector('[data-tt="saved"]').addEventListener('click', function(){ openSavedVideos(); });
-    ttNav.querySelector('[data-tt="vocab"]').addEventListener('click', function(){ openVocabBook(); });
     ttNav.querySelector('[data-tt="mydub"]').addEventListener('click', function(){
       /* 내 더빙 = 진도표 (TOP3 + 전체기록) */
       if(typeof openDubBoard === 'function') openDubBoard();
