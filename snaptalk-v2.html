@@ -8360,6 +8360,44 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   border: none;
 }
 
+
+/* 🎤 마이크 권한 안내 토스트 */
+.ds-mic-toast {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(.9);
+  z-index: 9800;
+  background: rgba(20,20,28,.96);
+  border: 1px solid rgba(255,107,53,.3);
+  border-radius: 18px;
+  padding: 24px 28px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.6);
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.ds-mic-toast.ds-show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.ds-mic-toast-icon {
+  font-size: 38px;
+  animation: ds-mic-bounce 1s ease infinite;
+}
+@keyframes ds-mic-bounce {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-6px); }
+}
+.ds-mic-toast-text {
+  font-size: 15px; font-weight: 700;
+  color: #fff; text-align: center;
+  line-height: 1.5;
+}
+.ds-mic-toast-text b {
+  color: #ff6b35;
+}
+
 </style>
 </head>
 <body>
@@ -19445,12 +19483,56 @@ function _dsCloseCinema() {
 
 document.getElementById('dsCinemaStartBtn').addEventListener('click', function() {
   _dsCloseCinema();
-  _dsOpenStudio();
+  _dsPreauthMic(function(){ _dsOpenStudio(); });
 });
 document.getElementById('dsCinemaSkipBtn').addEventListener('click', function() {
   _dsCloseCinema();
-  _dsOpenStudio();
+  _dsPreauthMic(function(){ _dsOpenStudio(); });
 });
+
+/* ── 마이크 사전 권한 요청 + 안내 토스트 ── */
+function _dsPreauthMic(done) {
+  /* 이미 스트림 있으면 (권한 이미 받음) 바로 진행 */
+  if (DS.stream) { done && done(); return; }
+
+  /* 안내 토스트 표시 */
+  _dsShowMicToast();
+
+  /* 마이크 권한 요청 */
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function(stream) {
+        DS.stream = stream;       /* 받아둔 스트림 재사용 */
+        _dsHideMicToast();
+        done && done();
+      })
+      .catch(function(err) {
+        console.warn('[DS preauth]', err);
+        _dsHideMicToast();
+        /* 거부해도 스튜디오는 진입 (녹음 시 다시 요청) */
+        done && done();
+      });
+  } else {
+    _dsHideMicToast();
+    done && done();
+  }
+}
+
+/* 안내 토스트 */
+function _dsShowMicToast() {
+  var t = document.getElementById('dsMicToast');
+  if (t) { t.classList.add('ds-show'); return; }
+  t = document.createElement('div');
+  t.id = 'dsMicToast';
+  t.className = 'ds-mic-toast ds-show';
+  t.innerHTML = '<div class="ds-mic-toast-icon">🎤</div>' +
+    '<div class="ds-mic-toast-text">녹음을 위해<br><b>마이크를 허용</b>해주세요!</div>';
+  document.body.appendChild(t);
+}
+function _dsHideMicToast() {
+  var t = document.getElementById('dsMicToast');
+  if (t) t.classList.remove('ds-show');
+}
 
 /* ── ② STUDIO ── */
 function _dsOpenStudio() {
