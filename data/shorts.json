@@ -6375,6 +6375,179 @@
         ]
       }
     ],
-    "kr": []
+    "kr": [
+      {
+        "source": "supadata",
+        "id": "dOOuVds0BYo",
+        "title": "37만원으로 자취방 꾸미기",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "home",
+        "catIcon": "🏠",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 57,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "37만원으로 방 꾸미기 리스트 | 딱 깔끔하게 생겼고 | 가성비까지 좋은 기본 책상이 | 29,800원",
+            "phonetic": "samsipchil manwoneuro bang kkumigi riseuteu | ttak kkalkkeumhage saenggyeotgo | gaseongbikkaji joeun gibon chaeksangi | ichiman gucheon palbaegwon",
+            "ko": "A 370,000-won room decorating list — | clean-looking | and a basic desk with great value | for 29,800 won",
+            "start": 0.1,
+            "end": 6.7,
+            "core": "책상",
+            "highlight": "가성비 좋은 책상",
+            "koHighlight": "desk with great value"
+          },
+          {
+            "en": "조립형이라 이사갈 때도 좋고 | 수납력 짱짱한 행거가 | 44,900원",
+            "phonetic": "joripyeongira isagal ttaedo joko | sunamnyeok jjangjjanghan haenggeoga | sasimman gucheon gubaegwon",
+            "ko": "Because it's modular, it's great when moving too | and a hanger with excellent storage | for 44,900 won",
+            "start": 6.7,
+            "end": 11.7,
+            "core": "행거",
+            "highlight": "수납력 짱짱한 행거",
+            "koHighlight": "hanger with excellent storage"
+          },
+          {
+            "en": "기대 없이 샀다가 | 다들 만족하고 | 막 쓰기 좋은 의자가 | 23,900원",
+            "phonetic": "gidaeeopsi sattaga | dadeul manjokago | mak sseugi joeun uijaga | ichiman samcheon gubaegwon",
+            "ko": "Bought without expectations | but everyone ends up satisfied | a chair that's great for casual use | for 23,900 won",
+            "start": 11.7,
+            "end": 16.9,
+            "core": "의자",
+            "highlight": "막 쓰기 좋은 의자",
+            "koHighlight": "chair great for casual use"
+          },
+          {
+            "en": "호텔 이불처럼 | 부들부들하고 결 좋은 | 이불 세트가 | 51,400원",
+            "phonetic": "hotel ibulcheoreom | budeulbudeulhago gyeol joeun | ibul seteuga | osiman ilcheon sabaegwon",
+            "ko": "Soft like a hotel blanket | with great texture | a bedding set | for 51,400 won",
+            "start": 16.9,
+            "end": 21.8,
+            "core": "이불",
+            "highlight": "호텔 이불처럼 부들부들",
+            "koHighlight": "soft like a hotel blanket"
+          },
+          {
+            "en": "따로 침대 프레임 필요 없이 | 매트리스랑 하나로 합쳐져 있는 | 침대가 제일 많이 팔려요",
+            "phonetic": "ttaro chimdae peureim piryo eopsi | maeteuriseurang hanaro hapchyeojyeo inneun | chimdaega jeil mani pallyeoyo",
+            "ko": "Without needing a separate bed frame | a bed combined with a mattress | sells the most",
+            "start": 21.8,
+            "end": 27,
+            "core": "침대",
+            "highlight": "매트리스랑 합쳐진 침대",
+            "koHighlight": "bed combined with mattress"
+          },
+          {
+            "en": "그릇 4개 접시 6개 | 젓가락 2개 수저받침 두 개를 | 다 주는 식기세트가 | 16,900원",
+            "phonetic": "geureut nae gae jeopsi yeoseot gae | jeotgarak du gae sujeobatchim du gaereul | da juneun sikgiseteuga | ilman yukcheon gubaegwon",
+            "ko": "4 bowls, 6 plates, | 2 pairs of chopsticks, 2 spoon rests | all included in a tableware set | for 16,900 won",
+            "start": 27,
+            "end": 34.5,
+            "core": "식기세트",
+            "highlight": "다 주는 식기세트",
+            "koHighlight": "tableware set with everything"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "yRwNIHfqqdo",
+        "title": "역삼역 직장인의 하루 - 숏폼 브이로그",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "home",
+        "catIcon": "🏠",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 44,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "직장인 하루 출근에도 | 노트북 챙기고 | 출근 준비해 봅니다.",
+            "phonetic": "jikjangin haru chulgeune do | noteubuk chaenggigo | chulgeun junbihae bomnida.",
+            "ko": "For an office worker's day | I pack my laptop | and get ready for work.",
+            "start": 0.2,
+            "end": 2.9,
+            "core": "출근",
+            "highlight": "출근 준비하다",
+            "koHighlight": "get ready for work"
+          },
+          {
+            "en": "파우치 챙기고 | 시계도 끼고 반지도 끼고 | 보조제도 챙기고",
+            "phonetic": "pauchi chaenggigo | sigyedo kkigo banjido kkigo | bojojedo chaenggigo",
+            "ko": "I pack my pouch | put on my watch and rings | and grab my supplements",
+            "start": 2.9,
+            "end": 10.7,
+            "core": "챙기고",
+            "highlight": "파우치 챙기고",
+            "koHighlight": "pack my pouch"
+          },
+          {
+            "en": "버스 기다리는데 비는 오고 | 겨우겨우 탔고요.",
+            "phonetic": "beoseu gidarineunde bineun ogo | gyeougyeou tatgoyo.",
+            "ko": "I was waiting for the bus and it was raining | and I barely managed to get on.",
+            "start": 10.7,
+            "end": 13,
+            "core": "겨우겨우",
+            "highlight": "겨우겨우 탔고요",
+            "koHighlight": "barely managed to get on"
+          },
+          {
+            "en": "출근하자마자 | 일단 커피 한 잔 내려줍니다.",
+            "phonetic": "chulgeunhajamaja | ildan keopi han jan naeryeojumnida.",
+            "ko": "As soon as I got to work | I first brewed a cup of coffee.",
+            "start": 13,
+            "end": 14.9,
+            "core": "커피",
+            "highlight": "커피 한 잔 내려줍니다",
+            "koHighlight": "brew a cup of coffee"
+          },
+          {
+            "en": "직접 구우셨다는 휘낭시에 | 밀린 슬랙 읽어줬고 | 한입 먹어 봤는데 너무 맛있잖아.",
+            "phonetic": "jikjeop guusyeotdaneun hwinangsie | millin seullaek ilgeojwotgo | hanip meogeo bwanneunde neomu masitjanha.",
+            "ko": "A financier someone baked themselves | I caught up on unread Slack | and took a bite — it was so delicious.",
+            "start": 14.9,
+            "end": 19.7,
+            "core": "휘낭시에",
+            "highlight": "직접 구우셨다는 휘낭시에",
+            "koHighlight": "a homemade financier"
+          },
+          {
+            "en": "콩나물 국밥이랑 야채 비빔밥 먹어줬고요 | 회사로 돌아가서 | 영양제 먹어줬습니다.",
+            "phonetic": "kongnamul gukbabirang yachae bibimbap meogeojwotgoyo | hoesaro doragaseo | yeongyangje meogeojwotseumnida.",
+            "ko": "I had bean sprout soup and vegetable bibimbap | then headed back to the office | and took my supplements.",
+            "start": 19.7,
+            "end": 26.4,
+            "core": "영양제",
+            "highlight": "영양제 먹어줬습니다",
+            "koHighlight": "took my supplements"
+          },
+          {
+            "en": "너무 많아서 | 세 번에 나눠 먹어야 되고 | 일하고 미팅하고 인터뷰 보고",
+            "phonetic": "neomu manaseo | se beone nanwo meogeoya doego | ilhago mitinghago inteobyu bogo",
+            "ko": "There are too many | so I split them into three times | I worked, had meetings, and did an interview",
+            "start": 26.4,
+            "end": 30.8,
+            "core": "나눠",
+            "highlight": "세 번에 나눠 먹다",
+            "koHighlight": "split into three rounds"
+          },
+          {
+            "en": "과자도 하나 먹어 주고 | 노트북 닫고 퇴근합니다 | 빠르게 탈출해 볼게요.",
+            "phonetic": "gwajado hana meogeo jugo | noteubuk datgo toegeunhamnida | ppareuge talchulhae bolgeyo.",
+            "ko": "I had a snack | closed my laptop and headed home | let me make a quick escape.",
+            "start": 30.8,
+            "end": 37.1,
+            "core": "퇴근",
+            "highlight": "노트북 닫고 퇴근합니다",
+            "koHighlight": "close the laptop and leave work"
+          }
+        ]
+      }
+    ]
   }
 }
