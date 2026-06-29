@@ -7033,6 +7033,416 @@
             "koHighlight": "reserved a seat"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "Flgb01NGWXo",
+        "title": "쿠팡에서 파는 컴퓨터를 사봤습니다",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 59,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "서비스로 마우스 패드도 오고요.",
+            "phonetic": "seobiseuro mauseu paeddo ogoyo.",
+            "ko": "A mouse pad also comes as a freebie.",
+            "start": 7.2,
+            "end": 13.7,
+            "core": "서비스",
+            "highlight": "서비스로 오다",
+            "koHighlight": "comes as a freebie"
+          },
+          {
+            "en": "요렇게 쪼꼬미하게 | 조립이 돼서 왔습니다.",
+            "phonetic": "yoreoke jjokkomihage | joribi dwaeseo watseumnida.",
+            "ko": "It came | already assembled this compactly.",
+            "start": 13.7,
+            "end": 16.1,
+            "core": "조립",
+            "highlight": "조립이 돼서 오다",
+            "koHighlight": "came already assembled"
+          },
+          {
+            "en": "여기에 들어가 있는 | 자세한 부품은 | 여기를 보시면 나오고요.",
+            "phonetic": "yeogie deureoga inneun | jasehan bupumeun | yeogireul bosimyeon naogoyo.",
+            "ko": "For the detailed parts | that are inside here, | you can see them right here.",
+            "start": 16.1,
+            "end": 18.9,
+            "core": "부품",
+            "highlight": "자세한 부품",
+            "koHighlight": "detailed parts"
+          },
+          {
+            "en": "부품 구성 자체는 | 썩 나쁘진 않습니다. | 근데 파워가 조금 아쉽긴 한데,",
+            "phonetic": "bupum guseong jacheneun | sseok nappeujin anseumnida. | geunde pawoga jogeum aswipgin hande,",
+            "ko": "The parts configuration itself | is not too bad. | But the power supply is a little disappointing,",
+            "start": 18.9,
+            "end": 25,
+            "core": "파워",
+            "highlight": "파워가 아쉽다",
+            "koHighlight": "the power supply is disappointing"
+          },
+          {
+            "en": "가성비를 위해서 | 그렇게 맞춘 거 같습니다.",
+            "phonetic": "gaseongbireul wihaeseo | geureoke matchun geo gatseumnida.",
+            "ko": "It seems it was configured that way | for the sake of cost-effectiveness.",
+            "start": 25,
+            "end": 26.9,
+            "core": "가성비",
+            "highlight": "가성비를 위해서",
+            "koHighlight": "for cost-effectiveness"
+          },
+          {
+            "en": "여튼 총 가격은 | 전체 합쳐서 | 59만 9천 원입니다.",
+            "phonetic": "yeotun chong gagyeogeun | jeonche hapchyeoseo | osipgu man gucheon wonimnida.",
+            "ko": "Anyway, the total price | all together | is 599,000 won.",
+            "start": 26.9,
+            "end": 29.2,
+            "core": "가격",
+            "highlight": "총 가격",
+            "koHighlight": "total price"
+          },
+          {
+            "en": "이 안에 있는 부품들을 | 다 검색해서 | 가격을 다 따봤는데,",
+            "phonetic": "i ane inneun bupumdeureul | da geomsaekhaeseo | gagyeogeul da ttabwanneunde,",
+            "ko": "I searched for all the parts inside this | and looked up | all the prices,",
+            "start": 29.2,
+            "end": 35.7,
+            "core": "검색",
+            "highlight": "가격을 따보다",
+            "koHighlight": "look up the prices"
+          },
+          {
+            "en": "부품을 개별로 다 구매하신다고 하면 | 57만 원 정도에 | 구매하실 수가 있습니다.",
+            "phonetic": "bupumeul gaebyeollo da gumaehasindago hamyeon | osipchil man won jeongdoe | gumaehasil suga itseumnida.",
+            "ko": "If you buy all the parts individually, | you could get them | for around 570,000 won.",
+            "start": 35.7,
+            "end": 42.4,
+            "core": "구매",
+            "highlight": "개별로 구매하다",
+            "koHighlight": "buy individually"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "t9fK2RZf70o",
+        "title": "갓성비 쿠팡 생활 추천템",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 57,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "제가 프로 쿠팡러인데요 | 저렴하지만 삶의 질을 높여주는 | 아이템들을 알려드릴게요.",
+            "phonetic": "jega peuro kupangreoindeyo | jeoryeomhajiman salmui jireul nopyeojuneun | aitemdeureul allyeodeurilgeyo.",
+            "ko": "I'm a pro Coupang shopper, | and I'll share items that are affordable | but improve your quality of life.",
+            "start": 0,
+            "end": 5.6,
+            "core": "알려드릴게요",
+            "highlight": "삶의 질을 높여주는",
+            "koHighlight": "improves quality of life"
+          },
+          {
+            "en": "우산꽂이는 자리를 너무 차지해서 | 찾다가 발견한 건데 | 뒤에 자석으로 붙였다 뗐다 가능한 | 우산꽂이예요.",
+            "phonetic": "usankkojineun jarireul neomu chajihaeseo | chatdaga balgyeonhan geonde | dwie jaseogeuro buchyeotda ttaetda ganeunghan | usankkojiyeyo.",
+            "ko": "A regular umbrella holder takes up too much space, | so while searching I found this — | it attaches and detaches with a magnet on the back.",
+            "start": 5.6,
+            "end": 13.4,
+            "core": "우산꽂이",
+            "highlight": "자석으로 붙였다 뗐다",
+            "koHighlight": "attaches and detaches with a magnet"
+          },
+          {
+            "en": "공간 차지 안 해서 신발장도 깔끔해졌고 | 택배 개봉할 때 쓰는 칼이랑 | 같이 넣어놨어요.",
+            "phonetic": "gonggan chaji an haeseo sinbaljangdo kkalkkeumhaejyeotgo | taekbae gaebonghal ttae sseuneun karirang | gachi neoeonwasseoyo.",
+            "ko": "It doesn't take up space so the shoe cabinet looks neat, | and I put the knife I use to open packages | in there together.",
+            "start": 13.4,
+            "end": 20.5,
+            "core": "신발장",
+            "highlight": "공간 차지 안 해서",
+            "koHighlight": "doesn't take up space"
+          },
+          {
+            "en": "세 가지 컬러로 선택할 수 있고 | 탈부착 가능해서 이사갈 때 가져갈 수도 있고 | 냉장고에도 붙여서 수납도 돼요.",
+            "phonetic": "se gaji keolloro seontaekhal su itgo | talbutak ganeunghaeseo isagal ttae gajyeogal sudo itgo | naengjanggoedo buchyeoseo sunapdo dwaeyo.",
+            "ko": "You can choose from three colors, | and since it's removable you can take it when you move, | or stick it on the fridge for storage too.",
+            "start": 20.5,
+            "end": 29.6,
+            "core": "탈부착",
+            "highlight": "탈부착 가능해서",
+            "koHighlight": "since it's removable"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "jSCd39Yl_1M",
+        "title": "알아두면 쓸모있는 생활 꿀팁",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 101,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "알아두면 쓸모 있는 | 생활 꿀팁입니다.",
+            "phonetic": "aradumyeon sseulmo inneun | saenghwal kkulttibimnida.",
+            "ko": "Here are useful life tips | worth knowing.",
+            "start": 0.4,
+            "end": 3.3,
+            "core": "생활",
+            "highlight": "알아두면 쓸모 있는",
+            "koHighlight": "useful, worth knowing"
+          },
+          {
+            "en": "바나나 먹을 때 | 초파리가 걱정되시나요? | 바나나를 물로 씻어 주면 | 잔류 농약과 이물질을 제거할 수 있어요.",
+            "phonetic": "banana meogeul ttae | chopariga geokjeongdoesinayo? | bananareul mullo ssiseo jumyeon | jallyu nongyakgwa imuljireul jegeohal su isseoyo.",
+            "ko": "When eating bananas, | are you worried about fruit flies? | If you wash the banana with water, | you can remove residual pesticides and foreign substances.",
+            "start": 3.3,
+            "end": 12.2,
+            "core": "제거",
+            "highlight": "잔류 농약 제거",
+            "koHighlight": "remove residual pesticides"
+          },
+          {
+            "en": "꼭지 부분을 랩으로 감싸 주면 | 갈변 현상을 지연시킬 수 있고, | 바나나를 매달아 두면 | 갈변을 3, 4일 정도 늦출 수 있어요.",
+            "phonetic": "kkokji bubuneul raebeuro gamssa jumyeon | galbyeon hyeonsangeul jiyeonsikil su itgo, | bananareul maedara dumyeon | galbyeoneul sam, sail jeongdo neutchul su isseoyo.",
+            "ko": "If you wrap the stem with plastic wrap | you can delay browning, | and if you hang the banana up | you can delay browning by 3 to 4 days.",
+            "start": 12.2,
+            "end": 20.8,
+            "core": "갈변",
+            "highlight": "갈변 현상을 늦추다",
+            "koHighlight": "delay the browning"
+          },
+          {
+            "en": "냉장고에서 이상한 냄새 날 땐 | 물과 식초를 3대 1로 섞어 주세요. | 뿌리고 닦아내면 | 살균과 냄새 제거가 동시에 돼요.",
+            "phonetic": "naengjanggoeseo isanghan naemsae nal ttaen | mulgwa sikchoreul sam dae il lo seokkeo juseyo. | ppurigo dakkaenaemyeon | salgyungwa naemsae jegeoga dongsie dwaeyo.",
+            "ko": "When there's a strange smell in the fridge, | mix water and vinegar in a 3-to-1 ratio. | Spray and wipe it down, | and you sterilize and remove odors at once.",
+            "start": 20.8,
+            "end": 29.8,
+            "core": "냄새",
+            "highlight": "냄새 제거 살균",
+            "koHighlight": "odor removal and sterilization"
+          },
+          {
+            "en": "화장실 냄새 | 그냥 참으세요? | 배수구 트랩에 물을 채우면 | 냄새를 막을 수 있어요.",
+            "phonetic": "hwajangsil naemsae | geunyang chameuseyo? | baesugu teuraebe mureul chaeumyeon | naemsaereul mageul su isseoyo.",
+            "ko": "Are you still just putting up | with the bathroom smell? | If you fill the drain trap with water | you can block the odor.",
+            "start": 29.8,
+            "end": 37.2,
+            "core": "화장실",
+            "highlight": "화장실 냄새 막다",
+            "koHighlight": "block bathroom odor"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "I1zcB1pC4Iw",
+        "title": "욕실 정리 쿠팡 살림템",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 32,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "쿠팡 1만 원대 | 갓성비 욕실템 | 첫 번째, 방수 흡착 시계.",
+            "phonetic": "kupang ilman wondae | gatseongbi yoksiltem | cheot beonjjae, bangsu heupchak sigye.",
+            "ko": "Coupang items under 10,000 won, | best-value bathroom products — | first, a waterproof suction clock.",
+            "start": 0,
+            "end": 2.2,
+            "core": "흡착 시계",
+            "highlight": "방수 흡착 시계",
+            "koHighlight": "waterproof suction clock"
+          },
+          {
+            "en": "욕실에서 핸드폰으로 시계 보면 | 물기 뚝뚝 떨어져서 | 불편했는데,",
+            "phonetic": "yoksireseo haendeuponeuro sigye bomyeon | mulgi ttukttuk tteoreojyeoseo | bulpyeonhaenneunde,",
+            "ko": "When checking the time on your phone in the bathroom | water drips everywhere, | which was inconvenient,",
+            "start": 2.2,
+            "end": 8.5,
+            "core": "불편",
+            "highlight": "물기 뚝뚝 떨어져",
+            "koHighlight": "water dripping down"
+          },
+          {
+            "en": "흡착 방식이라 | 거울이나 타일에 잘 붙고, | 떼면 자국도 안 남아요.",
+            "phonetic": "heupchak bangsigira | georuina taile jal butgo, | ttemyeon jagukdo an namayo.",
+            "ko": "Because it uses suction, | it sticks well to mirrors and tiles, | and leaves no marks when removed.",
+            "start": 8.5,
+            "end": 12.8,
+            "core": "흡착",
+            "highlight": "자국도 안 남아요",
+            "koHighlight": "leaves no marks"
+          },
+          {
+            "en": "두 번째, 탈취제 — | 하루만 둬도 | 냄새 싹 잡혀요.",
+            "phonetic": "du beonjjae, talchwije — | haruman dwodo | naemsae ssak japyeoyo.",
+            "ko": "Second, a deodorizer — | leave it just one day | and the smell is completely gone.",
+            "start": 12.8,
+            "end": 17.3,
+            "core": "탈취제",
+            "highlight": "냄새 싹 잡혀요",
+            "koHighlight": "smell is completely gone"
+          },
+          {
+            "en": "습도에 영향을 받지 않아 | 욕실 사용도 충분히 가능해요.",
+            "phonetic": "seupdoe yeonghyangeul batji ana | yoksil sayongdo chungbunhi ganeunghaeyo.",
+            "ko": "It's unaffected by humidity, | so it's perfectly suitable for bathroom use.",
+            "start": 17.3,
+            "end": 21.9,
+            "core": "습도",
+            "highlight": "습도에 영향을 받지 않아",
+            "koHighlight": "unaffected by humidity"
+          },
+          {
+            "en": "악취를 빨아들여 분해해서 | 냄새 제대로 잡아줘요.",
+            "phonetic": "akchwireul pparadeullyeo bunhaehaeseo | naemsae jedaero jabajwoyo.",
+            "ko": "It absorbs and breaks down odors, | so it eliminates smells properly.",
+            "start": 21.9,
+            "end": 23.7,
+            "core": "분해",
+            "highlight": "빨아들여 분해하는",
+            "koHighlight": "absorbs and breaks down"
+          },
+          {
+            "en": "세 번째, 마그네틱 물컵 — | 저희 집은 칫솔도 치약도 | 공중 부양해요.",
+            "phonetic": "se beonjjae, mageunetik mulkeop — | jeoui jibeun chitssoldo chiyakdo | gongjung buyanghaeyo.",
+            "ko": "Third, a magnetic cup — | at our place, even the toothbrush and toothpaste | float in mid-air.",
+            "start": 23.7,
+            "end": 28.6,
+            "core": "마그네틱",
+            "highlight": "공중 부양",
+            "koHighlight": "float in mid-air"
+          },
+          {
+            "en": "물때 안 끼고 | 너무 편해서 | 칫솔컵도 매달아 줬어요.",
+            "phonetic": "muldae an kkigo | neomu pyeonhaeseo | chitssolkeopdo maedara jwosseoyo.",
+            "ko": "No water stains build up | and it's so convenient | that we hung up the toothbrush cup too.",
+            "start": 28.6,
+            "end": 33.4,
+            "core": "물때",
+            "highlight": "물때 안 끼고",
+            "koHighlight": "no water stains build up"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "JoYqXmduzjM",
+        "title": "다 쓴 치약으로 세탁기 청소하기",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "shopping",
+        "catIcon": "🛒",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 31,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "오늘부터 세탁기에 | 치약을 넣고 돌려 보세요.",
+            "phonetic": "oneulbuteo setakgie | chiyageul neoko dollyeo boseyo.",
+            "ko": "Starting today, | try putting toothpaste in your washing machine and running it.",
+            "start": 0.5,
+            "end": 2.5,
+            "core": "치약",
+            "highlight": "치약을 넣고 돌려 보세요",
+            "koHighlight": "put toothpaste in and run it"
+          },
+          {
+            "en": "세탁기에서 나는 | 꿉꿉한 냄새, | 그 원인은 세균과 곰팡이입니다.",
+            "phonetic": "setakgieseo naneun | kkupkkupan naemsae, | geu wonineun segyungwa gompangiimnida.",
+            "ko": "That musty smell | from your washing machine — | the cause is bacteria and mold.",
+            "start": 2.5,
+            "end": 8.4,
+            "core": "냄새",
+            "highlight": "세균과 곰팡이",
+            "koHighlight": "bacteria and mold"
+          },
+          {
+            "en": "이럴 땐 | 다 쓴 치약을 활용하세요.",
+            "phonetic": "ireol ttaen | da sseun chiyageul hwaryonghaseyo.",
+            "ko": "In this case, | make use of used-up toothpaste.",
+            "start": 8.4,
+            "end": 10.5,
+            "core": "활용",
+            "highlight": "다 쓴 치약을 활용하세요",
+            "koHighlight": "make use of used-up toothpaste"
+          },
+          {
+            "en": "가위로 잘라 | 안에 남은 치약을 | 꾹 눌러 넓게 펴 주세요.",
+            "phonetic": "gawiro jalla | ane nameun chiyageul | kkuk nulleo neolge pyeo juseyo.",
+            "ko": "Cut it open with scissors | and squeeze out the toothpaste inside, | spreading it out flat.",
+            "start": 10.5,
+            "end": 12.9,
+            "core": "치약",
+            "highlight": "꾹 눌러 넓게 펴 주세요",
+            "koHighlight": "press and spread it out flat"
+          },
+          {
+            "en": "그 치약 조각을 세탁기에 넣고 | 수건도 한 장 함께 넣어 주세요.",
+            "phonetic": "geu chiyak jojageul setakgie neoko | sugeondo han jang hamkke neoeo juseyo.",
+            "ko": "Put that piece of toothpaste in the washing machine | and place one towel in together too.",
+            "start": 12.9,
+            "end": 17.2,
+            "core": "수건",
+            "highlight": "수건도 한 장 함께 넣어 주세요",
+            "koHighlight": "put one towel in together"
+          },
+          {
+            "en": "수건은 마찰을 도와 | 세척 효과를 높여 줍니다.",
+            "phonetic": "sugeoneun machar31eul dowa | secheok hyogwareul nopyeo jumnida.",
+            "ko": "The towel helps create friction | and boosts the cleaning effect.",
+            "start": 17.2,
+            "end": 21.4,
+            "core": "세척",
+            "highlight": "세척 효과를 높여 줍니다",
+            "koHighlight": "boosts the cleaning effect"
+          },
+          {
+            "en": "통세척 코스를 돌리면 | 치약 속 살균 성분이 | 세균, 냄새, 찌든 때까지 제거해 줍니다.",
+            "phonetic": "tongsecheok koseureul dollimyeon | chiyak sok salgyun seongbuni | segyun, naemsae, jjideun ttaekkaji jegeohae jumnida.",
+            "ko": "If you run the drum-cleaning cycle, | the antibacterial ingredients in the toothpaste | remove bacteria, odors, and built-up grime.",
+            "start": 21.4,
+            "end": 26.3,
+            "core": "살균",
+            "highlight": "살균 성분이 제거해 줍니다",
+            "koHighlight": "antibacterial ingredients remove it"
+          },
+          {
+            "en": "이제 다 쓴 치약 | 그냥 버리지 말고 | 똑똑하게 재활용해 보세요.",
+            "phonetic": "ije da sseun chiyak | geunyang beoriji malgo | ttokttokhage jaehwaryonghae boseyo.",
+            "ko": "Now, don't just throw away | used-up toothpaste — | try recycling it smartly.",
+            "start": 26.3,
+            "end": 32,
+            "core": "재활용",
+            "highlight": "똑똑하게 재활용해 보세요",
+            "koHighlight": "try recycling it smartly"
+          }
+        ]
       }
     ]
   }
