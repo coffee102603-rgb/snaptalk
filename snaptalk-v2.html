@@ -8398,6 +8398,108 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   color: #ff6b35;
 }
 
+
+/* ═══ 📋 내 더빙 진도표 ═══ */
+#dubBoardArea {
+  position: fixed; inset: 0; z-index: 9400;
+  background: var(--bg, #0a0a0f);
+  display: none; flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+}
+#dubBoardArea.db-active { display: flex; }
+
+.db-header {
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.db-back {
+  background: rgba(255,255,255,.08); border: none;
+  border-radius: 50%; width: 38px; height: 38px;
+  color: #fff; font-size: 18px; cursor: pointer;
+}
+.db-title { font-size: 18px; font-weight: 900; color: #fff; }
+
+.db-scroll {
+  flex: 1; overflow-y: auto;
+  padding: 16px 16px 40px;
+}
+
+.db-section-label {
+  font-size: 13px; font-weight: 800;
+  color: rgba(255,255,255,.5);
+  margin: 18px 0 10px;
+  letter-spacing: .5px;
+}
+.db-section-label:first-child { margin-top: 0; }
+.db-count {
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,.35);
+  margin-left: 4px;
+}
+
+/* 명예의 전당 */
+.db-hall { display: flex; flex-direction: column; gap: 8px; }
+.db-hall-card {
+  display: flex; align-items: center; gap: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,215,100,.18);
+  border-radius: 14px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: transform .1s;
+}
+.db-hall-card:active { transform: scale(.98); }
+.db-medal { font-size: 26px; flex-shrink: 0; }
+.db-hall-info { flex: 1; min-width: 0; }
+.db-hall-title {
+  font-size: 14px; font-weight: 800;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.db-hall-cat { font-size: 11px; font-weight: 700; opacity: .8; margin-top: 2px; }
+.db-hall-score {
+  font-size: 22px; font-weight: 900; color: #fff;
+  flex-shrink: 0;
+}
+.db-hall-score span { font-size: 11px; font-weight: 700; opacity: .5; margin-left: 1px; }
+
+/* 전체 기록 리스트 */
+.db-list { display: flex; flex-direction: column; gap: 6px; }
+.db-row {
+  display: flex; align-items: center; gap: 11px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.05);
+  border-radius: 12px;
+  padding: 11px 13px;
+  cursor: pointer;
+  transition: background .12s;
+}
+.db-row:active { background: rgba(255,255,255,.07); }
+.db-row-icon { font-size: 20px; flex-shrink: 0; }
+.db-row-main { flex: 1; min-width: 0; }
+.db-row-title {
+  font-size: 14px; font-weight: 700;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.db-row-sub { font-size: 11px; color: rgba(255,255,255,.4); margin-top: 2px; }
+.db-row-score {
+  font-size: 17px; font-weight: 900; flex-shrink: 0;
+}
+.db-row-score span { font-size: 10px; font-weight: 700; opacity: .5; margin-left: 1px; }
+
+/* 빈 상태 */
+.db-empty {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 80px 20px; gap: 14px;
+}
+.db-empty-icon { font-size: 52px; opacity: .5; }
+.db-empty-text {
+  font-size: 15px; font-weight: 700;
+  color: rgba(255,255,255,.5);
+  text-align: center; line-height: 1.6;
+}
+
 </style>
 </head>
 <body>
@@ -11704,7 +11806,7 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       <div style="position:absolute;inset:0;background-image:url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg'),url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg');background-size:cover;background-position:center;filter:brightness(0.8);"></div>
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
       <div style="position:absolute;top:28%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid ${CC.light};box-shadow:0 0 26px rgba(${CC.glow},0.6);pointer-events:auto;cursor:pointer;z-index:6;" class="tiktok-play" data-vid="${v.id}">▶</div>
-      <div style="position:absolute;right:12px;bottom:200px;z-index:50;display:flex;flex-direction:column;gap:16px;align-items:center;pointer-events:auto;">
+      <div style="position:absolute;right:12px;bottom:238px;z-index:50;display:flex;flex-direction:column;gap:16px;align-items:center;pointer-events:auto;">
         <button class="tiktok-like" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
           <span class="tlike-ic" style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">🤍</span>
           <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">찜</span>
@@ -11798,9 +11900,8 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
     ttNav.querySelector('[data-tt="saved"]').addEventListener('click', function(){ openSavedVideos(); });
     ttNav.querySelector('[data-tt="vocab"]').addEventListener('click', function(){ openVocabBook(); });
     ttNav.querySelector('[data-tt="mydub"]').addEventListener('click', function(){
-      /* 내 더빙 = 보관함(room 화면 + snapStudio 렌더) */
-      if(typeof showScreen === 'function') showScreen('room');
-      if(typeof renderRoom === 'function') renderRoom();
+      /* 내 더빙 = 진도표 (TOP3 + 전체기록) */
+      if(typeof openDubBoard === 'function') openDubBoard();
     });
     ttNav.querySelector('[data-tt="search"]').addEventListener('click', function(){ openSearch(); });
   }
@@ -20006,6 +20107,9 @@ function _dsOpenPremiere() {
   const timing   = Math.min(100, Math.round(avgScore * 0.88 + Math.random() * 12));
   const final    = Math.round((avgScore * 0.4 + recRate * 0.4 + timing * 0.2));
 
+  /* 📋 진도표 기록 저장 (가벼움: 점수+영상정보만) */
+  _dsSaveDubRecord(final);
+
   /* 풀스크린 영상 (muted, 자동재생) */
   const iframe = document.getElementById('dsPremiereIframe');
   iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
@@ -20092,6 +20196,193 @@ function openDubbingNow() {
   triggerDubbingStudio(short);
 }
 window.openDubbingNow = openDubbingNow;
+
+</script>
+
+<script>
+
+/* ══════════════════════════════════════════════════════════════
+ * 📋 내 더빙 진도표 시스템
+ * ══════════════════════════════════════════════════════════════ */
+
+/* 더빙 기록 저장 (점수+영상정보만, 음성 X = 가벼움) */
+function _dsSaveDubRecord(finalScore) {
+  try {
+    var short = DS.short;
+    if (!short) return;
+    var records = JSON.parse(localStorage.getItem('dubRecords') || '[]');
+
+    /* 새 기록 */
+    var newRec = {
+      videoId: short.id,
+      title: short.title || '',
+      cat: short.cat || 'people',
+      catIcon: short.catIcon || '🎬',
+      score: finalScore,
+      date: new Date().toISOString()
+    };
+
+    /* 같은 영상 기존 기록 찾기 */
+    var existIdx = -1;
+    for (var i = 0; i < records.length; i++) {
+      if (records[i].videoId === short.id) { existIdx = i; break; }
+    }
+
+    if (existIdx >= 0) {
+      /* 더 높은 점수면 갱신, 아니면 날짜만 업데이트 */
+      if (finalScore > records[existIdx].score) {
+        records[existIdx].score = finalScore;
+      }
+      records[existIdx].date = newRec.date;
+      records[existIdx].attempts = (records[existIdx].attempts || 1) + 1;
+    } else {
+      newRec.attempts = 1;
+      records.unshift(newRec);
+    }
+
+    /* 전체 기록은 최근 50개만 (가벼움 유지) */
+    records = records.slice(0, 50);
+    localStorage.setItem('dubRecords', JSON.stringify(records));
+  } catch(e) {
+    console.warn('[DS save]', e);
+  }
+}
+
+/* 카테고리 색상 (CAT_COLORS 재활용) */
+function _dsCatColor(cat) {
+  if (typeof CAT_COLORS !== 'undefined' && CAT_COLORS[cat]) return CAT_COLORS[cat].light;
+  var fallback = {
+    travel_english:'#7dd3fc', food:'#fdba74', home:'#6ee7b7',
+    places:'#c4b5fd', shopping:'#f9a8d4', people:'#fcd34d', fun:'#fca5a5'
+  };
+  return fallback[cat] || '#cbd5e1';
+}
+function _dsCatLabel(cat) {
+  var labels = {
+    travel_english:'여행영어', food:'음식', home:'일상',
+    places:'관광', shopping:'쇼핑', people:'사람', fun:'재미'
+  };
+  return labels[cat] || cat;
+}
+
+/* 📋 진도표 화면 열기 */
+function openDubBoard() {
+  var records = [];
+  try { records = JSON.parse(localStorage.getItem('dubRecords') || '[]'); } catch(e) {}
+
+  /* TOP 3 (점수 순) */
+  var top3 = records.slice().sort(function(a,b){ return b.score - a.score; }).slice(0, 3);
+
+  /* 전체 기록 (최근 순 = 이미 그렇게 저장됨) */
+  var all = records.slice(0, 30);
+
+  var area = document.getElementById('dubBoardArea');
+  if (!area) {
+    area = document.createElement('div');
+    area.id = 'dubBoardArea';
+    document.body.appendChild(area);
+  }
+
+  var medals = ['🥇','🥈','🥉'];
+
+  var html = '';
+  html += '<div class="db-header">';
+  html += '  <button class="db-back" id="dbBackBtn">←</button>';
+  html += '  <div class="db-title">🎬 내 더빙</div>';
+  html += '  <div style="width:38px"></div>';
+  html += '</div>';
+  html += '<div class="db-scroll">';
+
+  /* 빈 상태 */
+  if (records.length === 0) {
+    html += '<div class="db-empty">';
+    html += '  <div class="db-empty-icon">🎬</div>';
+    html += '  <div class="db-empty-text">아직 더빙 기록이 없어요!<br>영상을 골라 첫 더빙을 해보세요 🎤</div>';
+    html += '</div>';
+  } else {
+    /* 🏆 명예의 전당 TOP 3 */
+    html += '<div class="db-section-label">🏆 명예의 전당</div>';
+    html += '<div class="db-hall">';
+    top3.forEach(function(r, i) {
+      var color = _dsCatColor(r.cat);
+      html += '<div class="db-hall-card" data-vid="'+r.videoId+'">';
+      html += '  <div class="db-medal">'+medals[i]+'</div>';
+      html += '  <div class="db-hall-info">';
+      html += '    <div class="db-hall-title" style="color:'+color+'">'+r.catIcon+' '+_dsEsc(r.title)+'</div>';
+      html += '    <div class="db-hall-cat" style="color:'+color+'">'+_dsCatLabel(r.cat)+'</div>';
+      html += '  </div>';
+      html += '  <div class="db-hall-score">'+r.score+'<span>점</span></div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    /* 📋 전체 기록 */
+    html += '<div class="db-section-label">📋 전체 기록 <span class="db-count">'+records.length+'개</span></div>';
+    html += '<div class="db-list">';
+    all.forEach(function(r) {
+      var color = _dsCatColor(r.cat);
+      var d = new Date(r.date);
+      var dateStr = (d.getMonth()+1) + '/' + d.getDate();
+      var attempts = r.attempts > 1 ? (' · '+r.attempts+'번') : '';
+      html += '<div class="db-row" data-vid="'+r.videoId+'">';
+      html += '  <div class="db-row-icon">'+r.catIcon+'</div>';
+      html += '  <div class="db-row-main">';
+      html += '    <div class="db-row-title" style="color:'+color+'">'+_dsEsc(r.title)+'</div>';
+      html += '    <div class="db-row-sub">'+_dsCatLabel(r.cat)+' · '+dateStr+attempts+'</div>';
+      html += '  </div>';
+      html += '  <div class="db-row-score" style="color:'+color+'">'+r.score+'<span>점</span></div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  html += '</div>'; /* db-scroll */
+
+  area.innerHTML = html;
+  area.classList.add('db-active');
+
+  /* 뒤로 */
+  document.getElementById('dbBackBtn').addEventListener('click', function() {
+    area.classList.remove('db-active');
+  });
+
+  /* 기록 클릭 → 그 영상 다시 더빙 */
+  area.querySelectorAll('[data-vid]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var vid = el.dataset.vid;
+      /* SHORTS에서 해당 영상 찾기 */
+      var short = _dsFindShort(vid);
+      if (short) {
+        area.classList.remove('db-active');
+        if (typeof S !== 'undefined') S.short = short;
+        if (typeof triggerDubbingStudio === 'function') triggerDubbingStudio(short);
+      }
+    });
+  });
+}
+window.openDubBoard = openDubBoard;
+
+/* HTML 이스케이프 */
+function _dsEsc(str) {
+  if (!str) return '';
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* SHORTS 배열에서 영상 찾기 */
+function _dsFindShort(vid) {
+  try {
+    if (typeof SHORTS !== 'undefined') {
+      for (var tab in SHORTS) {
+        var arr = SHORTS[tab];
+        if (!arr) continue;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i].id === vid) return arr[i];
+        }
+      }
+    }
+  } catch(e) {}
+  return null;
+}
 
 </script>
 </body>
