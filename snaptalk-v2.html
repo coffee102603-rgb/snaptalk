@@ -8500,6 +8500,64 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   text-align: center; line-height: 1.6;
 }
 
+
+/* ✨ 시사회 완성 연출 */
+.dsp-stars {
+  position: absolute; inset: 0;
+  pointer-events: none; overflow: hidden;
+  z-index: 2;
+}
+.dsp-star {
+  position: absolute; top: -30px;
+  animation: dsp-fall linear forwards;
+}
+@keyframes dsp-fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+.dsp-complete {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  margin-bottom: 16px;
+  animation: dsp-pop .6s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes dsp-pop {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.dsp-complete-emoji {
+  font-size: 56px; line-height: 1;
+  filter: drop-shadow(0 0 16px rgba(255,107,53,.6));
+}
+.dsp-complete-title {
+  font-size: 28px; font-weight: 900; color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+.dsp-complete-sub {
+  font-size: 15px; font-weight: 700;
+  color: #f7931e;
+}
+.dsp-complete-stat {
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,.6);
+  margin-top: 4px;
+  background: rgba(255,255,255,.08);
+  padding: 5px 14px; border-radius: 20px;
+}
+
+/* 내 더빙 - 다시듣기 버튼 */
+.db-play-audio {
+  background: rgba(100,200,255,.12);
+  border: 1px solid rgba(100,200,255,.3);
+  color: #7ecfff;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 14px;
+  cursor: pointer; margin-left: 6px;
+  white-space: nowrap;
+}
+
 </style>
 </head>
 <body>
@@ -19482,45 +19540,16 @@ window.openDubbingRoom = openDubbingRoom;
   <div id="dsPremiereFrame">
     <iframe id="dsPremiereIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
   </div>
+  <!-- ✨ 하이라이트 별 파티클 (영상 위에 반짝) -->
+  <div class="dsp-stars" id="dspStars"></div>
+
   <div class="dsp-overlay">
-    <div class="dsp-score-wrap">
-      <div class="dsp-score-ring">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9"/>
-          <circle id="dspRing" cx="50" cy="50" r="42" fill="none"
-            stroke="url(#dspGrad)" stroke-width="9"
-            stroke-linecap="round"
-            stroke-dasharray="263.9" stroke-dashoffset="263.9"
-            style="transition: stroke-dashoffset 1.2s cubic-bezier(.34,1.56,.64,1)"/>
-          <defs>
-            <linearGradient id="dspGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#ff6b35"/>
-              <stop offset="100%" stop-color="#f7931e"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <div class="dsp-score-center">
-          <div class="dsp-score-num" id="dspScoreNum">0</div>
-          <div class="dsp-score-unit">점</div>
-        </div>
-      </div>
-      <div class="dsp-bars">
-        <div class="dsp-bar-row">
-          <div class="dsp-bar-lbl">녹음률</div>
-          <div class="dsp-bar-track"><div class="dsp-bar-fill" id="dspBar0"></div></div>
-          <div class="dsp-bar-val" id="dspVal0">0</div>
-        </div>
-        <div class="dsp-bar-row">
-          <div class="dsp-bar-lbl">발음</div>
-          <div class="dsp-bar-track"><div class="dsp-bar-fill" id="dspBar1"></div></div>
-          <div class="dsp-bar-val" id="dspVal1">0</div>
-        </div>
-        <div class="dsp-bar-row">
-          <div class="dsp-bar-lbl">타이밍</div>
-          <div class="dsp-bar-track"><div class="dsp-bar-fill" id="dspBar2"></div></div>
-          <div class="dsp-bar-val" id="dspVal2">0</div>
-        </div>
-      </div>
+    <!-- 🎬 완성 배지 -->
+    <div class="dsp-complete" id="dspComplete">
+      <div class="dsp-complete-emoji" id="dspCompleteEmoji">🎬</div>
+      <div class="dsp-complete-title">더빙 완성!</div>
+      <div class="dsp-complete-sub" id="dspCompleteSub">멋진 연기였어요 👏</div>
+      <div class="dsp-complete-stat" id="dspCompleteStat"></div>
     </div>
     <div class="dsp-actions">
       <button class="dsp-retry-btn" id="dspRetryBtn">🔄 다시 더빙</button>
@@ -20203,15 +20232,12 @@ document.getElementById('dssBackBtn').addEventListener('click', function() {
 function _dsOpenPremiere() {
   const total  = DS.sentences.length;
   const recCnt = Object.keys(DS.recordings).length;
-  const vals   = Object.values(DS.scores).filter(function(v){ return v != null; });
-  const avgScore = vals.length > 0
-    ? Math.round(vals.reduce(function(a,b){return a+b;},0) / vals.length) : 0;
-  const recRate  = Math.round((recCnt / Math.max(total,1)) * 100);
-  const timing   = Math.min(100, Math.round(avgScore * 0.88 + Math.random() * 12));
-  const final    = Math.round((avgScore * 0.4 + recRate * 0.4 + timing * 0.2));
 
-  /* 📋 진도표 기록 저장 (가벼움: 점수+영상정보만) */
-  _dsSaveDubRecord(final);
+  /* 📋 진도표 기록 저장 (점수 없이 영상정보만) */
+  _dsSaveDubRecord(0);
+
+  /* 🎤 음성 2개 저장 (IndexedDB) */
+  _dsSaveDubAudio();
 
   /* 풀스크린 영상 (muted, 자동재생) */
   const iframe = document.getElementById('dsPremiereIframe');
@@ -20221,7 +20247,6 @@ function _dsOpenPremiere() {
   document.getElementById('dsPremiere').classList.add('ds-active');
 
   /* 내 녹음 재생 (각 sentence.start 시간에 맞춰) */
-  const startWall = Date.now();
   DS.sentences.forEach(function(s, i) {
     if (!DS.audioURLs[i]) return;
     const delay = Math.max(0, (s.start || 0) * 1000);
@@ -20230,27 +20255,63 @@ function _dsOpenPremiere() {
     }, delay);
   });
 
-  /* 점수 애니메이션 (1초 후 시작) */
-  setTimeout(function() {
-    /* 링 */
-    const ring = document.getElementById('dspRing');
-    const numEl = document.getElementById('dspScoreNum');
-    const circum = 263.9;
-    ring.style.strokeDashoffset = circum - (final/100) * circum;
-    let n = 0;
-    const t = setInterval(function(){
-      n = Math.min(n+2, final);
-      numEl.textContent = n;
-      if(n >= final) clearInterval(t);
-    }, 20);
+  /* ✨ 완성 연출 */
+  _dsPlayCompleteAnimation(recCnt, total);
+}
 
-    /* 바 */
-    setTimeout(function(){
-      document.getElementById('dspBar0').style.width = recRate  + '%'; document.getElementById('dspVal0').textContent = recRate;
-      document.getElementById('dspBar1').style.width = avgScore + '%'; document.getElementById('dspVal1').textContent = avgScore;
-      document.getElementById('dspBar2').style.width = timing   + '%'; document.getElementById('dspVal2').textContent = timing;
-    }, 300);
-  }, 800);
+/* ── 🎬 완성 애니메이션 (별 + 격려) ── */
+function _dsPlayCompleteAnimation(recCnt, total) {
+  /* 격려 문구 (녹음 개수에 따라) */
+  var subs = [
+    '멋진 연기였어요 👏',
+    '주인공이 따로 없네요 🌟',
+    '목소리가 살아있어요 🎤',
+    '완벽한 더빙이에요 ✨',
+    '배우 데뷔각이에요 🎬'
+  ];
+  var emojis = ['🎬','🎭','🌟','✨','🎤','🏆'];
+
+  var sub = subs[Math.floor(Math.random() * subs.length)];
+  document.getElementById('dspCompleteSub').textContent = sub;
+  document.getElementById('dspCompleteStat').textContent =
+    '🎤 ' + recCnt + ' / ' + total + ' 장면 완성';
+
+  /* 이모지 반짝 교체 애니메이션 */
+  var emojiEl = document.getElementById('dspCompleteEmoji');
+  var ei = 0;
+  var emojiTimer = setInterval(function(){
+    emojiEl.textContent = emojis[ei % emojis.length];
+    ei++;
+    if (ei > 6) {
+      clearInterval(emojiTimer);
+      emojiEl.textContent = '🎬';
+    }
+  }, 140);
+
+  /* ✨ 별 파티클 쏟아지기 */
+  _dsSpawnStars();
+}
+
+/* ✨ 별 파티클 생성 */
+function _dsSpawnStars() {
+  var container = document.getElementById('dspStars');
+  if (!container) return;
+  container.innerHTML = '';
+  var stars = ['⭐','✨','🌟','💫','🎉'];
+  for (var i = 0; i < 18; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var star = document.createElement('div');
+        star.className = 'dsp-star';
+        star.textContent = stars[Math.floor(Math.random()*stars.length)];
+        star.style.left = Math.random() * 100 + '%';
+        star.style.fontSize = (16 + Math.random() * 20) + 'px';
+        star.style.animationDuration = (1.5 + Math.random() * 1.5) + 's';
+        container.appendChild(star);
+        setTimeout(function(){ star.remove(); }, 3000);
+      }, idx * 90);
+    })(i);
+  }
 }
 
 function _dsClosePremiere() {
@@ -20315,6 +20376,129 @@ window.openDubbingNow = openDubbingNow;
  * ══════════════════════════════════════════════════════════════ */
 
 /* 더빙 기록 저장 (점수+영상정보만, 음성 X = 가벼움) */
+
+/* ══════════════════════════════════════════════════════════════
+ * 🎤 더빙 음성 저장 (IndexedDB, 최근 2개)
+ * ══════════════════════════════════════════════════════════════ */
+var _DS_DB_NAME = 'snaptalkDubAudio';
+var _DS_DB_STORE = 'dubs';
+var _DS_AUDIO_KEEP = 2;   /* 최근 2개만 */
+
+function _dsOpenDB(callback) {
+  try {
+    var req = indexedDB.open(_DS_DB_NAME, 1);
+    req.onupgradeneeded = function(e) {
+      var db = e.target.result;
+      if (!db.objectStoreNames.contains(_DS_DB_STORE)) {
+        db.createObjectStore(_DS_DB_STORE, { keyPath: 'id' });
+      }
+    };
+    req.onsuccess = function(e) { callback(e.target.result); };
+    req.onerror = function(e) { console.warn('[DS DB]', e); callback(null); };
+  } catch(err) {
+    console.warn('[DS DB open]', err);
+    callback(null);
+  }
+}
+
+/* 현재 더빙 음성 저장 */
+function _dsSaveDubAudio() {
+  try {
+    var short = DS.short;
+    if (!short) return;
+
+    /* 녹음들을 하나의 묶음으로 (각 sentence별 blob) */
+    var clips = [];
+    DS.sentences.forEach(function(s, i) {
+      if (DS.recordings[i]) {
+        clips.push({ idx: i, start: s.start || 0, blob: DS.recordings[i] });
+      }
+    });
+    if (clips.length === 0) return;
+
+    var entry = {
+      id: 'dub_' + Date.now(),
+      videoId: short.id,
+      title: short.title || '',
+      cat: short.cat || 'people',
+      catIcon: short.catIcon || '🎬',
+      date: new Date().toISOString(),
+      clips: clips
+    };
+
+    _dsOpenDB(function(db) {
+      if (!db) return;
+      var tx = db.transaction(_DS_DB_STORE, 'readwrite');
+      var store = tx.objectStore(_DS_DB_STORE);
+
+      /* 새 항목 추가 */
+      store.put(entry);
+
+      /* 오래된 것 정리 (최근 2개만 유지) */
+      var getAll = store.getAll();
+      getAll.onsuccess = function() {
+        var all = getAll.result || [];
+        all.sort(function(a,b){ return new Date(b.date) - new Date(a.date); });
+        /* 2개 초과분 삭제 */
+        for (var i = _DS_AUDIO_KEEP; i < all.length; i++) {
+          store.delete(all[i].id);
+        }
+      };
+    });
+  } catch(err) {
+    console.warn('[DS saveAudio]', err);
+  }
+}
+
+/* 저장된 더빙 음성 재생 (videoId로) */
+function _dsPlaySavedAudio(videoId) {
+  _dsOpenDB(function(db) {
+    if (!db) return;
+    var tx = db.transaction(_DS_DB_STORE, 'readonly');
+    var store = tx.objectStore(_DS_DB_STORE);
+    var getAll = store.getAll();
+    getAll.onsuccess = function() {
+      var all = getAll.result || [];
+      /* 해당 영상의 가장 최근 더빙 */
+      var match = all.filter(function(e){ return e.videoId === videoId; })
+                     .sort(function(a,b){ return new Date(b.date) - new Date(a.date); })[0];
+      if (!match || !match.clips) {
+        alert('저장된 녹음이 없어요 🎤');
+        return;
+      }
+      /* 순서대로 재생 */
+      var clips = match.clips.slice().sort(function(a,b){ return a.start - b.start; });
+      var i = 0;
+      function playNext() {
+        if (i >= clips.length) return;
+        var url = URL.createObjectURL(clips[i].blob);
+        var audio = new Audio(url);
+        i++;
+        audio.onended = function(){ URL.revokeObjectURL(url); playNext(); };
+        audio.play().catch(function(){ playNext(); });
+      }
+      playNext();
+    };
+  });
+}
+window._dsPlaySavedAudio = _dsPlaySavedAudio;
+
+/* 저장된 음성이 있는 videoId 목록 (진도표에서 다시듣기 버튼 표시용) */
+function _dsGetSavedAudioIds(callback) {
+  _dsOpenDB(function(db) {
+    if (!db) { callback([]); return; }
+    var tx = db.transaction(_DS_DB_STORE, 'readonly');
+    var store = tx.objectStore(_DS_DB_STORE);
+    var getAll = store.getAll();
+    getAll.onsuccess = function() {
+      var all = getAll.result || [];
+      callback(all.map(function(e){ return e.videoId; }));
+    };
+    getAll.onerror = function(){ callback([]); };
+  });
+}
+window._dsGetSavedAudioIds = _dsGetSavedAudioIds;
+
 function _dsSaveDubRecord(finalScore) {
   try {
     var short = DS.short;
