@@ -6547,6 +6547,208 @@
             "koHighlight": "close the laptop and leave work"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "RthtyimVVuw",
+        "title": "외식비 10만원 아끼는 마늘갈비 레시피",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 60,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "이거 알면 | 밖에서 못 사 먹어요.",
+            "phonetic": "igeo almyeon | bakkeseo mot sa meogeoyo.",
+            "ko": "If you know this, | you won't buy it outside anymore.",
+            "start": 1,
+            "end": 5.6,
+            "core": "고기",
+            "highlight": "밖에서 못 사 먹다",
+            "koHighlight": "won't buy it outside"
+          },
+          {
+            "en": "기본이 15만 원인데 | 코스트코 갈빗살 | 한 팩이면",
+            "phonetic": "giboni siboman woninde | koseuteuko galbitsal | han paegimyeon",
+            "ko": "It normally costs 150,000 won, | but one pack of Costco short ribs | is enough",
+            "start": 5.6,
+            "end": 9.4,
+            "core": "갈빗살",
+            "highlight": "코스트코 갈빗살",
+            "koHighlight": "Costco short ribs"
+          },
+          {
+            "en": "다섯 명이 질리도록 | 갈비 파티 할 수 있거든요.",
+            "phonetic": "daseot myeongi jillidorok | galbi pati hal su itgeodeunyo.",
+            "ko": "Five people can have a rib party | until they're sick of it.",
+            "start": 9.4,
+            "end": 11.1,
+            "core": "갈비",
+            "highlight": "갈비 파티 할 수 있다",
+            "koHighlight": "can have a rib party"
+          },
+          {
+            "en": "핏물 좀 닦아주고 | 근막 제거랑 지방 손질 좀 해 주고 | 부드러운 식감을 위해 칼집도 넣어주고",
+            "phonetic": "pitmul jom dakkajugo | geunmak jegeorang jibang sonjil jom hae jugo | budeureoun sikgameul wihae kaljipdo neoeojugo",
+            "ko": "Pat off the blood, | remove the membrane and trim the fat, | and score it for a tender texture.",
+            "start": 11.1,
+            "end": 17.4,
+            "core": "손질",
+            "highlight": "근막 제거랑 지방 손질",
+            "koHighlight": "membrane removal and fat trimming"
+          },
+          {
+            "en": "먹기 좋게 | 미리 잘라두기만 하면 돼요.",
+            "phonetic": "meokgi joke | miri jalladugiman hamyeon dwaeyo.",
+            "ko": "You just need to cut it | into easy-to-eat pieces ahead of time.",
+            "start": 17.4,
+            "end": 18.8,
+            "core": "잘라두다",
+            "highlight": "먹기 좋게 잘라두다",
+            "koHighlight": "cut into easy-to-eat pieces"
+          },
+          {
+            "en": "이거 얼마 줬어? 3만 원. | 열심히 했더니 | 1.7kg에서 1.2kg가 됐어요.",
+            "phonetic": "igeo eolma jwosseo? seman won. | yeolsimhi haetdeoni | il jjeom chil kilogeuraemeseo il jjeom i kilogeuraemi dwaesseoyo.",
+            "ko": "How much did you pay? 30,000 won. | Because I worked so hard, | it went from 1.7kg down to 1.2kg.",
+            "start": 18.8,
+            "end": 25.1,
+            "core": "열심히",
+            "highlight": "열심히 했더니",
+            "koHighlight": "because I worked so hard"
+          },
+          {
+            "en": "400g 정도 손질하고 나서 | 양념 해 줄게요.",
+            "phonetic": "sabaek geuraem jeongdo sonjilhago naseo | yangnyeom hae julgeyo.",
+            "ko": "After trimming it down to about 400g, | I'll season it.",
+            "start": 25.1,
+            "end": 29,
+            "core": "양념",
+            "highlight": "양념 해 주다",
+            "koHighlight": "season it"
+          },
+          {
+            "en": "미국산이나 호주산 소고기에 | 반 스푼만 넣으면 돼요.",
+            "phonetic": "miguksanina hojusan sogogie | ban seupunman neoeumyeon dwaeyo.",
+            "ko": "For American or Australian beef, | you only need half a spoon.",
+            "start": 29,
+            "end": 33,
+            "core": "소고기",
+            "highlight": "미국산 호주산 소고기",
+            "koHighlight": "American or Australian beef"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "0VHTR96ejuw",
+        "title": "트위터 3만RT 불닭 레시피",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 36,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "트위터에서 무려 3만 리트윗 됐다는 | 불닭 레시피 갑니다.",
+            "phonetic": "teuwiteoeseo muryeo samman riteuwit dwaetdaneun | buldak resipi gamnida.",
+            "ko": "Here's the buldak recipe | that apparently got 30,000 retweets on Twitter.",
+            "start": 0.9,
+            "end": 6.1,
+            "core": "리트윗",
+            "highlight": "3만 리트윗 됐다",
+            "koHighlight": "got 30,000 retweets"
+          },
+          {
+            "en": "뜨거운 물 붓고 | 면이 풀릴 정도만 익혀요.",
+            "phonetic": "tteugeoun mul butgo | myeoni pullil jeongdoman ikhyeoyo.",
+            "ko": "Pour in hot water | and cook just until the noodles loosen.",
+            "start": 6.2,
+            "end": 8.3,
+            "core": "익히다",
+            "highlight": "면이 풀릴 정도만",
+            "koHighlight": "just until the noodles loosen"
+          },
+          {
+            "en": "물 좀 남기고 뚜껑 떼요 | 불닭소스 적당히 넣고 | 싹싹 잘 비벼요.",
+            "phonetic": "mul jom namgigo ttukkeong tteyo | buldaksoseu jeokdanghi neoko | ssaksak jal bibyeoyo.",
+            "ko": "Leave a bit of water and remove the lid, | add a moderate amount of buldak sauce, | and mix it all together well.",
+            "start": 8.3,
+            "end": 14.2,
+            "core": "비비다",
+            "highlight": "싹싹 잘 비벼요",
+            "koHighlight": "mix it all together well"
+          },
+          {
+            "en": "전자레인지 1분 돌려주고 꺼내서 | 또 비벼줘요.",
+            "phonetic": "jeonjareinji ilbun dollyeojugo kkeonaeseo | tto bibyeojwoyo.",
+            "ko": "Microwave it for 1 minute and take it out, | then mix it again.",
+            "start": 14.2,
+            "end": 19.1,
+            "core": "전자레인지",
+            "highlight": "전자레인지 1분 돌리다",
+            "koHighlight": "microwave for 1 minute"
+          },
+          {
+            "en": "또 전자레인지 1분 돌리고 비벼요 | 똑같이 총 세 번 하면 끝이에요.",
+            "phonetic": "tto jeonjareinji ilbun dolligo bibyeoyo | ttokgachi chong se beon hamyeon kkeuchieyo.",
+            "ko": "Microwave again for 1 minute and mix | do the same three times total and you're done.",
+            "start": 19.1,
+            "end": 22,
+            "core": "세 번",
+            "highlight": "총 세 번 하면 끝",
+            "koHighlight": "do it three times and you're done"
+          },
+          {
+            "en": "노른자 가운데에 넣고 | 참기름 둘러줘요.",
+            "phonetic": "noreunja gaundee neoko | chamgireum dulleojwoyo.",
+            "ko": "Put the egg yolk in the center | and drizzle sesame oil around it.",
+            "start": 22,
+            "end": 24.5,
+            "core": "노른자",
+            "highlight": "노른자 가운데에 넣고",
+            "koHighlight": "put the egg yolk in the center"
+          },
+          {
+            "en": "후레이크 뿌리면 진짜 끝 | 와, 이거 진짜 미쳤다.",
+            "phonetic": "hureikeu ppurimyeon jinjja kkeut | wa, igeo jinjja michyeotda.",
+            "ko": "Sprinkle the flakes and you're really done | wow, this is seriously amazing.",
+            "start": 24.5,
+            "end": 28,
+            "core": "미치다",
+            "highlight": "진짜 미쳤다",
+            "koHighlight": "seriously amazing"
+          },
+          {
+            "en": "노른자가 완전 부드럽고 | 참기름은 미치게 고소해요.",
+            "phonetic": "noreunjaga wanjeon budeureopgo | chamgireumeun michige gosohaeyo.",
+            "ko": "The egg yolk is incredibly creamy | and the sesame oil is insanely nutty.",
+            "start": 28,
+            "end": 33.1,
+            "core": "고소하다",
+            "highlight": "미치게 고소해요",
+            "koHighlight": "insanely nutty and fragrant"
+          },
+          {
+            "en": "그냥 평생 이렇게 해먹을 듯 | 꼭 해보세요.",
+            "phonetic": "geunyang pyeongsaeng ireoke haemeogeul deut | kkok haeboseyo.",
+            "ko": "I feel like I'll eat it like this forever | you have to try it.",
+            "start": 33.1,
+            "end": 36.9,
+            "core": "해먹다",
+            "highlight": "평생 이렇게 해먹다",
+            "koHighlight": "eat it like this forever"
+          }
+        ]
       }
     ]
   }
