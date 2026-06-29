@@ -6749,6 +6749,82 @@
             "koHighlight": "eat it like this forever"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "d8AUqcus7Ro",
+        "title": "MZ 취업 포트폴리오 만들기",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "people",
+        "catIcon": "🎤",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 41,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "또 요즘에는 | 이런 취업 포트폴리오를 | MZ 세대들은 인스타그램을 통해서 | 많이 하고 있어요.",
+            "phonetic": "tto yojeumeneun | ireon chwieop poteupollireul | MZ sedaedeureun inseutageurameul tonghaeseo | mani hago isseoyo.",
+            "ko": "And these days, | this kind of job portfolio — | the MZ generation does it a lot through Instagram.",
+            "start": 0,
+            "end": 6.7,
+            "core": "포트폴리오",
+            "highlight": "취업 포트폴리오",
+            "koHighlight": "job portfolio"
+          },
+          {
+            "en": "취업 포트폴리오예요. | 저도 운영을 했었는데 | 팔로워 1천이 넘었었어요.",
+            "phonetic": "chwieop poteupollioyeyo. | jeodo unyeongeul haesseonneunde | pallowo cheoni neomeosseosseoyo.",
+            "ko": "It's a job portfolio. | I ran one too, | and the followers exceeded 1,000.",
+            "start": 6.7,
+            "end": 15.2,
+            "core": "팔로워",
+            "highlight": "팔로워 1천이 넘다",
+            "koHighlight": "exceeded 1,000 followers"
+          },
+          {
+            "en": "활동 경험이 | 1년에 400시간 이상 | 많이 채웠었는데,",
+            "phonetic": "hwaldong gyeongheomi | illyeone sabaeksigan isang | mani chaewosseonneunde,",
+            "ko": "My activity experience | was over 400 hours a year — | I filled it up a lot,",
+            "start": 15.2,
+            "end": 19.6,
+            "core": "경험",
+            "highlight": "활동 경험",
+            "koHighlight": "activity experience"
+          },
+          {
+            "en": "그런 경험들이랑 | 활동들을 잘 정리해서 | 인스타그램에 올렸었어요.",
+            "phonetic": "geureon gyeongheomdeurirang | hwaldongdeureul jal jeongnihaeseo | inseutageurame ollyeosseosseoyo.",
+            "ko": "I organized those experiences | and activities well | and posted them on Instagram.",
+            "start": 19.6,
+            "end": 23.9,
+            "core": "정리",
+            "highlight": "잘 정리해서 올리다",
+            "koHighlight": "organize well and post"
+          },
+          {
+            "en": "카드를 올리는 것만으로도 | 취업 포트폴리오를 | 쌓게 되는 것 같더라고요.",
+            "phonetic": "kadeureul ollineun geonmaneurodo | chwieop poteupollireul | ssake doeneun geot gatdeoragoyo.",
+            "ko": "Just by posting cards, | it seems like | a job portfolio builds up.",
+            "start": 23.9,
+            "end": 29,
+            "core": "쌓다",
+            "highlight": "포트폴리오를 쌓다",
+            "koHighlight": "build up a portfolio"
+          },
+          {
+            "en": "아예 취업 계정을 | 새로 만드신 거예요? | 네, 맞습니다.",
+            "phonetic": "aye chwieop gyejeongeul | saero mandeusin geoyeyo? | ne, matseumnida.",
+            "ko": "You created a brand-new | dedicated job account? | Yes, that's right.",
+            "start": 29,
+            "end": 38,
+            "core": "계정",
+            "highlight": "취업 계정을 새로 만들다",
+            "koHighlight": "create a new job account"
+          }
+        ]
       }
     ]
   }
