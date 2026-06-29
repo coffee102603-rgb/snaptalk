@@ -19638,11 +19638,18 @@ function _dsHideMicToast() {
 }
 
 /* ── ② STUDIO ── */
+/* ── 📱 모바일 감지 (음성인식 끄고 음량 채점) ── */
+var _DS_IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+DS.volSamples = [];
+DS.volPeak = 0;
+
 function _dsOpenStudio() {
   DS.idx = 0;
   document.getElementById('dsStudio').classList.add('ds-active');
-  /* 🎙️ 음성인식 미리 켜두기 (스튜디오 내내 켜둠 → 권한 1번만) */
-  _dsStartContinuousSpeech();
+  /* 📱 모바일은 음성인식 안 켬 (권한 팝업 방지) / PC만 켬 */
+  if (!_DS_IS_MOBILE && typeof _dsStartContinuousSpeech === 'function') {
+    _dsStartContinuousSpeech();
+  }
   _dsRenderScene();
 }
 function _dsCloseStudio() {
@@ -20011,6 +20018,12 @@ function _dsScoreBySpeech() {
   var target = (s && s.en) ? s.en : '';
   var said = DS.recognizedText;
 
+  /* 📱 모바일 → 음량 기반 채점 (발음 인식 대신 "충분히 말했는지") */
+  if (_DS_IS_MOBILE) {
+    DS.scores[DS.idx] = _dsScoreByVolume();
+    return;
+  }
+
   /* 음성 인식 미지원 → 시간 기반 폴백 (관대하게) */
   if (said === null || DS.speechSupported === false) {
     var dur = (Date.now() - DS.recStart) / 1000;
@@ -20065,6 +20078,54 @@ function _dsScoreBySpeech() {
   console.log('[DS Score] 원본:', target, '| 인식:', said, '| 일치율:', Math.round(matchRate*100)+'%', '| 점수:', DS.scores[DS.idx]);
 }
 
+
+/* ── 📊 음량 기반 채점 (모바일용) ── */
+function _dsScoreByVolume() {
+  var dur = (Date.now() - DS.recStart) / 1000;
+  var samples = DS.volSamples || [];
+
+  /* 너무 짧으면 (0.4초 미만) 안 말한 걸로 */
+  if (dur < 0.4 || samples.length < 3) {
+    return Math.floor(Math.random() * 10);  /* 0~9점 */
+  }
+
+  /* 평균 음량 */
+  var sum = 0;
+  for (var i = 0; i < samples.length; i++) sum += samples[i];
+  var avgVol = sum / samples.length;
+
+  /* 말한 비율: 일정 음량(15) 넘는 샘플 비율 */
+  var loudCount = 0;
+  for (var j = 0; j < samples.length; j++) {
+    if (samples[j] > 15) loudCount++;
+  }
+  var speakRatio = loudCount / samples.length;   /* 0~1 */
+
+  /* 무음/너무 조용 → 낮은 점수 */
+  if (avgVol < 8 || speakRatio < 0.15) {
+    return Math.floor(Math.random() * 12);  /* 0~11점 */
+  }
+
+  /* 적정 길이 보너스: 문장 단어 수에 맞게 말했는지 */
+  var s = DS.sentences[DS.idx];
+  var words = (s && s.en) ? s.en.split(' ').length : 4;
+  var idealDur = Math.max(0.8, words * 0.35);
+  var durRatio = Math.min(dur / idealDur, 1.3);   /* 충분히 말했나 */
+
+  /* 점수 조합:
+     - 말한 비율 (40%)
+     - 음량 적정도 (30%)
+     - 길이 적정도 (30%) */
+  var volScore = Math.min(1, avgVol / 50);        /* 음량 0~1 */
+  var combined = speakRatio * 0.4 + volScore * 0.3 + Math.min(durRatio,1) * 0.3;
+
+  var score = Math.round(50 + combined * 50);     /* 50~100 범위 */
+  score = Math.max(30, Math.min(100, score));
+
+  console.log('[DS VolScore] 평균음량:', Math.round(avgVol), '| 말한비율:', Math.round(speakRatio*100)+'%', '| 길이:', dur.toFixed(1)+'초', '| 점수:', score);
+  return score;
+}
+
 function _dsStopRec() {
   if (DS.recorder && DS.recorder.state !== 'inactive') DS.recorder.stop();
   DS.isRec = false;
@@ -20084,11 +20145,17 @@ function _dsStartVolViz() {
     const bars = [0,1,2,3,4,5].map(function(i){ return document.getElementById('dvb'+i); });
     const vol  = document.getElementById('dssVol');
     if(vol) vol.classList.add('on');
+    /* 음량 샘플 수집 초기화 */
+    DS.volSamples = [];
+    DS.volPeak = 0;
     function tick() {
       if (!DS.isRec) return;
       const d = new Uint8Array(anal.frequencyBinCount);
       anal.getByteFrequencyData(d);
       const avg = d.slice(0,10).reduce(function(a,b){return a+b;},0) / 10;
+      /* 📊 음량 샘플 저장 (채점용) */
+      DS.volSamples.push(avg);
+      if (avg > DS.volPeak) DS.volPeak = avg;
       bars.forEach(function(b) {
         if (!b) return;
         b.style.height = Math.max(3, (avg/255)*26*(0.5+Math.random()*1)) + 'px';
