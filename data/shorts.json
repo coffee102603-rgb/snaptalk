@@ -7873,6 +7873,188 @@
             "koHighlight": "happy having fallen for the taste"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "BjvSdE71dOc",
+        "title": "청주 가볼만한 곳 베스트 10",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 57,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "첫 번째로 소개할 곳은 | 청주의 대표 드라이브 명소 | 대청댐입니다.",
+            "phonetic": "cheot beonjjaero sogaehal goseun | cheongjuui daepyo deuraibeu myeongso | daecheongdaemimnida.",
+            "ko": "The first place to introduce | is Cheongju's top driving spot, | Daecheong Dam.",
+            "start": 0.3,
+            "end": 7.5,
+            "core": "대청댐",
+            "highlight": "대표 드라이브 명소",
+            "koHighlight": "top driving destination"
+          },
+          {
+            "en": "두 번째로는 | 문의 문화재 단지입니다.",
+            "phonetic": "du beonjjaeroneun | munui munhwajae danjiimnida.",
+            "ko": "The second place | is the Munui Cultural Heritage Complex.",
+            "start": 9.4,
+            "end": 14.7,
+            "core": "문화재",
+            "highlight": "문의 문화재 단지",
+            "koHighlight": "Munui Cultural Heritage Complex"
+          },
+          {
+            "en": "다음으로 소개할 곳은 | 청남대입니다.",
+            "phonetic": "daeumeuro sogaehal goseun | cheongnamdaeimnida.",
+            "ko": "The next place to introduce | is Cheongnamdae.",
+            "start": 14.7,
+            "end": 19.5,
+            "core": "청남대",
+            "highlight": "청남대",
+            "koHighlight": "Cheongnamdae"
+          },
+          {
+            "en": "네 번째로 소개해 드릴 곳은 | 미동산 수목원입니다.",
+            "phonetic": "ne beonjjaero sogaehae deuril goseun | midongsan sumogwonimnida.",
+            "ko": "The fourth place I'll introduce | is Midongsan Arboretum.",
+            "start": 20.4,
+            "end": 26.1,
+            "core": "수목원",
+            "highlight": "미동산 수목원",
+            "koHighlight": "Midongsan Arboretum"
+          },
+          {
+            "en": "다섯 번째로는 | 청주의 대표 역사 명소 | 상당산성입니다.",
+            "phonetic": "daseot beonjjaeroneun | cheongjuui daepyo yeoksa myeongso | sangdangsanseongimnida.",
+            "ko": "The fifth place | is Cheongju's top historical landmark, | Sangdang Fortress.",
+            "start": 26.4,
+            "end": 33.3,
+            "core": "산성",
+            "highlight": "대표 역사 명소",
+            "koHighlight": "top historical landmark"
+          },
+          {
+            "en": "다음으로는 | 고인쇄 박물관입니다.",
+            "phonetic": "daeumeuroneun | goinswae bangmulgwanimnida.",
+            "ko": "Next | is the Early Printing Museum.",
+            "start": 34.8,
+            "end": 39.6,
+            "core": "박물관",
+            "highlight": "고인쇄 박물관",
+            "koHighlight": "Early Printing Museum"
+          },
+          {
+            "en": "여덟 번째로는 | 흥덕 사지입니다.",
+            "phonetic": "yeodeol beonjjaeroneun | heungdeok sajiimnida.",
+            "ko": "The eighth place | is the Heungdeok Temple Site.",
+            "start": 41,
+            "end": 45.4,
+            "core": "사지",
+            "highlight": "흥덕 사지",
+            "koHighlight": "Heungdeok Temple Site"
+          },
+          {
+            "en": "아홉 번째는 | 문남 생태 공원입니다.",
+            "phonetic": "ahop beonjjaeneun | munnam saengtae gongwonimnida.",
+            "ko": "The ninth place | is Munnam Ecological Park.",
+            "start": 45.4,
+            "end": 50.8,
+            "core": "생태공원",
+            "highlight": "문남 생태 공원",
+            "koHighlight": "Munnam Ecological Park"
+          },
+          {
+            "en": "마지막으로 소개할 곳은 | 정북동의 토성입니다.",
+            "phonetic": "majimageuro sogaehal goseun | jeongbukdongui toseongimnida.",
+            "ko": "The last place to introduce | is the Jeongbukdong Earthen Fortress.",
+            "start": 51.3,
+            "end": 56.8,
+            "core": "토성",
+            "highlight": "정북동의 토성",
+            "koHighlight": "Jeongbukdong Earthen Fortress"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "mETio5yR77E",
+        "title": "단양 여행 시장 먹거리 구경",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 59,
+        "status": "live",
+        "license": "creativeCommon",
+        "sentences": [
+          {
+            "en": "사람도 많다. | 이거 마늘빵이야, | 빵도 홍마늘빵.",
+            "phonetic": "saramdo manta. | igeo maneulppangiya, | ppangdo hongmaneulppang.",
+            "ko": "There are so many people. | This is garlic bread, | red garlic bread.",
+            "start": 1.2,
+            "end": 8.7,
+            "core": "마늘빵",
+            "highlight": "홍마늘빵",
+            "koHighlight": "red garlic bread"
+          },
+          {
+            "en": "시장 안으로 들어서자마자 | 맛있는 냄새와 | 활기찬 분위기가 가득한데요.",
+            "phonetic": "sijang aneuro deureoseojamaja | masinneun naemsaewa | hwalgichan bunwigiga gadeukhandeyo.",
+            "ko": "The moment you step inside the market, | the delicious smells | and lively atmosphere fill the air.",
+            "start": 8.7,
+            "end": 15.1,
+            "core": "분위기",
+            "highlight": "활기찬 분위기가 가득하다",
+            "koHighlight": "lively atmosphere fills the place"
+          },
+          {
+            "en": "마늘을 활용한 음식부터 | 간식거리까지 | 구경하는 재미가 있습니다.",
+            "phonetic": "maneureul hwaryonghan eumsikbuteo | gansikgeorikkaji | gugyeonghaneun jaemiga itseumnida.",
+            "ko": "From foods made with garlic | to snacks, | there's fun just browsing around.",
+            "start": 15.1,
+            "end": 22.8,
+            "core": "재미",
+            "highlight": "구경하는 재미가 있다",
+            "koHighlight": "fun in browsing around"
+          },
+          {
+            "en": "산나물들도 많습니다.",
+            "phonetic": "sannamuldeuldo manseumnida.",
+            "ko": "There are also plenty of wild greens.",
+            "start": 27.1,
+            "end": 35.4,
+            "core": "산나물",
+            "highlight": "산나물들도 많다",
+            "koHighlight": "plenty of wild greens too"
+          },
+          {
+            "en": "닭강정, 흑마늘 | 여기가 맛집인가 봐. | 흑마늘 소금도 있네.",
+            "phonetic": "dakgangjeong, heungmaneul | yeogiga matjibinga bwa. | heungmaneul sogeumdo inne.",
+            "ko": "Dakgangjeong, black garlic — | this place must be a famous eatery. | There's black garlic salt too.",
+            "start": 35.9,
+            "end": 51.4,
+            "core": "흑마늘",
+            "highlight": "흑마늘 맛집",
+            "koHighlight": "black garlic famous eatery"
+          },
+          {
+            "en": "천천히 시장 골목을 걸으며 | 단양만의 정겨운 분위기를 | 느낄 수 있습니다.",
+            "phonetic": "cheoncheonhi sijang golmogeul georeumyeo | danyangmanui jeongyeoun bunwigireul | neukkil su itseumnida.",
+            "ko": "Slowly walking through the market alley, | you can feel the warm, cozy atmosphere | unique to Danyang.",
+            "start": 51.6,
+            "end": 60.2,
+            "core": "분위기",
+            "highlight": "정겨운 분위기를 느끼다",
+            "koHighlight": "feel the warm cozy atmosphere"
+          }
+        ]
       }
     ]
   }
