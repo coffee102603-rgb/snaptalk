@@ -8112,11 +8112,13 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
 .dss-video-wrap {
   flex-shrink: 0;
   margin: 10px 16px 0;
-  border-radius: 14px; overflow: hidden;
+  border-radius: 14px;
+  overflow: hidden !important;   /* 유튜브 버튼 삐져나옴 차단 */
   background: #111;
   position: relative;
-  /* 가로형 비율 (9:16 → 16:9느낌으로 크롭) */
   height: 155px;
+  isolation: isolate;            /* z-index 격리 */
+  contain: paint;                /* 내부 렌더링 가둠 */
 }
 .dss-video-wrap iframe {
   width: 100%; height: 300%;
@@ -8127,10 +8129,12 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
 /* 다시듣기 오버레이 버튼 */
 .dss-replay-overlay {
   position: absolute; inset: 0;
+  z-index: 10;                  /* 유튜브 버튼보다 위 */
   display: flex; align-items: center; justify-content: center;
   background: rgba(0,0,0,.35);
   cursor: pointer;
   transition: background .15s;
+  pointer-events: auto;         /* 탭은 오버레이가 받음 → 유튜브 버튼 클릭 차단 */
 }
 .dss-replay-overlay:active { background: rgba(0,0,0,.55); }
 .dss-replay-btn-inner {
@@ -8351,10 +8355,14 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
 
 /* Scene player mount (YT.Player가 iframe으로 채움) */
 #dssPlayerMount {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%; height: 300%;
   margin-top: -40%;
-  pointer-events: none;
+  pointer-events: none;   /* 유튜브 버튼 클릭 자체를 막음 */
+  z-index: 1;             /* 오버레이보다 아래 */
 }
+#dssPlayerMount iframe { pointer-events: none !important; }
 #dssPlayerMount iframe {
   width: 100% !important; height: 100% !important;
   border: none;
