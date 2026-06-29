@@ -7675,6 +7675,101 @@
             "koHighlight": "technology leak"
           }
         ]
+      },
+      {
+        "source": "supadata",
+        "id": "2XQGmjTKdp8",
+        "title": "떡볶이를 처음 먹어보는 외국인이 걱정된 할머니",
+        "lang": "ko",
+        "region": "kr",
+        "cat": "food",
+        "catIcon": "🍔",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 50,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "떡볶이에 오뎅 국물을 | 부어주시는 할머니,",
+            "phonetic": "tteokbokkie odeng gungmureul | bueojusineun halmeoni,",
+            "ko": "A grandmother | pouring fish cake broth into tteokbokki,",
+            "start": 0.2,
+            "end": 1.8,
+            "core": "할머니",
+            "highlight": "오뎅 국물을 부어주시는",
+            "koHighlight": "pouring fish cake broth"
+          },
+          {
+            "en": "무슨 일일까요? | 독일에서 여행 온 | 유튜버 캔이",
+            "phonetic": "museun iriilkkayo? | dogireseo yeohaeng on | yuchyubeo kaeni",
+            "ko": "What's going on? | YouTuber Ken, | who traveled here from Germany,",
+            "start": 1.8,
+            "end": 3.8,
+            "core": "여행",
+            "highlight": "독일에서 여행 온",
+            "koHighlight": "traveled here from Germany"
+          },
+          {
+            "en": "한국의 길거리 음식을 | 도전해 보기로 합니다.",
+            "phonetic": "hangugui gilgeori eumsigeul | dojeonhae bogiro hamnida.",
+            "ko": "decides to try | Korean street food.",
+            "start": 3.8,
+            "end": 10.3,
+            "core": "도전",
+            "highlight": "길거리 음식을 도전해 보다",
+            "koHighlight": "try street food"
+          },
+          {
+            "en": "처음 보는 음식에 | 망설이는 캔을 위해 | 할머니가 떡볶이 하나를",
+            "phonetic": "cheoeum boneun eumsige | mangseorineun kaeneul wihae | halmeoniga tteokbokki hanareul",
+            "ko": "For Ken, who hesitates | in front of unfamiliar food, | the grandmother picks up one piece of tteokbokki",
+            "start": 11,
+            "end": 14.9,
+            "core": "망설이다",
+            "highlight": "처음 보는 음식에 망설이는",
+            "koHighlight": "hesitating at unfamiliar food"
+          },
+          {
+            "en": "맛보라며 | 건네주셨습니다.",
+            "phonetic": "matboramyeo | geonnejusyeotseumnida.",
+            "ko": "telling him to taste it, | and handed it to him.",
+            "start": 14.9,
+            "end": 19.8,
+            "core": "건네주다",
+            "highlight": "맛보라며 건네주다",
+            "koHighlight": "handed it over to taste"
+          },
+          {
+            "en": "떡볶이 하나를 맛보고 | 눈이 커지는 캔,",
+            "phonetic": "tteokbokki hanareul matbogo | nuni keojineun kaen,",
+            "ko": "After tasting one piece of tteokbokki, | Ken's eyes go wide,",
+            "start": 22.7,
+            "end": 25.4,
+            "core": "눈이 커지다",
+            "highlight": "눈이 커지는",
+            "koHighlight": "eyes going wide"
+          },
+          {
+            "en": "한 접시를 도전해 봅니다. | 하지만 점점 | 매워합니다.",
+            "phonetic": "han jeopsireul dojeonhae bomnida. | hajiman jeomjeom | maewohamnida.",
+            "ko": "He tries a whole plate. | But gradually | he finds it spicier and spicier.",
+            "start": 25.4,
+            "end": 31.3,
+            "core": "맵다",
+            "highlight": "점점 매워하다",
+            "koHighlight": "getting spicier and spicier"
+          },
+          {
+            "en": "매워하는 캔을 위해 | 양념을 씻어서 먹어보라며 | 오뎅 국물까지 부어 주시는 할머니.",
+            "phonetic": "maewohaneun kaeneul wihae | yangnyeomeul ssiseoseo meogeoboramyeo | odeng gungmulkkaji bueo jusineun halmeoni.",
+            "ko": "For Ken who finds it too spicy, | the grandmother pours fish cake broth | telling him to wash off the sauce and try it.",
+            "start": 31.3,
+            "end": 40.3,
+            "core": "국물",
+            "highlight": "오뎅 국물까지 부어 주다",
+            "koHighlight": "even pouring fish cake broth"
+          }
+        ]
       }
     ]
   }
