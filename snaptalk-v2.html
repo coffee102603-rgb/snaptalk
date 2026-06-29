@@ -11667,10 +11667,6 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.3) 0%,transparent 30%,transparent 55%,rgba(0,0,0,0.85) 100%);"></div>
       <div style="position:absolute;top:28%;left:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid ${CC.light};box-shadow:0 0 26px rgba(${CC.glow},0.6);pointer-events:auto;cursor:pointer;z-index:6;" class="tiktok-play" data-vid="${v.id}">▶</div>
       <div style="position:absolute;right:12px;bottom:200px;z-index:50;display:flex;flex-direction:column;gap:16px;align-items:center;pointer-events:auto;">
-        <button class="tiktok-talk" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
-          <span style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,rgba(167,139,250,0.4),rgba(236,72,153,0.3));border:2px solid #a78bfa;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 0 16px rgba(167,139,250,0.5);">🌎</span>
-          <span style="font-size:11px;font-weight:800;color:#fff;">프리토킹</span>
-        </button>
         <button class="tiktok-like" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
           <span class="tlike-ic" style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">🤍</span>
           <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">찜</span>
@@ -11708,14 +11704,24 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
     btn.addEventListener('click', function(){
       var vid = btn.dataset.vid;
       var short = vids.find(function(s){ return s.id === vid; });
-      if(short && typeof startGame === 'function') startGame(short);
+      if(short){
+        if(typeof S !== 'undefined') S.short = short;
+        /* 🎬 새 더빙 스튜디오로! */
+        if(typeof triggerDubbingStudio === 'function') triggerDubbingStudio(short);
+        else if(typeof startGame === 'function') startGame(short);
+      }
     });
   });
   feed.querySelectorAll('.tiktok-start').forEach(btn => {
     btn.addEventListener('click', () => {
       const vid = btn.dataset.vid;
       const short = vids.find(s => s.id === vid);
-      if(short && typeof startGame === 'function') startGame(short);
+      if(short){
+        if(typeof S !== 'undefined') S.short = short;
+        /* 🎬 새 더빙 스튜디오로! (영화관 감상 → Scene 녹음실) */
+        if(typeof triggerDubbingStudio === 'function') triggerDubbingStudio(short);
+        else if(typeof startGame === 'function') startGame(short);
+      }
     });
   });
   /* 🌎 프리토킹: 영상 맥락 살려서 바로 AI 대화 */
@@ -11742,10 +11748,10 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
     ttNav.id = 'tiktokNav';
     ttNav.style.cssText = 'position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:45;display:flex;justify-content:space-around;align-items:center;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.08);padding:8px 0 max(8px,env(safe-area-inset-bottom));';
     ttNav.innerHTML = `
-      <button class="tt-nav" data-tt="home" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#fbbf24;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">🏠</span>홈</button>
-      <button class="tt-nav" data-tt="search" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">🧭</span>탐색</button>
-      <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">❤️</span>찜한 영상</button>
-      <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 14px;"><span style="font-size:21px;">📖</span>단어장</button>
+      <button class="tt-nav" data-tt="search" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🧭</span>탐색</button>
+      <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">❤️</span>찜한 영상</button>
+      <button class="tt-nav" data-tt="mydub" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🎬</span>내 더빙</button>
+      <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">📖</span>단어장</button>
 
     `;
     document.body.appendChild(ttNav);
@@ -11753,7 +11759,11 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
 
     ttNav.querySelector('[data-tt="saved"]').addEventListener('click', function(){ openSavedVideos(); });
     ttNav.querySelector('[data-tt="vocab"]').addEventListener('click', function(){ openVocabBook(); });
-    ttNav.querySelector('[data-tt="home"]').addEventListener('click', function(){ window.scrollTo(0,0); document.getElementById('feedScreen').scrollTo(0,0); });
+    ttNav.querySelector('[data-tt="mydub"]').addEventListener('click', function(){
+      /* 내 더빙 = 보관함(room 화면 + snapStudio 렌더) */
+      if(typeof showScreen === 'function') showScreen('room');
+      if(typeof renderRoom === 'function') renderRoom();
+    });
     ttNav.querySelector('[data-tt="search"]').addEventListener('click', function(){ openSearch(); });
   }
   ttNav.style.display = 'flex';
