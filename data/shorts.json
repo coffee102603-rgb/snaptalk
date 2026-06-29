@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-06-28",
+  "lastUpdated": "2026-06-29",
   "description": "SnapTalk 영상 콘텐츠 데이터베이스. 각 지역(us/kr)별 영상 목록. 다국어 지원을 위한 translations 필드 포함.",
   "schema": {
     "fields": {
@@ -5961,6 +5961,416 @@
             "phonetic": "땡큐 베리 머치.",
             "ko": "정말 감사합니다.",
             "koHighlight": "감사하다"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "_I1cH4oe4ok",
+        "title": "One-Day Sightseeing Tour in NYC, New York",
+        "lang": "en",
+        "region": "us",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 121,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "This is the perfect thing to visit New York City, | because you get to see so much | in a short period of time.",
+            "start": 10,
+            "end": 15.7,
+            "core": "visit",
+            "highlight": "visit New York City",
+            "phonetic": "디스 이즈 더 퍼펙트 띵 투 비짓 뉴욕 씨티, | 비코즈 유 겟 투 씨 쏘 머치 | 인 어 쇼트 피리어드 오브 타임.",
+            "ko": "이건 뉴욕 시티를 방문하기에 완벽한 방법이에요, | 왜냐하면 정말 많은 것을 볼 수 있거든요 | 짧은 시간 안에.",
+            "koHighlight": "뉴욕 시티를 방문하다"
+          },
+          {
+            "en": "We move very quickly.",
+            "start": 15.7,
+            "end": 17.5,
+            "core": "quickly",
+            "highlight": "move quickly",
+            "phonetic": "위 무브 베리 퀴클리.",
+            "ko": "저희는 아주 빠르게 이동해요.",
+            "koHighlight": "빠르게 이동하다"
+          },
+          {
+            "en": "Let's cross | and let's make our way up this way.",
+            "start": 17.5,
+            "end": 19.7,
+            "core": "make",
+            "highlight": "make our way",
+            "phonetic": "렛츠 크로스 | 앤 렛츠 메이크 아워 웨이 업 디스 웨이.",
+            "ko": "건너가요 | 그리고 이쪽으로 올라가 봐요.",
+            "koHighlight": "이동하다"
+          },
+          {
+            "en": "We're going to head right into the park.",
+            "start": 19.7,
+            "end": 20.9,
+            "core": "park",
+            "highlight": "head into the park",
+            "phonetic": "위아 고잉 투 헤드 라잇 인투 더 파크.",
+            "ko": "저희는 바로 공원 안으로 들어갈 거예요.",
+            "koHighlight": "공원으로 들어가다"
+          },
+          {
+            "en": "The tour guide was absolutely phenomenal.",
+            "start": 20.9,
+            "end": 24.3,
+            "core": "phenomenal",
+            "highlight": "absolutely phenomenal",
+            "phonetic": "더 투어 가이드 워즈 앱솔루틀리 피나미널.",
+            "ko": "투어 가이드는 정말 최고였어요.",
+            "koHighlight": "정말 최고의"
+          },
+          {
+            "en": "The mode of transportation on our tour | is a luxury coach.",
+            "start": 24.3,
+            "end": 27.3,
+            "core": "transportation",
+            "highlight": "mode of transportation",
+            "phonetic": "더 모드 오브 트랜스포테이션 온 아워 투어 | 이즈 어 럭셔리 코치.",
+            "ko": "저희 투어의 이동 수단은 | 고급 코치 버스예요.",
+            "koHighlight": "이동 수단"
+          },
+          {
+            "en": "This is your bus for the day, | make yourself at home.",
+            "start": 27.3,
+            "end": 30,
+            "core": "home",
+            "highlight": "make yourself at home",
+            "phonetic": "디스 이즈 유어 버스 포 더 데이, | 메이크 유어셀프 앳 홈.",
+            "ko": "오늘 하루 여러분의 버스예요, | 편하게 계세요.",
+            "koHighlight": "편하게 있다"
+          },
+          {
+            "en": "Watch your step there, folks.",
+            "start": 30,
+            "end": 31.6,
+            "core": "step",
+            "highlight": "watch your step",
+            "phonetic": "와치 유어 스텝 데어, 폭스.",
+            "ko": "발 조심하세요, 여러분.",
+            "koHighlight": "발 조심하다"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "Zz3h-Bm_6eY",
+        "title": "Enjoy a Gospel Tour in Harlem, New York City",
+        "lang": "en",
+        "region": "us",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 126,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "This morning we're doing a Harlem Gospel Tour | here in New York City.",
+            "start": 8.5,
+            "end": 12.9,
+            "core": "tour",
+            "highlight": "Gospel Tour",
+            "phonetic": "디스 모닝 위어 두잉 어 할렘 가스펄 투어 | 히어 인 뉴욕 시티.",
+            "ko": "오늘 아침 저희는 할렘 가스펄 투어를 하고 있어요 | 여기 뉴욕 시티에서.",
+            "koHighlight": "가스펄 투어"
+          },
+          {
+            "en": "Harlem is a wonderful place | that's in the process of a fantastic rebirth right now.",
+            "start": 16.4,
+            "end": 21,
+            "core": "rebirth",
+            "highlight": "fantastic rebirth",
+            "phonetic": "할렘 이즈 어 원더풀 플레이스 | 댓츠 인 더 프로세스 어브 어 팬태스틱 리버쓰 라잇 나우.",
+            "ko": "할렘은 정말 멋진 곳이에요 | 지금 엄청난 부흥의 과정 속에 있는.",
+            "koHighlight": "엄청난 부흥"
+          },
+          {
+            "en": "I never would have guessed | there'd be a street like this in Harlem.",
+            "start": 23.2,
+            "end": 25.9,
+            "core": "guessed",
+            "highlight": "never would have guessed",
+            "phonetic": "아이 네버 우드 해브 게스트 | 데어드 비 어 스트릿 라이크 디스 인 할렘.",
+            "ko": "전혀 상상도 못 했을 거예요 | 할렘에 이런 거리가 있을 줄은.",
+            "koHighlight": "전혀 상상도 못 했다"
+          },
+          {
+            "en": "So charming. | I want to move in.",
+            "start": 26.5,
+            "end": 28.7,
+            "core": "charming",
+            "highlight": "so charming",
+            "phonetic": "쏘 차밍. | 아이 원트 투 무브 인.",
+            "ko": "너무 매력적이에요. | 여기 이사 오고 싶다.",
+            "koHighlight": "너무 매력적인"
+          },
+          {
+            "en": "I'm really loving the pace of this tour.",
+            "start": 30.4,
+            "end": 31.6,
+            "core": "pace",
+            "highlight": "loving the pace",
+            "phonetic": "아임 리얼리 러빙 더 페이스 어브 디스 투어.",
+            "ko": "이 투어의 속도가 정말 마음에 들어요.",
+            "koHighlight": "속도가 마음에 들다"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "3joA6DMIvj8",
+        "title": "New York Walking Tours   Free Tours by Foot",
+        "lang": "en",
+        "region": "us",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "beginner",
+        "dubs": 0,
+        "duration": 95,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "Taking a tour | is a wonderful experience.",
+            "start": 0.1,
+            "end": 3,
+            "core": "experience",
+            "highlight": "wonderful experience",
+            "phonetic": "테이킹 어 투어 | 이즈 어 원더풀 익스피리언스.",
+            "ko": "투어를 하는 것은 | 정말 멋진 경험이에요.",
+            "koHighlight": "멋진 경험"
+          },
+          {
+            "en": "History is never boring, | it's simply the way | it's presented to you.",
+            "start": 3,
+            "end": 7.4,
+            "core": "presented",
+            "highlight": "presented to you",
+            "phonetic": "히스토리 이즈 네버 보링, | 잇츠 심플리 더 웨이 | 잇츠 프리젠티드 투 유.",
+            "ko": "역사는 절대 지루하지 않아요, | 단지 전달 방식의 문제예요 | 어떻게 여러분께 전달되느냐의.",
+            "koHighlight": "전달되는 방식"
+          },
+          {
+            "en": "We do a good job of presenting it, | and you get to experience life | here in New York City.",
+            "start": 7.4,
+            "end": 11.2,
+            "core": "experience",
+            "highlight": "experience life",
+            "phonetic": "위 두 어 굿 잡 오브 프리젠팅 잇, | 앤드 유 겟 투 익스피리언스 라이프 | 히어 인 뉴욕 시티.",
+            "ko": "저희는 그것을 잘 전달하고 있어요, | 그리고 여러분은 삶을 직접 경험하게 돼요 | 바로 여기 뉴욕시에서.",
+            "koHighlight": "삶을 경험하다"
+          },
+          {
+            "en": "We are going to head up | to Wall Street.",
+            "start": 11.2,
+            "end": 15.3,
+            "core": "head up",
+            "highlight": "head up to",
+            "phonetic": "위 아 고잉 투 헤드 업 | 투 월 스트리트.",
+            "ko": "저희는 올라갈 거예요 | 월 스트리트로.",
+            "koHighlight": "~로 향해 올라가다"
+          },
+          {
+            "en": "Abyssinia Baptist Church | has over 10,000 members.",
+            "start": 15.3,
+            "end": 19.4,
+            "core": "members",
+            "highlight": "over 10,000 members",
+            "phonetic": "어비시니아 뱁티스트 처치 | 해즈 오버 텐 따우전드 멤버즈.",
+            "ko": "어비시니아 침례교회는 | 만 명이 넘는 회원이 있어요.",
+            "koHighlight": "만 명이 넘는 회원"
+          },
+          {
+            "en": "Free Tours by Foot | offers free walking tours in New York City, | with the idea | that it is a pay-what-you-wish.",
+            "start": 19.4,
+            "end": 27.5,
+            "core": "pay-what-you-wish",
+            "highlight": "pay-what-you-wish",
+            "phonetic": "프리 투어스 바이 풋 | 오퍼즈 프리 워킹 투어스 인 뉴욕 시티, | 위드 디 아이디어 | 댓 잇 이즈 어 페이-왓-유-위쉬.",
+            "ko": "프리 투어스 바이 풋은 | 뉴욕시에서 무료 도보 투어를 제공해요, | 그 개념을 바탕으로 | 원하는 만큼 지불하는 방식이에요.",
+            "koHighlight": "원하는 만큼 지불하기"
+          },
+          {
+            "en": "We like to give you the power | for you to decide | what you think the tour was worth, | and we still give you the same service.",
+            "start": 27.5,
+            "end": 35.3,
+            "core": "decide",
+            "highlight": "decide what it's worth",
+            "phonetic": "위 라이크 투 기브 유 더 파워 | 포 유 투 디사이드 | 왓 유 띵크 더 투어 워즈 워쓰, | 앤드 위 스틸 기브 유 더 세임 서비스.",
+            "ko": "저희는 여러분께 권한을 드리고 싶어요 | 여러분이 직접 결정할 수 있도록 | 투어가 얼마나 가치 있었는지를요, | 그래도 저희는 똑같은 서비스를 제공해요.",
+            "koHighlight": "가치를 직접 결정하다"
+          },
+          {
+            "en": "We think you will like it | as a customer.",
+            "start": 35.3,
+            "end": 39,
+            "core": "like",
+            "highlight": "will like it",
+            "phonetic": "위 띵크 유 윌 라이크 잇 | 애즈 어 커스터머.",
+            "ko": "저희는 여러분이 마음에 드실 거라 생각해요 | 고객으로서.",
+            "koHighlight": "마음에 들다"
+          },
+          {
+            "en": "I work for Starbucks | and I don't make a lot of money, | so paying $25 for a tour | or $30 for a tour | is out of my price range.",
+            "start": 39,
+            "end": 45,
+            "core": "price range",
+            "highlight": "out of my price range",
+            "phonetic": "아이 워크 포 스타벅스 | 앤드 아이 돈트 메이크 어 랏 오브 머니, | 쏘 페잉 투웬티 파이브 달러스 포 어 투어 | 오어 써티 달러스 포 어 투어 | 이즈 아웃 오브 마이 프라이스 레인지.",
+            "ko": "저는 스타벅스에서 일하는데 | 돈을 많이 버는 편이 아니에요, | 그래서 투어에 25달러를 내거나 | 30달러를 내는 건 | 제 가격 범위를 벗어나요.",
+            "koHighlight": "가격 범위를 벗어나다"
+          },
+          {
+            "en": "The tour guides have just been excellent, | and I really like the idea | of paying what I think the tour was worth.",
+            "start": 45,
+            "end": 52.5,
+            "core": "excellent",
+            "highlight": "just been excellent",
+            "phonetic": "더 투어 가이즈 해브 저스트 빈 엑설런트, | 앤드 아이 리얼리 라이크 디 아이디어 | 오브 페잉 왓 아이 띵크 더 투어 워즈 워쓰.",
+            "ko": "투어 가이드들이 정말 훌륭했어요, | 그리고 저는 그 개념이 정말 마음에 들어요 | 제가 생각하는 투어의 가치만큼 지불하는 것이요.",
+            "koHighlight": "정말 훌륭하다"
+          }
+        ]
+      },
+      {
+        "source": "supadata",
+        "id": "ImlrjNEE6ZI",
+        "title": "One World Trade Center: Freedom Tower Tour!",
+        "lang": "en",
+        "region": "us",
+        "cat": "places",
+        "catIcon": "✈️",
+        "diff": "intermediate",
+        "dubs": 0,
+        "duration": 162,
+        "status": "live",
+        "sentences": [
+          {
+            "en": "Today we're going | to the One World Observatory | on top of One World Trade Center.",
+            "start": 2.2,
+            "end": 6.2,
+            "core": "Observatory",
+            "highlight": "One World Observatory",
+            "phonetic": "투데이 위어 고잉 | 투 더 원 월드 옵저버토리 | 온 탑 오브 원 월드 트레이드 센터.",
+            "ko": "오늘 우리는 가요 | 원 월드 전망대로 | 원 월드 트레이드 센터 꼭대기에 있는.",
+            "koHighlight": "원 월드 전망대"
+          },
+          {
+            "en": "Let's see | if Mel has a vertigo episode.",
+            "start": 6.2,
+            "end": 8.5,
+            "core": "vertigo",
+            "highlight": "vertigo episode",
+            "phonetic": "렛츠 씨 | 이프 멜 해즈 어 버티고 에피소드.",
+            "ko": "한번 봐요 | 멜이 어지럼증을 느끼는지.",
+            "koHighlight": "어지럼증 발작"
+          },
+          {
+            "en": "You guys going up?",
+            "start": 8.5,
+            "end": 9.5,
+            "core": "going up",
+            "highlight": "going up",
+            "phonetic": "유 가이즈 고잉 업?",
+            "ko": "올라가실 건가요?",
+            "koHighlight": "올라가다"
+          },
+          {
+            "en": "Yeah.",
+            "start": 9.5,
+            "end": 9.9,
+            "core": "yeah",
+            "highlight": "yeah",
+            "phonetic": "예.",
+            "ko": "네.",
+            "koHighlight": "네"
+          },
+          {
+            "en": "No, | we were about to buy 'em.",
+            "start": 9.9,
+            "end": 12.5,
+            "core": "buy",
+            "highlight": "about to buy",
+            "phonetic": "노, | 위 워 어바웃 투 바이 엠.",
+            "ko": "아니요, | 막 사려던 참이었어요.",
+            "koHighlight": "막 사려던 참"
+          },
+          {
+            "en": "So what happened?",
+            "start": 13.3,
+            "end": 14.2,
+            "core": "happened",
+            "highlight": "what happened",
+            "phonetic": "쏘 왓 해픈드?",
+            "ko": "그래서 어떻게 된 거예요?",
+            "koHighlight": "어떻게 된 거예요"
+          },
+          {
+            "en": "He gave us tickets.",
+            "start": 14.7,
+            "end": 15.3,
+            "core": "gave",
+            "highlight": "gave us tickets",
+            "phonetic": "히 게이브 어스 티킷츠.",
+            "ko": "그 분이 우리한테 티켓을 줬어요.",
+            "koHighlight": "티켓을 줬어요"
+          },
+          {
+            "en": "Is it because you're pretty?",
+            "start": 15.3,
+            "end": 16.2,
+            "core": "pretty",
+            "highlight": "you're pretty",
+            "phonetic": "이즈 잇 비커즈 유어 프리티?",
+            "ko": "당신이 예뻐서 그런 건가요?",
+            "koHighlight": "예뻐서"
+          },
+          {
+            "en": "That guy right there | gave us free tickets.",
+            "start": 16.2,
+            "end": 18.2,
+            "core": "free",
+            "highlight": "free tickets",
+            "phonetic": "댓 가이 라이트 데어 | 게이브 어스 프리 티킷츠.",
+            "ko": "저기 저 남자분이 | 우리한테 무료 티켓을 줬어요.",
+            "koHighlight": "무료 티켓"
+          },
+          {
+            "en": "You literally walked up | and some guy handed you free tickets.",
+            "start": 18.2,
+            "end": 21,
+            "core": "handed",
+            "highlight": "handed you free tickets",
+            "phonetic": "유 리터럴리 워크트 업 | 앤 썸 가이 핸디드 유 프리 티킷츠.",
+            "ko": "당신이 그냥 걸어갔더니 | 어떤 남자가 무료 티켓을 줬다고요.",
+            "koHighlight": "무료 티켓을 건네줬다"
+          },
+          {
+            "en": "How much are those tickets worth?",
+            "start": 21,
+            "end": 22,
+            "core": "worth",
+            "highlight": "tickets worth",
+            "phonetic": "하우 머치 아 도즈 티킷츠 워쓰?",
+            "ko": "그 티켓이 얼마짜리예요?",
+            "koHighlight": "얼마짜리"
+          },
+          {
+            "en": "$54 a piece?",
+            "start": 22,
+            "end": 24.4,
+            "core": "piece",
+            "highlight": "a piece",
+            "phonetic": "피프티 포 어 피스?",
+            "ko": "한 장에 54달러요?",
+            "koHighlight": "한 장에"
           }
         ]
       }
