@@ -7996,6 +7996,358 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   margin-top: 4px;
 }
 
+
+/* ═══════════════════════════════════════════════════
+ * 🎬 DUBBING STUDIO v2.0  (v10.15)
+ * ═══════════════════════════════════════════════════ */
+
+/* ── 공통: 풀스크린 오버레이 ── */
+.ds-overlay {
+  position: fixed; inset: 0; z-index: 9500;
+  display: none; flex-direction: column;
+  background: #000;
+  font-family: 'Nunito', sans-serif;
+}
+.ds-overlay.ds-active { display: flex; }
+
+/* ══ ① CINEMA WATCH — 풀스크린 영화관 감상 ══ */
+#dsCinema {
+  align-items: center;
+  justify-content: flex-end;
+}
+#dsCinemaFrame {
+  position: absolute; inset: 0;
+}
+#dsCinemaFrame iframe {
+  width: 100%; height: 100%;
+  border: none;
+  object-fit: cover;
+}
+/* 하단 그라데이션 오버레이 */
+.dsc-gradient {
+  position: relative; z-index: 1;
+  width: 100%;
+  padding: 60px 24px 52px;
+  background: linear-gradient(transparent, rgba(0,0,0,.92) 55%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+}
+.dsc-label {
+  font-size: 11px; font-weight: 800;
+  color: rgba(255,255,255,.45);
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.dsc-title {
+  font-size: 18px; font-weight: 800; color: #fff;
+  text-align: center; line-height: 1.3;
+  max-width: 300px;
+}
+.dsc-btn-row { display: flex; gap: 10px; margin-top: 6px; }
+.dsc-start-btn {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: #000; font-size: 16px; font-weight: 900;
+  border: none; border-radius: 50px;
+  padding: 15px 36px; cursor: pointer;
+  box-shadow: 0 0 24px rgba(255,107,53,.5);
+  letter-spacing: .3px;
+  transition: transform .1s;
+}
+.dsc-start-btn:active { transform: scale(.96); }
+.dsc-skip-btn {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.6);
+  font-size: 14px; font-weight: 600;
+  border-radius: 50px; padding: 15px 20px;
+  cursor: pointer;
+}
+
+/* ══ ② STUDIO — Scene별 녹음실 ══ */
+#dsStudio {
+  background: #0a0a0f;
+}
+
+/* 스튜디오 헤더 */
+.dss-header {
+  flex-shrink: 0;
+  display: flex; align-items: center;
+  padding: 14px 16px 10px;
+  gap: 10px;
+}
+.dss-back {
+  background: rgba(255,255,255,.08);
+  border: none; border-radius: 50%;
+  color: #fff; font-size: 18px;
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0;
+}
+.dss-scene-info { flex: 1; }
+.dss-scene-label {
+  font-size: 10px; font-weight: 800;
+  color: #ff6b35; letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.dss-scene-num {
+  font-size: 20px; font-weight: 900; color: #fff;
+  line-height: 1.1;
+}
+
+/* 진행 바 */
+.dss-progress {
+  flex-shrink: 0;
+  height: 3px;
+  background: rgba(255,255,255,.07);
+  margin: 0 16px;
+  border-radius: 2px; overflow: hidden;
+}
+.dss-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35, #f7931e);
+  border-radius: 2px;
+  transition: width .4s ease;
+}
+
+/* Scene 영상 미리보기 */
+.dss-video-wrap {
+  flex-shrink: 0;
+  margin: 10px 16px 0;
+  border-radius: 14px; overflow: hidden;
+  background: #111;
+  position: relative;
+  /* 가로형 비율 (9:16 → 16:9느낌으로 크롭) */
+  height: 155px;
+}
+.dss-video-wrap iframe {
+  width: 100%; height: 300%;
+  border: none;
+  margin-top: -40%;   /* 세로 영상을 위/아래 잘라서 중간만 */
+  pointer-events: none;
+}
+/* 다시듣기 오버레이 버튼 */
+.dss-replay-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.35);
+  cursor: pointer;
+  transition: background .15s;
+}
+.dss-replay-overlay:active { background: rgba(0,0,0,.55); }
+.dss-replay-btn-inner {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+
+/* 대사 카드 */
+.dss-line-card {
+  flex: 1; margin: 10px 16px 0;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex; flex-direction: column;
+  justify-content: center; gap: 8px;
+  position: relative; overflow: hidden;
+}
+.dss-line-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e);
+}
+.dss-line-tag {
+  font-size: 9px; font-weight: 800;
+  color: #ff6b35; letter-spacing: 2px;
+}
+.dss-line-en {
+  font-size: 19px; font-weight: 800;
+  color: #fff; line-height: 1.4;
+}
+/* highlight 단어 강조 */
+.dss-line-en .hl {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+.dss-line-phonetic {
+  font-size: 12px; color: rgba(255,255,255,.38);
+  font-style: italic; line-height: 1.4;
+}
+.dss-line-ko {
+  font-size: 14px; color: rgba(255,255,255,.55);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 8px; line-height: 1.5;
+}
+
+/* TTS 버튼 */
+.dss-tts-row {
+  flex-shrink: 0;
+  display: flex; justify-content: center; gap: 8px;
+  margin: 8px 16px 0;
+}
+.dss-tts-btn {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px; color: rgba(255,255,255,.65);
+  font-size: 13px; font-weight: 700;
+  padding: 8px 18px; cursor: pointer;
+  display: flex; align-items: center; gap: 5px;
+  transition: background .12s;
+}
+.dss-tts-btn:active { background: rgba(255,255,255,.14); }
+
+/* 녹음 컨트롤 하단 */
+.dss-rec-area {
+  flex-shrink: 0;
+  padding: 10px 16px 36px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+}
+
+/* 볼륨 시각화 */
+.dss-vol {
+  display: flex; gap: 3px; align-items: flex-end;
+  height: 28px; opacity: 0;
+  transition: opacity .2s;
+}
+.dss-vol.on { opacity: 1; }
+.dss-vol-bar {
+  width: 5px; border-radius: 3px;
+  background: linear-gradient(to top, #ff6b35, #f7931e);
+  height: 4px; transition: height .07s ease;
+}
+
+/* 녹음 버튼 */
+.dss-rec-btn {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: rgba(255,107,53,.12);
+  border: 2.5px solid rgba(255,107,53,.35);
+  cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1px;
+  transition: all .15s;
+}
+.dss-rec-btn.rec-on {
+  background: rgba(255,107,53,.22);
+  border-color: #ff6b35;
+  animation: dss-pulse 1.1s ease infinite;
+}
+@keyframes dss-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,107,53,.4); }
+  50%      { box-shadow: 0 0 0 14px rgba(255,107,53,0); }
+}
+.dss-rec-icon { font-size: 26px; line-height: 1; }
+.dss-rec-label {
+  font-size: 9px; font-weight: 800;
+  color: rgba(255,255,255,.6);
+  letter-spacing: .8px; text-transform: uppercase;
+}
+
+/* 보조 버튼 행 */
+.dss-action-row {
+  display: flex; gap: 8px; width: 100%;
+}
+.dss-btn {
+  flex: 1; border: none; border-radius: 14px;
+  font-size: 14px; font-weight: 800;
+  padding: 13px 10px; cursor: pointer;
+  display: none;               /* JS로 show */
+  align-items: center; justify-content: center; gap: 5px;
+  transition: opacity .1s;
+}
+.dss-btn:active { opacity: .75; }
+.dss-btn.ds-show { display: flex; }
+
+.dss-btn-listen {   /* 🔊 다시 듣기 */
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.7);
+}
+.dss-btn-rerec {    /* 🔄 다시 녹음 */
+  background: rgba(255,107,53,.12);
+  border: 1px solid rgba(255,107,53,.25);
+  color: #ff6b35;
+}
+.dss-btn-playback { /* ▶ 내 녹음 듣기 */
+  background: rgba(100,200,255,.08);
+  border: 1px solid rgba(100,200,255,.2);
+  color: #7ecfff;
+}
+.dss-btn-next {     /* ✅ 다음 Scene */
+  background: linear-gradient(135deg, #00e5a0, #00c48c);
+  color: #000;
+}
+
+/* ══ ③ PREMIERE — 풀스크린 시사회 ══ */
+#dsPremiere {
+  background: #000;
+  align-items: center;
+  justify-content: flex-end;
+}
+#dsPremiereFrame {
+  position: absolute; inset: 0;
+}
+#dsPremiereFrame iframe {
+  width: 100%; height: 100%; border: none;
+}
+.dsp-overlay {
+  position: relative; z-index: 1;
+  width: 100%;
+  padding: 40px 20px 44px;
+  background: linear-gradient(transparent, rgba(0,0,0,.9) 50%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+}
+
+/* 노래방 점수 */
+.dsp-score-wrap {
+  display: flex; align-items: center; gap: 12px;
+}
+.dsp-score-ring {
+  width: 90px; height: 90px; position: relative;
+}
+.dsp-score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.dsp-score-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.dsp-score-num {
+  font-size: 28px; font-weight: 900;
+  background: linear-gradient(135deg,#ff6b35,#f7931e);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.dsp-score-unit { font-size: 10px; color: rgba(255,255,255,.4); }
+
+/* 노래방 항목 바 */
+.dsp-bars { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+.dsp-bar-row { display: flex; align-items: center; gap: 8px; }
+.dsp-bar-lbl { font-size: 11px; color: rgba(255,255,255,.45); width: 56px; text-align: right; flex-shrink: 0; }
+.dsp-bar-track { flex: 1; height: 7px; background: rgba(255,255,255,.08); border-radius: 4px; overflow: hidden; }
+.dsp-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg,#ff6b35,#f7931e); width: 0%; transition: width 1.1s cubic-bezier(.34,1.56,.64,1); }
+.dsp-bar-val { font-size: 11px; font-weight: 800; color: #f7931e; width: 28px; }
+
+/* 액션 버튼 */
+.dsp-actions { display: flex; gap: 10px; width: 100%; margin-top: 4px; }
+.dsp-retry-btn {
+  flex: 1; background: rgba(255,107,53,.15);
+  border: 1.5px solid rgba(255,107,53,.35);
+  color: #ff6b35; font-size: 15px; font-weight: 800;
+  border-radius: 14px; padding: 15px; cursor: pointer;
+}
+.dsp-exit-btn {
+  flex: 1; background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(255,255,255,.13);
+  color: rgba(255,255,255,.7); font-size: 15px; font-weight: 700;
+  border-radius: 14px; padding: 15px; cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -18877,6 +19229,554 @@ window.openFullWatch = openFullWatch;
 window.openDubbingRoom = openDubbingRoom;
 
 /* ══════════════════════════════════════════════════════════════ */
+
+</script>
+
+<!-- ══════════════════════════════════════════════════════════
+     🎬 DUBBING STUDIO v2.0
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- ① 영화관 감상 -->
+<div id="dsCinema" class="ds-overlay">
+  <div id="dsCinemaFrame">
+    <iframe id="dsCinemaIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
+  </div>
+  <div class="dsc-gradient">
+    <div class="dsc-label">🎬 SnapTalk Cinema</div>
+    <div class="dsc-title" id="dsCinemaTitle">영상 제목</div>
+    <div class="dsc-btn-row">
+      <button class="dsc-start-btn" id="dsCinemaStartBtn">🎙️ 더빙 시작!</button>
+      <button class="dsc-skip-btn" id="dsCinemaSkipBtn">건너뛰기</button>
+    </div>
+  </div>
+</div>
+
+<!-- ② Scene별 녹음실 -->
+<div id="dsStudio" class="ds-overlay">
+  <!-- 헤더 -->
+  <div class="dss-header">
+    <button class="dss-back" id="dssBackBtn">←</button>
+    <div class="dss-scene-info">
+      <div class="dss-scene-label">🎙️ DUBBING STUDIO</div>
+      <div class="dss-scene-num" id="dssSceneNum">Scene 1 / 12</div>
+    </div>
+  </div>
+
+  <!-- 진행 바 -->
+  <div class="dss-progress">
+    <div class="dss-progress-fill" id="dssProgressFill" style="width:0%"></div>
+  </div>
+
+  <!-- Scene 영상 (탭하면 재생) -->
+  <div class="dss-video-wrap" id="dssVideoWrap">
+    <iframe id="dssIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
+    <div class="dss-replay-overlay" id="dssReplayOverlay">
+      <div class="dss-replay-btn-inner" id="dssReplayIcon">▶</div>
+    </div>
+  </div>
+
+  <!-- 대사 카드 -->
+  <div class="dss-line-card">
+    <div class="dss-line-tag">이번 대사</div>
+    <div class="dss-line-en" id="dssLineEn">Loading...</div>
+    <div class="dss-line-phonetic" id="dssLinePhonetic"></div>
+    <div class="dss-line-ko" id="dssLineKo"></div>
+  </div>
+
+  <!-- TTS 다시 듣기 -->
+  <div class="dss-tts-row">
+    <button class="dss-tts-btn" id="dssTtsBtn">🔊 천천히 듣기</button>
+    <button class="dss-tts-btn" id="dssTtsFastBtn">⚡ 빠르게 듣기</button>
+  </div>
+
+  <!-- 녹음 영역 -->
+  <div class="dss-rec-area">
+    <!-- 볼륨 바 -->
+    <div class="dss-vol" id="dssVol">
+      <div class="dss-vol-bar" id="dvb0"></div>
+      <div class="dss-vol-bar" id="dvb1"></div>
+      <div class="dss-vol-bar" id="dvb2"></div>
+      <div class="dss-vol-bar" id="dvb3"></div>
+      <div class="dss-vol-bar" id="dvb4"></div>
+      <div class="dss-vol-bar" id="dvb5"></div>
+    </div>
+
+    <!-- 메인 녹음 버튼 -->
+    <button class="dss-rec-btn" id="dssRecBtn">
+      <span class="dss-rec-icon" id="dssRecIcon">🎤</span>
+      <span class="dss-rec-label" id="dssRecLabel">탭해서 녹음</span>
+    </button>
+
+    <!-- 보조 버튼 행 -->
+    <div class="dss-action-row">
+      <button class="dss-btn dss-btn-rerec" id="dssBtnRerec">🔄 다시 녹음</button>
+      <button class="dss-btn dss-btn-playback" id="dssBtnPlayback">▶ 내 녹음 듣기</button>
+      <button class="dss-btn dss-btn-next" id="dssBtnNext">✅ 다음 Scene</button>
+    </div>
+  </div>
+</div>
+
+<!-- ③ 풀스크린 시사회 + 점수 -->
+<div id="dsPremiere" class="ds-overlay">
+  <div id="dsPremiereFrame">
+    <iframe id="dsPremiereIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
+  </div>
+  <div class="dsp-overlay">
+    <div class="dsp-score-wrap">
+      <div class="dsp-score-ring">
+        <svg viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="9"/>
+          <circle id="dspRing" cx="50" cy="50" r="42" fill="none"
+            stroke="url(#dspGrad)" stroke-width="9"
+            stroke-linecap="round"
+            stroke-dasharray="263.9" stroke-dashoffset="263.9"
+            style="transition: stroke-dashoffset 1.2s cubic-bezier(.34,1.56,.64,1)"/>
+          <defs>
+            <linearGradient id="dspGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ff6b35"/>
+              <stop offset="100%" stop-color="#f7931e"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="dsp-score-center">
+          <div class="dsp-score-num" id="dspScoreNum">0</div>
+          <div class="dsp-score-unit">점</div>
+        </div>
+      </div>
+      <div class="dsp-bars">
+        <div class="dsp-bar-row">
+          <div class="dsp-bar-lbl">녹음률</div>
+          <div class="dsp-bar-track"><div class="dsp-bar-fill" id="dspBar0"></div></div>
+          <div class="dsp-bar-val" id="dspVal0">0</div>
+        </div>
+        <div class="dsp-bar-row">
+          <div class="dsp-bar-lbl">발음</div>
+          <div class="dsp-bar-track"><div class="dsp-bar-fill" id="dspBar1"></div></div>
+          <div class="dsp-bar-val" id="dspVal1">0</div>
+        </div>
+        <div class="dsp-bar-row">
+          <div class="dsp-bar-lbl">타이밍</div>
+          <div class="dsp-bar-track"><div class="dsp-bar-fill" id="dspBar2"></div></div>
+          <div class="dsp-bar-val" id="dspVal2">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="dsp-actions">
+      <button class="dsp-retry-btn" id="dspRetryBtn">🔄 다시 더빙</button>
+      <button class="dsp-exit-btn" id="dspExitBtn">🎦 피드로</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+/* ══════════════════════════════════════════════════════════════
+ * 🎬 DUBBING STUDIO v2.0 — 엔진
+ * ══════════════════════════════════════════════════════════════ */
+
+const DS = {
+  short: null,
+  sentences: [],
+  idx: 0,
+  recordings: {},    /* idx → Blob */
+  audioURLs: {},     /* idx → objectURL */
+  scores: {},        /* idx → 0~100 */
+  stream: null,
+  recorder: null,
+  chunks: [],
+  isRec: false,
+  recStart: 0,
+  volRaf: null,
+  autoStopTimer: null,
+  videoPlaying: false,
+};
+
+/* ─────────────────────────────────────────
+   공개 진입점 — 피드/플레이어에서 호출
+   triggerDubbingStudio(shortData)
+   ───────────────────────────────────────── */
+function triggerDubbingStudio(shortData) {
+  if (!shortData) shortData = (typeof S !== 'undefined' && S && S.short) ? S.short : null;
+  if (!shortData) { console.warn('[DS] shortData 없음'); return; }
+  DS.short = shortData;
+  DS.sentences = (shortData.sentences || []).slice();
+  _dsOpenCinema();
+}
+window.triggerDubbingStudio = triggerDubbingStudio;
+
+/* ── ① CINEMA ── */
+function _dsOpenCinema() {
+  _dsReset();
+  const el = document.getElementById('dsCinema');
+  const iframe = document.getElementById('dsCinemaIframe');
+  const title  = document.getElementById('dsCinemaTitle');
+  iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
+    + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=0';
+  title.textContent = DS.short.title || '';
+  el.classList.add('ds-active');
+}
+function _dsCloseCinema() {
+  document.getElementById('dsCinemaIframe').src = '';
+  document.getElementById('dsCinema').classList.remove('ds-active');
+}
+
+document.getElementById('dsCinemaStartBtn').addEventListener('click', function() {
+  _dsCloseCinema();
+  _dsOpenStudio();
+});
+document.getElementById('dsCinemaSkipBtn').addEventListener('click', function() {
+  _dsCloseCinema();
+  _dsOpenStudio();
+});
+
+/* ── ② STUDIO ── */
+function _dsOpenStudio() {
+  DS.idx = 0;
+  document.getElementById('dsStudio').classList.add('ds-active');
+  _dsRenderScene();
+}
+function _dsCloseStudio() {
+  _dsStopRec();
+  _dsStopVolViz();
+  document.getElementById('dssIframe').src = '';
+  document.getElementById('dsStudio').classList.remove('ds-active');
+}
+
+/* Scene 렌더 */
+function _dsRenderScene() {
+  const total = DS.sentences.length;
+  const idx   = DS.idx;
+
+  if (idx >= total) {
+    _dsCloseStudio();
+    _dsOpenPremiere();
+    return;
+  }
+
+  const s = DS.sentences[idx];
+
+  /* 헤더 */
+  document.getElementById('dssSceneNum').textContent = 'Scene ' + (idx+1) + ' / ' + total;
+
+  /* 진행 바 */
+  document.getElementById('dssProgressFill').style.width = ((idx / total) * 100) + '%';
+
+  /* 대사 */
+  document.getElementById('dssLineEn').innerHTML = _dsHighlight(s.en || '', s.highlight || '');
+  document.getElementById('dssLinePhonetic').textContent = s.phonetic || '';
+  document.getElementById('dssLineKo').textContent = s.ko || '';
+
+  /* 영상: 해당 scene start 시간부터 재생 */
+  _dsLoadSceneVideo(s);
+
+  /* 버튼 초기화 */
+  _dsSetButtons('ready');
+}
+
+/* highlight 단어 강조 (정규식 없이 안전하게) */
+function _dsHighlight(en, hl) {
+  if (!hl || !en) return en || '';
+  var lowerEn = en.toLowerCase();
+  var lowerHl = hl.toLowerCase();
+  var pos = lowerEn.indexOf(lowerHl);
+  if (pos < 0) return en;
+  var before = en.substring(0, pos);
+  var match  = en.substring(pos, pos + hl.length);
+  var after  = en.substring(pos + hl.length);
+  return before + '<span class="hl">' + match + '</span>' + after;
+}
+
+/* Scene 영상 로드 (start 시간 지정) */
+function _dsLoadSceneVideo(s) {
+  const start = Math.max(0, Math.floor((s.start || 0)));
+  const iframe = document.getElementById('dssIframe');
+  /* autoplay=0: 탭하면 재생 */
+  iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
+    + '?start=' + start
+    + '&autoplay=0&rel=0&modestbranding=1&playsinline=1&controls=0';
+  DS.videoPlaying = false;
+  document.getElementById('dssReplayIcon').textContent = '▶';
+}
+
+/* 영상 탭 → 재생/일시정지 토글 */
+document.getElementById('dssReplayOverlay').addEventListener('click', function() {
+  const iframe = document.getElementById('dssIframe');
+  const icon   = document.getElementById('dssReplayIcon');
+  if (!DS.videoPlaying) {
+    /* 재생: src에 autoplay=1로 교체 */
+    iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+    DS.videoPlaying = true;
+    icon.textContent = '⏸';
+  } else {
+    /* 일시정지: src 재로드로 처음부터 */
+    const s = DS.sentences[DS.idx];
+    _dsLoadSceneVideo(s);
+    icon.textContent = '▶';
+  }
+});
+
+/* 버튼 상태 관리 */
+function _dsSetButtons(state) {
+  const recBtn   = document.getElementById('dssRecBtn');
+  const recIcon  = document.getElementById('dssRecIcon');
+  const recLabel = document.getElementById('dssRecLabel');
+  const btnRerec    = document.getElementById('dssBtnRerec');
+  const btnPlayback = document.getElementById('dssBtnPlayback');
+  const btnNext     = document.getElementById('dssBtnNext');
+
+  /* 전부 숨기고 */
+  btnRerec.classList.remove('ds-show');
+  btnPlayback.classList.remove('ds-show');
+  btnNext.classList.remove('ds-show');
+  recBtn.classList.remove('rec-on');
+
+  if (state === 'ready') {
+    recIcon.textContent  = '🎤';
+    recLabel.textContent = '탭해서 녹음';
+  } else if (state === 'recording') {
+    recIcon.textContent  = '⏹';
+    recLabel.textContent = '녹음 중... (탭=정지)';
+    recBtn.classList.add('rec-on');
+  } else if (state === 'done') {
+    recIcon.textContent  = '🎤';
+    recLabel.textContent = '다시 녹음';
+    btnRerec.classList.add('ds-show');
+    btnPlayback.classList.add('ds-show');
+    btnNext.classList.add('ds-show');
+  }
+}
+
+/* ── TTS ── */
+document.getElementById('dssTtsBtn').addEventListener('click', function() {
+  _dsTts(0.78);
+});
+document.getElementById('dssTtsFastBtn').addEventListener('click', function() {
+  _dsTts(1.05);
+});
+function _dsTts(rate) {
+  const s = DS.sentences[DS.idx];
+  if (!s) return;
+  const utt = new SpeechSynthesisUtterance(s.en || '');
+  utt.lang = 'en-US'; utt.rate = rate;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utt);
+}
+
+/* ── 녹음 버튼 ── */
+document.getElementById('dssRecBtn').addEventListener('click', function() {
+  if (DS.isRec) { _dsStopRec(); }
+  else          { _dsStartRec(); }
+});
+
+async function _dsStartRec() {
+  try {
+    if (!DS.stream) {
+      DS.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    }
+    const rec = new MediaRecorder(DS.stream);
+    DS.recorder = rec;
+    DS.chunks   = [];
+    DS.recStart = Date.now();
+
+    rec.ondataavailable = function(e) {
+      if (e.data && e.data.size > 0) DS.chunks.push(e.data);
+    };
+    rec.onstop = function() {
+      const blob = new Blob(DS.chunks, { type: 'audio/webm' });
+      DS.recordings[DS.idx] = blob;
+      DS.audioURLs[DS.idx]  = URL.createObjectURL(blob);
+      /* 점수 계산 */
+      const dur = (Date.now() - DS.recStart) / 1000;
+      const s   = DS.sentences[DS.idx];
+      const words = (s && s.en) ? s.en.split(' ').length : 3;
+      const ideal = Math.max(0.5, words * 0.38);
+      const ratio = Math.min(dur / ideal, 1.6);
+      const base  = 48 + Math.round(ratio * 34);
+      const noise = Math.round((Math.random() - 0.25) * 18);
+      DS.scores[DS.idx] = Math.min(100, Math.max(15, base + noise));
+      _dsStopVolViz();
+      _dsSetButtons('done');
+    };
+
+    rec.start(100);
+    DS.isRec = true;
+    _dsSetButtons('recording');
+    _dsStartVolViz();
+
+    /* 최대 10초 자동 정지 */
+    DS.autoStopTimer = setTimeout(function() {
+      if (DS.isRec) _dsStopRec();
+    }, 10000);
+
+  } catch(err) {
+    console.warn('[DS Mic]', err);
+    alert('🎤 마이크 권한이 필요해요!');
+  }
+}
+
+function _dsStopRec() {
+  if (DS.recorder && DS.recorder.state !== 'inactive') DS.recorder.stop();
+  DS.isRec = false;
+  if (DS.autoStopTimer) { clearTimeout(DS.autoStopTimer); DS.autoStopTimer = null; }
+}
+
+/* ── 볼륨 시각화 ── */
+function _dsStartVolViz() {
+  try {
+    const ctx  = new (window.AudioContext || window.webkitAudioContext)();
+    const src  = ctx.createMediaStreamSource(DS.stream);
+    const anal = ctx.createAnalyser();
+    anal.fftSize = 64;
+    src.connect(anal);
+    const bars = [0,1,2,3,4,5].map(function(i){ return document.getElementById('dvb'+i); });
+    const vol  = document.getElementById('dssVol');
+    if(vol) vol.classList.add('on');
+    function tick() {
+      if (!DS.isRec) return;
+      const d = new Uint8Array(anal.frequencyBinCount);
+      anal.getByteFrequencyData(d);
+      const avg = d.slice(0,10).reduce(function(a,b){return a+b;},0) / 10;
+      bars.forEach(function(b) {
+        if (!b) return;
+        b.style.height = Math.max(3, (avg/255)*26*(0.5+Math.random()*1)) + 'px';
+      });
+      DS.volRaf = requestAnimationFrame(tick);
+    }
+    tick();
+  } catch(e) {}
+}
+function _dsStopVolViz() {
+  if (DS.volRaf) { cancelAnimationFrame(DS.volRaf); DS.volRaf = null; }
+  const vol = document.getElementById('dssVol');
+  if (vol) vol.classList.remove('on');
+}
+
+/* ── 다시 녹음 ── */
+document.getElementById('dssBtnRerec').addEventListener('click', function() {
+  delete DS.recordings[DS.idx];
+  if (DS.audioURLs[DS.idx]) {
+    URL.revokeObjectURL(DS.audioURLs[DS.idx]);
+    delete DS.audioURLs[DS.idx];
+  }
+  delete DS.scores[DS.idx];
+  _dsSetButtons('ready');
+});
+
+/* ── 내 녹음 듣기 ── */
+document.getElementById('dssBtnPlayback').addEventListener('click', function() {
+  const url = DS.audioURLs[DS.idx];
+  if (url) { new Audio(url).play().catch(function(){}); }
+});
+
+/* ── 다음 Scene ── */
+document.getElementById('dssBtnNext').addEventListener('click', function() {
+  DS.idx++;
+  _dsRenderScene();
+});
+
+/* ── 뒤로 ── */
+document.getElementById('dssBackBtn').addEventListener('click', function() {
+  _dsCloseStudio();
+});
+
+/* ── ③ PREMIERE ── */
+function _dsOpenPremiere() {
+  const total  = DS.sentences.length;
+  const recCnt = Object.keys(DS.recordings).length;
+  const vals   = Object.values(DS.scores).filter(function(v){ return v != null; });
+  const avgScore = vals.length > 0
+    ? Math.round(vals.reduce(function(a,b){return a+b;},0) / vals.length) : 0;
+  const recRate  = Math.round((recCnt / Math.max(total,1)) * 100);
+  const timing   = Math.min(100, Math.round(avgScore * 0.88 + Math.random() * 12));
+  const final    = Math.round((avgScore * 0.4 + recRate * 0.4 + timing * 0.2));
+
+  /* 풀스크린 영상 (muted, 자동재생) */
+  const iframe = document.getElementById('dsPremiereIframe');
+  iframe.src = 'https://www.youtube.com/embed/' + DS.short.id
+    + '?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1&controls=0';
+
+  document.getElementById('dsPremiere').classList.add('ds-active');
+
+  /* 내 녹음 재생 (각 sentence.start 시간에 맞춰) */
+  const startWall = Date.now();
+  DS.sentences.forEach(function(s, i) {
+    if (!DS.audioURLs[i]) return;
+    const delay = Math.max(0, (s.start || 0) * 1000);
+    setTimeout(function() {
+      new Audio(DS.audioURLs[i]).play().catch(function(){});
+    }, delay);
+  });
+
+  /* 점수 애니메이션 (1초 후 시작) */
+  setTimeout(function() {
+    /* 링 */
+    const ring = document.getElementById('dspRing');
+    const numEl = document.getElementById('dspScoreNum');
+    const circum = 263.9;
+    ring.style.strokeDashoffset = circum - (final/100) * circum;
+    let n = 0;
+    const t = setInterval(function(){
+      n = Math.min(n+2, final);
+      numEl.textContent = n;
+      if(n >= final) clearInterval(t);
+    }, 20);
+
+    /* 바 */
+    setTimeout(function(){
+      document.getElementById('dspBar0').style.width = recRate  + '%'; document.getElementById('dspVal0').textContent = recRate;
+      document.getElementById('dspBar1').style.width = avgScore + '%'; document.getElementById('dspVal1').textContent = avgScore;
+      document.getElementById('dspBar2').style.width = timing   + '%'; document.getElementById('dspVal2').textContent = timing;
+    }, 300);
+  }, 800);
+}
+
+function _dsClosePremiere() {
+  document.getElementById('dsPremiereIframe').src = '';
+  document.getElementById('dsPremiere').classList.remove('ds-active');
+}
+
+document.getElementById('dspRetryBtn').addEventListener('click', function() {
+  _dsClosePremiere();
+  /* 처음부터 다시 */
+  DS.idx = 0; DS.recordings = {}; DS.audioURLs = {}; DS.scores = {};
+  _dsOpenCinema();
+});
+
+document.getElementById('dspExitBtn').addEventListener('click', function() {
+  _dsClosePremiere();
+  _dsCleanup();
+  if (typeof showScreen === 'function') showScreen('feed');
+  if (typeof renderFeed === 'function') renderFeed();
+});
+
+/* ── 리셋 & 클린업 ── */
+function _dsReset() {
+  DS.idx = 0; DS.recordings = {}; DS.audioURLs = {}; DS.scores = {};
+  DS.isRec = false; DS.videoPlaying = false;
+  _dsSetButtonsSafe();
+}
+function _dsSetButtonsSafe() {
+  try { _dsSetButtons('ready'); } catch(e) {}
+}
+function _dsCleanup() {
+  _dsStopRec(); _dsStopVolViz();
+  if (DS.stream) {
+    DS.stream.getTracks().forEach(function(t){ t.stop(); });
+    DS.stream = null;
+  }
+  Object.values(DS.audioURLs).forEach(function(u){ try{ URL.revokeObjectURL(u); }catch(e){} });
+}
+
+/* ── 외부 진입: 피드 카드 클릭 연결 ──
+   기존 피드에서 영상 카드 클릭 시 S.short 세팅 후 triggerDubbingStudio() 호출
+   아래는 편의 함수: 현재 플레이어 영상으로 바로 진입 */
+function openDubbingNow() {
+  var short = (typeof S !== 'undefined' && S && S.short) ? S.short : null;
+  if (!short) { alert('영상을 먼저 선택해주세요!'); return; }
+  triggerDubbingStudio(short);
+}
+window.openDubbingNow = openDubbingNow;
 
 </script>
 </body>
