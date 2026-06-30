@@ -8235,6 +8235,12 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 1px;
   transition: all .15s;
+  /* 📱 모바일 더블탭 확대/선택/하이라이트 방지 */
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .dss-rec-btn.rec-on {
   background: rgba(255,107,53,.22);
@@ -8245,7 +8251,17 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   0%,100% { box-shadow: 0 0 0 0 rgba(255,107,53,.4); }
   50%      { box-shadow: 0 0 0 14px rgba(255,107,53,0); }
 }
+.dss-btn {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
 .dss-rec-icon { font-size: 26px; line-height: 1; }
+.ds-overlay, .dss-rec-btn *, .dss-btn * {
+  -webkit-tap-highlight-color: transparent;
+}
 .dss-rec-label {
   font-size: 9px; font-weight: 800;
   color: rgba(255,255,255,.6);
