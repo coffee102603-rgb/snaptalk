@@ -11855,7 +11855,9 @@ function showVbToast(main, sub){
 
 /* v2: 탐색 화면 (검색 + 카테고리 그리드) */
 function openSearch(){
-  var all = (typeof SHORTS!=='undefined' && SHORTS.us) ? SHORTS.us.filter(function(s){return s.status!=='review';}) : [];
+  var _stab = (typeof S!=='undefined' && S.tab) ? S.tab : 'us';
+  var _spool = (typeof SHORTS!=='undefined' && SHORTS[_stab]) ? SHORTS[_stab] : (SHORTS&&SHORTS.us?SHORTS.us:[]);
+  var all = _spool.filter(function(s){return s.status!=='review';});
   var old = document.getElementById('searchOverlay'); if(old) old.remove();
   var ov = document.createElement('div');
   ov.id = 'searchOverlay';
@@ -11878,7 +11880,7 @@ function openSearch(){
   }).join('');
   ov.innerHTML = '<div style="padding:16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px;position:sticky;top:0;background:#0a0a0f;z-index:2;">'
     + '<button id="schClose" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer;">←</button>'
-    + '<span style="font-size:20px;font-weight:800;">🧭 <span style="color:#fbbf24;">탐색</span></span></div>'
+    + '<span style="font-size:20px;font-weight:800;">🧭 <span style="color:#fbbf24;">탐색</span></span>'  + '<span style="margin-left:8px;font-size:11px;font-weight:800;color:#a78bfa;background:rgba(167,139,250,0.15);padding:3px 9px;border-radius:10px;">' + (_stab==='kr'?'🇰🇷 한국어':'🇺🇸 영어') + '</span></div>'
     + '<div style="padding:16px;">'
     + '<input id="schInput" type="text" placeholder="호텔, 공항, 카페... 검색" style="width:100%;box-sizing:border-box;background:#16131f;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:13px 16px;color:#fff;font-size:15px;font-weight:600;outline:none;margin-bottom:18px;">'
     + '<div id="schResults"></div>'
@@ -11934,7 +11936,8 @@ function openSearch(){
 /* v2: 찜한 영상 패널 (오버레이) */
 function openSavedVideos(){
   var liked = db.get('likedVideos', []);
-  var all = (typeof SHORTS!=='undefined' && SHORTS.us) ? SHORTS.us : [];
+  var _stab2 = (typeof S!=='undefined' && S.tab) ? S.tab : 'us';
+  var all = (typeof SHORTS!=='undefined' && SHORTS[_stab2]) ? SHORTS[_stab2] : (SHORTS&&SHORTS.us?SHORTS.us:[]);
   var items = all.filter(function(v){ return liked.indexOf(v.id) >= 0; });
   var old = document.getElementById('savedOverlay'); if(old) old.remove();
   var ov = document.createElement('div');
