@@ -11679,11 +11679,36 @@ function renderNotebook(){
 /* ═══ v2 틱톡식 세로 피드 (?tiktok=1 일 때만 작동) ═══ */
 /* v2: 단어장 패널 (목록 + 학습모드 카드뒤집기 + 시험모드) */
 var VOCAB_STATE = { tab:'list', cardIdx:0, flipped:false };
+/* 🎯 구어체 관용표현/숙어 판별 — 학습 우선순위 점수 */
+var IDIOM_HINTS = [
+  'come up','rub it','what','how about','used to','gonna','wanna','gotta',
+  'kind of','sort of','a lot','no way','of course','at all','by the way',
+  'check in','check out','pick up','hang out','show up','figure out','give up',
+  'look forward','run out','take care','make sure','end up','find out','get along',
+  'turn out','work out','deal with','catch up','bring up','set up','look after'
+];
+function _vocabScore(en){
+  if(!en) return -99;
+  var t = en.toLowerCase().trim();
+  var wc = t.split(/\s+/).filter(function(w){return w;}).length;
+  var score = 0;
+  /* 관용표현/숙어 힌트 포함 → 최우선 */
+  for(var i=0;i<IDIOM_HINTS.length;i++){ if(t.indexOf(IDIOM_HINTS[i])>=0){ score += 100; break; } }
+  /* 2~4단어 구(phrase)는 통째로 외울 가치 높음 */
+  if(wc>=2 && wc<=4) score += 40;
+  else if(wc>=5) score += 15;       /* 너무 긴 문장은 약간만 */
+  else if(wc===1) score -= 20;      /* 단일 단어는 후순위 */
+  return score;
+}
 function getVocabItems(){
   var nb = db.get('notebook', []);
-  return nb.map(function(n){
-    return { en: n.highlight || n.en || '', ko: n.koHighlight || n.ko || '', src: n.shortTitle || '' };
+  var arr = nb.map(function(n){
+    var en = n.highlight || n.en || '';
+    return { en: en, ko: n.koHighlight || n.ko || '', src: n.shortTitle || '', _score: _vocabScore(en) };
   }).filter(function(v){ return v.en; });
+  /* 관용표현/숙어 우선 정렬 (점수 높은 순) */
+  arr.sort(function(a,b){ return b._score - a._score; });
+  return arr;
 }
 function openVocabBook(){
   var old = document.getElementById('vocabOverlay'); if(old) old.remove();
@@ -11700,9 +11725,12 @@ function openVocabBook(){
     + '<button class="vb-tab" data-vt="exam" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">🎮 시험</button></div>'
     + '<div id="vbBody" style="flex:1;padding:16px;overflow-y:auto;"></div>';
   document.body.appendChild(ov);
-  document.getElementById('vbClose').addEventListener('click', function(){ ov.remove(); });
+  document.getElementById('vbClose').addEventListener('click', function(){ if(typeof stopExamTimer==='function') stopExamTimer(); ov.remove(); });
   ov.querySelectorAll('.vb-tab').forEach(function(t){
-    t.addEventListener('click', function(){ VOCAB_STATE.tab = t.dataset.vt; VOCAB_STATE.cardIdx=0; VOCAB_STATE.flipped=false; renderVocabBody(); });
+    t.addEventListener('click', function(){
+      if(typeof stopExamTimer==='function') stopExamTimer(); /* 🔧 시험 타이머 정지 (목록에 시험 튀어나옴 방지) */
+      VOCAB_STATE.tab = t.dataset.vt; VOCAB_STATE.cardIdx=0; VOCAB_STATE.flipped=false; renderVocabBody();
+    });
   });
   renderVocabBody();
 }
@@ -11725,10 +11753,12 @@ function renderVocabBody(){
 }
 function renderVocabList(items, body){
   body.innerHTML = items.map(function(v){
+    /* 관용표현은 작은 뱃지로 강조 */
+    var isIdiom = v._score >= 100;
+    var badge = isIdiom ? '<span style="font-size:10px;font-weight:800;color:#fcd34d;background:rgba(251,191,36,0.15);padding:2px 7px;border-radius:8px;margin-left:7px;vertical-align:middle;">💬 표현</span>' : '';
     return '<div style="background:#16131f;border:1px solid rgba(255,255,255,0.08);border-radius:13px;padding:13px 15px;margin-bottom:10px;">'
-      + '<div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;">'+v.en+'</div>'
-      + '<div style="font-size:13px;color:#a78bfa;">'+v.ko+'</div>'
-      + (v.src?'<div style="font-size:11px;color:#64748b;margin-top:6px;">🎬 '+v.src+'</div>':'')+'</div>';
+      + '<div style="font-size:16px;font-weight:800;color:#fff;margin-bottom:4px;">'+v.en+badge+'</div>'
+      + '<div style="font-size:13px;color:#a78bfa;">'+v.ko+'</div></div>';
   }).join('');
 }
 function renderVocabStudy(items, body){
@@ -11738,7 +11768,7 @@ function renderVocabStudy(items, body){
     + '<div id="vbCard" style="width:100%;max-width:340px;height:210px;margin:0 auto 18px;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;cursor:pointer;'
     + (flipped?'background:linear-gradient(160deg,rgba(124,58,237,0.25),rgba(236,72,153,0.15));border:2px solid #a78bfa;':'background:linear-gradient(160deg,#1e1830,#16131f);border:2px solid rgba(251,191,36,0.3);')+'">'
     + (flipped
-        ? '<div style="font-size:12px;font-weight:800;color:#94a3b8;margin-bottom:12px;">🇰🇷 한글 뜻</div><div style="font-size:24px;font-weight:800;color:#a78bfa;">'+v.ko+'</div>'+(v.src?'<div style="font-size:11px;color:#64748b;margin-top:14px;">🎬 '+v.src+'</div>':'')
+        ? '<div style="font-size:12px;font-weight:800;color:#94a3b8;margin-bottom:12px;">🇰🇷 한글 뜻</div><div style="font-size:24px;font-weight:800;color:#a78bfa;">'+v.ko+'</div>'
         : '<div style="font-size:12px;font-weight:800;color:#94a3b8;margin-bottom:12px;">🇺🇸 English</div><div style="font-size:25px;font-weight:800;color:#fff;">'+v.en+'</div><div style="font-size:12px;color:#64748b;margin-top:16px;opacity:0.7;">탭하면 뜻이 보여요 👆</div>')
     + '</div>'
     + '<div style="display:flex;align-items:center;justify-content:center;gap:16px;">'
