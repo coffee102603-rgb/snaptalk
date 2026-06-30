@@ -19914,10 +19914,17 @@ DS.playerReady = false;
 DS.segmentEnd = 0;
 DS.segmentTimer = null;
 
-/* YT.Player 생성 (최초 1회) */
+/* YT.Player 생성 (최초 1회, 단 영상이 바뀌면 재생성) */
 function _dsEnsurePlayer(callback) {
-  /* 이미 준비됨 */
-  if (DS.player && DS.playerReady) { callback && callback(); return; }
+  /* 이미 준비됨 + 같은 영상이면 재사용 */
+  if (DS.player && DS.playerReady && DS.playerLoadedId === DS.short.id) {
+    callback && callback();
+    return;
+  }
+  /* 영상이 바뀌었으면 기존 플레이어 강제 폐기 → 아래에서 새로 생성 */
+  if (DS.player && DS.playerLoadedId !== DS.short.id) {
+    DS.playerReady = false;
+  }
 
   /* YT API 로드 확인 */
   if (!window.YT || !window.YT.Player) {
@@ -19954,6 +19961,7 @@ function _dsCreatePlayer(callback) {
   wrap.insertBefore(mount, wrap.firstChild);
 
   DS.playerReady = false;
+  DS.playerLoadedId = DS.short.id; /* 🔧 현재 로드 중인 영상ID 기록 (불일치 방지) */
   DS.player = new YT.Player('dssPlayerMount', {
     videoId: DS.short.id,
     playerVars: {
