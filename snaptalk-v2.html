@@ -19653,10 +19653,8 @@ window.openDubbingRoom = openDubbingRoom;
       <span class="dss-rec-label" id="dssRecLabel">탭해서 녹음</span>
     </button>
 
-    <!-- 보조 버튼 행 -->
+    <!-- 보조 버튼 행 (다음 Scene만) -->
     <div class="dss-action-row">
-      <button class="dss-btn dss-btn-rerec" id="dssBtnRerec">🔄 다시 녹음</button>
-      <button class="dss-btn dss-btn-playback" id="dssBtnPlayback">▶ 내 녹음 듣기</button>
       <button class="dss-btn dss-btn-next" id="dssBtnNext">✅ 다음 Scene</button>
     </div>
   </div>
@@ -20060,14 +20058,10 @@ function _dsSetButtons(state) {
   const recBtn   = document.getElementById('dssRecBtn');
   const recIcon  = document.getElementById('dssRecIcon');
   const recLabel = document.getElementById('dssRecLabel');
-  const btnRerec    = document.getElementById('dssBtnRerec');
-  const btnPlayback = document.getElementById('dssBtnPlayback');
   const btnNext     = document.getElementById('dssBtnNext');
 
   /* 전부 숨기고 */
-  btnRerec.classList.remove('ds-show');
-  btnPlayback.classList.remove('ds-show');
-  btnNext.classList.remove('ds-show');
+  if (btnNext) btnNext.classList.remove('ds-show');
   recBtn.classList.remove('rec-on');
 
   if (state === 'ready') {
@@ -20080,9 +20074,7 @@ function _dsSetButtons(state) {
   } else if (state === 'done') {
     recIcon.textContent  = '🎤';
     recLabel.textContent = '다시 녹음';
-    btnRerec.classList.add('ds-show');
-    btnPlayback.classList.add('ds-show');
-    btnNext.classList.add('ds-show');
+    if (btnNext) btnNext.classList.add('ds-show');
   }
 }
 
@@ -20385,22 +20377,28 @@ function _dsStopVolViz() {
   if (vol) vol.classList.remove('on');
 }
 
-/* ── 다시 녹음 ── */
-document.getElementById('dssBtnRerec').addEventListener('click', function() {
-  delete DS.recordings[DS.idx];
-  if (DS.audioURLs[DS.idx]) {
-    URL.revokeObjectURL(DS.audioURLs[DS.idx]);
-    delete DS.audioURLs[DS.idx];
-  }
-  delete DS.scores[DS.idx];
-  _dsSetButtons('ready');
-});
+/* ── 다시 녹음 (가운데 원형 버튼이 담당, 하단 버튼 제거됨) ── */
+(function(){
+  var b = document.getElementById('dssBtnRerec');
+  if (b) b.addEventListener('click', function() {
+    delete DS.recordings[DS.idx];
+    if (DS.audioURLs[DS.idx]) {
+      URL.revokeObjectURL(DS.audioURLs[DS.idx]);
+      delete DS.audioURLs[DS.idx];
+    }
+    delete DS.scores[DS.idx];
+    _dsSetButtons('ready');
+  });
+})();
 
-/* ── 내 녹음 듣기 ── */
-document.getElementById('dssBtnPlayback').addEventListener('click', function() {
-  const url = DS.audioURLs[DS.idx];
-  if (url) { new Audio(url).play().catch(function(){}); }
-});
+/* ── 내 녹음 듣기 (버튼 제거됨 - 안전 가드) ── */
+(function(){
+  var b = document.getElementById('dssBtnPlayback');
+  if (b) b.addEventListener('click', function() {
+    const url = DS.audioURLs[DS.idx];
+    if (url) { new Audio(url).play().catch(function(){}); }
+  });
+})();
 
 /* ── 다음 Scene ── */
 document.getElementById('dssBtnNext').addEventListener('click', function() {
