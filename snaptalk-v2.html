@@ -12079,6 +12079,7 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       <button class="tt-nav" data-tt="search" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🧭</span>탐색</button>
       <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">❤️</span>찜한 영상</button>
       <button class="tt-nav" data-tt="mydub" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🎬</span>내 더빙</button>
+      <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">📖</span>단어장</button>
 
     `;
     document.body.appendChild(ttNav);
@@ -12090,6 +12091,8 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       if(typeof openDubBoard === 'function') openDubBoard();
     });
     ttNav.querySelector('[data-tt="search"]').addEventListener('click', function(){ openSearch(); });
+    var _vbtab = ttNav.querySelector('[data-tt="vocab"]');
+    if (_vbtab) _vbtab.addEventListener('click', function(){ if(typeof openVocabBook==='function') openVocabBook(); });
   }
   ttNav.style.display = 'flex';
   console.log('[TikTok] 🎬 틱톡 피드 렌더 완료 ('+vids.length+'개)');
@@ -19686,6 +19689,12 @@ window.openDubbingRoom = openDubbingRoom;
       <div class="dsp-complete-sub" id="dspCompleteSub">멋진 연기였어요 👏</div>
       <div class="dsp-complete-stat" id="dspCompleteStat"></div>
     </div>
+    <div class="dsp-vocab" id="dspVocab" style="display:none;width:100%;max-width:420px;margin:0 auto 14px;padding:14px;background:rgba(20,20,30,0.92);border-radius:16px;border:1px solid rgba(167,139,250,0.3);">
+      <div style="font-size:13px;font-weight:800;color:#fbbf24;margin-bottom:4px;">📖 오늘 배운 표현</div>
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:10px;">저장할 표현을 체크하세요. 단어장에서 다시 볼 수 있어요!</div>
+      <div id="dspVocabList"></div>
+      <button id="dspVocabSave" style="width:100%;margin-top:10px;padding:10px;border:none;border-radius:11px;background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;font-size:13px;font-weight:800;cursor:pointer;">✅ 체크한 표현 저장</button>
+    </div>
     <div class="dsp-actions">
       <button class="dsp-retry-btn" id="dspRetryBtn">🔄 다시 더빙</button>
       <button class="dsp-exit-btn" id="dspExitBtn">🎦 피드로</button>
@@ -20515,6 +20524,79 @@ function _dsPlayCompleteAnimation(recCnt, total) {
 
   /* ✨ 별 파티클 쏟아지기 */
   _dsSpawnStars();
+
+  /* 📖 영상 속 표현 리스트 (저장 체크) */
+  _dsRenderVocabList();
+}
+
+/* 📖 더빙 완성 후 표현 저장 리스트 렌더 */
+function _dsRenderVocabList() {
+  var box  = document.getElementById('dspVocab');
+  var list = document.getElementById('dspVocabList');
+  if (!box || !list || !DS.sentences) return;
+
+  /* 표현 추출: highlight(영어) + koHighlight(한국어) 우선, 없으면 en/ko */
+  var items = [];
+  DS.sentences.forEach(function(s){
+    var en = (s.highlight || s.en || '').trim();
+    var ko = (s.koHighlight || s.ko || '').trim();
+    if (en) items.push({ en: en, ko: ko, full_en: s.en||'', full_ko: s.ko||'', title: (DS.short&&DS.short.title)||'' });
+  });
+  if (items.length === 0) { box.style.display='none'; return; }
+
+  /* 체크박스 리스트 (기본 전체 체크) */
+  var hticon = function(checked){ return checked ? '✅' : '⬜'; };
+  list.innerHTML = items.map(function(it, i){
+    return '<label data-vi="'+i+'" style="display:flex;align-items:flex-start;gap:9px;padding:9px;margin-bottom:6px;background:rgba(255,255,255,0.04);border-radius:10px;cursor:pointer;">'
+      + '<span class="dspv-check" data-checked="1" style="font-size:17px;flex-shrink:0;">✅</span>'
+      + '<span style="flex:1;min-width:0;"><span style="display:block;font-size:14px;font-weight:700;color:#fff;">'+ it.en +'</span>'
+      + (it.ko ? '<span style="display:block;font-size:12px;color:#94a3b8;margin-top:2px;">'+ it.ko +'</span>' : '')
+      + '</span></label>';
+  }).join('');
+
+  /* 체크 토글 */
+  list.querySelectorAll('label[data-vi]').forEach(function(lbl){
+    lbl.addEventListener('click', function(){
+      var c = lbl.querySelector('.dspv-check');
+      var on = c.getAttribute('data-checked') === '1';
+      c.setAttribute('data-checked', on ? '0' : '1');
+      c.textContent = on ? '⬜' : '✅';
+    });
+  });
+
+  /* 저장 버튼 */
+  var saveBtn = document.getElementById('dspVocabSave');
+  if (saveBtn) {
+    saveBtn.onclick = function(){
+      var nb = db.get('notebook', []);
+      var saved = 0;
+      list.querySelectorAll('label[data-vi]').forEach(function(lbl){
+        var c = lbl.querySelector('.dspv-check');
+        if (c.getAttribute('data-checked') !== '1') return;
+        var it = items[parseInt(lbl.getAttribute('data-vi'),10)];
+        if (!it) return;
+        /* 중복 방지 */
+        var dup = nb.some(function(n){ return (n.highlight||n.en)===it.en; });
+        if (dup) return;
+        nb.push({
+          highlight: it.en, koHighlight: it.ko,
+          en: it.full_en, ko: it.full_ko,
+          shortTitle: it.title, savedAt: Date.now()
+        });
+        saved++;
+      });
+      db.set('notebook', nb);
+      saveBtn.textContent = '📖 ' + saved + '개 저장 완료!';
+      saveBtn.style.background = 'linear-gradient(135deg,#34d399,#059669)';
+      setTimeout(function(){
+        saveBtn.textContent = '✅ 체크한 표현 저장';
+        saveBtn.style.background = 'linear-gradient(135deg,#a78bfa,#7c3aed)';
+      }, 1800);
+    };
+  }
+
+  /* 완성 배지 뜰 때 같이 노출 */
+  box.style.display = 'block';
 }
 
 /* ✨ 별 파티클 생성 */
