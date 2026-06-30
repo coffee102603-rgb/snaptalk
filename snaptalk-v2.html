@@ -21060,5 +21060,23 @@ function _dsFindShort(vid) {
 }
 
 </script>
+<script>
+(function(){
+  /* 📱 iOS/안드로이드 더블탭 확대 강력 차단 */
+  var lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e){
+    var now = Date.now();
+    if (now - lastTouchEnd <= 350) {
+      e.preventDefault(); /* 두번째 빠른 탭의 확대 동작 차단 */
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  /* 제스처 확대(핀치)도 차단 - iOS 사파리 */
+  document.addEventListener('gesturestart', function(e){ e.preventDefault(); });
+  document.addEventListener('gesturechange', function(e){ e.preventDefault(); });
+  document.addEventListener('gestureend', function(e){ e.preventDefault(); });
+})();
+</script>
 </body>
 </html>
