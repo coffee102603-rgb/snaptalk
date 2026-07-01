@@ -21009,7 +21009,11 @@ function _dsCatColor(cat) {
   return fallback[cat] || '#cbd5e1';
 }
 function _dsCatLabel(cat) {
-  var labels = {
+  var en = (typeof S!=='undefined' && S.tab==='kr');
+  var labels = en ? {
+    travel_english:'Travel', food:'Food', home:'Daily',
+    places:'Places', shopping:'Shopping', people:'People', fun:'Fun'
+  } : {
     travel_english:'여행영어', food:'음식', home:'일상',
     places:'관광', shopping:'쇼핑', people:'사람', fun:'재미'
   };
@@ -21062,7 +21066,7 @@ function openDubBoard() {
       html += '    <div class="db-hall-title" style="color:'+color+'">'+r.catIcon+' '+_dsEsc(r.title)+'</div>';
       html += '    <div class="db-hall-cat" style="color:'+color+'">'+_dsCatLabel(r.cat)+'</div>';
       html += '  </div>';
-      html += '  <div class="db-hall-score">'+r.score+'<span>점</span></div>';
+      html += '  <div class="db-hall-score">'+r.score+'<span>'+(typeof S!=='undefined'&&S.tab==='kr'?'pts':'점')+'</span></div>';
       html += '</div>';
     });
     html += '</div>';
@@ -21081,7 +21085,7 @@ function openDubBoard() {
       html += '    <div class="db-row-title" style="color:'+color+'">'+_dsEsc(r.title)+'</div>';
       html += '    <div class="db-row-sub">'+_dsCatLabel(r.cat)+' · '+dateStr+attempts+'</div>';
       html += '  </div>';
-      html += '  <div class="db-row-score" style="color:'+color+'">'+r.score+'<span>점</span></div>';
+      html += '  <div class="db-row-score" style="color:'+color+'">'+r.score+'<span>'+(typeof S!=='undefined'&&S.tab==='kr'?'pts':'점')+'</span></div>';
       html += '</div>';
     });
     html += '</div>';
