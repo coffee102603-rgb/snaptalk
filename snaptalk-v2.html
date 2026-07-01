@@ -19850,6 +19850,10 @@ window.triggerDubbingStudio = triggerDubbingStudio;
 /* ── ① CINEMA ── */
 function _dsOpenCinema() {
   _dsReset();
+  if (typeof S!=='undefined' && S.tab==='kr') {
+    var _sb=document.getElementById('dsCinemaStartBtn'); if(_sb)_sb.textContent='🎙️ Start Dubbing';
+    var _kb=document.getElementById('dsCinemaSkipBtn'); if(_kb)_kb.textContent='Skip';
+  }
   const el = document.getElementById('dsCinema');
   const iframe = document.getElementById('dsCinemaIframe');
   const title  = document.getElementById('dsCinemaTitle');
@@ -20194,16 +20198,17 @@ function _dsSetButtons(state) {
   if (btnNext) btnNext.classList.remove('ds-show');
   recBtn.classList.remove('rec-on');
 
+  var _kr = (typeof S!=='undefined' && S.tab==='kr');
   if (state === 'ready') {
     recIcon.textContent  = '🎤';
-    recLabel.textContent = '탭해서 녹음';
+    recLabel.textContent = _kr ? 'Tap to record' : '탭해서 녹음';
   } else if (state === 'recording') {
     recIcon.textContent  = '⏹';
-    recLabel.textContent = '녹음 중... (탭=정지)';
+    recLabel.textContent = _kr ? 'Recording... (tap=stop)' : '녹음 중... (탭=정지)';
     recBtn.classList.add('rec-on');
   } else if (state === 'done') {
     recIcon.textContent  = '🎤';
-    recLabel.textContent = '다시 녹음';
+    recLabel.textContent = _kr ? 'Record again' : '다시 녹음';
     if (btnNext) btnNext.classList.add('ds-show');
   }
 }
