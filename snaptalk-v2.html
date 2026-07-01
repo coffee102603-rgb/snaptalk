@@ -20831,6 +20831,7 @@ window.openDubbingNow = openDubbingNow;
 
 /* ══════════════════════════════════════════════════════════════
  * 📋 내 더빙 진도표 시스템
+ * (US/KR 탭별 분리: dubRecords_us / dubRecords_kr)
  * ══════════════════════════════════════════════════════════════ */
 
 /* 더빙 기록 저장 (점수+영상정보만, 음성 X = 가벼움) */
@@ -20957,11 +20958,12 @@ function _dsGetSavedAudioIds(callback) {
 }
 window._dsGetSavedAudioIds = _dsGetSavedAudioIds;
 
+function _dubRecKey(){ return 'dubRecords_' + ((typeof S!=='undefined'&&S.tab==='kr')?'kr':'us'); }
 function _dsSaveDubRecord(finalScore) {
   try {
     var short = DS.short;
     if (!short) return;
-    var records = JSON.parse(localStorage.getItem('dubRecords') || '[]');
+    var records = JSON.parse(localStorage.getItem(_dubRecKey()) || '[]');
 
     /* 새 기록 */
     var newRec = {
@@ -20993,7 +20995,7 @@ function _dsSaveDubRecord(finalScore) {
 
     /* 전체 기록은 최근 50개만 (가벼움 유지) */
     records = records.slice(0, 50);
-    localStorage.setItem('dubRecords', JSON.stringify(records));
+    localStorage.setItem(_dubRecKey(), JSON.stringify(records));
   } catch(e) {
     console.warn('[DS save]', e);
   }
@@ -21023,7 +21025,7 @@ function _dsCatLabel(cat) {
 /* 📋 진도표 화면 열기 */
 function openDubBoard() {
   var records = [];
-  try { records = JSON.parse(localStorage.getItem('dubRecords') || '[]'); } catch(e) {}
+  try { records = JSON.parse(localStorage.getItem(_dubRecKey()) || '[]'); } catch(e) {}
 
   /* TOP 3 (점수 순) */
   var top3 = records.slice().sort(function(a,b){ return b.score - a.score; }).slice(0, 3);
