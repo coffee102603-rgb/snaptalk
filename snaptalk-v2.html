@@ -11747,9 +11747,9 @@ function openVocabBook(){
     + '<button id="vbClose" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer;">←</button>'
     + '<span style="font-size:20px;font-weight:800;">📖 <span style="color:#fbbf24;">'+(typeof S!=='undefined'&&S.tab==='kr'?'Words':'단어장')+'</span></span></div>'
     + '<div style="display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);">'
-    + '<button class="vb-tab" data-vt="list" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">📋 목록</button>'
-    + '<button class="vb-tab" data-vt="study" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">🎴 학습</button>'
-    + '<button class="vb-tab" data-vt="exam" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">🎮 시험</button></div>'
+    + '<button class="vb-tab" data-vt="list" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">📋 '+(typeof S!=='undefined'&&S.tab==='kr'?'List':'목록')+'</button>'
+    + '<button class="vb-tab" data-vt="study" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">🎴 '+(typeof S!=='undefined'&&S.tab==='kr'?'Study':'학습')+'</button>'
+    + '<button class="vb-tab" data-vt="exam" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">🎮 '+(typeof S!=='undefined'&&S.tab==='kr'?'Test':'시험')+'</button></div>'
     + '<div id="vbBody" style="flex:1;padding:16px;overflow-y:auto;"></div>';
   document.body.appendChild(ov);
   document.getElementById('vbClose').addEventListener('click', function(){ if(typeof stopExamTimer==='function') stopExamTimer(); ov.remove(); });
@@ -11945,21 +11945,22 @@ function openSearch(){
   var ov = document.createElement('div');
   ov.id = 'searchOverlay';
   ov.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#0a0a0f;overflow-y:auto;';
+  var _catEn = (typeof S!=='undefined'&&S.tab==='kr');
   var CATS = [
-    {key:'travel_english', icon:'✈️', label:'여행영어'},
-    {key:'food', icon:'🍔', label:'음식'},
-    {key:'home', icon:'🏠', label:'일상'},
-    {key:'places', icon:'🗽', label:'관광'},
-    {key:'shopping', icon:'🛒', label:'쇼핑'},
-    {key:'people', icon:'🎤', label:'사람'},
-    {key:'fun', icon:'😂', label:'재미'}
+    {key:'travel_english', icon:'✈️', label:_catEn?'Travel':'여행영어'},
+    {key:'food', icon:'🍔', label:_catEn?'Food':'음식'},
+    {key:'home', icon:'🏠', label:_catEn?'Daily':'일상'},
+    {key:'places', icon:'🗽', label:_catEn?'Places':'관광'},
+    {key:'shopping', icon:'🛒', label:_catEn?'Shopping':'쇼핑'},
+    {key:'people', icon:'🎤', label:_catEn?'People':'사람'},
+    {key:'fun', icon:'😂', label:_catEn?'Fun':'재미'}
   ];
   function catCount(k){ return all.filter(function(v){return v.cat===k;}).length; }
   var grid = CATS.map(function(c){
     return '<button class="search-cat" data-cat="'+c.key+'" style="background:#16131f;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:12px 11px;cursor:pointer;display:flex;flex-direction:row;align-items:center;gap:11px;text-align:left;">'
       + '<span style="font-size:24px;flex-shrink:0;">'+c.icon+'</span>'
       + '<span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:14px;font-weight:800;color:#fff;">'+c.label+'</span>'
-      + '<span style="font-size:11px;font-weight:700;color:#a78bfa;">'+catCount(c.key)+'개</span></span></button>';
+      + '<span style="font-size:11px;font-weight:700;color:#a78bfa;">'+catCount(c.key)+(_catEn?'':'개')+'</span></span></button>';
   }).join('');
   ov.innerHTML = '<div style="padding:16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px;position:sticky;top:0;background:#0a0a0f;z-index:2;">'
     + '<button id="schClose" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer;">←</button>'
@@ -11967,7 +11968,7 @@ function openSearch(){
     + '<div style="padding:16px;">'
     + '<input id="schInput" type="text" placeholder="'+(typeof S!=='undefined'&&S.tab==='kr'?'Search hotel, airport, cafe...':'호텔, 공항, 카페... 검색')+'" style="width:100%;box-sizing:border-box;background:#16131f;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:13px 16px;color:#fff;font-size:15px;font-weight:600;outline:none;margin-bottom:18px;">'
     + '<div id="schResults"></div>'
-    + '<div id="schGrid"><div style="font-size:13px;font-weight:800;color:#94a3b8;margin-bottom:12px;">카테고리로 둘러보기</div>'
+    + '<div id="schGrid"><div style="font-size:13px;font-weight:800;color:#94a3b8;margin-bottom:12px;">'+(typeof S!=='undefined'&&S.tab==='kr'?'Browse by category':'카테고리로 둘러보기')+'</div>'
     + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">'+grid+'</div></div>'
     + '</div>';
   document.body.appendChild(ov);
@@ -21038,7 +21039,7 @@ function openDubBoard() {
   var html = '';
   html += '<div class="db-header">';
   html += '  <button class="db-back" id="dbBackBtn">←</button>';
-  html += '  <div class="db-title">🎬 내 더빙</div>';
+  html += '  '+(typeof S!=='undefined'&&S.tab==='kr'?'<div class="db-title">🎬 My Dubs</div>':'<div class="db-title">🎬 내 더빙</div>')+'';
   html += '  <div style="width:38px"></div>';
   html += '</div>';
   html += '<div class="db-scroll">';
@@ -21051,7 +21052,7 @@ function openDubBoard() {
     html += '</div>';
   } else {
     /* 🏆 명예의 전당 TOP 3 */
-    html += '<div class="db-section-label">🏆 명예의 전당</div>';
+    html += '<div class="db-section-label">🏆 '+(typeof S!=='undefined'&&S.tab==='kr'?'Hall of Fame':'명예의 전당')+'</div>';
     html += '<div class="db-hall">';
     top3.forEach(function(r, i) {
       var color = _dsCatColor(r.cat);
@@ -21067,13 +21068,13 @@ function openDubBoard() {
     html += '</div>';
 
     /* 📋 전체 기록 */
-    html += '<div class="db-section-label">📋 전체 기록 <span class="db-count">'+records.length+'개</span></div>';
+    html += '<div class="db-section-label">📋 '+(typeof S!=='undefined'&&S.tab==='kr'?'All Records':'전체 기록')+' <span class="db-count">'+records.length+(typeof S!=='undefined'&&S.tab==='kr'?'':'개')+'</span></div>';
     html += '<div class="db-list">';
     all.forEach(function(r) {
       var color = _dsCatColor(r.cat);
       var d = new Date(r.date);
       var dateStr = (d.getMonth()+1) + '/' + d.getDate();
-      var attempts = r.attempts > 1 ? (' · '+r.attempts+'번') : '';
+      var attempts = r.attempts > 1 ? (' · '+r.attempts+(typeof S!=='undefined'&&S.tab==='kr'?'x':'번')) : '';
       html += '<div class="db-row" data-vid="'+r.videoId+'">';
       html += '  <div class="db-row-icon">'+r.catIcon+'</div>';
       html += '  <div class="db-row-main">';
