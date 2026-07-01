@@ -12074,11 +12074,11 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
       <div style="position:absolute;right:12px;bottom:238px;z-index:50;display:flex;flex-direction:column;gap:16px;align-items:center;pointer-events:auto;">
         <button class="tiktok-like" data-vid="${v.id}" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
           <span class="tlike-ic" style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">🤍</span>
-          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">찜</span>
+          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">${S.tab==='kr'?'Save':'찜'}</span>
         </button>
         <button style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
           <span style="width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;">↗️</span>
-          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">공유</span>
+          <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.85);">${S.tab==='kr'?'Share':'공유'}</span>
         </button>
       </div>
       <div style="position:absolute;left:0;right:0;bottom:210px;z-index:10;padding:0 20px;pointer-events:none;">
@@ -12152,10 +12152,10 @@ function renderTikTokFeed(){ document.body.classList.remove('freetalk-mode'); do
     ttNav.id = 'tiktokNav';
     ttNav.style.cssText = 'position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:45;display:flex;justify-content:space-around;align-items:center;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.08);padding:8px 0 max(8px,env(safe-area-inset-bottom));';
     ttNav.innerHTML = `
-      <button class="tt-nav" data-tt="search" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🧭</span>탐색</button>
-      <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">❤️</span>찜한 영상</button>
-      <button class="tt-nav" data-tt="mydub" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🎬</span>내 더빙</button>
-      <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">📖</span>단어장</button>
+      <button class="tt-nav" data-tt="search" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🧭</span>${S.tab==='kr'?'Explore':'탐색'}</button>
+      <button class="tt-nav" data-tt="saved" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">❤️</span>${S.tab==='kr'?'Saved':'찜한 영상'}</button>
+      <button class="tt-nav" data-tt="mydub" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">🎬</span>${S.tab==='kr'?'My Dubs':'내 더빙'}</button>
+      <button class="tt-nav" data-tt="vocab" style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;color:#94a3b8;font-size:11px;font-weight:700;padding:4px 12px;"><span style="font-size:21px;">📖</span>${S.tab==='kr'?'Words':'단어장'}</button>
 
     `;
     document.body.appendChild(ttNav);
@@ -15786,6 +15786,15 @@ function _updateUILang(){
     var t=en?c.getAttribute('data-en'):c.getAttribute('data-ko');
     if(t)c.textContent=t;
   });
+  var _nav=document.getElementById('tiktokNav');
+  if(_nav){
+    var _m={search:['탐색','Explore'],saved:['찜한 영상','Saved'],mydub:['내 더빙','My Dubs'],vocab:['단어장','Words']};
+    Object.keys(_m).forEach(function(k){
+      var _b=_nav.querySelector('[data-tt="'+k+'"]');
+      if(_b){var _ic=_b.querySelector('span');var _txt=en?_m[k][1]:_m[k][0];
+        _b.childNodes[_b.childNodes.length-1].textContent=_txt;}
+    });
+  }
 }
 document.querySelectorAll('.ctab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));t.classList.add('active');S.tab=t.dataset.tab;S.feedLevel=1;S.selectedCategory=null;document.querySelectorAll('.cat-pill').forEach(function(x){x.classList.remove('active');});var af=document.querySelector('.cat-pill[data-cat="all"]');if(af)af.classList.add('active');_updateLangBtn();_updateUILang();renderFeed()})});
 _updateLangBtn();_updateUILang();
