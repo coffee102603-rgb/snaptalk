@@ -8720,8 +8720,8 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   <div id="header"><div class="header-left"><span class="logo-mark">S</span><div class="logo-wrap"><span class="logo">Shobby</span><span class="logo-sub">learn like a hobby 🎬</span></div></div><div class="header-right"><button class="lang-btn" id="langToggle">🌐 언어</button></div></div>
 
   <!-- TABS -->
-  <div id="contentTabs"><button class="ctab active" data-tab="us">🇺🇸 영어 배우기</button><button class="ctab" data-tab="kr">🇰🇷 한국어</button></div>
-  <div id="catTabs"><button class="cat-pill active" data-cat="all">전체</button><button class="cat-pill" data-cat="travel_english">✈️ 여행영어</button><button class="cat-pill" data-cat="food">🍔 음식</button><button class="cat-pill" data-cat="home">🏠 일상</button><button class="cat-pill" data-cat="places">🗽 관광</button><button class="cat-pill" data-cat="shopping">🛒 쇼핑</button><button class="cat-pill" data-cat="people">🎤 사람</button><button class="cat-pill" data-cat="fun">😂 재미</button></div>
+  <div id="contentTabs"><button class="ctab active" data-tab="us" data-ko="🇺🇸 영어 배우기" data-en="🇺🇸 English">🇺🇸 영어 배우기</button><button class="ctab" data-tab="kr" data-ko="🇰🇷 한국어" data-en="🇰🇷 Korean">🇰🇷 한국어</button></div>
+  <div id="catTabs"><button class="cat-pill active" data-cat="all" data-ko="전체" data-en="All">전체</button><button class="cat-pill" data-cat="travel_english" data-ko="✈️ 여행영어" data-en="✈️ Travel">✈️ 여행영어</button><button class="cat-pill" data-cat="food" data-ko="🍔 음식" data-en="🍔 Food">🍔 음식</button><button class="cat-pill" data-cat="home" data-ko="🏠 일상" data-en="🏠 Daily">🏠 일상</button><button class="cat-pill" data-cat="places" data-ko="🗽 관광" data-en="🗽 Places">🗽 관광</button><button class="cat-pill" data-cat="shopping" data-ko="🛒 쇼핑" data-en="🛒 Shopping">🛒 쇼핑</button><button class="cat-pill" data-cat="people" data-ko="🎤 사람" data-en="🎤 People">🎤 사람</button><button class="cat-pill" data-cat="fun" data-ko="😂 재미" data-en="😂 Fun">😂 재미</button></div>
 
   <!-- FEED -->
   <div class="screen active" id="feedScreen"></div>
@@ -15774,8 +15774,21 @@ if(document.readyState === 'loading'){
 }
 
 function _updateLangBtn(){var b=document.getElementById('langToggle');if(!b)return;b.textContent=(S.tab==='kr')?'🌐 Language':'🌐 언어';}
-document.querySelectorAll('.ctab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));t.classList.add('active');S.tab=t.dataset.tab;S.feedLevel=1;S.selectedCategory=null;document.querySelectorAll('.cat-pill').forEach(function(x){x.classList.remove('active');});var af=document.querySelector('.cat-pill[data-cat="all"]');if(af)af.classList.add('active');_updateLangBtn();renderFeed()})});
-_updateLangBtn();
+function _updateUILang(){
+  var en=(S.tab==='kr');
+  // 카테고리 탭
+  document.querySelectorAll('#catTabs .cat-pill').forEach(function(p){
+    var t=en?p.getAttribute('data-en'):p.getAttribute('data-ko');
+    if(t)p.textContent=t;
+  });
+  // 상단 US/KR 탭 이름
+  document.querySelectorAll('#contentTabs .ctab').forEach(function(c){
+    var t=en?c.getAttribute('data-en'):c.getAttribute('data-ko');
+    if(t)c.textContent=t;
+  });
+}
+document.querySelectorAll('.ctab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('active'));t.classList.add('active');S.tab=t.dataset.tab;S.feedLevel=1;S.selectedCategory=null;document.querySelectorAll('.cat-pill').forEach(function(x){x.classList.remove('active');});var af=document.querySelector('.cat-pill[data-cat="all"]');if(af)af.classList.add('active');_updateLangBtn();_updateUILang();renderFeed()})});
+_updateLangBtn();_updateUILang();
 document.querySelectorAll('.cat-pill').forEach(function(p){p.addEventListener('click',function(){document.querySelectorAll('.cat-pill').forEach(function(x){x.classList.remove('active');});p.classList.add('active');var c=p.dataset.cat;S.selectedCategory=(c==='all')?null:c;S.feedLevel=1;if(typeof renderFeed==='function')renderFeed();});});
 document.querySelectorAll('.nav-btn').forEach(b=>{
   b.addEventListener('click',(e)=>{
