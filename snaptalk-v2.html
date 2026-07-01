@@ -8015,6 +8015,14 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
   background: #000;
   font-family: 'Nunito', sans-serif;
 }
+/* 더빙완성 화면: 표현 많을 때 버튼 안 잘리게 스크롤 허용 */
+#dsPremiere.ds-active {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+#dsPremiere .dsp-overlay {
+  padding-bottom: 60px; /* 스크롤 끝에서도 버튼 여유공간 */
+}
 .ds-overlay.ds-active { display: flex; animation:overlayIn .36s cubic-bezier(.22,.61,.36,1); }
 @keyframes overlayIn{
   from{opacity:0;transform:translateY(24px)}
