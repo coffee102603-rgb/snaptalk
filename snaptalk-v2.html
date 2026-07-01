@@ -13512,7 +13512,7 @@ function generateTags(short){
   
   /* 느슨한 매칭 */
   const themeKey = Object.keys(CATEGORY_THEMES).find(k => CATEGORY_THEMES[k] === getCategoryTheme(cat)) || 'default';
-  const themeTags = catTags[themeKey] || ['#영화','#SnapTalk','#영어'];
+  const themeTags = catTags[themeKey] || ['#영화','#Shobby','#영어'];
   tags.push(...themeTags.slice(0, 3));
   
   /* 제목 기반 */
@@ -18250,7 +18250,7 @@ function downloadArtwork(item){
   /* 간단 구현: 원본 썸네일 다운로드 */
   const link=document.createElement('a');
   link.href=item.thumbUrl;
-  link.download=`SnapTalk_${item.shortTitle.replace(/[^a-z0-9가-힣]/gi,'_')}_${Date.now()}.jpg`;
+  link.download=`Shobby_${item.shortTitle.replace(/[^a-z0-9가-힣]/gi,'_')}_${Date.now()}.jpg`;
   link.target='_blank';
   document.body.appendChild(link);
   link.click();
@@ -19040,7 +19040,7 @@ function drawGarden(){
   ctx.fillStyle='#00e5a0';ctx.font='900 22px Nunito,sans-serif';ctx.textAlign='center';
   ctx.fillText('🌱 나의 표현 정원',W/2,42);
   ctx.fillStyle='#8888aa';ctx.font='700 12px Nunito,sans-serif';
-  ctx.fillText('SnapTalk',W/2,62);
+  ctx.fillText('Shobby',W/2,62);
   /* Count */
   ctx.fillStyle='#f0f0f8';ctx.font='900 36px Nunito,sans-serif';
   ctx.fillText(nb.length+'개',W/2,110);
@@ -19692,7 +19692,7 @@ window.openDubbingRoom = openDubbingRoom;
     <iframe id="dsCinemaIframe" src="" allow="autoplay; encrypted-media" allowfullscreen playsinline></iframe>
   </div>
   <div class="dsc-gradient">
-    <div class="dsc-label">🎬 SnapTalk Cinema</div>
+    <div class="dsc-label">🎬 Shobby Cinema</div>
     <div class="dsc-title" id="dsCinemaTitle">영상 제목</div>
     <div class="dsc-credit" id="dsCinemaCredit" style="font-size:12px;color:rgba(255,255,255,0.75);margin:6px 0 4px;line-height:1.5;"></div>
     <div class="dsc-btn-row">
