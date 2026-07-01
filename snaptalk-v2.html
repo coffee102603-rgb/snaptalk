@@ -20732,10 +20732,10 @@ function _dsRenderVocabList() {
         saved++;
       });
       db.set('notebook', nb);
-      saveBtn.textContent = '📖 ' + saved + '개 저장 완료!';
+      saveBtn.textContent = (typeof S!=='undefined'&&S.tab==='kr') ? ('📖 ' + saved + ' saved!') : ('📖 ' + saved + '개 저장 완료!');
       saveBtn.style.background = 'linear-gradient(135deg,#34d399,#059669)';
       setTimeout(function(){
-        saveBtn.textContent = '✅ 체크한 표현 저장';
+        saveBtn.textContent = (typeof S!=='undefined'&&S.tab==='kr') ? '✅ Save checked' : '✅ 체크한 표현 저장';
         saveBtn.style.background = 'linear-gradient(135deg,#a78bfa,#7c3aed)';
       }, 1800);
     };
