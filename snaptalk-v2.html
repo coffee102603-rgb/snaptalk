@@ -19979,6 +19979,10 @@ function _dsApplyStudioLang(){
   var sl=document.querySelector('.dss-scene-label');if(sl)sl.textContent='🎙️ DUBBING STUDIO';
   /* 녹음 라벨 (탭해서 녹음) */
   var rl=document.getElementById('dssRecLabel');if(rl)rl.textContent='Tap to record';
+  /* 커튼 연출 멘트 (더빙 완성 → 전체영상 보기 전) */
+  var cm=document.querySelector('.dsp-marquee-sub');if(cm)cm.textContent='My movie in my own voice';
+  var spSub=document.querySelector('.sp-sub');if(spSub)spSub.textContent='My movie in my own voice!';
+  var spT=document.getElementById('spTitle');if(spT)spT.textContent='🎬 My Premiere';
 }
 function _dsOpenStudio() {
   DS.idx = 0;
