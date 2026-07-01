@@ -12857,7 +12857,7 @@ function renderStarRecording(){
   const micBtn = document.getElementById('srMicBtn');
   const micLabel = document.getElementById('srMicLabel');
   micBtn.classList.remove('recording');
-  micLabel.textContent = '탭해서 녹음!';
+  micLabel.textContent = (typeof S!=='undefined'&&S.tab==='kr')?'Tap to record!':'탭해서 녹음!';
   
   /* 이미 녹음한 경우 재생 옵션 */
   const playback = document.getElementById('srPlayback');
@@ -12916,7 +12916,7 @@ async function startStarMicRecording(){
     const micBtn = document.getElementById('srMicBtn');
     const micLabel = document.getElementById('srMicLabel');
     micBtn.classList.add('recording');
-    micLabel.textContent = '녹음 중...';
+    micLabel.textContent = (typeof S!=='undefined'&&S.tab==='kr')?'Recording...':'녹음 중...';
     
     /* 타이머 표시 */
     const timerEl = document.getElementById('srTimer');
@@ -12945,7 +12945,7 @@ function stopStarRecording(){
   const micBtn = document.getElementById('srMicBtn');
   const micLabel = document.getElementById('srMicLabel');
   micBtn.classList.remove('recording');
-  micLabel.textContent = '🔄 다시 녹음';
+  micLabel.textContent = (typeof S!=='undefined'&&S.tab==='kr')?'🔄 Record again':'🔄 다시 녹음';
   document.getElementById('srTimer').style.display = 'none';
 }
 
@@ -19597,7 +19597,7 @@ function openDubbingResult() {
   const titleEl = document.getElementById('dubresTitle');
   if (finalScore >= 80) titleEl.textContent = '🏆 완벽한 더빙!';
   else if (finalScore >= 60) titleEl.textContent = '🎬 훌륭한 더빙!';
-  else titleEl.textContent = '🎤 더빙 완성!';
+  else titleEl.textContent = (typeof S!=='undefined'&&S.tab==='kr')?'🎤 Dubbing done!':'🎤 더빙 완성!';
 
   /* 점수 링 애니메이션 */
   const ring = document.getElementById('dubresRingFill');
@@ -19947,9 +19947,39 @@ var _DS_IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
 DS.volSamples = [];
 DS.volPeak = 0;
 
+function _dsApplyStudioLang(){
+  if(typeof S==='undefined'||S.tab!=='kr')return; /* KR 탭일 때만 영어로 */
+  var M=[
+    ['dsCinemaStartBtn','🎙️ Start Dubbing'],
+    ['dsCinemaSkipBtn','Skip'],
+    ['dssBtnNext','✅ Next Scene'],
+    ['dspVocabSave','✅ Save checked'],
+    ['dspRetryBtn','🔄 Dub again'],
+    ['dspExitBtn','🎦 To feed'],
+  ];
+  M.forEach(function(p){var el=document.getElementById(p[0]);if(el)el.textContent=p[1];});
+  /* class 기반 텍스트 */
+  var byClass=[
+    ['dss-line-tag','This line'],
+    ['dsp-complete-title','Dubbing done!'],
+    ['dsp-complete-sub','Ready for your acting debut 👏'],
+  ];
+  byClass.forEach(function(p){var el=document.querySelector('.'+p[0]);if(el)el.textContent=p[1];});
+  /* 오늘 배운 표현 블록 (dspVocab 내부 라벨/설명) */
+  var vb=document.getElementById('dspVocab');
+  if(vb){var ds=vb.querySelectorAll('div');
+    if(ds[0])ds[0].textContent='📖 Expressions you learned';
+    if(ds[1])ds[1].textContent='Check the ones to save. Review them in Words!';
+  }
+  /* Scene 라벨 */
+  var sl=document.querySelector('.dss-scene-label');if(sl)sl.textContent='🎙️ DUBBING STUDIO';
+  /* 녹음 라벨 (탭해서 녹음) */
+  var rl=document.getElementById('dssRecLabel');if(rl)rl.textContent='Tap to record';
+}
 function _dsOpenStudio() {
   DS.idx = 0;
   document.getElementById('dsStudio').classList.add('ds-active');
+  _dsApplyStudioLang();
   /* 📱 모바일은 음성인식 안 켬 (권한 팝업 방지) / PC만 켬 */
   if (!_DS_IS_MOBILE && typeof _dsStartContinuousSpeech === 'function') {
     _dsStartContinuousSpeech();
