@@ -10544,7 +10544,15 @@ function stopRecTimer(){
 /* ═══════════════════════════════════════
  * STORAGE
  * ═══════════════════════════════════════ */
-const db={get:(k,d)=>{try{return JSON.parse(localStorage.getItem('sd_'+k))||d}catch(e){return d}},set:(k,v)=>localStorage.setItem('sd_'+k,JSON.stringify(v))};
+const _DB_SPLIT_KEYS=['likedVideos','notebook','snapBest','snapRecent','history','stats','streak'];
+function _dbKey(k){
+  if(_DB_SPLIT_KEYS.indexOf(k)!==-1){
+    var tab=(typeof S!=='undefined'&&S.tab==='kr')?'kr':'us';
+    return k+'_'+tab;
+  }
+  return k;
+}
+const db={get:(k,d)=>{try{return JSON.parse(localStorage.getItem('sd_'+_dbKey(k)))||d}catch(e){return d}},set:(k,v)=>localStorage.setItem('sd_'+_dbKey(k),JSON.stringify(v))};
 
 /* ═══════════════════════════════════════
  * STREAK & STATS
