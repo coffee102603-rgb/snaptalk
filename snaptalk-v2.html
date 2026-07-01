@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>SnapTalk — Snap Dubbing</title>
+<title>Shobby — learn like a hobby</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -194,7 +194,10 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 #header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--sf);border-bottom:1px solid var(--bd);z-index:50;min-height:52px}
 .header-left{display:flex;align-items:center;gap:10px}
 .header-icon{font-size:24px;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))}
-.logo{font-weight:900;font-size:22px;color:var(--accent);letter-spacing:-.5px}
+.logo{font-weight:900;font-size:22px;color:var(--tx);letter-spacing:-.5px}
+.logo-mark{width:30px;height:30px;border-radius:9px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:#0a0a0f;line-height:1}
+.logo-wrap{display:flex;flex-direction:column;justify-content:center}
+.logo-sub{font-size:10px;color:var(--accent);font-weight:600;letter-spacing:.2px;margin-top:1px}
 .logo-badge{font-size:10px;background:var(--accent);color:var(--bg);padding:2px 8px;border-radius:20px;margin-left:8px;font-weight:700;vertical-align:middle}
 .header-right{display:flex;gap:10px;align-items:center}
 .lang-btn{font-size:13px;background:var(--sf2);padding:6px 12px;border-radius:20px;border:1px solid var(--bd);color:var(--tx2)}
@@ -8714,7 +8717,7 @@ body.tiktok-active #playerScreen #stepIndicator{ justify-content:flex-end !impor
 <body>
 <div id="app">
   <!-- HEADER -->
-  <div id="header"><div class="header-left"><span class="header-icon">🎬</span><span class="logo">SnapTalk</span></div><div class="header-right"><button class="lang-btn" id="langToggle">🌐 언어</button></div></div>
+  <div id="header"><div class="header-left"><span class="logo-mark">S</span><div class="logo-wrap"><span class="logo">Shobby</span><span class="logo-sub">learn like a hobby 🎬</span></div></div><div class="header-right"><button class="lang-btn" id="langToggle">🌐 언어</button></div></div>
 
   <!-- TABS -->
   <div id="contentTabs"><button class="ctab active" data-tab="us">🇺🇸 영어 배우기</button><button class="ctab" data-tab="kr">🇰🇷 한국어</button></div>
@@ -15914,7 +15917,7 @@ function showAudioGate(short){
     gate.innerHTML=`
       <div class="audio-gate-card">
         <div class="audio-gate-brand">★ C I N E M A ★</div>
-        <div class="audio-gate-brand-sub">SnapTalk Pictures</div>
+        <div class="audio-gate-brand-sub">Shobby Pictures</div>
         <div class="audio-gate-icon">🎬</div>
         <div class="audio-gate-title" id="audioGateTitle"></div>
         <div class="audio-gate-subtitle">▶ NOW PLAYING</div>
@@ -18201,11 +18204,11 @@ function closeArtworkPlayer(){
 /* 카톡 공유 */
 function shareToKakao(item){
   const displayTitle=item.cosplayOn&&item.cosplayName?`${item.cosplayName}'s ${item.shortTitle}`:item.shortTitle;
-  const shareText=`🎬 SnapTalk에서 꾸민 내 작품!\n"${displayTitle}"\n\n🎤 점수: ${item.score||0}점\nhttps://coffee102603-rgb.github.io/snaptalk/snaptalk-youtube-lab.html`;
+  const shareText=`🎬 Shobby에서 꾸민 내 작품!\n"${displayTitle}"\n\n🎤 점수: ${item.score||0}점\nhttps://coffee102603-rgb.github.io/snaptalk/snaptalk-youtube-lab.html`;
   /* Web Share API (모바일 기본 공유) */
   if(navigator.share){
     navigator.share({
-      title:'내 SnapTalk 작품',
+      title:'내 Shobby 작품',
       text:shareText
     }).catch(()=>{});
   }else{
