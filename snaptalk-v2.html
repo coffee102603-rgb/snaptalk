@@ -10594,7 +10594,7 @@ function renderRoom(){
     const h=db.get('history',[]);
     const list=document.getElementById('historyList');
     if(list){
-      if(!h.length){list.innerHTML='<div style="color:var(--tx3);font-size:13px;padding:12px">${S.tab==='kr'?'No dubbing history yet!':'아직 더빙 기록이 없어요!'}</div>'}
+      if(!h.length){list.innerHTML='<div style="color:var(--tx3);font-size:13px;padding:12px">아직 더빙 기록이 없어요!</div>'}
       else{list.innerHTML=h.slice(0,10).map(i=>{const d=new Date(i.date);return`<div class="history-item"><div class="history-score">${i.score}%</div><div class="history-info"><div class="history-title">${i.title}</div><div class="history-date">${d.getMonth()+1}/${d.getDate()} · ${i.attempts}번 도전</div></div></div>`}).join('')}
     }
     if(typeof renderNotebook === 'function') renderNotebook();
@@ -11629,7 +11629,7 @@ function renderNotebook(){
   const nbList=document.getElementById('notebookList');
   const summary=document.getElementById('notebookSummary');
   if(!nb.length){
-    nbList.innerHTML='<div style="color:var(--tx3);font-size:13px;padding:12px;text-align:center">${S.tab==='kr'?'No saved expressions.<br>Tap 💾 to save them!':'저장한 표현이 없어요.<br>말해봐에서 💾 버튼으로 담아보세요!'}</div>';
+    nbList.innerHTML='<div style="color:var(--tx3);font-size:13px;padding:12px;text-align:center">저장한 표현이 없어요.<br>말해봐에서 💾 버튼으로 담아보세요!</div>';
     if(summary)summary.style.display='none';
     return;
   }
@@ -11745,7 +11745,7 @@ function openVocabBook(){
   ov.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#0a0a0f;overflow-y:auto;display:flex;flex-direction:column;';
   ov.innerHTML = '<div style="padding:16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px;position:sticky;top:0;background:#0a0a0f;z-index:2;">'
     + '<button id="vbClose" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer;">←</button>'
-    + '<span style="font-size:20px;font-weight:800;">📖 <span style="color:#fbbf24;">${S.tab==='kr'?'Words':'단어장'}</span></span></div>'
+    + '<span style="font-size:20px;font-weight:800;">📖 <span style="color:#fbbf24;">단어장</span></span></div>'
     + '<div style="display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.08);">'
     + '<button class="vb-tab" data-vt="list" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">📋 목록</button>'
     + '<button class="vb-tab" data-vt="study" style="flex:1;padding:9px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;">🎴 학습</button>'
@@ -11771,7 +11771,7 @@ function renderVocabBody(){
     t.style.border = on ? '1px solid #fbbf24' : '1px solid rgba(255,255,255,0.08)';
   });
   if(items.length === 0){
-    body.innerHTML = '<div style="text-align:center;padding:70px 20px;color:#94a3b8;"><div style="font-size:46px;margin-bottom:14px;">📖</div><div style="font-size:15px;font-weight:700;line-height:1.5;">${S.tab==='kr'?'No saved expressions yet<br>Save expressions while learning!':'아직 저장한 표현이 없어요<br>프리토킹에서 표현을 저장해보세요!'}</div></div>';
+    body.innerHTML = '<div style="text-align:center;padding:70px 20px;color:#94a3b8;"><div style="font-size:46px;margin-bottom:14px;">📖</div><div style="font-size:15px;font-weight:700;line-height:1.5;">아직 저장한 표현이 없어요<br>프리토킹에서 표현을 저장해보세요!</div></div>';
     return;
   }
   if(VOCAB_STATE.tab === 'list'){ renderVocabList(items, body); }
@@ -11793,7 +11793,7 @@ function deleteVocabItem(en){
 }
 function renderVocabList(items, body){
   if(items.length === 0){
-    body.innerHTML = '<div style="text-align:center;padding:70px 20px;color:#94a3b8;"><div style="font-size:46px;margin-bottom:14px;">📖</div><div style="font-size:15px;font-weight:700;">${S.tab==='kr'?'No saved expressions':'저장한 표현이 없어요'}</div></div>';
+    body.innerHTML = '<div style="text-align:center;padding:70px 20px;color:#94a3b8;"><div style="font-size:46px;margin-bottom:14px;">📖</div><div style="font-size:15px;font-weight:700;">저장한 표현이 없어요</div></div>';
     return;
   }
   body.innerHTML = items.map(function(v){
@@ -11963,9 +11963,9 @@ function openSearch(){
   }).join('');
   ov.innerHTML = '<div style="padding:16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px;position:sticky;top:0;background:#0a0a0f;z-index:2;">'
     + '<button id="schClose" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer;">←</button>'
-    + '<span style="font-size:20px;font-weight:800;">🧭 <span style="color:#fbbf24;">${S.tab==='kr'?'Explore':'탐색'}</span></span>'  + '<span style="margin-left:8px;font-size:11px;font-weight:800;color:#a78bfa;background:rgba(167,139,250,0.15);padding:3px 9px;border-radius:10px;">' + (_stab==='kr'?'🇰🇷 한국어':'🇺🇸 영어') + '</span></div>'
+    + '<span style="font-size:20px;font-weight:800;">🧭 <span style="color:#fbbf24;">탐색</span></span>'  + '<span style="margin-left:8px;font-size:11px;font-weight:800;color:#a78bfa;background:rgba(167,139,250,0.15);padding:3px 9px;border-radius:10px;">' + (_stab==='kr'?'🇰🇷 한국어':'🇺🇸 영어') + '</span></div>'
     + '<div style="padding:16px;">'
-    + '<input id="schInput" type="text" placeholder="${S.tab==='kr'?'Search hotel, airport, cafe...':'호텔, 공항, 카페... 검색'}" style="width:100%;box-sizing:border-box;background:#16131f;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:13px 16px;color:#fff;font-size:15px;font-weight:600;outline:none;margin-bottom:18px;">'
+    + '<input id="schInput" type="text" placeholder="호텔, 공항, 카페... 검색" style="width:100%;box-sizing:border-box;background:#16131f;border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:13px 16px;color:#fff;font-size:15px;font-weight:600;outline:none;margin-bottom:18px;">'
     + '<div id="schResults"></div>'
     + '<div id="schGrid"><div style="font-size:13px;font-weight:800;color:#94a3b8;margin-bottom:12px;">카테고리로 둘러보기</div>'
     + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">'+grid+'</div></div>'
@@ -12033,10 +12033,10 @@ function openSavedVideos(){
       + '<div style="font-size:15px;font-weight:800;line-height:1.3;margin-bottom:4px;color:#fff;">'+(v.title||'')+'</div>'
       + '<div style="font-size:12px;color:#a78bfa;font-weight:700;">▶ 다시 따라하기</div></div>'
       + '<div style="color:#ec4899;font-size:20px;flex-shrink:0;">❤️</div></div>';
-  }).join('') : '<div style="text-align:center;padding:70px 20px;color:#94a3b8;"><div style="font-size:46px;margin-bottom:14px;">🤍</div><div style="font-size:15px;font-weight:700;line-height:1.5;">${S.tab==='kr'?'No saved videos yet<br>Tap 🤍 on a video to save it!':'아직 찜한 영상이 없어요<br>영상에서 🤍를 눌러 저장해보세요!'}</div></div>';
+  }).join('') : '<div style="text-align:center;padding:70px 20px;color:#94a3b8;"><div style="font-size:46px;margin-bottom:14px;">🤍</div><div style="font-size:15px;font-weight:700;line-height:1.5;">아직 찜한 영상이 없어요<br>영상에서 🤍를 눌러 저장해보세요!</div></div>';
   ov.innerHTML = '<div style="padding:16px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;gap:12px;position:sticky;top:0;background:#0a0a0f;z-index:2;">'
     + '<button id="svClose" style="background:none;border:none;color:#fff;font-size:22px;cursor:pointer;">←</button>'
-    + '<span style="font-size:20px;font-weight:800;">❤️ <span style="color:#fbbf24;">${S.tab==='kr'?'Saved':'찜한 영상'}</span></span></div>'
+    + '<span style="font-size:20px;font-weight:800;">❤️ <span style="color:#fbbf24;">찜한 영상</span></span></div>'
     + '<div style="padding:16px;">'+cards+'</div>';
   document.body.appendChild(ov);
   document.getElementById('svClose').addEventListener('click', function(){ ov.remove(); });
@@ -19225,7 +19225,7 @@ loadYTAPI();renderStreak();renderFeed();
 
     <!-- 전체 더빙 재생 -->
     <button class="dubres-play-btn" id="dubresPlayBtn">
-      ${S.tab==='kr'?'▶ Listen to my dub':'▶ 내 더빙 들어보기'}
+      ▶ 내 더빙 들어보기
     </button>
 
     <!-- 최종 버튼 2개 -->
